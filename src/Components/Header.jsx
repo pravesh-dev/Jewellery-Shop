@@ -20,7 +20,7 @@ function Header() {
   return (
     <header className="w-full flex justify-between items-center py-2 px-1 md:px-3 md:py-4 lg:px-6 fixed top-0 left-0 bg-accent border-b border-black/10 z-[99] text-dark">
       <div className="flex items-center lg:w-[20%]">
-        <img alt="Website Logo" className="w-14 md:w-10 lg:w-16" src={Logo} />
+        <img alt="Website Logo" loading="lazy" className="w-14 md:w-10 lg:w-16" src={Logo} />
         <div className="flex flex-col leading-4 md:leading-3">
           <span className="text-[1rem] text-primary md:text-[0.9rem] lg:text-base uppercase font-bellefair">
             Hexa defend
