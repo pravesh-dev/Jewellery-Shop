@@ -4,19 +4,13 @@ import client1 from '../../Assets/LandingPage/Feedback/client1.jpg'
 function FeedbackSlider() {
   const clients = [
     {
-      img: reviewImg4,
+      img: client1,
       startsCount: 5,
-      para: {
-        english: `fantastic location, clean, comfortable with all the comforts. Really an oasis of peace and relaxation, excellent to relax and have privacy. We will definitely return several times. Thank you for everything ❤️`,
-        italy: `fantastica location, pulita, confortevole con tutti i comfort. Davvero un'oasi di pace e relax, ottima per rilassarsi e avere privacy. Torneremo sicuramente diverse volte. Grazie per tutto ❤️`,
-      },
-      name: "Roberto",
-      date: "November 2024",
+      para: `Impressed by the exceptional craftsmanship and quality of the jewelry. The 100% pure gold shines brilliantly, reflecting true luxury and sophistication. A must-have for those who appreciate timeless elegance.`,
+      name: "Bill Gates",
     },
   ];
 
-
-  const language = useSelector((state) => state.language.language);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -39,7 +33,7 @@ function FeedbackSlider() {
             className={`slide w-full flex items-center justify-center ${index === currentIndex ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
             style={{ display: index === currentIndex ? 'flex' : 'none' }}
           >
-            <div className="text-center bg-[#2c2b2a] text-white p-4 rounded-lg md:flex md:items-center md:py-2 md:px-3 lg:p-0 overflow-hidden">
+            <div className="text-center bg-dark text-accent p-4 rounded-lg md:flex md:items-center md:py-2 md:px-3 lg:p-0 overflow-hidden">
               <div className="w-16 h-16 mx-auto rounded-full mb-4 md:w-40 md:h-40 md:rounded-none md:mb-0 flex-shrink-0 overflow-hidden lg:w-60 lg:h-full">
                 <img
                   src={client.img}
@@ -60,9 +54,8 @@ function FeedbackSlider() {
                       />
                     ))}
                 </div>
-                <p className="text-sm mb-2 font-poppins md:text-left">{client.para[language]}</p>
+                <p className="text-sm mb-2 font-poppins md:text-left">{client.para}</p>
                 <p className="font-bellefair text-primary text-xl md:w-full md:text-right">{client.name}</p>
-                <p className="text-sm font-mulish italic md:w-full md:text-right">{client.date}</p>
               </div>
             </div>
           </div>
