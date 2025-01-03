@@ -1,10 +1,18 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './Layout'
+import NoPage from './Pages/NoPage'
 
 function App() {
   return (
-    <div>
-      an app
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          {/* <Route index element={<Home/>} /> */}
+          <Route path='*' element={<NoPage/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
