@@ -11,11 +11,11 @@ function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     setIsMenuOpen(false);
-  //   }
-  // }, [location.pathname]);
+  useEffect(() => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [location.pathname]);
 
   return (
     <header className="w-full flex justify-between items-center py-5 px-1 md:px-3 lg:px-6 fixed top-0 left-0 backdrop-blur-sm z-[99] text-dark">
