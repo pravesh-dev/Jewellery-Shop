@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import star from "../../assets/Landing_page_imgs/star.svg";
-
+import star from "../../assets/LandingPage/Feedback/star.svg";
+import client1 from '../../Assets/LandingPage/Feedback/client1.jpg'
 function FeedbackSlider() {
   const clients = [
     {
@@ -12,74 +12,6 @@ function FeedbackSlider() {
       },
       name: "Roberto",
       date: "November 2024",
-    },
-    {
-      img: reviewImg1,
-      startsCount: 5,
-      para: {
-        english: `A haven of peace as there are few, one of the best experiences we've had
-Angelica is responsive and attentive which is very nice
-Highly recommended
-Unforgettable joy and happiness
-Thanks!`,
-        italy: `Un rifugio di pace come ce ne sono pochi, una delle migliori esperienze che abbiamo avuto
-Angelica è reattiva e attenta, che è molto bello
-Altamente raccomandato
-Gioia e felicità indimenticabili
-Grazie!`,
-      },
-      name: "Maël",
-      date: "October 2024",
-    },
-    {
-      img: reviewImg5,
-      startsCount: 4,
-      para: {
-        english: "We had a great time at Angelica's place. We highly recommend this place for a quiet and relaxing time.",
-        italy: "Abbiamo avuto un ottimo tempo al posto di Angelica. Consigliamo vivamente questo posto per un tempo tranquillo e rilassante.",
-      },
-      name: "Thomas",
-      date: "September 2024",
-    },
-    {
-      img: reviewImg6,
-      startsCount: 5,
-      para: {
-        english: "Thank you so much for hosting my parents who were very happy and so relaxed for their 30th wedding anniversary. Angelica is very courteous and kind, she also wrote a nice note for our parents. We will be back. Great location to visit local places.",
-        italy: "Grazie mille per aver ospitato i miei genitori che erano molto felici e così rilassati per il loro 30° anniversario di matrimonio. Angelica è molto cortese e gentile, ha anche scritto una bella nota per i nostri genitori. Torneremo. Ottima location per visitare i luoghi locali.",
-      },
-      name: "Francesco",
-      date: "September 2024",
-    },
-    {
-      img: reviewImg7,
-      startsCount: 5,
-      para: {
-        english: `The Trullo is a beautiful property with stunning outdoor space, perfect for exploring Puglia. Its prime location near Alberobello, Grotte Castellane, and other key spots is ideal for sightseeing. A 2-night stay wasn’t enough to fully enjoy all it offers!`,
-        italy: `Il Trullo è una splendida proprietà con uno splendido spazio esterno, perfetto per esplorare la Puglia. La sua posizione privilegiata vicino ad Alberobello, Grotte Castellane e altri punti chiave è ideale per visitare la città. Un soggiorno di 2 notti non è stato sufficiente per godere appieno di tutto ciò che offre!`,
-      },
-      name: "Giovannina Rosina",
-      date: "november 2024",
-    },
-    {
-      img: reviewImg2,
-      startsCount: 5,
-      para: {
-        english: `Angelica's place is a peaceful gem in the Apulian countryside, beautifully detailed and true to the photos. While the Wi-Fi and lack of a refrigerator were minor drawbacks, Angelica's prompt support made our stay enjoyable. We loved the serene atmosphere and can’t wait to return!`,
-        italy: `La casa di Angelica è un gioiello di pace nella campagna pugliese, splendidamente dettagliata e fedele alle foto. Mentre il Wi-Fi e la mancanza di un frigorifero sono stati piccoli inconvenienti, il pronto supporto di Angelica ha reso il nostro soggiorno piacevole. Abbiamo adorato l'atmosfera serena e non vediamo l'ora di tornarci!`,
-      },
-      name: "Sara",
-      date: "August 2024",
-    },
-    {
-      img: reviewImg3,
-      startsCount: 5,
-      para: {
-        english: `Thanks to the super helpful host - she also made us find a little surprise when we arrived. The SPA with the indoor pool and illuminated cone creates a magical atmosphere, making your stay unforgettable. Perfect for a love escape in a charming location!`,
-        italy: `Grazie all'ospite super disponibile - ha anche fatto in modo che trovassimo una piccola sorpresa quando siamo arrivati. Lo SPA con la piscina interna e il cono illuminato crea un'atmosfera magica, rendendo il tuo soggiorno indimenticabile. Perfetto per una fuga d'amore in una location incantevole!`,
-      },
-      name: "Angelica",
-      date: "August 2024",
     },
   ];
 
