@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import star from "../../assets/LandingPage/Feedback/star.svg";
-import client1 from '../../Assets/LandingPage/Feedback/client1.jpg'
+import client1 from "../../Assets/LandingPage/Feedback/client1.jpg";
 function FeedbackSlider() {
   const clients = [
     {
@@ -21,7 +21,9 @@ function FeedbackSlider() {
   }, [currentIndex]);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === clients.length - 1 ? 0 : prevIndex + 1));
+    setCurrentIndex((prevIndex) =>
+      prevIndex === clients.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
@@ -30,32 +32,34 @@ function FeedbackSlider() {
         {clients.map((client, index) => (
           <div
             key={index}
-            className={`slide w-full flex items-center justify-center ${index === currentIndex ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}
-            style={{ display: index === currentIndex ? 'flex' : 'none' }}
+            className={`slide w-full flex items-center justify-center ${
+              index === currentIndex ? "opacity-100" : "opacity-0"
+            } transition-opacity duration-1000`}
+            style={{ display: index === currentIndex ? "flex" : "none" }}
           >
-            <div className="text-center bg-dark text-accent p-4 rounded-lg md:flex md:items-center md:py-2 md:px-3 lg:p-0 overflow-hidden">
-              <div className="w-16 h-16 mx-auto rounded-full mb-4 md:w-40 md:h-40 md:rounded-none md:mb-0 flex-shrink-0 overflow-hidden lg:w-60 lg:h-full">
-                <img
-                  src={client.img}
-                  alt={`Feedback from ${client.name}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="md:py-4 md:px-6">
-                <div className="flex justify-center mb-2 md:justify-start">
-                  {Array(client.startsCount)
-                    .fill(0)
-                    .map((_, i) => (
-                      <img
-                        key={i}
-                        src={star}
-                        alt="star"
-                        className="w-4 md:w-5"
-                      />
-                    ))}
+            <div className="text-center bg-dark text-accent px-2 py-3 rounded-lg flex justify-center items-center gap-2">
+              <div className="w-56 flex flex-col gap-2">
+                <p className="font-bellefair text-xs text-start">{client.para}</p>
+                <div className="flex items-center justify-between w-full">
+                  <div className="flex justify-center md:justify-start">
+                    {Array(client.startsCount)
+                      .fill(0)
+                      .map((_, i) => (
+                        <img
+                          key={i}
+                          src={star}
+                          alt="star"
+                          className="w-4 md:w-5"
+                        />
+                      ))}
+                  </div>
+                  <h2 className="text-sm font-bellefair">
+                    <span className="text-secondary">-</span> {client.name}
+                  </h2>
                 </div>
-                <p className="text-sm mb-2 font-poppins md:text-left">{client.para}</p>
-                <p className="font-bellefair text-primary text-xl md:w-full md:text-right">{client.name}</p>
+              </div>
+              <div className="w-16 h-16 border-l-4 border-b-4 border-secondary rounded-full overflow-hidden flex-shrink-0">
+                <img src={client.img} className="w-full h-full object-cover" alt={`Feedback from ${client.name}`} />
               </div>
             </div>
           </div>
