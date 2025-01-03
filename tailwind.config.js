@@ -16,6 +16,7 @@ export default {
         'bellefair': 'bellefair',
         'mulish': 'mulish',
         'lora': 'lora',
+        'Cormorant': 'Cormorant',
       },
     },
   },
