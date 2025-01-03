@@ -1,6 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: 'bellefair';
+  src: url('/Fonts/Bellefair/Bellefair-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'mulish';
+  src: url('/Fonts/Mulish/static/Mulish-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'lora';
+  src: url('/Fonts/Lora/static/Lora-Regular.ttf') format('truetype');
+}
+
 
 *{
   margin: 0;
