@@ -10,19 +10,44 @@ function FeedbackSlider() {
       para: `Impressed by the exceptional craftsmanship and quality of the jewelry. The 100% pure gold shines brilliantly, reflecting true luxury and sophistication. A must-have for those who appreciate timeless elegance.`,
       name: "Bill Gates",
     },
+    {
+      img: client1,
+      startsCount: 4,
+      para: `The jewelry exceeded my expectations. The intricate designs and attention to detail are truly remarkable. I'm thrilled to have such a unique piece in my collection.`,
+      name: "Elon Musk",
+    },
+    {
+      img: client1,
+      startsCount: 5,
+      para: `I was blown away by the customer service. The team went above and beyond to ensure I was completely satisfied with my purchase. The jewelry itself is stunning and I've received countless compliments.`,
+      name: "Mark Zuckerberg",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isReversing, setIsReversing] = useState(false); // To track slide direction
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
     }, 3500);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, [currentIndex, isReversing]);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % clients.length);
+    if (!isReversing) {
+      if (currentIndex < clients.length - 1) {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      } else {
+        setIsReversing(true); // Start reversing direction
+      }
+    } else {
+      if (currentIndex > 0) {
+        setCurrentIndex((prevIndex) => prevIndex - 1);
+      } else {
+        setIsReversing(false); // Resume normal sliding
+      }
+    }
   };
 
   return (
