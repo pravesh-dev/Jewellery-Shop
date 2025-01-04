@@ -12,7 +12,7 @@ const projects = [
     onSale: true,
     discount: 10,
     image: card1,
-    type: 'frontend'
+    type: 'necklace'
   },
   {
     name: "Gold & Diamond Chain",
@@ -20,7 +20,7 @@ const projects = [
     onSale: false,
     discount: 0,
     image: card2,
-    type: 'frontend'
+    type: 'chain'
   },
   {
     name: "Gold & Diamond Ring",
@@ -28,7 +28,7 @@ const projects = [
     onSale: true,
     discount: 10,
     image: card3,
-    type: 'frontend'
+    type: 'ring'
   },
   {
     name: "White Ruby Gold Earring",
@@ -36,7 +36,7 @@ const projects = [
     onSale: false,
     discount: 0,
     image: card4,
-    type: 'frontend'
+    type: 'earrings'
   },
   {
     name: "Gold Ring With Custom Name",
@@ -44,7 +44,7 @@ const projects = [
     onSale: false,
     discount: 0,
     image: card5,
-    type: 'frontend'
+    type: 'ring'
   },
   {
     name: "Lord Ganesh Gold Statue",
@@ -52,7 +52,7 @@ const projects = [
     onSale: false,
     discount: 0,
     image: card6,
-    type: 'frontend'
+    type: 'statue'
   },
 ];
 

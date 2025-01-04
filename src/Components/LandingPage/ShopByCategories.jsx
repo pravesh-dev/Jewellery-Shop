@@ -56,11 +56,11 @@ function ShopByCategories() {
       ref={componentRef}
       className="w-full flex flex-col items-center gap-8 relative mt-5"
     >
-      <div className="flex gap-3 items-center lg:mb-7">
-        {["all", "frontend", "backend"].map((tab) => (
+      <div className="flex items-center lg:mb-7">
+        {["all", "necklace", "ring", "earrings", "statue", "chain"].map((tab) => (
           <button
             key={tab}
-            className={`tab_buttons px-4 py-1 tracking-wider capitalize rounded-full ${
+            className={`tab_buttons text-xs px-[0.6rem] py-1 tracking-wider capitalize rounded-full ${
               activeTab === tab
                 ? "bg-secondary text-accent"
                 : "text-dark"
