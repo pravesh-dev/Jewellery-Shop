@@ -11,10 +11,7 @@ const projects = [
     price: 9000,
     onSale: true,
     discount: 10,
-    para: `Hexadefend is the startup where I worked as a frontend web developer. I was responsible for developing their website, a comprehensive project involving multiple pages, functionalities, and deployment.`,
-    link: 'https://www.hexadefend.com/',
     image: card1,
-    skills: ['React', 'Tailwind CSS', 'React-Router'],
     type: 'frontend'
   },
   {
@@ -22,10 +19,7 @@ const projects = [
     price: 20000,
     onSale: false,
     discount: 0,
-    para: `Carva's website was designed and developed with inspiration from various sources. I created the landing page UI.`,
-    link: 'https://carva-edb5c.web.app/',
     image: card2,
-    skills: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
     type: 'frontend'
   },
   {
@@ -33,10 +27,7 @@ const projects = [
     price: 5000,
     onSale: true,
     discount: 10,
-    para: `Step Matter's landing page UI was crafted, drawing inspiration from effective design practices.`,
-    link: 'https://step-matters.web.app/',
     image: card3,
-    skills: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
     type: 'frontend'
   },
   {
