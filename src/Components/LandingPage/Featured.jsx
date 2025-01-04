@@ -21,7 +21,7 @@ function Featured() {
             <h1 className="text-primary text-3xl mb-2 lg:text-4xl xl:text-6xl xl:w-[70rem]">
                 Featured Product
             </h1>
-            <p className="text-dark text-xl leading-5 sm:w-[35rem] lg:text-2xl lg:w-[40rem] xl:text-[2.3rem] xl:leading-10 xl:w-[70rem]">
+            <p className="text-dark text-xl leading-5 sm:w-[35rem] lg:text-2xl lg:w-[40rem] xl:text-[2.3rem] xl:leading-10 xl:w-[70rem] xl:pr-[5rem]">
                 Explore our finest collection, featuring best-selling classics and exclusive new arrivals that embody elegance and quality.
             </p>
             <div className="w-full flex gap-2 flex-col items-center mt-2 md:mt-10 md:flex-row md:justify-between md:h-[30rem] lg:h-[40rem] lg:justify-center lg:gap-7 xl:h-[45rem] xl:w-[70rem] xl:justify-between">
