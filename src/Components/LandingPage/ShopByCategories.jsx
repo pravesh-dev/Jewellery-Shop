@@ -76,16 +76,16 @@ function ShopByCategories() {
   return (
     <section
       ref={componentRef}
-      className="w-full min-h-[100svh] flex flex-col items-center gap-8 relative p-16 lg:p-28"
+      className="w-full flex flex-col items-center gap-8 relative mt-5"
     >
       <div className="flex gap-3 items-center lg:mb-7">
         {["all", "frontend", "backend"].map((tab) => (
           <button
             key={tab}
-            className={`tab_buttons text-sm font-semibold px-3 py-1 capitalize rounded-lg ${
+            className={`tab_buttons px-4 py-1 tracking-wider capitalize rounded-full ${
               activeTab === tab
-                ? "bg-[#646464] text-primary"
-                : "text-neutral-300/70"
+                ? "bg-secondary text-accent"
+                : "text-dark"
             } lg:text-lg cursor_pointer`}
             onClick={() => handleTabClick(tab)}
           >

@@ -1,4 +1,5 @@
 import React from "react";
+import ShopByCategories from "./ShopByCategories";
 
 function ShopBy() {
   return (
@@ -9,6 +10,7 @@ function ShopBy() {
       <p className="text-dark text-xl leading-5 sm:w-[35rem] lg:text-2xl lg:w-[40rem] xl:text-[2.3rem] xl:leading-10 xl:w-[70rem]">
       Find your perfect match – browse by category to uncover luxury crafted for every occasion.
       </p>
+      <ShopByCategories />
     </section>
   );
 }
