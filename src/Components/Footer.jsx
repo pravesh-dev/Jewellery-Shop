@@ -84,7 +84,7 @@ function Footer() {
       <span className="w-[90%] h-[1px] bg-accent/40 block mx-auto mb-8 md:mb-0" />
       {/* Footer Bottom Section */}
       <div className="text-sm text-accent font-lora flex flex-col items-center md:flex-row md:justify-between lg:tracking-widest">
-        <p></p>
+        <p className="lg:w-32 xl:w-60"></p>
         <p>&copy; {date.getFullYear()} HexaDefend All Rights Reserved.</p>
         <p className="space-x-2">
           <Link to="/privacy" className="hover:text-secondary">
