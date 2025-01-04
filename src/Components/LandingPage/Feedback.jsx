@@ -4,11 +4,11 @@ import bgImage from '../../Assets/LandingPage/Feedback/bg-image.jpg'
 
 function FeedBack() {
   return (
-    <section className="w-full relative pb-10 h-[110vh] md:h-[95vh]">
+    <section className="w-full relative md:pb-10 md:h-screen">
       <div className="w-full h-96 lg:h-[30rem]">
         <img src={bgImage} loading="lazy" className="w-full h-full object-cover object-center filter brightness-50" alt="background image" />
       </div>
-      <div className="w-full flex flex-col items-center absolute top-0 left-0 py-16">
+      <div className="w-full flex gap-6 flex-col items-center absolute top-0 left-0 py-16">
         <h1 className="font-bellefair capitalize text-white text-4xl text-center my-2 md:w-[35rem] md:text-5xl lg:text-7xl lg:w-[50rem] lg:mb-5">
         what our client says
         </h1>

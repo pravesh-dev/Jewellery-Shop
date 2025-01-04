@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import star from "../../assets/LandingPage/Feedback/star.svg";
 import client1 from "../../Assets/LandingPage/Feedback/client1.jpg";
+
 function FeedbackSlider() {
   const clients = [
     {
@@ -21,21 +22,23 @@ function FeedbackSlider() {
   }, [currentIndex]);
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === clients.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % clients.length);
   };
 
   return (
-    <div className="feedback-slider w-full relative md:mt-10 md:w-[40rem] lg:mt-20 lg:w-[60rem]">
-      <div className="slider-content w-full flex items-center justify-center transition-opacity duration-1000">
+    <div className="feedback-slider w-full relative md:mt-10 md:w-[40rem] lg:mt-20 lg:w-[60rem] overflow-hidden bg-red-600 flex justify-center">
+      <div
+        className="slider-content flex transition-transform duration-1000 ease-in-out"
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+          width: `${clients.length * 100}%`,
+        }}
+      >
         {clients.map((client, index) => (
           <div
             key={index}
-            className={`slide w-full flex items-center justify-center ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            } transition-opacity duration-1000`}
-            style={{ display: index === currentIndex ? "flex" : "none" }}
+            className="slide w-full flex-shrink-0 flex items-center justify-center"
+            style={{ width: "100%" }}
           >
             <div className="text-center bg-dark text-accent px-2 py-3 rounded-lg flex justify-center items-center gap-2">
               <div className="w-56 flex flex-col gap-2">
@@ -59,7 +62,11 @@ function FeedbackSlider() {
                 </div>
               </div>
               <div className="w-16 h-16 border-l-4 border-b-4 border-secondary rounded-full overflow-hidden flex-shrink-0">
-                <img src={client.img} className="w-full h-full object-cover" alt={`Feedback from ${client.name}`} />
+                <img
+                  src={client.img}
+                  className="w-full h-full object-cover"
+                  alt={`Feedback from ${client.name}`}
+                />
               </div>
             </div>
           </div>
