@@ -35,10 +35,7 @@ const projects = [
     price: 1000,
     onSale: false,
     discount: 0,
-    para: `Criativo's landing page UI was based on a design found on Pinterest. I implemented it successfully.`,
-    link: 'https://criativo-112.web.app/',
     image: card4,
-    skills: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
     type: 'frontend'
   },
   {
@@ -46,10 +43,7 @@ const projects = [
     price: 2000,
     onSale: false,
     discount: 0,
-    para: `Rejouice's landing page UI was cloned, replicating its original design and functionality.`,
-    link: 'https://rejouice-25.web.app/',
     image: card5,
-    skills: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
     type: 'frontend'
   },
   {
@@ -57,10 +51,7 @@ const projects = [
     price: 5000,
     onSale: false,
     discount: 0,
-    para: `Fanta's landing page UI clone was developed to showcase its popular design and smooth animations.`,
-    link: 'https://fanta-2024.web.app/',
     image: card6,
-    skills: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
     type: 'frontend'
   },
 ];
