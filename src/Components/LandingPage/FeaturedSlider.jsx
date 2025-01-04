@@ -1,0 +1,35 @@
+import { useEffect, useState } from "react";
+import img1 from "../../Assets/LandingPage/Featured/animated-img1.jpg";
+function FeaturedSlider() {
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [img1, img1, img1];
+  // Code used for animating images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+  return (
+    <div className="w-full h-80 lg:w-[40rem] lg:h-[30rem] relative bg-yellow-600">
+      <img
+        loading="lazy"
+        src={images[currentImage]}
+        className="w-full h-full object-cover filter brightness-90"
+        alt="Card Image"
+      />
+      <div className="w-full hidden md:flex justify-center gap-3 mt-5">
+        {images.map((item, index) => (
+          <span
+            key={index}
+            className={`${
+              index === currentImage ? "bg-primary scale-125" : "bg-white"
+            } w-3 h-3 rounded-full duration-200`}
+          ></span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default FeaturedSlider;
