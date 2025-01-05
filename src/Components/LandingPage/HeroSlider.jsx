@@ -2,7 +2,7 @@ import React from 'react'
 
 function HeroSlider() {
   return (
-    <div className='w-full h-80 border border-red-800'>
+    <div className='w-full h-80 bg-red-800'>
       
     </div>
   )

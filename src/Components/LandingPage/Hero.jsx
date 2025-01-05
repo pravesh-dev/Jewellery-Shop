@@ -4,8 +4,8 @@ import rope from "../../Assets/LandingPage/Hero/rope.svg";
 
 function Hero() {
   return (
-    <section className="w-full flex flex-col gap-10 justify-center items-center relative">
-      <h1 className="h-[46%] text-primary text-2xl tracking-wider text-center font-bellefair content-center relative md:text-4xl lg:pt-28 lg:text-6xl">
+    <section className="w-full flex flex-col gap-10 justify-center items-center relative lg:min-h-screen">
+      <h1 className="h-[18.8rem] text-primary text-2xl tracking-wider text-center font-bellefair content-center relative md:text-4xl lg:pt-28 lg:text-6xl">
         Exquisite Jewellery. <br /> Reserved for the{" "}
         <span className="border border-secondary lg:border-2 px-1 relative">
           Exceptional.
