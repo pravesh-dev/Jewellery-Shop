@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { projects } from "./ShopByCategoriesData";
+import { Link } from "react-router-dom";
 
 function ShopByCategories() {
   const componentRef = useRef(null);
@@ -29,24 +30,22 @@ function ShopByCategories() {
     return displayedProjects.map((project, index) => (
       <div
         key={index}
-        className="project_card w-36 border border-red-600 sm:w-56 flex gap-1 flex-col justify-between sm:gap-2 sm:p-3 lg:w-64 xl:w-72 lg:hover:scale-[1.04] duration-300 lg:hover:bg-[#202020]"
+        className="project_card w-36 border border-yellow-600 flex flex-col sm:w-64 lg:w-64 xl:w-72"
       >
-        <div className="w-full overflow-hidden">
-          <a href={project.link} target="_blank" className="cursor_pointer">
+        <div className="w-full h-36 overflow-hidden sm:h-64">
             <img
               loading="lazy"
               src={project.image}
-              className="hover:scale-110 duration-300"
+              className="w-full h-full object-cover"
               alt={project.name}
             />
-          </a>
         </div>
-        <h2 className="text-dark text-[0.7rem] sm:text-[1rem] lg:text-[1.3rem]">
+        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.3rem]">
           {project.name}
         </h2>
-        <p className="text-black text-[1rem] text-justify sm:text-[0.65rem] lg:text-[0.8rem]">
+        <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[0.8rem]">
            $ {project.price}
-        </p>
+        </h3>
       </div>
     ));
   };
@@ -54,7 +53,7 @@ function ShopByCategories() {
   return (
     <section
       ref={componentRef}
-      className="w-full flex flex-col items-center gap-8 relative mt-5"
+      className="w-full flex flex-col items-center gap-4 relative mt-5"
     >
       <div className="flex items-center lg:mb-7">
         {["all", "necklace", "ring", "earrings", "statue", "chain"].map((tab) => (
@@ -64,14 +63,14 @@ function ShopByCategories() {
               activeTab === tab
                 ? "bg-secondary text-accent"
                 : "text-dark"
-            } lg:text-lg cursor_pointer`}
+            } sm:text-lg sm:px-6 lg:text-2xl lg:px-8 cursor_pointer`}
             onClick={() => handleTabClick(tab)}
           >
             {tab}
           </button>
         ))}
       </div>
-      <div className="w-80 flex-wrap gap-3 px-2 flex relative z-30 sm:w-[31.5rem] sm:gap-8 lg:w-[56.5rem] lg:gap-14 xl:w-[65.5rem] xl:gap-20">
+      <div className="w-full flex-wrap gap-2 flex relative justify-center bg-red-700 sm:gap-10 sm:justify-start xl:w-[65.5rem] xl:gap-20">
         {renderProjects(activeTab)}
       </div>
       <button
