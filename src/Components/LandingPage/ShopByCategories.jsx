@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { items } from "./ShopByCategoriesData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
 
 function ShopByCategories() {
-  const componentRef = useRef(null);
 
   const [activeTab, setActiveTab] = useState("all");
   const [viewAll, setViewAll] = useState(false);
@@ -63,9 +62,8 @@ function ShopByCategories() {
   };
 
   return (
-    <section
-      ref={componentRef}
-      className="w-full flex flex-col items-center gap-4 relative mt-5"
+    <div
+      className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10"
     >
       <div className="flex items-center lg:mb-7">
         {["all", "necklace", "ring", "earrings", "statue", "chain"].map((tab) => (
@@ -92,7 +90,7 @@ function ShopByCategories() {
       >
         View More <img src={buttonUnderline} className="w-14 -mt-1 mx-auto lg:w-20 lg:-mt-2" loading="lazy" alt="underline" />
       </button>
-    </section>
+    </div>
   );
 }
 

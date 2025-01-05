@@ -17,7 +17,7 @@ function Featured() {
     };
 
     return (
-        <section className="w-full font-bellefair px-2 py-5 md:px-16 md:py-10 xl:flex flex-col items-center">
+        <section className="w-full font-bellefair px-2 py-5 md:px-16 md:py-10 lg:py-20 xl:flex flex-col items-center">
             <h1 className="text-primary text-3xl mb-2 lg:text-4xl xl:text-6xl xl:w-[70rem]">
                 Featured Product
             </h1>
