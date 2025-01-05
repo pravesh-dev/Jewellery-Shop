@@ -47,7 +47,7 @@ function ShopByCategories() {
         <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.4rem]">
           {item.name}
         </h2>
-        <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[1.6rem]">
+        <h3 className="text-black text-[0.8rem] flex items-center gap-2 sm:text-[1.3rem] lg:text-[1.6rem] lg:gap-6">
           {item.onSale ? (
             <>
               <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.4rem]">$ {item.price}</span>
@@ -81,7 +81,7 @@ function ShopByCategories() {
           </button>
         ))}
       </div>
-      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-0 lg:justify-between lg:gap-y-[5vw] xl:w-[70rem] xl:gap-10 xl:justify-start">
+      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-10 xl:w-[70rem] xl:gap-10 xl:justify-start">
         {renderItems(activeTab)}
       </div>
       <button
