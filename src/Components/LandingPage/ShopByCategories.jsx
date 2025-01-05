@@ -30,9 +30,9 @@ function ShopByCategories() {
     return displayedProjects.map((project, index) => (
       <div
         key={index}
-        className="project_card w-36 border border-yellow-600 flex flex-col sm:w-64 lg:w-64 xl:w-72"
+        className="project_card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
       >
-        <div className="w-full h-36 overflow-hidden sm:h-64">
+        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem]">
             <img
               loading="lazy"
               src={project.image}
@@ -40,10 +40,10 @@ function ShopByCategories() {
               alt={project.name}
             />
         </div>
-        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.3rem]">
+        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.4rem]">
           {project.name}
         </h2>
-        <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[0.8rem]">
+        <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[1.6rem]">
            $ {project.price}
         </h3>
       </div>
@@ -70,7 +70,7 @@ function ShopByCategories() {
           </button>
         ))}
       </div>
-      <div className="w-full flex-wrap gap-2 flex relative justify-center bg-red-700 sm:gap-10 sm:justify-start xl:w-[65.5rem] xl:gap-20">
+      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-0 lg:justify-between lg:gap-y-[5vw] xl:w-[70rem] xl:gap-10 xl:justify-start">
         {renderProjects(activeTab)}
       </div>
       <button
