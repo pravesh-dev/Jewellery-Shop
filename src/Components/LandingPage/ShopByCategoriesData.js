@@ -5,7 +5,7 @@ import card4 from '../../Assets/LandingPage/Shopby/card4.jpg'
 import card5 from '../../Assets/LandingPage/Shopby/card5.jpg'
 import card6 from '../../Assets/LandingPage/Shopby/card6.jpg'
 
-const projects = [
+const items = [
   {
     name: "Gold & Blue Ruby Necklace",
     price: 9000,
@@ -56,4 +56,4 @@ const projects = [
   },
 ];
 
-export { projects };
+export { items };

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { projects } from "./ShopByCategoriesData";
-import { Link } from "react-router-dom";
+import { items } from "./ShopByCategoriesData";
 
 function ShopByCategories() {
   const componentRef = useRef(null);
@@ -13,38 +12,50 @@ function ShopByCategories() {
   };
 
   useEffect(() => {
-    const filteredProjects = projects.filter(
-      (project) => activeTab === "all" || project.type === activeTab
+    const filteredItems = items.filter(
+      (item) => activeTab === "all" || item.type === activeTab
     );
-    setViewAll(filteredProjects.length > 6);
+    setViewAll(filteredItems.length > 6);
   }, [activeTab]);
 
-  const renderProjects = (type) => {
-    const filteredProjects = projects.filter(
-      (project) => type === "all" || project.type === type
+  const renderItems = (type) => {
+    const filteredItems = items.filter(
+      (item) => type === "all" || item.type === type
     );
-    const displayedProjects = !viewAll
-      ? filteredProjects
-      : filteredProjects.slice(0, 6);
+    const displayedItems = !viewAll
+      ? filteredItems
+      : filteredItems.slice(0, 6);
 
-    return displayedProjects.map((project, index) => (
+    return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="project_card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
+        className="w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
       >
-        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem]">
+        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem] relative">
             <img
               loading="lazy"
-              src={project.image}
+              src={item.image}
               className="w-full h-full object-cover"
-              alt={project.name}
+              alt={item.name}
             />
+            {
+              item.onSale && (
+                <span className="font-mulish bg-primary text-white absolute bottom-2 left-2 rounded-full px-2 text-xs sm:text-base sm:px-4 lg:left-4 lg:bottom-4">sale</span>
+              )
+            }
         </div>
         <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.4rem]">
-          {project.name}
+          {item.name}
         </h2>
         <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[1.6rem]">
-           $ {project.price}
+          {item.onSale ? (
+            <>
+              <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.4rem]">$ {item.price}</span>
+              <span>$ {(item.price - (item.price * (item.discount / 100)))}</span>
+            </>
+          ) : (
+            <span>$ {item.price}</span>
+          )}
         </h3>
       </div>
     ));
@@ -71,7 +82,7 @@ function ShopByCategories() {
         ))}
       </div>
       <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-0 lg:justify-between lg:gap-y-[5vw] xl:w-[70rem] xl:gap-10 xl:justify-start">
-        {renderProjects(activeTab)}
+        {renderItems(activeTab)}
       </div>
       <button
         className={`text-primary border border-primary bg-primary/5 px-7 py-1 text-sm rounded-[1rem] ${
