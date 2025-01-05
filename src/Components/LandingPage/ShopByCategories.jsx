@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { items } from "./ShopByCategoriesData";
+import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
 
 function ShopByCategories() {
   const componentRef = useRef(null);
@@ -85,11 +86,11 @@ function ShopByCategories() {
         {renderItems(activeTab)}
       </div>
       <button
-        className={`text-primary border border-primary bg-primary/5 px-7 py-1 text-sm rounded-[1rem] ${
+        className={`text-accent bg-secondary font-bellefair px-5 py-1 text-sm rounded-full ${
           viewAll ? "block" : "hidden"
-        }`}
+        } lg:text-lg lg:px-7 lg:py-2`}
       >
-        View All
+        View More <img src={buttonUnderline} className="w-14 -mt-1 mx-auto lg:w-20 lg:-mt-2" loading="lazy" alt="underline" />
       </button>
     </section>
   );

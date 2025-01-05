@@ -54,6 +54,14 @@ const items = [
     image: card6,
     type: 'statue'
   },
+  {
+    name: "Lord Ganesh Gold Statue",
+    price: 5000,
+    onSale: false,
+    discount: 0,
+    image: card6,
+    type: 'statue'
+  },
 ];
 
 export { items };
