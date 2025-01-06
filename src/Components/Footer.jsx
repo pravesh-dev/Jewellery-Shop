@@ -72,11 +72,11 @@ function Footer() {
         </ul>
       </div>
       {/* Signup Newsletter section */}
-      <div className="w-full flex flex-col items-center mb-8  md:items-start md:w-72 md:mb-0">
+      <div className="w-full flex flex-col items-center mb-8  md:items-start md:w-72 md:mb-0 lg:w-80">
           <h3 className="text-lg leading-5 mb-3 font-light">SIGNUP FOR <br /> <span className="tracking-widest font-normal">NEWSLETTER</span></h3>
-          <form className='w-72 h-10 flex items-center border border-secondary md:w-full'>
-            <input type="email" className="w-[65%] h-full font-lora tracking-wide text-sm pl-2 text-accent bg-secondary/30 border-none outline-none" name="footerEmail" placeholder="Enter Your Email" required autoComplete="off" />
-            <button className="w-[35%] text-xs h-full bg-secondary text-accent tracking-wider font-lora font-semibold" type="submit">Subscribe Now</button>
+          <form className='w-72 h-10 flex items-center bg-[#E4CA73] border border-secondary md:w-full overflow-hidden lg:rounded-md'>
+            <input type="email" className="w-[65%] h-full font-lora tracking-wide text-sm pl-2 text-accent bg-[#E4CA73] border-none outline-none placeholder:text-accent lg:tracking-widest lg:pl-4" name="footerEmail" placeholder="Enter Your Email" required autoComplete="off" />
+            <button className="w-[35%] text-xs h-full bg-secondary text-accent tracking-wider font-lora font-semibold lg:tracking-widest lg:text-sm lg:rounded-l-md" type="submit">Submit</button>
           </form>
         </div>
       </div>
