@@ -11,12 +11,16 @@ const HeroSlider = () => {
 
   const images = [...originalImages];
 
-  // Move to the next slide
-  const handleNext = () => {
-    if (isTransitioning) return; // Prevent spamming during transition
-    setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % originalImages.length);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isTransitioning) return; // Prevent spamming during transition
+      setIsTransitioning(true);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % originalImages.length);
+    }, 3000);
+
+    // Cleanup interval on unmount
+    return () => clearInterval(interval);
+  }, [currentIndex, originalImages.length, isTransitioning]);
 
   useEffect(() => {
     const slider = sliderRef.current;
@@ -72,15 +76,6 @@ const HeroSlider = () => {
           </div>
         ))}
       </div>
-
-      {/* Navigation Buttons */}
-      <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10"
-        onClick={handleNext}
-        disabled={isTransitioning}
-      >
-        Next
-      </button>
     </div>
   );
 };
