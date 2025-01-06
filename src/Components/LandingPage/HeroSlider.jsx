@@ -20,9 +20,9 @@ const HeroSlider = () => {
   // Function to determine rotation for each image
   const getImageRotation = (index) => {
     const position = (index - currentIndex + images.length) % images.length;
-    if (position === 0) return "rotate(-10deg)";
-    if (position === 1 || position === images.length - 1) return "rotate(0deg)";
-    if (position === images.length - 2 || position === 2) return "rotate(10deg)";
+    if (position === 0) return "rotate(-10deg) translateY(4rem)";
+    if (position === 1 || position === images.length - 1) return "rotate(0deg) translateY(0rem)";
+    if (position === images.length - 2 || position === 2) return "rotate(10deg) translateY(4rem)";
     return "rotate(0deg)";
   };
 
@@ -42,7 +42,7 @@ const HeroSlider = () => {
             key={idx}
             className="w-1/3 flex-shrink-0 flex justify-center items-center"
           >
-            <div className="w-80 h-60 rounded-md overflow-hidden shadow-md" style={{
+            <div className="w-96 h-60 rounded-md overflow-hidden shadow-md" style={{
                 transform: getImageRotation(idx),
                 transition: "transform 0.7s ease-in-out",
               }}>
