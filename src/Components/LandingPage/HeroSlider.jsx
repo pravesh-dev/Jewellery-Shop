@@ -1,66 +1,88 @@
-import React, { useState, useEffect } from "react";
-import bottomLine from "../../Assets/LandingPage/Hero/bottom-line.svg";
-import { FaHeart } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
 import img1 from "../../Assets/LandingPage/Hero/img1.jpg";
 import img2 from "../../Assets/LandingPage/Hero/img2.jpg";
 import img3 from "../../Assets/LandingPage/Hero/img3.jpg";
 
-function HeroSlider() {
-  const images = [img1, img2, img3];
-  const [currentIndex, setCurrentIndex] = useState(0);
+const HeroSlider = () => {
+  const originalImages = [img1, img2, img3, img1, img2, img3]; // Original array of images
+  const [currentIndex, setCurrentIndex] = useState(0); // Start at 0
+  const [isTransitioning, setIsTransitioning] = useState(false); // To handle smooth transitions
+  const sliderRef = useRef(null); // Ref to handle smooth resets
 
-  // Handle the slide transition
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000); // Change slide every 3 seconds
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+  const images = [...originalImages];
 
   // Move to the next slide
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    if (isTransitioning) return; // Prevent spamming during transition
+    setIsTransitioning(true);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % originalImages.length);
   };
 
-  // Get dynamic class names for positioning
-  const getClass = (index) => {
-    if (index === currentIndex) return "translate-x-0 scale-100 z-20";
-    if (index === (currentIndex + 1) % images.length)
-      return "translate-x-full scale-90 z-10";
-    if (index === (currentIndex - 1 + images.length) % images.length)
-      return "-translate-x-full scale-90 z-10";
-    return "hidden";
+  useEffect(() => {
+    const slider = sliderRef.current;
+
+    const handleTransitionEnd = () => {
+      setIsTransitioning(false);
+    };
+
+    slider.addEventListener("transitionend", handleTransitionEnd);
+
+    // Cleanup listener on unmount
+    return () => slider.removeEventListener("transitionend", handleTransitionEnd);
+  }, [currentIndex, originalImages.length]);
+
+  // Function to determine rotation for each image
+  const getImageRotation = (index) => {
+    const position = (index - currentIndex + images.length) % images.length;
+    if (position === 0) return "rotate(-10deg)";
+    if (position === 1 || position === images.length - 1) return "rotate(0deg)";
+    if (position === images.length - 2 || position === 2) return "rotate(10deg)";
+    return "rotate(0deg)";
   };
 
   return (
-    <div className="w-full h-80 lg:h-[25rem] relative flex flex-col justify-between overflow-hidden">
-      <div className="w-full h-[80%] flex justify-center items-center relative">
-        <div className="absolute w-full h-full flex justify-center items-center transition-transform duration-700 ease-in-out">
-          {images.map((image, idx) => (
+    <div className="w-full h-96 flex items-center justify-center overflow-hidden relative">
+      {/* Slider Container */}
+      <div
+        ref={sliderRef}
+        className="flex transition-transform duration-700 ease-in-out"
+        style={{
+          transform: `translateX(-${currentIndex * 33.33}%)`,
+          width: `${images.length * 33.33}%`,
+        }}
+      >
+        {images.map((image, idx) => (
+          <div
+            key={idx}
+            className="w-1/3 flex-shrink-0 flex justify-center items-center"
+          >
             <div
-              key={idx}
-              className={`absolute w-80 h-52 rounded-md overflow-hidden transition-all duration-700 ease-in-out ${getClass(
-                idx
-              )}`}
+              className="w-80 h-60 rounded-md overflow-hidden shadow-md"
+              style={{
+                transform: getImageRotation(idx),
+                transition: "transform 0.7s ease-in-out",
+              }}
             >
               <img
                 src={image}
                 className="w-full h-full object-cover"
-                loading="lazy"
-                alt={`Slide ${idx + 1}`}
+                alt={`Slide ${idx}`}
               />
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-      <div className="hidden relative">
-        <img src={bottomLine} className="w-full" alt="bottom line image" />
-        <span className="absolute top-0 left-1/2 -translate-y-[40%] -translate-x-1/2 bg-secondary w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12">
-          <FaHeart className="text-accent text-lg" />
-        </span>
-      </div>
+
+      {/* Navigation Buttons */}
+      <button
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full z-10"
+        onClick={handleNext}
+        disabled={isTransitioning}
+      >
+        Next
+      </button>
     </div>
   );
-}
+};
 
 export default HeroSlider;
