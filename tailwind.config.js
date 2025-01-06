@@ -18,6 +18,9 @@ export default {
         'lora': 'lora',
         'Cormorant': 'Cormorant',
       },
+      screens: {
+        xs: '430px',
+      },
     },
   },
   plugins: [],

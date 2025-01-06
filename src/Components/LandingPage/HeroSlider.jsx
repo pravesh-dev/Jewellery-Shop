@@ -6,12 +6,13 @@ import bottomLine from "../../Assets/LandingPage/Hero/bottom-line.svg";
 import { FaHeart } from "react-icons/fa";
 
 const HeroSlider = () => {
-  const images = [img1, img2, img3, img1, img2, img3]; // Array of images
+  const origImages = [img1, img2, img3];
+  const images = [...origImages, ...origImages]; // Array of images
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % (images.length -2));
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % (images.length -3));
     }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(interval);
@@ -28,7 +29,7 @@ const HeroSlider = () => {
 
   return (
     <>
-    <div className="w-full  flex items-center justify-center relative">
+    <div className="w-full h-60 flex items-center justify-center relative">
       {/* Slider Container */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -42,7 +43,7 @@ const HeroSlider = () => {
             key={idx}
             className="w-1/3 flex-shrink-0 flex justify-center items-center"
           >
-            <div className="w-96 h-60 rounded-md overflow-hidden shadow-md" style={{
+            <div className="w-44 h-28 xs:w-60 xs:h-40 md:w-96 md:h-60 rounded-md overflow-hidden shadow-md" style={{
                 transform: getImageRotation(idx),
                 transition: "transform 0.7s ease-in-out",
               }}>
