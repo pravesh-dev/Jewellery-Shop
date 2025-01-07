@@ -24,10 +24,10 @@ function SortBy() {
   }, [isOpen]);
 
   return (
-    <div className="flex items-center gap-4 relative font-bellefair relative">
+    <div className="flex items-center gap-4 font-bellefair">
       <h2 className="text-lg">Sort by</h2>
       <div className="relative">
-      <button onClick={() => setIsOpen(!isOpen)} className="bg-secondary text-accent text-xs px-3 py-1 rounded-full flex items-center gap-3">
+      <button onClick={() => setIsOpen(!isOpen)} className="bg-[#CFAB55CC] text-accent text-xs px-3 py-1 rounded-full flex items-center gap-3">
         {selectedOption} <span><IoIosArrowDown /></span>
       </button>
       {isOpen && (
