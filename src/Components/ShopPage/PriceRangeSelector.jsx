@@ -14,7 +14,7 @@ export default function PriceRangeSelector() {
   };
 
   return (
-    <Box sx={{ width: 300 }}>
+    <Box sx={{ width: '100%' }}>
       <Slider
         getAriaLabel={() => 'Temperature range'}
         value={value}
@@ -23,13 +23,13 @@ export default function PriceRangeSelector() {
         getAriaValueText={valuetext}
         sx={{
           '& .MuiSlider-track': {
-            backgroundColor: 'green',
+            backgroundColor: '#006400',
           },
           '& .MuiSlider-rail': {
-            backgroundColor: 'gray',
+            backgroundColor: '#868686',
           },
           '& .MuiSlider-thumb': {
-            backgroundColor: 'yellow',
+            backgroundColor: '#D4AF37',
           },
         }}
       />
