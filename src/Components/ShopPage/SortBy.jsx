@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 function SortBy() {
@@ -7,8 +7,24 @@ function SortBy() {
 
   const options = ["Popularity", "Price", "Rating"];
 
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (isOpen && !event.target.closest('.relative')) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('click', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isOpen]);
+
   return (
-    <div className="flex items-center gap-4 relative font-bellefair">
+    <div className="flex items-center gap-4 relative font-bellefair relative">
       <h2 className="text-lg">Sort by</h2>
       <div className="relative">
       <button onClick={() => setIsOpen(!isOpen)} className="bg-secondary text-accent text-xs px-3 py-1 rounded-full flex items-center gap-3">
