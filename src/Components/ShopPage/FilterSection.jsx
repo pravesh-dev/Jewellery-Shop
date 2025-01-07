@@ -10,6 +10,8 @@ function FilterSection() {
     womenJewellery: false,
     menJewellery: false,
     accessories: false,
+    category: false,
+    price: false,
   });
 
   const [checkedItems, setCheckedItems] = useState({
@@ -48,75 +50,81 @@ function FilterSection() {
   };
 
   return (
-    <div className='w-60 border-2 border-black p-3 rounded-md font-bellefair mb-4 md:mb-0'>
-      <h1 className='text-xl'>Filter Products</h1>
-      <div className='w-52'>
-      <button className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
-        Category <span><IoIosArrowDown /></span>
+    <div className='w-60 border-2 border-black p-3 rounded-md font-bellefair mb-4 md:mb-0 md:rounded-3xl md:py-6'>
+      <h1 className='text-xl md:text-2xl md:mb-4'>Filter Products</h1>
+      <div className='w-52 md:mb-4'>
+      <button onClick={() => toggleSection('category')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
+        Category <span>{isOpen.category ? <IoIosArrowDown /> : <GoChevronRight />}</span>
       </button>
-      <button onClick={() => toggleSection('womenJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3">
-        Women Jewellery <span>{isOpen.womenJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
-      </button>
-      {isOpen.womenJewellery && (
-        <ul className='px-7'>
-          <li onClick={() => toggleCheck('womenJewellery', 'necklace')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.womenJewellery.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Necklace
-          </li>
-          <li onClick={() => toggleCheck('womenJewellery', 'ring')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.womenJewellery.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Ring
-          </li>
-          <li onClick={() => toggleCheck('womenJewellery', 'bracelet')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.womenJewellery.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Bracelet
-          </li>
-        </ul>
-      )}
-      <button onClick={() => toggleSection('menJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3">
-        Men Jewellery <span>{isOpen.menJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
-      </button>
-      {isOpen.menJewellery && (
-        <ul className='px-3'>
-          <li onClick={() => toggleCheck('menJewellery', 'necklace')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.menJewellery.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Necklace
-          </li>
-          <li onClick={() => toggleCheck('menJewellery', 'ring')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.menJewellery.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Ring
-          </li>
-          <li onClick={() => toggleCheck('menJewellery', 'bracelet')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.menJewellery.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Bracelet
-          </li>
-        </ul>
-      )}
-      <button onClick={() => toggleSection('accessories')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3">
-       Accessories <span>{isOpen.accessories ? <IoIosArrowDown /> : <GoChevronRight />}</span>
-      </button>
-      {isOpen.accessories && (
-        <ul className='px-3'>
-          <li onClick={() => toggleCheck('accessories', 'necklace')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.accessories.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Necklace
-          </li>
-          <li onClick={() => toggleCheck('accessories', 'ring')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.accessories.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Ring
-          </li>
-          <li onClick={() => toggleCheck('accessories', 'bracelet')} className='flex items-center gap-4 text-sm'> 
-            {checkedItems.accessories.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-            Bracelet
-          </li>
-        </ul>
+      {isOpen.category && (
+        <div className='md:flex flex-col gap-1'>
+          <button onClick={() => toggleSection('womenJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2">
+            Women Jewellery <span>{isOpen.womenJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
+          </button>
+          {isOpen.womenJewellery && (
+            <ul className='px-7 md:flex flex-col gap-1'>
+              <li onClick={() => toggleCheck('womenJewellery', 'necklace')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.womenJewellery.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Necklace
+              </li>
+              <li onClick={() => toggleCheck('womenJewellery', 'ring')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.womenJewellery.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Ring
+              </li>
+              <li onClick={() => toggleCheck('womenJewellery', 'bracelet')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.womenJewellery.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Bracelet
+              </li>
+            </ul>
+          )}
+          <button onClick={() => toggleSection('menJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2">
+            Men Jewellery <span>{isOpen.menJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
+          </button>
+          {isOpen.menJewellery && (
+            <ul className='px-7 md:flex flex-col gap-1'>
+              <li onClick={() => toggleCheck('menJewellery', 'necklace')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.menJewellery.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Necklace
+              </li>
+              <li onClick={() => toggleCheck('menJewellery', 'ring')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.menJewellery.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Ring
+              </li>
+              <li onClick={() => toggleCheck('menJewellery', 'bracelet')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.menJewellery.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Bracelet
+              </li>
+            </ul>
+          )}
+          <button onClick={() => toggleSection('accessories')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2">
+           Accessories <span>{isOpen.accessories ? <IoIosArrowDown /> : <GoChevronRight />}</span>
+          </button>
+          {isOpen.accessories && (
+            <ul className='px-7 md:flex flex-col gap-1'>
+              <li onClick={() => toggleCheck('accessories', 'necklace')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.accessories.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Necklace
+              </li>
+              <li onClick={() => toggleCheck('accessories', 'ring')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.accessories.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Ring
+              </li>
+              <li onClick={() => toggleCheck('accessories', 'bracelet')} className='flex items-center gap-4 text-sm'> 
+                {checkedItems.accessories.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Bracelet
+              </li>
+            </ul>
+          )}
+        </div>
       )}
       </div>
       <div className='w-52'>
-      <button className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
-        Price <span><IoIosArrowDown /></span>
+      <button onClick={() => toggleSection('price')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
+        Price <span>{isOpen.price ? <IoIosArrowDown /> : <GoChevronRight />}</span>
       </button>
-      <PriceRangeSelector />
+      {isOpen.price && (
+        <PriceRangeSelector />
+      )}
       </div>
     </div>
   )
