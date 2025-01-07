@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { items } from "../ShopByCategoriesData";
+import { items } from "../ProductsData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
 import { Link } from "react-router-dom";
 
