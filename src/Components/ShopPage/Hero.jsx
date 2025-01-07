@@ -2,9 +2,9 @@ import React from 'react'
 
 function Hero() {
   return (
-    <div>
+    <section className='w-full min-h-screen'>
       this is shop Hero
-    </div>
+    </section>
   )
 }
 

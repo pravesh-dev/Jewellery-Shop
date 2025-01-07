@@ -11,7 +11,7 @@ function FeaturedSlider() {
     return () => clearInterval(interval);
   }, [images.length]);
   return (
-    <div className="w-full h-96 md:w-[48%] md:h-full relative overflow-hidden rounded-xl lg:w-[30rem] xl:w-[35rem]">
+    <section className="w-full h-96 md:w-[48%] md:h-full relative overflow-hidden rounded-xl lg:w-[30rem] xl:w-[35rem]">
       <img
         loading="lazy"
         src={images[currentImage]}
@@ -28,7 +28,7 @@ function FeaturedSlider() {
           ></span>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

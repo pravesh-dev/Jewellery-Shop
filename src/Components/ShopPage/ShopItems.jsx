@@ -3,34 +3,26 @@ import { items } from "../ShopByCategoriesData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
 import { Link } from "react-router-dom";
 
-function ShopByCategories() {
+function ShopItems() {
 
-  const [activeTab, setActiveTab] = useState("all");
   const [viewAll, setViewAll] = useState(false);
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
 
   useEffect(() => {
     const filteredItems = items.filter(
-      (item) => activeTab === "all" || item.type === activeTab
+      (item) => true // Always true to show all items
     );
     setViewAll(filteredItems.length > 6);
-  }, [activeTab]);
+  }, []);
 
-  const renderItems = (type) => {
-    const filteredItems = items.filter(
-      (item) => type === "all" || item.type === type
-    );
+  const renderItems = () => {
     const displayedItems = !viewAll
-      ? filteredItems
-      : filteredItems.slice(0, 6);
+      ? items
+      : items.slice(0, 6);
 
     return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
+        className="w-36 flex border border-green-700 flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
       >
         <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem] relative">
             <img
@@ -66,23 +58,8 @@ function ShopByCategories() {
     <div
       className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10"
     >
-      <div className="flex items-center lg:mb-7">
-        {["all", "necklace", "ring", "earrings", "statue", "chain"].map((tab) => (
-          <button
-            key={tab}
-            className={`tab_buttons text-xs px-[0.6rem] py-1 tracking-wider capitalize rounded-full ${
-              activeTab === tab
-                ? "bg-secondary text-accent"
-                : "text-dark"
-            } sm:text-lg sm:px-6 lg:text-2xl lg:px-8 cursor_pointer`}
-            onClick={() => handleTabClick(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
       <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-10 xl:w-[70rem] xl:gap-10 xl:justify-start">
-        {renderItems(activeTab)}
+        {renderItems()}
       </div>
       <Link to='/shop'
         className={`text-accent bg-secondary font-bellefair px-5 py-1 text-sm rounded-full ${
@@ -95,4 +72,4 @@ function ShopByCategories() {
   );
 }
 
-export default ShopByCategories;
+export default ShopItems;

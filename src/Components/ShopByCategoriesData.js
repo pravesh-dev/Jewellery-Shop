@@ -1,9 +1,9 @@
-import card1 from '../../Assets/LandingPage/Shopby/card1.jpg'
-import card2 from '../../Assets/LandingPage/Shopby/card2.jpg'
-import card3 from '../../Assets/LandingPage/Shopby/card3.jpg'
-import card4 from '../../Assets/LandingPage/Shopby/card4.jpg'
-import card5 from '../../Assets/LandingPage/Shopby/card5.jpg'
-import card6 from '../../Assets/LandingPage/Shopby/card6.jpg'
+import card1 from '../Assets/LandingPage/Shopby/card1.jpg'
+import card2 from '../Assets/LandingPage/Shopby/card2.jpg'
+import card3 from '../Assets/LandingPage/Shopby/card3.jpg'
+import card4 from '../Assets/LandingPage/Shopby/card4.jpg'
+import card5 from '../Assets/LandingPage/Shopby/card5.jpg'
+import card6 from '../Assets/LandingPage/Shopby/card6.jpg'
 
 const items = [
   {
