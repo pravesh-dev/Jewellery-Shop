@@ -22,9 +22,9 @@ function ShopItems() {
     return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="w-36 flex border border-green-700 flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
+        className="w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw]"
       >
-        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem] relative">
+        <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[20vw] relative">
             <img
               loading="lazy"
               src={item.image}
@@ -37,10 +37,10 @@ function ShopItems() {
               )
             }
         </div>
-        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.4rem]">
+        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] xl:text-[1.4rem]">
           {item.name}
         </h2>
-        <h3 className="text-black text-[0.8rem] flex items-center gap-2 sm:text-[1.3rem] lg:text-[1.6rem] lg:gap-6">
+        <h3 className="text-black text-[0.8rem] flex items-center gap-2 sm:text-[1.3rem] xl:text-[1.6rem] lg:gap-6">
           {item.onSale ? (
             <>
               <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.4rem]">$ {item.price}</span>
@@ -58,7 +58,7 @@ function ShopItems() {
     <div
       className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10"
     >
-      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-10 xl:w-[70rem] xl:gap-10 xl:justify-start">
+      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 md:gap-3 lg:justify-between xl:gap-y-10">
         {renderItems()}
       </div>
       <Link to='/shop'

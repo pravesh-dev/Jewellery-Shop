@@ -23,6 +23,7 @@ export default function PriceRangeSelector() {
           onChange={handleChange}
           min={20}
           max={200}
+          step={10} // Added step to increase or decrease by 10
           getAriaValueText={valuetext}
           sx={{
             "& .MuiSlider-track": {
@@ -38,13 +39,13 @@ export default function PriceRangeSelector() {
         />
       </Box>
       <div className="w-full flex justify-between items-center">
-        <div className="w-[45%]">
+        <div className="w-[50%]">
             <h2 className="text-xs">From</h2>
-            <span className="border border-dark text-xs px-5 py-1 rounded-full">$ {value[0]}</span>
+            <span className="border border-dark text-xs px-4 py-1 rounded-full">$ {value[0]}</span>
         </div>
-        <div className="w-[45%]">
+        <div className="w-[50%]">
             <h2 className="text-xs">To</h2>
-            <span className="border border-dark text-xs px-5 py-1 rounded-full">$ {value[1]}</span>
+            <span className="border border-dark text-xs px-4 py-1 rounded-full">$ {value[1]}</span>
         </div>
       </div>
     </div>
