@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { items } from "./ShopByCategoriesData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
+import { Link } from "react-router-dom";
 
 function ShopByCategories() {
 
@@ -83,13 +84,13 @@ function ShopByCategories() {
       <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-10 xl:w-[70rem] xl:gap-10 xl:justify-start">
         {renderItems(activeTab)}
       </div>
-      <button
+      <Link to='/shop'
         className={`text-accent bg-secondary font-bellefair px-5 py-1 text-sm rounded-full ${
           viewAll ? "block" : "hidden"
         } lg:text-lg lg:px-7 lg:py-2`}
       >
         View More <img src={buttonUnderline} className="w-14 -mt-1 mx-auto lg:w-20 lg:-mt-2" loading="lazy" alt="underline" />
-      </button>
+      </Link>
     </div>
   );
 }
