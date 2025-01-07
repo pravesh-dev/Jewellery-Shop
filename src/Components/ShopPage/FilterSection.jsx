@@ -52,7 +52,7 @@ function FilterSection() {
   return (
     <div className='w-60 border-2 border-black p-3 rounded-md font-bellefair mb-4 md:mb-0 md:rounded-3xl md:py-6'>
       <h1 className='text-xl md:text-2xl md:mb-4'>Filter Products</h1>
-      <div className='w-52 md:mb-4'>
+      <div className='w-52 mb-4'>
       <button onClick={() => toggleSection('category')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
         Category <span>{isOpen.category ? <IoIosArrowDown /> : <GoChevronRight />}</span>
       </button>
@@ -118,6 +118,7 @@ function FilterSection() {
         </div>
       )}
       </div>
+      <span className='w-full h-[3px] block mb-4 bg-dark/30 rounded-full'></span>
       <div className='w-52'>
       <button onClick={() => toggleSection('price')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
         Price <span>{isOpen.price ? <IoIosArrowDown /> : <GoChevronRight />}</span>
