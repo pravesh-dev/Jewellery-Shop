@@ -27,7 +27,13 @@ function Hero() {
       manImage: manImage1,
       heading: `SPRING INTO FASHION`,
       para: `Volutpat accumsan suspendisse malesuada lacinia feugiat. Justo fermentum sapien malesuada fringilla facilisis augue.`
-    }
+    },
+    {
+      bgImage: bgImage1,
+      manImage: manImage1,
+      heading: `SPRING INTO FASHION 2`,
+      para: `Volutpat accumsan suspendisse malesuada lacinia feugiat. Justo fermentum sapien malesuada fringilla facilisis augue.`
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,7 +41,7 @@ function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, [data.length]);
@@ -62,6 +68,11 @@ function Hero() {
               {data[currentIndex].heading}
             </h1>
             <p className='lg:text-lg xl:text-xl'>{data[currentIndex].para}</p>
+          </div>
+          <div className='w-[90%] flex gap-1 justify-between absolute bottom-2'>
+            {data.map((_, index) => (
+              <span key={index} className={`w-1/4 h-1 rounded-full ${currentIndex === index ? 'bg-primary' : 'bg-gray-400'}`}></span>
+            ))}
           </div>
         </div>
       </div>
