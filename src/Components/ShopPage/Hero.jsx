@@ -55,15 +55,15 @@ function Hero() {
           loading='lazy'
           alt="bg image"
         />
-        <div className='w-full h-full bg-black/20 rounded-xl absolute top-0 left-0 flex flex-col items-center gap-7 sm:flex-row-reverse sm:gap-0 sm:bg-transparent xl:flex-row'>
-          <div className='-mt-16 border-b-2 border-dark w-full flex justify-center sm:w-auto sm:border-none sm:-mt-6 md:-mt-[4.3rem] lg:-mt-[6.8rem] xl:absolute bottom-0 right-0'>
+        <div className='w-full h-full bg-black/20 rounded-xl absolute top-0 left-0 flex flex-col items-center sm:items-start sm:justify-center gap-7 sm:bg-transparent'>
+          <div className='-mt-16 border-b-2 border-dark w-full flex justify-center sm:w-auto sm:border-none sm:absolute bottom-0 right-0'>
             <img
               src={data[currentIndex].manImage}
-              className='w-60 sm:w-[45rem] xl:w-[30rem]'
+              className='w-60 sm:w-[18rem] lg:w-[24rem] xl:w-[30rem]'
               alt="people image"
             />
           </div>
-          <div className='font-bellefair p-3 md:p-7 xl:px-24 xl:w-[55rem]'>
+          <div className='font-bellefair p-3 bg-red-700 sm:w-[20rem] md:p-7 md:w-[30rem] lg:w-[40rem] xl:px-24 xl:w-[55rem]'>
             <h1 className='text-primary text-3xl md:mb-4 lg:text-[2.9rem] lg:leading-[3.3rem] xl:text-[3.2rem] xl:mb-8'>
               {data[currentIndex].heading}
             </h1>
