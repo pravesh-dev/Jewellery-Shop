@@ -69,7 +69,7 @@ function Hero() {
             </h1>
             <p className='lg:text-lg xl:text-xl'>{data[currentIndex].para}</p>
           </div>
-          <div className='w-[90%] flex gap-1 justify-between absolute bottom-2'>
+          <div className='w-[90%] flex gap-1 justify-between absolute bottom-2 left-1/2 -translate-x-1/2 lg:w-[80%] lg:bottom-4'>
             {data.map((_, index) => (
               <span key={index} className={`w-1/4 h-1 rounded-full ${currentIndex === index ? 'bg-primary' : 'bg-gray-400'}`}></span>
             ))}
