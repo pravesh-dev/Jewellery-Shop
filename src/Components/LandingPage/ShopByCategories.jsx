@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { items } from "../ProductsData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ShopByCategories() {
 
   const [activeTab, setActiveTab] = useState("all");
   const [viewAll, setViewAll] = useState(false);
+  const navigate = useNavigate();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -30,7 +31,8 @@ function ShopByCategories() {
     return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
+        className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
+        onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
       >
         <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem] relative">
             <img

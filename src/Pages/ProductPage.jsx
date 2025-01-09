@@ -12,17 +12,19 @@ function ProductPage() {
   }, [id])
 
   return (
-    <>
+    <div className=''>
       {product && (
-        <div>
+        <div className='pt-28'>
           <h1>{product.name}</h1>
           <img src={product.image} alt={product.name} />
           <p>Price: ${product.price}</p>
           {product.onSale && <p>Discount: {product.discount}%</p>}
         </div>
       )}
-      {!product && <p>Product not found</p>}
-    </>
+      {!product && <div className='w-full h-screen flex justify-center items-center'>
+      <p className='text-2xl font-bellefair'>Product not found</p>
+      </div>}
+    </div>
   )
 }
 
