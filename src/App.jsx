@@ -4,6 +4,7 @@ import Layout from './Layout'
 import NoPage from './Pages/NoPage'
 import Home from './Pages/Home'
 import Shop from './Pages/Shop'
+import ProductPage from './Pages/ProductPage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<Home />} />
           <Route path='/shop' element={<Shop/>} />
+          <Route path='/shop/:type/:name/:id' element={<ProductPage/>} />
           <Route path='*' element={<NoPage/>} />
         </Route>
       </Routes>

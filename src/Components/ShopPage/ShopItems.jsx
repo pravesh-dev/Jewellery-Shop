@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { items } from "../ProductsData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg';
+import { useNavigate } from 'react-router-dom';
 
 function ShopItems() {
   const [viewAll, setViewAll] = useState(false);
+  const navigate = useNavigate();
 
   const renderItems = () => {
     // Show all items if viewAll is true; otherwise, show only the first 6
@@ -12,7 +14,8 @@ function ShopItems() {
     return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw]"
+        className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw]"
+        onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
       >
         <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[20vw] relative">
           <img
