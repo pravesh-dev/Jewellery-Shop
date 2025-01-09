@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { items } from '../Components/ProductsData';
+import Hero from '../Components/ProductPage/Hero';
 
 function ProductPage() {
   const { id } = useParams()
@@ -14,11 +15,8 @@ function ProductPage() {
   return (
     <div className=''>
       {product && (
-        <div className='pt-28'>
-          <h1>{product.name}</h1>
-          <img src={product.image} alt={product.name} />
-          <p>Price: ${product.price}</p>
-          {product.onSale && <p>Discount: {product.discount}%</p>}
+        <div>
+          <Hero product={product} />
         </div>
       )}
       {!product && <div className='w-full h-screen flex justify-center items-center'>
