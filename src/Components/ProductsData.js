@@ -13,7 +13,9 @@ const items = [
     onSale: true,
     discount: 10,
     image: card1,
-    type: 'necklace'
+    type: 'necklace',
+    title: "Luxury Necklace",
+    extraImages: [card1, card1, card1, card1, card1, card1, card1] // Random array size between 3-7
   },
   {
     id: 2,
@@ -22,7 +24,9 @@ const items = [
     onSale: false,
     discount: 0,
     image: card2,
-    type: 'chain'
+    type: 'chain',
+    title: "Exquisite Chain",
+    extraImages: [card2, card2, card2, card2, card2] // Random array size between 3-7
   },
   {
     id: 3,
@@ -31,7 +35,9 @@ const items = [
     onSale: true,
     discount: 10,
     image: card3,
-    type: 'ring'
+    type: 'ring',
+    title: "Diamond Ring",
+    extraImages: [card3, card3, card3, card3, card3, card3] // Random array size between 3-7
   },
   {
     id: 4,
@@ -40,7 +46,9 @@ const items = [
     onSale: false,
     discount: 0,
     image: card4,
-    type: 'earrings'
+    type: 'earrings',
+    title: "Elegant Earrings",
+    extraImages: [card4, card4, card4, card4] // Random array size between 3-7
   },
   {
     id: 5,
@@ -49,7 +57,9 @@ const items = [
     onSale: false,
     discount: 0,
     image: card5,
-    type: 'ring'
+    type: 'ring',
+    title: "Personalized Ring",
+    extraImages: [card5, card5, card5, card5, card5, card5] // Random array size between 3-7
   },
   {
     id: 6,
@@ -58,7 +68,9 @@ const items = [
     onSale: false,
     discount: 0,
     image: card6,
-    type: 'statue'
+    type: 'statue',
+    title: "Divine Statue",
+    extraImages: [card6, card6, card6, card6, card6] // Random array size between 3-7
   },
   {
     id: 7,
@@ -67,7 +79,9 @@ const items = [
     onSale: false,
     discount: 0,
     image: card6,
-    type: 'statue'
+    type: 'statue',
+    title: "Divine Statue",
+    extraImages: [card6, card6, card6, card6, card6, card6, card6] // Random array size between 3-7
   },
 ];
 
