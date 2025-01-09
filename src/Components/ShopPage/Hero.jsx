@@ -28,12 +28,6 @@ function Hero() {
       heading: `SPRING INTO FASHION`,
       para: `Volutpat accumsan suspendisse malesuada lacinia feugiat. Justo fermentum sapien malesuada fringilla facilisis augue.`,
     },
-    {
-      bgImage: bgImage1,
-      manImage: manImage1,
-      heading: `SPRING INTO FASHION 2`,
-      para: `Volutpat accumsan suspendisse malesuada lacinia feugiat. Justo fermentum sapien malesuada fringilla facilisis augue.`,
-    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -7,6 +7,7 @@ import card6 from '../Assets/LandingPage/Shopby/card6.jpg'
 
 const items = [
   {
+    id: 1,
     name: "Gold & Blue Ruby Necklace",
     price: 9000,
     onSale: true,
@@ -15,6 +16,7 @@ const items = [
     type: 'necklace'
   },
   {
+    id: 2,
     name: "Gold & Diamond Chain",
     price: 20000,
     onSale: false,
@@ -23,6 +25,7 @@ const items = [
     type: 'chain'
   },
   {
+    id: 3,
     name: "Gold & Diamond Ring",
     price: 5000,
     onSale: true,
@@ -31,6 +34,7 @@ const items = [
     type: 'ring'
   },
   {
+    id: 4,
     name: "White Ruby Gold Earring",
     price: 1000,
     onSale: false,
@@ -39,6 +43,7 @@ const items = [
     type: 'earrings'
   },
   {
+    id: 5,
     name: "Gold Ring With Custom Name",
     price: 2000,
     onSale: false,
@@ -47,6 +52,7 @@ const items = [
     type: 'ring'
   },
   {
+    id: 6,
     name: "Lord Ganesh Gold Statue",
     price: 5000,
     onSale: false,
@@ -55,6 +61,7 @@ const items = [
     type: 'statue'
   },
   {
+    id: 7,
     name: "Lord Ganesh Gold Statue",
     price: 5000,
     onSale: false,
