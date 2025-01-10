@@ -1,9 +1,9 @@
-import card1 from '../Assets/LandingPage/Shopby/card1.jpg'
-import card2 from '../Assets/LandingPage/Shopby/card2.jpg'
-import card3 from '../Assets/LandingPage/Shopby/card3.jpg'
-import card4 from '../Assets/LandingPage/Shopby/card4.jpg'
-import card5 from '../Assets/LandingPage/Shopby/card5.jpg'
-import card6 from '../Assets/LandingPage/Shopby/card6.jpg'
+import card1 from '../Assets/LandingPage/Shopby/card1.jpg';
+import card2 from '../Assets/LandingPage/Shopby/card2.jpg';
+import card3 from '../Assets/LandingPage/Shopby/card3.jpg';
+import card4 from '../Assets/LandingPage/Shopby/card4.jpg';
+import card5 from '../Assets/LandingPage/Shopby/card5.jpg';
+import card6 from '../Assets/LandingPage/Shopby/card6.jpg';
 
 const items = [
   {
@@ -15,7 +15,8 @@ const items = [
     image: card1,
     type: 'necklace',
     title: "Luxury Necklace",
-    extraImages: [card1, card1, card1, card1, card1, card1, card1] // Random array size between 3-7
+    description: "A stunning gold necklace adorned with vibrant blue rubies, perfect for special occasions and celebrations.",
+    extraImages: [card1, card1, card1, card1, card1, card1, card1],
   },
   {
     id: 2,
@@ -26,7 +27,8 @@ const items = [
     image: card2,
     type: 'chain',
     title: "Exquisite Chain",
-    extraImages: [card2, card2, card2, card2, card2] // Random array size between 3-7
+    description: "A timeless gold chain featuring intricately embedded diamonds for a luxurious and elegant look.",
+    extraImages: [card2, card2, card2, card2, card2],
   },
   {
     id: 3,
@@ -37,7 +39,8 @@ const items = [
     image: card3,
     type: 'ring',
     title: "Diamond Ring",
-    extraImages: [card3, card3, card3, card3, card3, card3] // Random array size between 3-7
+    description: "A beautifully crafted gold ring with a sparkling diamond centerpiece, ideal for engagements or gifts.",
+    extraImages: [card3, card3, card3, card3, card3, card3],
   },
   {
     id: 4,
@@ -48,7 +51,8 @@ const items = [
     image: card4,
     type: 'earrings',
     title: "Elegant Earrings",
-    extraImages: [card4, card4, card4, card4] // Random array size between 3-7
+    description: "Delicate gold earrings featuring radiant white rubies, adding a touch of sophistication to any outfit.",
+    extraImages: [card4, card4, card4, card4],
   },
   {
     id: 5,
@@ -59,7 +63,8 @@ const items = [
     image: card5,
     type: 'ring',
     title: "Personalized Ring",
-    extraImages: [card5, card5, card5, card5, card5, card5] // Random array size between 3-7
+    description: "A personalized gold ring that allows you to engrave a custom name, making it a unique and meaningful gift.",
+    extraImages: [card5, card5, card5, card5, card5, card5],
   },
   {
     id: 6,
@@ -70,7 +75,8 @@ const items = [
     image: card6,
     type: 'statue',
     title: "Divine Statue",
-    extraImages: [card6, card6, card6, card6, card6] // Random array size between 3-7
+    description: "A divine gold statue of Lord Ganesh, symbolizing wisdom and prosperity, perfect for home or temple decor.",
+    extraImages: [card6, card6, card6, card6, card6],
   },
   {
     id: 7,
@@ -81,7 +87,8 @@ const items = [
     image: card6,
     type: 'statue',
     title: "Divine Statue",
-    extraImages: [card6, card6, card6, card6, card6, card6, card6] // Random array size between 3-7
+    description: "A divine gold statue of Lord Ganesh, symbolizing wisdom and prosperity, perfect for home or temple decor.",
+    extraImages: [card6, card6, card6, card6, card6, card6, card6],
   },
 ];
 
