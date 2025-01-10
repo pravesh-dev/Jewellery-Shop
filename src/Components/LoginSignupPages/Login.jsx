@@ -1,62 +1,83 @@
 import React from "react";
-import sideImage from "../../Assets/login-side-image.svg";
+import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
+import user from "../../Assets/loginSignupPage/user.svg";
+import lock from "../../Assets/loginSignupPage/lock.svg";
 import { FaUser, FaLock } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <div className="w-full h-full absolute top-0 left-0">
-      <div className="w-[350px] p-6 bg-white shadow-lg rounded-lg">
-        {/* Header */}
-        <div className="flex justify-between mb-8">
-          <button className="text-green-600 text-2xl font-bold border-b-2 border-green-500">
+    <div className="w-full h-full absolute top-0 left-0 font-mulish flex justify-center md:gap-10 lg:gap-20 xl:px-28 xl:justify-between">
+      <form className="w-80 px-2 h-full flex flex-col justify-center lg:w-96 xl:ml-14">
+        <div className="flex justify-between px-3 mb-10 lg:mb-14">
+          <Link
+            to="/login"
+            className="text-[#62DC7C] text-2xl border-b-2 border-[#62DC7C] px-2 pb-1 lg:text-4xl lg:px-4"
+          >
             Login
-          </button>
-          <button className="text-gray-400 text-2xl font-bold border-b-2 border-gray-300">
+          </Link>
+          <Link
+            to="/signup"
+            className="text-gray-400 text-2xl border-b-2 border-gray-300 px-2 pb-1 lg:text-4xl lg:px-4"
+          >
             Sign up
-          </button>
+          </Link>
         </div>
 
         {/* Input Fields */}
-        <div className="space-y-6">
+        <div className="space-y-8 lg:space-y-12">
           {/* Email or Phone */}
           <div className="relative">
-            <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-500" />
+            <img
+              src={user}
+              className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
+              alt="user icon"
+            />
             <input
               type="text"
               placeholder="Email or phone number"
-              className="w-full pl-10 py-3 rounded-full border-0 shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-500 bg-green-100"
+              autoComplete="off"
+              className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
             />
           </div>
 
           {/* Password */}
           <div className="relative">
-            <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-500" />
+            <img
+              src={lock}
+              className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
+              alt="user icon"
+            />
             <input
               type="password"
               placeholder="Password"
-              className="w-full pl-10 py-3 rounded-full border-0 shadow-md focus:outline-none focus:ring-2 focus:ring-green-400 text-gray-500 bg-green-100"
+              autoComplete="off"
+              className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
             />
           </div>
         </div>
 
-        {/* Forgot Password */}
-        <div className="mt-4">
-          <a
-            href="#"
-            className="text-green-500 text-sm hover:underline hover:text-green-600"
-          >
-            Forgot your password?
-          </a>
-        </div>
+        <div className="lg:flex justify-between items-center">
+          {/* Forgot Password */}
+            <a
+              href="#"
+              className="text-[#62DC7C] mt-7 text-sm hover:underline hover:text-green-600"
+            >
+              Forgot your password?
+            </a>
 
-        {/* Login Button */}
-        <div className="mt-6">
-          <button className="w-full bg-green-600 text-white text-lg py-3 rounded-full hover:bg-green-700 transition duration-200">
-            Login
-          </button>
+          {/* Login Button */}
+            <button
+              type="submit"
+              className="w-full mt-6 bg-[#009400] text-accent text-lg py-2 rounded-md lg:w-auto lg:px-10 lg:rounded-full"
+            >
+              Login
+            </button>
         </div>
+      </form>
+      <div className="hidden md:flex justify-center items-center">
+        <img className="w-80 lg:w-[27rem]" src={sideImage} alt="image" />
       </div>
-      <div className="hidden"></div>
     </div>
   );
 }
