@@ -13,10 +13,11 @@ function SimilarProductSlider({ product }) {
     (item) => item.type === product.type && item.id !== product.id
   );
 
-  // Calculate card width dynamically
+  // Calculate card width dynamically, including gap
   useEffect(() => {
     if (sliderRef.current) {
-      setCardWidth(sliderRef.current.firstChild.offsetWidth);
+      const card = sliderRef.current.firstChild;
+      setCardWidth(card.offsetWidth + parseInt(getComputedStyle(card).marginRight)); // Include the margin in card width
     }
   }, []);
 
@@ -33,14 +34,14 @@ function SimilarProductSlider({ product }) {
   };
 
   return (
-    <div className="w-full py-5 px-2 font-bellefair">
+    <div className="w-full py-5 px-2 font-bellefair xl:px-16">
       <div className="flex items-center justify-between mb-5">
-        <h2 className="text-primary text-2xl">Similar Items</h2>
+        <h2 className="text-primary text-2xl md:text-3xl lg:text-4xl">Similar Items</h2>
         {/* Navigation Buttons */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 md:gap-4">
           <button
             onClick={handlePrev}
-            className={`p-2 shadow-md border rounded-md ${
+            className={`p-2 shadow-md border rounded-md lg:text-2xl lg:px-3 ${
               currentIndex === 0 ? "disabled: border-black/30" : "border-black"
             }`}
           >
@@ -48,8 +49,10 @@ function SimilarProductSlider({ product }) {
           </button>
           <button
             onClick={handleNext}
-            className={`p-2 shadow-md border rounded-md ${
-              currentIndex >= similarProducts.length - 1 ? "disabled: border-black/30" : "border-black"
+            className={`p-2 shadow-md border rounded-md lg:text-2xl lg:px-3 ${
+              currentIndex >= similarProducts.length - 1
+                ? "disabled: border-black/30"
+                : "border-black"
             }`}
           >
             <GoChevronRight />
@@ -66,17 +69,35 @@ function SimilarProductSlider({ product }) {
             }}
           >
             {similarProducts.map((similarProduct) => (
-              <div key={similarProduct.id} className="w-36 shrink-0">
+              <div
+                key={similarProduct.id}
+                className="w-36 shrink-0 mr-4 md:w-52 lg:w-60"
+              >
                 <div className="border rounded-md">
                   <img
                     src={similarProduct.image}
                     alt={similarProduct.name}
-                    className="w-full h-36 object-cover rounded-md"
+                    className="w-full h-36 object-cover rounded-md md:h-52 lg:h-60"
                   />
-                  <h3 className="text-sm mt-3">
-                    {similarProduct.name}
-                  </h3>
-                  <p className="text-black">$ {similarProduct.price}</p>
+                  <h3 className="text-sm mt-3 lg:text-lg">{similarProduct.name}</h3>
+                  <h2 className="text-black text-xl my-3">
+        {similarProduct.onSale ? (
+          <div className="flex gap-3">
+            <span className="text-black/50 line-through text-[1rem]">
+              $ {similarProduct.price}
+            </span>
+            <span>
+              ${" "}
+              {(
+                similarProduct.price -
+                similarProduct.price * (similarProduct.discount / 100)
+              )}
+            </span>
+          </div>
+        ) : (
+          <span>$ {similarProduct.price}</span>
+        )}
+      </h2>
                 </div>
               </div>
             ))}
