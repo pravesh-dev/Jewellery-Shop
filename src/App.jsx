@@ -7,6 +7,7 @@ import Shop from './Pages/Shop'
 import ProductPage from './Pages/ProductPage'
 import ScrollToTop from './Components/ScrollToTop'
 import LoginPage from './Pages/LoginPage'
+import SignupPage from './Pages/SignupPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/shop' element={<Shop/>} />
           <Route path='/shop/:type/:name/:id' element={<ProductPage/>} />
           <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignupPage />} />
           <Route path='*' element={<NoPage/>} />
         </Route>
       </Routes>

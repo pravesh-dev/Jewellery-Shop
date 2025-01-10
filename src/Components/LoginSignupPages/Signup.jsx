@@ -4,20 +4,20 @@ import user from "../../Assets/loginSignupPage/user.svg";
 import lock from "../../Assets/loginSignupPage/lock.svg";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Signup() {
   return (
     <div className="w-full h-full absolute top-0 left-0 font-mulish flex justify-center md:gap-10 lg:gap-20 xl:px-28 xl:justify-between">
       <form className="w-80 px-2 h-full flex flex-col justify-center lg:w-96 xl:ml-14">
         <div className="flex justify-between px-3 mb-10 lg:mb-14">
           <Link
             to="/login"
-            className="text-[#62DC7C] text-2xl border-b-2 border-[#62DC7C] px-2 pb-1 lg:text-4xl lg:px-4"
+            className="text-gray-400 text-2xl border-b-2 border-gray-300 px-2 pb-1 lg:text-4xl lg:px-4"
           >
             Login
           </Link>
           <Link
             to="/signup"
-            className="text-gray-400 text-2xl border-b-2 border-gray-300 px-2 pb-1 lg:text-4xl lg:px-4"
+            className="text-[#62DC7C] text-2xl border-b-2 border-[#62DC7C]  px-2 pb-1 lg:text-4xl lg:px-4"
           >
             Sign up
           </Link>
@@ -56,23 +56,13 @@ function Login() {
           </div>
         </div>
 
-        <div className="lg:flex justify-between items-center">
-          {/* Forgot Password */}
-            <a
-              href="#"
-              className="text-[#62DC7C] mt-7 text-sm hover:underline hover:text-green-600"
-            >
-              Forgot your password?
-            </a>
-
-          {/* Login Button */}
+          {/* Signup Button */}
             <button
               type="submit"
-              className="w-full mt-6 bg-[#009400] text-accent text-lg py-2 rounded-md lg:w-auto lg:px-10 lg:rounded-full"
+              className="w-full mt-6 bg-[#009400] text-accent text-lg py-2 rounded-md lg:w-auto lg:px-10 lg:rounded-full lg:self-end"
             >
-              Login
+              Signup
             </button>
-        </div>
       </form>
       <div className="hidden md:flex justify-center items-center">
         <img className="w-80 lg:w-[27rem]" src={sideImage} alt="image" />
@@ -81,4 +71,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
