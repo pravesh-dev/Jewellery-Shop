@@ -34,7 +34,7 @@ function SimilarProductSlider({ product }) {
   };
 
   return (
-    <div className="w-full py-5 px-2 font-bellefair xl:px-16">
+    <section className="w-full py-5 px-2 font-bellefair xl:px-16">
       <div className="flex items-center justify-between mb-5">
         <h2 className="text-primary text-2xl md:text-3xl lg:text-4xl">Similar Items</h2>
         {/* Navigation Buttons */}
@@ -106,7 +106,7 @@ function SimilarProductSlider({ product }) {
       ) : (
         <p className="text-dark text-lg">No similar items found.</p>
       )}
-    </div>
+    </section>
   );
 }
 

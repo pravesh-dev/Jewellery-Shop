@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import Shop from './Pages/Shop'
 import ProductPage from './Pages/ProductPage'
 import ScrollToTop from './Components/ScrollToTop'
+import Login from './Pages/Login'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/shop' element={<Shop/>} />
           <Route path='/shop/:type/:name/:id' element={<ProductPage/>} />
+          <Route path='/login' element={<Login />} />
           <Route path='*' element={<NoPage/>} />
         </Route>
       </Routes>
