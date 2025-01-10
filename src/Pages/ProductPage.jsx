@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { items } from '../Components/ProductsData';
 import Hero from '../Components/ProductPage/Hero';
+import SimilarProductSlider from '../Components/ProductPage/SimilarProductSlider';
 
 function ProductPage() {
   const { id } = useParams()
@@ -17,6 +18,7 @@ function ProductPage() {
       {product && (
         <div>
           <Hero product={product} />
+          <SimilarProductSlider product={product} />
         </div>
       )}
       {!product && <div className='w-full h-screen flex justify-center items-center'>

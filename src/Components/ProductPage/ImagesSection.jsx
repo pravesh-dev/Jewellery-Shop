@@ -2,7 +2,7 @@ import React from "react";
 
 function ImagesSection({product}) {
   return (
-    <div className="w-full flex flex-col gap-3 md:w-80 lg:w-[27rem] xl:w-[35rem] border border-red-600">
+    <div className="w-full flex flex-col gap-3 md:w-80 lg:w-[27rem] xl:w-[35rem]">
       <div className="w-full h-80 overflow-hidden rounded-xl lg:h-[27rem] xl:h-[35rem]">
         <img
           src={product.image}

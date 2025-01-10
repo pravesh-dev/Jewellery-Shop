@@ -22,7 +22,7 @@ function ProductInfo({ product }) {
   };
 
   return (
-    <div className="w-full font-bellefair py-4 md:w-80 md:py-0 border border-yellow-700 lg:w-[27rem] xl:w-[35rem]">
+    <div className="w-full font-bellefair py-4 md:w-80 md:py-0 lg:w-[27rem] xl:w-[35rem]">
       <h1 className="text-3xl lg:text-4xl xl:text-5xl">{product.name}</h1>
       <div className="flex gap-2 items-center lg:my-2 xl:my-4">
         <div className="flex gap-1 items-center text-lg">
