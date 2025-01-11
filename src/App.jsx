@@ -8,6 +8,7 @@ import ProductPage from './Pages/ProductPage'
 import ScrollToTop from './Components/ScrollToTop'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
+import BlogLandingPage from './Pages/BlogLandingPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/shop' element={<Shop/>} />
           <Route path='/shop/:type/:name/:id' element={<ProductPage/>} />
+          <Route path='/blog' element={<BlogLandingPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='*' element={<NoPage/>} />
