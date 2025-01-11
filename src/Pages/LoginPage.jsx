@@ -4,7 +4,7 @@ import Login from '../Components/LoginSignupPages/Login'
 
 function LoginPage() {
   return (
-    <section className='relative w-full h-screen'>
+    <section className='relative w-full h-[42rem] lg:h-[47rem]'>
       <Background />
       <Login />
     </section>
