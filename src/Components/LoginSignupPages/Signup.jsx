@@ -29,13 +29,39 @@ function Signup() {
         <div className="space-y-8 lg:space-y-12">
           <div className="relative">
             <img
+              src={name}
+              className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
+              alt="name icon"
+            />
+            <input
+              type="text"
+              placeholder="Full Name"
+              autoComplete="off"
+              className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
+            />
+          </div>
+          <div className="relative">
+            <img
               src={user}
               className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
               alt="user icon"
             />
             <input
-              type="text"
-              placeholder="Email or phone number"
+              type="email"
+              placeholder="Email Address"
+              autoComplete="off"
+              className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
+            />
+          </div>
+          <div className="relative">
+            <img
+              src={call}
+              className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
+              alt="user icon"
+            />
+            <input
+              type="number"
+              placeholder="Phone Number"
               autoComplete="off"
               className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
             />
@@ -46,12 +72,23 @@ function Signup() {
             <img
               src={lock}
               className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
-              alt="user icon"
+              alt="lock icon"
             />
             <input
               type="password"
               placeholder="Password"
-              autoComplete="off"
+              className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
+            />
+          </div>
+          <div className="relative">
+            <img
+              src={lock}
+              className="w-6 absolute left-3 top-1/2 transform -translate-y-1/2"
+              alt="lock icon"
+            />
+            <input
+              type="password"
+              placeholder="Re-Enter Password"
               className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16"
             />
           </div>
