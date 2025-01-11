@@ -1,6 +1,8 @@
 import React from "react";
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
+import name from "../../Assets/loginSignupPage/name.svg";
 import user from "../../Assets/loginSignupPage/user.svg";
+import call from "../../Assets/loginSignupPage/call.svg";
 import lock from "../../Assets/loginSignupPage/lock.svg";
 import { Link } from "react-router-dom";
 
@@ -25,7 +27,6 @@ function Signup() {
 
         {/* Input Fields */}
         <div className="space-y-8 lg:space-y-12">
-          {/* Email or Phone */}
           <div className="relative">
             <img
               src={user}
