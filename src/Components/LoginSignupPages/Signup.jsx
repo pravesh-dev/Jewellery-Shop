@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function Signup() {
   return (
-    <div className="w-full h-full absolute top-0 left-0 font-mulish flex justify-center md:gap-10 lg:gap-20 xl:px-28 xl:justify-between">
+    <div className="w-full h-full pt-10 absolute top-0 left-0 font-mulish flex justify-center md:gap-10 lg:gap-20 xl:px-28 xl:justify-between">
       <form className="w-80 px-2 h-full flex flex-col justify-center lg:w-96 xl:ml-14">
         <div className="flex justify-between px-3 mb-10 lg:mb-14">
           <Link
