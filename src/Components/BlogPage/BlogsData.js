@@ -37,6 +37,36 @@ const blogsData = [
         publishData: `August 14, 2023`,
         title: `Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`,
     },
+    {
+        id: 7,
+        thumbnail: thumbnail,
+        publishData: `August 14, 2023`,
+        title: `Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`,
+    },
+    {
+        id: 8,
+        thumbnail: thumbnail,
+        publishData: `August 14, 2023`,
+        title: `Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`,
+    },
+    {
+        id: 9,
+        thumbnail: thumbnail,
+        publishData: `August 14, 2023`,
+        title: `Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`,
+    },
+    {
+        id: 10,
+        thumbnail: thumbnail,
+        publishData: `August 14, 2023`,
+        title: `Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`,
+    },
+    {
+        id: 11,
+        thumbnail: thumbnail,
+        publishData: `August 14, 2023`,
+        title: `Morbi leo risus, porta ac consectetur ac, vestibulum at eros.`,
+    },
 ];
 
 export { blogsData };
