@@ -27,7 +27,7 @@ function ReviewSection({ product }) {
     const canShowMore = replies.length > visibleCount;
 
     return (
-      <div className="ml-5 mt-2 pl-3">
+      <div className="ml-5 mt-2 pl-3 flex flex-col">
         {replies.slice(0, visibleCount).map((reply) => (
           <div key={reply.id} className="mb-3">
             <div className="flex items-center justify-start gap-2">
@@ -58,7 +58,7 @@ function ReviewSection({ product }) {
         ))}
         {canShowMore ? (
           <button
-            className="text-sm text-primary mt-2"
+            className="text-[0.6rem] text-accent mt-2 font-bellefair bg-secondary px-3 py-[0.2rem] rounded-full self-end"
             onClick={() =>
               setVisibleReplies((prev) => ({
                 ...prev,
@@ -66,12 +66,12 @@ function ReviewSection({ product }) {
               }))
             }
           >
-            Read More Replies
+            More Replies
           </button>
         ) : (
           visibleReplies[commentId] > 1 && (
             <button
-              className="text-sm text-gray-500 mt-2"
+              className="text-[0.6rem] text-accent mt-2 font-bellefair bg-secondary px-3 py-[0.2rem] rounded-full self-end"
               onClick={() =>
                 setVisibleReplies((prev) => ({
                   ...prev,
@@ -79,7 +79,7 @@ function ReviewSection({ product }) {
                 }))
               }
             >
-              Show Less Replies
+              Less Replies
             </button>
           )
         )}
@@ -197,7 +197,7 @@ function ReviewSection({ product }) {
         ))}
         {reviews.comments.length > visibleComments ? (
           <button
-            className="text-accent bg-[#CFAB55] px-3 py-1 rounded-full text-sm mt-3 self-center"
+            className="text-accent bg-[#CFAB55] px-5 py-1 rounded-full text-sm mt-3 self-center font-bellefair"
             onClick={() => setVisibleComments((prev) => prev + 2)}
           >
             Read More
@@ -205,7 +205,7 @@ function ReviewSection({ product }) {
         ) : (
           visibleComments > 2 && (
             <button
-              className="text-accent bg-[#CFAB55] px-3 py-1 rounded-full text-sm mt-3 self-center"
+              className="text-accent bg-[#CFAB55] px-5 py-1 rounded-full text-sm mt-3 self-center font-bellefair"
               onClick={() => setVisibleComments(2)}
             >
               Show Less
