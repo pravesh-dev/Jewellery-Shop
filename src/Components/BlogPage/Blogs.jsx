@@ -33,16 +33,16 @@ function Blogs() {
 
   return (
     <div className="py-5 px-2 md:w-[45rem] md:mx-auto lg:w-[52rem] lg:pb-20 xl:w-full xl:px-40">
-      <div className="w-full flex-wrap gap-x-2 gap-y-4 flex relative justify-center sm:gap-10 md:gap-8 lg:gap-y-14 xl:gap-y-20">
+      <div className="w-full flex-wrap gap-x-2 gap-y-4 flex relative justify-center sm:gap-10 md:gap-8 lg:gap-y-14 xl:gap-x-24 xl:gap-y-20">
         {currentBlogs.map((blog, index) => (
           <div
             key={index}
-            className="blog-card w-36 rounded-md p-1 flex flex-col sm:p-5 sm:w-60 lg:rounded-2xl lg:gap-1 lg:pb-10 xl:pb-14 xl:gap-2 xl:w-[20vw] shadow-[0px_1px_3px_2px_#FFDF84]"
+            className="blog-card w-36 rounded-md p-1 flex flex-col sm:p-5 sm:w-60 lg:rounded-2xl lg:gap-1 lg:pb-10 xl:pb-14 xl:gap-2 xl:px-3 xl:w-[20vw] shadow-[0px_1px_3px_2px_#FFDF84]"
             onClick={() =>
               navigate(`/${blog.publishData}/${blog.title}/${blog.id}`)
             }
           >
-            <div className="w-full h-24 rounded-md overflow-hidden sm:h-36 lg:rounded-2xl xl:h-[13vw] relative">
+            <div className="w-full h-24 rounded-md overflow-hidden sm:h-36 lg:rounded-2xl xl:h-[12vw] relative">
               <img
                 loading="lazy"
                 src={blog.thumbnail}
