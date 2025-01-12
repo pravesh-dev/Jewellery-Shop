@@ -35,7 +35,14 @@ function Blogs() {
           );
         })}
       </div>
-
+        <div>
+            <button>Previous</button>
+            <div>
+                <button className="text-secondary">1</button>
+                <button>2</button>
+            </div>
+            <button>Next</button>
+        </div>
     </div>
   );
 }
