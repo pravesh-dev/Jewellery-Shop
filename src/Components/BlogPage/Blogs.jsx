@@ -12,7 +12,7 @@ function Blogs() {
           return (
             <div
               key={index}
-              className="product-card w-36 flex flex-col sm:w-52 lg:gap-1 xl:gap-2 xl:w-[20vw]"
+              className="blog-card w-36 rounded-md p-1 flex flex-col sm:p-5 sm:w-60 lg:rounded-2xl lg:gap-1 lg:pb-10 xl:pb-14 xl:gap-2 xl:w-[20vw] shadow-[0px_1px_3px_2px_#FFDF84]"
               onClick={() =>
                 navigate(`/${blog.publishData}/${blog.title}/${blog.id}`)
               }
@@ -35,6 +35,7 @@ function Blogs() {
           );
         })}
       </div>
+
     </div>
   );
 }
