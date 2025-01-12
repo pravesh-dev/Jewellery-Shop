@@ -198,6 +198,16 @@ const items = [
           replies: [],
         },
         {
+          id: 1,
+          user: "Pravesh",
+          date: "Yesterday",
+          rating: 5,
+          comment: "Pellentesque semper ipsum porta laoreet sit ornare vulputate integer. Lorem ipsum dolor sit amet consectetur.",
+          likes: 50,
+          dislikes: 0,
+          replies: [],
+        },
+        {
           id: 2,
           user: "Kanika",
           date: "2 days ago",
@@ -206,6 +216,15 @@ const items = [
           likes: 50,
           dislikes: 0,
           replies: [
+            {
+              id: 1,
+              user: "Pravesh",
+              rating: 5,
+              date: "2 days ago",
+              comment: "Nahi nahi hai.",
+              likes: 50,
+              dislikes: 0,
+            },
             {
               id: 1,
               user: "Pravesh",
