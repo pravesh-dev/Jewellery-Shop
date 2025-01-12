@@ -12,19 +12,19 @@ function Hero() {
           loading="lazy"
           alt="bg image"
         />
-        <div className="w-full h-full rounded-xl absolute top-0 left-0 flex flex-col items-center justify-center sm:flex-row-reverse">
+        <div className="w-full h-full rounded-xl absolute top-0 left-0 flex gap-7 flex-col items-center justify-center sm:flex-row-reverse">
         <div className="w-full flex justify-center sm:w-auto">
             <img
               src={sideImage}
-              className="w-64 sm:w-72 lg:w-[30rem]"
+              className="w-80 lg:w-[30rem]"
               alt="side image"
             />
           </div>
-          <div className="font-bellefair px-1 sm:w-[22rem] sm:pl-8 md:p-7 md:w-[30rem] lg:w-[40rem] xl:px-24 xl:w-[55rem]">
-            <h1 className="text-primary uppercase text-3xl md:mb-4 lg:text-[2.9rem] lg:leading-[3.3rem] xl:text-[3.2rem] xl:mb-8">
+          <div className="font-bellefair flex flex-col gap-2 items-center px-1 sm:items-start sm:w-[27rem] sm:pl-8 md:p-7 md:w-[30rem] lg:w-[40rem] xl:px-24 xl:w-[55rem]">
+            <h1 className="text-primary uppercase text-center text-3xl sm:text-left md:mb-4 lg:text-[2.9rem] lg:leading-[3.3rem] xl:text-[3.2rem] xl:mb-8">
             The Jewel Journal
             </h1>
-            <p className="lg:text-lg xl:text-2xl">Every piece of jewelry carries a unique tale, blending timeless elegance with unmatched craftsmanship. From delicate designs to bold statements, our jewels are more than adornments—they're symbols of strength, beauty, and individuality.</p>
+            <p className="text-center sm:text-left lg:text-lg xl:text-2xl">Every piece of jewelry carries a unique tale, blending timeless elegance with unmatched craftsmanship. From delicate designs to bold statements, our jewels are more than adornments—they're symbols of strength, beauty, and individuality.</p>
           </div>
         </div>
       </div>
