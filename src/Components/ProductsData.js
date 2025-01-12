@@ -209,6 +209,7 @@ const items = [
             {
               id: 1,
               user: "Pravesh",
+              rating: 5,
               date: "2 days ago",
               comment: "Nahi nahi hai.",
               likes: 50,

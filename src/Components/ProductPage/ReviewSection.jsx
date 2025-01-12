@@ -1,15 +1,20 @@
 import { IoStarSharp } from "react-icons/io5";
-import defaultProfilePic from "../../Assets/profile.png"; // Replace with the actual path
+import defaultProfilePic from "../../Assets/profile.png";
+import { BiLike, BiDislike, BiSolidLike, BiSolidDislike } from "react-icons/bi";
+import { IoIosArrowDown } from "react-icons/io";
+import { useEffect, useState } from "react";
 
 function ReviewSection({ product }) {
   const { reviews } = product;
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("Newest");
 
   // Helper function to render star ratings
   const renderStars = (rating) => {
     return [...Array(5)].map((_, index) => (
       <IoStarSharp
         key={index}
-        className={index < rating ? "text-yellow-500" : "text-gray-300"}
+        className={index < rating ? "text-secondary" : "text-gray-300"}
       />
     ));
   };
@@ -17,30 +22,59 @@ function ReviewSection({ product }) {
   // Recursive function to render replies
   const renderReplies = (replies) => {
     return (
-      <div className="ml-5 mt-2 border-l-2 border-gray-200 pl-3">
-        {replies.map((reply) => (
-          <div key={reply.id} className="mb-3">
-            <div className="flex items-center justify-start gap-4">
-              <div className="flex items-center gap-2">
-                <img
-                  src={reply.profilePicture || defaultProfilePic}
-                  alt={`${reply.user}'s profile`}
-                  className="w-8 h-8 rounded-full object-cover"
-                />
-                <span className="font-medium text-sm">{reply.user}</span>
-              </div>
-              <span className="text-xs text-gray-400">{reply.date}</span>
-            </div>
-            <p className="pl-10 text-sm text-gray-600 mt-1">{reply.comment}</p>
-            <div className="pl-10 flex items-center gap-3 mt-1">
-              <span className="text-xs text-gray-500">👍 {reply.likes}</span>
-              <span className="text-xs text-gray-500">👎 {reply.dislikes}</span>
-            </div>
+      <div className="ml-5 mt-2 pl-3">
+  {replies.map((reply) => (
+    <div key={reply.id} className="mb-3">
+      <div className="flex items-center justify-start gap-2">
+        <img
+          src={reply.profilePicture || defaultProfilePic}
+          alt={`${reply.user}'s profile`}
+          className="w-8 h-8 rounded-full object-cover"
+        />
+        <div>
+          <div className="flex items-center gap-4">
+            <span className="text-primary font-mulish text-sm">{reply.user}</span>
+            <span className="text-xs font-mulish text-gray-400">{reply.date}</span>
           </div>
-        ))}
+          <div className="flex gap-1">
+                {renderStars(reply.rating)}
+              </div>
+        </div>
       </div>
+          <div className="pl-10 text-sm text-gray-600 mt-1 font-bellefair">{reply.comment}</div>
+      <div className="pl-10 flex items-center gap-3 mt-1 font-mulish">
+        <button className="text-secondary text-sm">Reply</button>
+        <button className="text-xs text-gray-500 flex items-center gap-1">
+          <BiLike /> {reply.likes}
+        </button>
+        <button className="text-xs text-gray-500 flex items-center gap-1">
+          <BiDislike /> {reply.dislikes}
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
     );
   };
+
+
+  const options = ["Newest", "Oldest"];
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (isOpen && !event.target.closest('.relative')) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('click', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isOpen]);
 
   return (
     <div className="p-5 border border-red-700 w-80 mx-auto">
@@ -75,30 +109,58 @@ function ReviewSection({ product }) {
       </div>
       {/* Comments Section */}
       <div>
-        <h3 className="text-lg font-semibold mb-3">Customer Reviews</h3>
+        <div className="font-bellefair flex gap-6 mb-3">
+          <h3 className="text-3xl text-[#555555]">Details</h3>
+        <h3 className="text-3xl text-primary">Review</h3>
+        </div>
+        <div className="relative my-3 w-max">
+      <button onClick={() => setIsOpen(!isOpen)} className="text-base px-5 py-1 border-2 border-[#7A7A7A] rounded-md flex items-center gap-3">
+        {selectedOption} <span><IoIosArrowDown /></span>
+      </button>
+      {isOpen && (
+          <div className="w-full absolute top-10 z-20 bg-white text-dark shadow-md rounded-md">
+          {options.map((option) => (
+            <div key={option} onClick={() => { setSelectedOption(option); setIsOpen(false); }} className="px-7 py-1 hover:bg-gray-200">
+              {option}
+            </div>
+          ))}
+        </div>
+      )}
+      </div>
         {reviews.comments.map((comment) => (
           <div
             key={comment.id}
-            className="p-3 mb-3 bg-gray-50 border rounded-md"
+            className="pb-3"
           >
-            <div className="flex items-center justify-start gap-4 mb-2">
-              <div className="flex items-center gap-2">
-                <img
-                  src={comment.profilePicture || defaultProfilePic}
-                  alt={`${comment.user}'s profile`}
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <span className="font-medium">{comment.user}</span>
+            <div className="flex items-center justify-start gap-2 mb-2">
+              <img
+                src={comment.profilePicture || defaultProfilePic}
+                alt={`${comment.user}'s profile`}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mulish text-primary">{comment.user}</span>
+                  <span className="text-sm text-gray-400 font-mulish">
+                    {comment.date}
+                  </span>
+                </div>
+                <div className="flex gap-1">
+                  {renderStars(comment.rating)}
+                </div>
               </div>
-              <span className="text-sm text-gray-400">{comment.date}</span>
             </div>
-            <div className="pl-11 flex gap-1 mb-2">{renderStars(comment.rating)}</div>
-            <p className="pl-12 text-sm text-gray-600">{comment.comment}</p>
-            <div className="pl-12 flex items-center gap-3 mt-2">
-              <span className="text-sm text-gray-500">👍 {comment.likes}</span>
-              <span className="text-sm text-gray-500">
-                👎 {comment.dislikes}
-              </span>
+            <p className="pl-12 text-sm text-gray-600 font-bellefair">
+              {comment.comment}
+            </p>
+            <div className="pl-12 flex items-center gap-3 mt-2 font-mulish">
+              <button className="text-secondary text-sm">Reply</button>
+              <button className="text-sm text-gray-500 flex items-center gap-1">
+                <BiLike /> {comment.likes}
+              </button>
+              <button className="text-sm text-gray-500 flex items-center gap-1">
+                <BiDislike /> {comment.dislikes}
+              </button>
             </div>
             {/* Render replies if available */}
             {comment.replies &&
