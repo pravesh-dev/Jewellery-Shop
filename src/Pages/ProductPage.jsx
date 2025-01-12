@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { items } from '../Components/ProductsData';
 import Hero from '../Components/ProductPage/Hero';
 import SimilarProductSlider from '../Components/ProductPage/SimilarProductSlider';
+import ReviewSection from '../Components/ProductPage/ReviewSection';
 
 function ProductPage() {
   const { id } = useParams()
@@ -18,6 +19,7 @@ function ProductPage() {
       {product && (
         <div>
           <Hero product={product} />
+          <ReviewSection product={product} />
           <SimilarProductSlider product={product} />
         </div>
       )}
