@@ -57,11 +57,11 @@ function Blogs() {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center gap-2 mt-5">
+      <div className="flex items-center justify-center gap-2 mt-5 lg:mt-14">
         <button
           onClick={handlePrevious}
           className={`px-3 py-1 rounded-md ${
-            currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-primary"
+            currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-red-600 text-accent"
           }`}
           disabled={currentPage === 1}
         >
@@ -72,10 +72,10 @@ function Blogs() {
             <button
               key={index}
               onClick={() => handlePageClick(index + 1)}
-              className={`px-3 py-1 rounded-md ${
+              className={`text-xl mx-1 ${
                 currentPage === index + 1
-                  ? "bg-secondary text-white"
-                  : "bg-gray-200"
+                  ? "text-secondary"
+                  : "text-dark"
               }`}
             >
               {index + 1}
@@ -87,7 +87,7 @@ function Blogs() {
           className={`px-3 py-1 rounded-md ${
             currentPage === totalPages
               ? "bg-gray-300 cursor-not-allowed"
-              : "bg-primary"
+              : "bg-primary text-accent"
           }`}
           disabled={currentPage === totalPages}
         >
