@@ -9,7 +9,7 @@ function Hero({ product }) {
       <p className="text-sm py-4 text-black/70">
         <Link to='/shop' className='text-black cursor-pointer'>Shop</Link> &gt; {product.type} &gt; {product.title}
       </p>
-      <div className='md:flex justify-center gap-20 lg:w-[50rem] lg:justify-between bg-red-500 xl:w-[70rem]'>
+      <div className='md:flex justify-center gap-20 lg:w-[50rem] lg:justify-between xl:w-[70rem]'>
         <ImagesSection product={product} />
         <ProductInfo product={product} />
       </div>
