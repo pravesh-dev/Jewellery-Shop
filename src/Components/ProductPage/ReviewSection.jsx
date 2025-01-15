@@ -27,14 +27,14 @@ function ReviewSection({ product }) {
     const canShowMore = replies.length > visibleCount;
 
     return (
-      <div className="ml-5 mt-2 pl-3 flex flex-col">
+      <div className="ml-5 mt-2 pl-3 flex flex-col lg:mt-5 lg:ml-16">
         {replies.slice(0, visibleCount).map((reply) => (
           <div key={reply.id} className="mb-3">
-            <div className="flex items-center justify-start gap-2">
+            <div className="flex items-center justify-start gap-2 lg:gap-5">
               <img
                 src={reply.profilePicture || defaultProfilePic}
                 alt={`${reply.user}'s profile`}
-                className="w-8 h-8 rounded-full object-cover"
+                className="w-8 h-8 rounded-full object-cover lg:w-14 lg:h-14"
               />
               <div>
                 <div className="flex items-center gap-4">
@@ -44,8 +44,8 @@ function ReviewSection({ product }) {
                 <div className="flex gap-1">{renderStars(reply.rating)}</div>
               </div>
             </div>
-            <div className="pl-10 text-sm text-gray-600 mt-1 font-bellefair">{reply.comment}</div>
-            <div className="pl-10 flex items-center gap-3 mt-1 font-mulish">
+            <div className="pl-10 text-sm text-gray-600 mt-1 font-bellefair lg:pl-20 lg:leading-4">{reply.comment}</div>
+            <div className="pl-10 flex items-center gap-3 mt-1 font-mulish lg:pl-20">
               <button className="text-secondary text-sm">Reply</button>
               <button className="text-xs text-gray-500 flex items-center gap-1">
                 <BiLike /> {reply.likes}
@@ -106,19 +106,19 @@ function ReviewSection({ product }) {
   }, [isOpen]);
 
   return (
-    <div className="p-5 border border-red-700 w-80 mx-auto">
+    <div className="p-5 w-80 mx-auto md:flex md:flex-row-reverse md:justify-between md:gap-20 md:w-[45rem] md:px-0 lg:w-[50rem] lg:py-10 xl:py-14 xl:w-[70rem]">
       <div className="font-lora">
         {/* Average Rating Section */}
-        <div className="flex items-center gap-2 mb-5">
-          <div className="flex gap-1">{renderStars(Math.round(reviews.averageRating))}</div>
-          <span className="text-lg text-primary">{reviews.averageRating.toFixed(1)}</span>
+        <div className="flex items-center gap-2 justify-between md:gap-5 xl:gap-10">
+          <div className="flex gap-1 text-3xl">{renderStars(Math.round(reviews.averageRating))}</div>
+          <span className="text-3xl pr-4 text-primary md:p-0">{reviews.averageRating.toFixed(1)}</span>
         </div>
-
+        <span className="w-full h-[1px] bg-black/20 block my-3 md:my-4"></span>
         {/* Detailed Ratings */}
-        <div className="mb-5">
+        <div className="mb-5 xl:w-80">
           {Object.entries(reviews.detailedRatings).map(([rating, count]) => (
             <div key={rating} className="flex items-center gap-2">
-              <span className="w-5 text-sm font-medium">{rating}</span>
+              <span className="w-5 text-sm font-medium xl:text-base">{rating}</span>
               <div className="w-full h-2 bg-[#D9D9D9] rounded-sm">
                 <div
                   className="h-2 bg-secondary rounded"
@@ -127,21 +127,21 @@ function ReviewSection({ product }) {
                   }}
                 ></div>
               </div>
-              <span className="text-sm text-gray-500">{count}</span>
+              <span className="text-sm text-gray-500 xl:text-lg">{count}</span>
             </div>
           ))}
         </div>
       </div>
       {/* Comments Section */}
-      <div className="flex flex-col">
-        <div className="font-bellefair flex gap-6 mb-3">
-          <h3 className="text-3xl text-[#555555]">Details</h3>
-          <h3 className="text-3xl text-primary">Review</h3>
+      <div className="flex flex-col w-[30rem]">
+        <div className="font-bellefair flex gap-6 mb-3 lg:gap-10">
+          <h3 className="text-3xl text-[#555555] lg:text-4xl xl:text-[2.5rem]">Details</h3>
+          <h3 className="text-3xl text-primary lg:text-4xl xl:text-[2.5rem]">Review</h3>
         </div>
-        <div className="relative my-3 w-max">
+        <div className="relative my-3 w-max md:mb-6">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-base px-5 py-1 border-2 border-[#7A7A7A] rounded-md flex items-center gap-3"
+            className="text-base px-5 py-1 border border-[#7A7A7A] rounded-md flex items-center gap-3 md:rounded-sm lg:py-2"
           >
             {selectedOption} <span>
               <IoIosArrowDown />
@@ -165,23 +165,23 @@ function ReviewSection({ product }) {
           )}
         </div>
         {reviews.comments.slice(0, visibleComments).map((comment) => (
-          <div key={comment.id} className="pb-3">
-            <div className="flex items-center justify-start gap-2 mb-2">
+          <div key={comment.id} className="pb-3 md:pb-10">
+            <div className="flex items-center justify-start gap-2 mb-2 lg:gap-5">
               <img
                 src={comment.profilePicture || defaultProfilePic}
                 alt={`${comment.user}'s profile`}
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-10 h-10 rounded-full object-cover lg:w-14 lg:h-14"
               />
               <div>
                 <div className="flex items-center gap-4">
                   <span className="font-mulish text-primary">{comment.user}</span>
-                  <span className="text-sm text-gray-400 font-mulish">{comment.date}</span>
+                  <span className="text-sm text-gray-600 font-mulish">{comment.date}</span>
                 </div>
                 <div className="flex gap-1">{renderStars(comment.rating)}</div>
               </div>
             </div>
-            <p className="pl-12 text-sm text-gray-600 font-bellefair">{comment.comment}</p>
-            <div className="pl-12 flex items-center gap-3 mt-2 font-mulish">
+            <p className="pl-12 text-sm font-bellefair lg:pl-20 lg:leading-4">{comment.comment}</p>
+            <div className="pl-12 flex items-center gap-3 mt-2 font-mulish lg:pl-20">
               <button className="text-secondary text-sm">Reply</button>
               <button className="text-sm text-gray-500 flex items-center gap-1">
                 <BiLike /> {comment.likes}
