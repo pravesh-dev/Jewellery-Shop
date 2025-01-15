@@ -9,6 +9,7 @@ import ScrollToTop from './Components/ScrollToTop'
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import BlogLandingPage from './Pages/BlogLandingPage'
+import AboutPage from './Pages/AboutPage'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/shop' element={<Shop/>} />
           <Route path='/shop/:type/:name/:id' element={<ProductPage/>} />
+          <Route path='/about' element={<AboutPage />} />
           <Route path='/blog' element={<BlogLandingPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
