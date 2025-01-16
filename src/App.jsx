@@ -10,6 +10,7 @@ import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import BlogLandingPage from './Pages/BlogLandingPage'
 import AboutPage from './Pages/AboutPage'
+import ContactPage from './Pages/ContactPage'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/blog' element={<BlogLandingPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
+          <Route path='/contact' element={<ContactPage />} />
           <Route path='*' element={<NoPage/>} />
         </Route>
       </Routes>
