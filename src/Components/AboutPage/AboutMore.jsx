@@ -11,6 +11,7 @@ function AboutMore() {
         <img
           src={img1}
           className="w-full h-full object-cover rounded-sm lg:rounded-md object-[0%_40%]"
+          loading="lazy"
           alt="background image related to about us"
         />
       </div>
@@ -29,7 +30,7 @@ function AboutMore() {
           <h3 className="font-bellefair text-dark px-4 text-sm md:text-base md:px-10 xl:text-2xl xl:px-12">Pravesh Saini, Jeweller</h3>
         </div>
         <div className="w-full h-60 rounded-sm md:w-1/2 lg:h-72 xl:h-80 lg:rounded-md">
-          <img src={img2} className="w-full h-full object-cover rounded-sm lg:rounded-md" alt="image" />
+          <img src={img2} className="w-full h-full object-cover rounded-sm lg:rounded-md" loading="lazy" alt="image" />
         </div>
       </div>
     </div>
