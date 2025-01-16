@@ -4,8 +4,8 @@ import teamImg3 from "../../Assets/AboutPage/team3.jpg";
 
 function OurTeam() {
   return (
-    <div className="w-full bg-red-200 pt-5 pb-10 flex flex-col gap-10 md:flex-row md:px-2 xl:px-16 xl:gap-0">
-      <div className="w-80 mx-auto flex items-center justify-between px-2 md:w-1/2 md:px-0 md:justify-center md:gap-3 xl:w-[60%] xl:justify-start bg-yellow-600">
+    <div className="w-full pt-5 pb-10 flex flex-col gap-10 md:flex-row md:px-2 lg:items-center xl:px-16">
+      <div className="w-80 mx-auto flex items-center justify-between px-2 md:w-1/2 md:px-0 md:justify-center md:gap-3 xl:justify-start">
         <div className="flex flex-col items-center gap-3">
           <div className="w-40 h-36 rounded-[0.21rem] overflow-hidden md:w-52 md:h-48 lg:w-64 lg:h-60 lg:rounded-[0.33rem] xl:w-80 xl:h-[20.5rem]">
             <img
@@ -35,7 +35,7 @@ function OurTeam() {
           </div>
         </div>
       </div>
-      <div className="w-full font-bellefair flex flex-col items-center gap-2 px-2 md:items-start md:w-1/2 md:px-0 xl:w-[40%] bg-red-700">
+      <div className="w-full font-bellefair flex flex-col items-center gap-2 px-2 md:items-start md:w-1/2 md:px-0 xl:pr-20">
         <h1 className="uppercase text-primary text-3xl sm:text-4xl lg:text-5xl lg:mb-5">
           The team.
         </h1>
