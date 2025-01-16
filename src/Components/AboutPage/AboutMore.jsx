@@ -1,29 +1,39 @@
-import React from 'react'
-import img1 from '../../Assets/AboutPage/about1.jpg'
-import img2 from '../../Assets/AboutPage/about2.jpg'
+import React from "react";
+import img1 from "../../Assets/AboutPage/about1.jpg";
+import img2 from "../../Assets/AboutPage/about2.jpg";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import { RiDoubleQuotesR } from "react-icons/ri";
 
 function AboutMore() {
   return (
-    <div className='py-10 px-2'>
-      <div className='w-full h-72 rounded-sm lg:h-80 lg:rounded-md xl:px-16 mx-auto'>
-        <img src={img1} className='w-full h-full object-cover rounded-sm lg:rounded-md object-[0%_40%]' alt="background image related to about us" />
+    <div className="py-10 px-2 md:py-20 xl:px-16">
+      <div className="w-full h-72 rounded-sm lg:h-80 lg:rounded-md mx-auto">
+        <img
+          src={img1}
+          className="w-full h-full object-cover rounded-sm lg:rounded-md object-[0%_40%]"
+          alt="background image related to about us"
+        />
       </div>
-      <div>
-        <div className=''>
-            <h2 className='font-lora relative'>
-            <RiDoubleQuotesL className='text-sm absolute top-0 left-0' />
-            <RiDoubleQuotesR className='text-sm absolute bottom-0 right-0' />
-                Venenatis sagittis neque non lectus mi tortor neque proin massa. Et eu dictum orci. </h2>
-            <h3 className='font-bellefair'>Pravesh Saini, Jeweller</h3>
+      <div className="mt-10 flex flex-col gap-10 md:flex-row md:mt-20 md:items-center">
+        <div className="md:w-1/2 md:px-5">
+          <div>
+            <RiDoubleQuotesL className="text-sm md:text-2xl xl:text-4xl" />
+          </div>
+          <h2 className="font-lora text-dark text-lg relative px-4 font-semibold md:text-2xl md:px-10 xl:text-3xl xl:px-12">
+            Venenatis sagittis neque non lectus mi tortor neque proin massa. Et
+            eu dictum orci.{" "}
+          </h2>
+          <div className="w-full flex justify-end">
+            <RiDoubleQuotesR className="text-sm md:text-2xl xl:text-4xl" />
+          </div>
+          <h3 className="font-bellefair text-dark px-4 text-sm md:text-base md:px-10 xl:text-2xl xl:px-12">Pravesh Saini, Jeweller</h3>
         </div>
-        <div>
-            <img src={img2} className='w-full h-full object-cover' alt="image" />
+        <div className="w-full h-60 rounded-sm md:w-1/2 lg:h-72 xl:h-80 lg:rounded-md">
+          <img src={img2} className="w-full h-full object-cover rounded-sm lg:rounded-md" alt="image" />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AboutMore
+export default AboutMore;

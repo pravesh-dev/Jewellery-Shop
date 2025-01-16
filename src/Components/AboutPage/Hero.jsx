@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
-    <div className='w-full mx-auto font-bellefair pt-20 pb-5 lg:pt-28 px-2 flex flex-col gap-10 justify-center sm:flex-row lg:px-28 xl:w-[75rem] xl:px-0 xl:pt-44 xl:pb-10'>
+    <div className='w-full mx-auto font-bellefair pt-20 pb-5 sm:pt-28 px-2 flex flex-col gap-10 justify-center sm:flex-row lg:px-28 xl:w-[75rem] xl:px-0 xl:pt-44 xl:pb-10'>
       <div className='flex items-center justify-center gap-4 sm:w-[30%] sm:flex-col sm:gap-2 sm:justify-start sm:pt-14 lg:pt-24 xl:items-start xl:gap-1'>
         <Link to='/about' className='text-secondary border-b border-secondary sm:leading-4 sm:text-xl xl:text-2xl'>About Us.</Link>
         <Link className='sm:leading-4 sm:text-xl xl:text-2xl'>Our Team.</Link>
