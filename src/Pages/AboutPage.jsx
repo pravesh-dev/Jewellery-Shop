@@ -7,7 +7,16 @@ function AboutPage() {
   const teamRef = useRef(null);
 
   const scrollToTeam = () => {
-    teamRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (teamRef.current) {
+      const headerHeight = 80;
+      const elementPosition = teamRef.current.getBoundingClientRect().top; // Position relative to the viewport
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
