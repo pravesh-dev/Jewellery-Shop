@@ -6,8 +6,8 @@ import teamImg3 from "../../Assets/AboutPage/team3.jpg";
 const OurTeam = forwardRef((props, ref) => {
   return (
     <div ref={ref} className="w-full pt-5 pb-10 flex flex-col gap-10 md:flex-row md:px-2 lg:items-center xl:px-16">
-      <div className="w-80 mx-auto flex items-center justify-between px-2 md:w-1/2 md:px-0 md:justify-center md:gap-3 xl:justify-start">
-        <div className="flex flex-col items-center gap-3">
+      <div className="w-80 mx-auto flex items-center justify-between px-2 md:w-1/2 md:px-0 md:justify-center md:gap-3 xl:justify-start xl:gap-7">
+        <div className="flex flex-col items-center gap-3 xl:gap-7">
           <div className="w-40 h-36 rounded-[0.21rem] overflow-hidden md:w-52 md:h-48 lg:w-64 lg:h-60 lg:rounded-[0.33rem] xl:w-80 xl:h-[20.5rem]">
             <img
               src={teamImg1}
