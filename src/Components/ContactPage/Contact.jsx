@@ -44,7 +44,7 @@ function Contact() {
             className="w-full h-20 mt-5 text-sm border-b-2 border-black/50 text-black placeholder:text-black resize-none outline-none lg:text-lg lg:mt-10 xl:text-xl xl:mt-14 xl:h-32"
             placeholder="Message"
           ></textarea>
-          <button className="px-6 py-1 mt-6 self-end rounded-sm bg-secondary text-accent lg:rounded-[0.2rem] lg:tracking-wider xl:px-8 xl:text-xl xl:rounded-[0.25rem]">
+          <button className="px-6 py-1 mt-6 self-end rounded-sm bg-secondary text-accent lg:rounded-[0.2rem] lg:tracking-wider xl:px-7 xl:text-xl xl:rounded-[0.25rem]">
             Submit
           </button>
         </form>
