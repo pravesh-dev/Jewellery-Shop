@@ -5,7 +5,7 @@ import Signup from '../Components/LoginSignupPages/Signup'
 function SignupPage() {
   return (
     <section className='relative w-full h-[42rem] lg:h-[50rem]'>
-      {/* <Background /> */}
+      <Background />
       <Signup />
     </section>
   )
