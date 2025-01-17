@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 function Contact() {
   return (
-    <section className="font-bellefair pt-24 pb-10 md:pt-32 md:px-10 lg:px-20">
+    <section className="font-bellefair pt-24 pb-10 md:pt-32 md:px-10 lg:px-20 lg:pt-40">
       <h1 className="capitalize text-primary text-2xl drop-shadow-[0_0_0.4px_#006400] md:mx-auto px-2 md:p-0 lg:text-4xl xl:w-[70rem]">
           Get in touch
       </h1>
