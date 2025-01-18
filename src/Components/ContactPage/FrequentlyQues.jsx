@@ -8,7 +8,7 @@ function FrequentlyQues() {
     setActiveIndex(null); // Reset active index on language change
   }, []);
   return (
-    <div className="w-full px-2 font-bellefair py-10 sm:flex md:px-10 lg:px-20 lg:justify-between">
+    <div className="w-full px-2 font-bellefair py-10 sm:flex md:px-10 lg:px-20 lg:justify-between xl:w-[70rem] xl:mx-auto xl:px-0">
       <div className="sm:w-[40%] lg:w-[20rem]">
         <h2 className="text-primary drop-shadow-[0_0_0.4px_#006400] lg:text-xl">
           FAQ
@@ -36,8 +36,8 @@ function FrequentlyQues() {
             </h1>
             <p
               className={`font-poppins text-xs ${
-                index === activeIndex ? "h-auto" : "h-0"
-              } overflow-hidden text-black md:text-sm lg:text-base lg:leading-5 lg:mt-3 duration-500`}
+                index === activeIndex ? "" : "h-0"
+              } overflow-hidden text-black md:text-sm lg:text-base lg:leading-5 lg:mt-3 duration-500 bg-red-400 xl:text-lg xl:leading-5`}
             >
               {item.ans}
             </p>
