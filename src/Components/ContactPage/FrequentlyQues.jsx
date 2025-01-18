@@ -11,12 +11,12 @@ function FrequentlyQues() {
   };
 
   return (
-    <div className="w-full px-2 font-bellefair py-10 sm:flex md:px-10 lg:px-20 lg:justify-between xl:w-[70rem] xl:mx-auto xl:px-0">
+    <div className="w-full px-2 font-bellefair py-10 sm:flex md:px-10 lg:px-20 lg:justify-between xl:w-[70rem] xl:mx-auto xl:px-0 xl:pb-20 xl:pt-5">
       <div className="sm:w-[40%] lg:w-[20rem]">
         <h2 className="text-primary drop-shadow-[0_0_0.4px_#006400] lg:text-xl">
           FAQ
         </h2>
-        <h1 className="text-primary text-3xl drop-shadow-[0_0_0.4px_#006400] md:text-4xl md:mt-3 lg:text-5xl">
+        <h1 className="text-primary text-3xl drop-shadow-[0_0_0.4px_#006400] md:text-4xl md:mt-3 lg:text-5xl lg:mt-5 xl:mt-10">
           Frequently asked questions.
         </h1>
       </div>
