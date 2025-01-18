@@ -38,13 +38,13 @@ function FrequentlyQues() {
               </h1>
               <div
                 ref={contentRef}
-                className={`font-poppins text-xs overflow-hidden text-black md:text-sm lg:text-base lg:leading-5 lg:mt-3 duration-500 ease-in-out`}
+                className={`font-poppins text-xs overflow-hidden text-black md:text-sm lg:text-base lg:leading-5 lg:mt-3 duration-500 ease-in-out xl:text-lg xl:leading-5`}
                 style={{
                   maxHeight: isActive ? `${contentRef.current?.scrollHeight}px` : "0",
                   transition: "max-height 0.5s ease-in-out",
                 }}
               >
-                <p className="xl:text-lg xl:leading-5">
+                <p>
                   {item.ans}
                 </p>
               </div>
