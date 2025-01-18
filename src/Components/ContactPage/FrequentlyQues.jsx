@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { data } from './FaqData';
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
 function FrequentlyQues() {
   const [activeIndex, setActiveIndex] = useState(null);
-  useEffect(() => {
-    setActiveIndex(null); // Reset active index on language change
-  }, []);
+
+  // Toggle active index
+  const toggleActiveIndex = (index) => {
+    setActiveIndex(index === activeIndex ? null : index);
+  };
+
   return (
     <div className="w-full px-2 font-bellefair py-10 sm:flex md:px-10 lg:px-20 lg:justify-between xl:w-[70rem] xl:mx-auto xl:px-0">
       <div className="sm:w-[40%] lg:w-[20rem]">
@@ -18,31 +21,36 @@ function FrequentlyQues() {
         </h1>
       </div>
       <div className="sm:w-[60%] lg:w-[28rem]">
-        {data.map((item, index) => (
-          <div
-            key={index}
-            className="w-full mt-4 pb-1"
-          >
-            <h1
-              className="font-bellefair text-dark drop-shadow-[0_0_0.4px_#333333] text-base flex items-center justify-between md:text-xl cursor-pointer"
-              onClick={() =>
-                setActiveIndex(index === activeIndex ? null : index)
-              }
-            >
-              {item.ques}{" "}
-              <span className="bg-secondary rounded-full text-xs p-1">
-                {index === activeIndex ? <FaMinus /> : <FaPlus />}
-              </span>
-            </h1>
-            <p
-              className={`font-poppins text-xs ${
-                index === activeIndex ? "" : "h-0"
-              } overflow-hidden text-black md:text-sm lg:text-base lg:leading-5 lg:mt-3 duration-500 bg-red-400 xl:text-lg xl:leading-5`}
-            >
-              {item.ans}
-            </p>
-          </div>
-        ))}
+        {data.map((item, index) => {
+          const isActive = index === activeIndex;
+          const contentRef = useRef(null);
+
+          return (
+            <div key={index} className="w-full mt-4 pb-1">
+              <h1
+                className="font-bellefair text-dark drop-shadow-[0_0_0.4px_#333333] text-base flex items-center justify-between md:text-xl cursor-pointer"
+                onClick={() => toggleActiveIndex(index)}
+              >
+                {item.ques}
+                <span className="bg-secondary rounded-full text-xs p-1">
+                  {isActive ? <FaMinus /> : <FaPlus />}
+                </span>
+              </h1>
+              <div
+                ref={contentRef}
+                className={`font-poppins text-xs overflow-hidden text-black md:text-sm lg:text-base lg:leading-5 lg:mt-3 duration-500 ease-in-out`}
+                style={{
+                  maxHeight: isActive ? `${contentRef.current?.scrollHeight}px` : "0",
+                  transition: "max-height 0.5s ease-in-out",
+                }}
+              >
+                <p className="xl:text-lg xl:leading-5">
+                  {item.ans}
+                </p>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
