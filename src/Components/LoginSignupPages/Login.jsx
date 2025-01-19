@@ -3,9 +3,10 @@ import axios from "axios";
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg";
 import lock from "../../Assets/loginSignupPage/lock.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
+const navigate = useNavigate();
   const [formData, setFormData] = useState({
     emailOrPhone: '',
     password: ''
@@ -27,6 +28,7 @@ function Login() {
     try {
       const response = await axios.post('/login.php', formData);
       setResponseMessage(response.data.message || 'Login successful!');
+      navigate('/')
     } catch (error) {
       setResponseMessage('An error occurred during login.');
       console.error('Login error:', error);
