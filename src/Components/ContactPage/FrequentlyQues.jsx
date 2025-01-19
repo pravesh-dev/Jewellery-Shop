@@ -32,7 +32,7 @@ function FrequentlyQues() {
                 onClick={() => toggleActiveIndex(index)}
               >
                 {item.ques}
-                <span className="bg-secondary rounded-full text-xs p-1">
+                <span className="bg-secondary rounded-full text-xs p-1 lg:p-2">
                   {isActive ? <FaMinus /> : <FaPlus />}
                 </span>
               </h1>
