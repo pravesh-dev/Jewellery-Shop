@@ -20,7 +20,7 @@ function FrequentlyQues() {
           Frequently asked questions.
         </h1>
       </div>
-      <div className="sm:w-[60%] lg:w-[28rem]">
+      <div className="sm:w-[60%] lg:w-[28rem] xl:w-[34rem]">
         {data.map((item, index) => {
           const isActive = index === activeIndex;
           const contentRef = useRef(null);
@@ -28,7 +28,7 @@ function FrequentlyQues() {
           return (
             <div key={index} className="w-full mt-4 pb-1">
               <h1
-                className="font-bellefair text-dark drop-shadow-[0_0_0.4px_#333333] text-base flex items-center justify-between md:text-xl cursor-pointer"
+                className="font-bellefair text-dark drop-shadow-[0_0_0.4px_#333333] text-base flex items-center justify-between md:text-xl cursor-pointer xl:text-[1.4rem]"
                 onClick={() => toggleActiveIndex(index)}
               >
                 {item.ques}
