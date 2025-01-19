@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
 import logo from '/logo.svg'
 import underline from '../Assets/footer-line.svg'
-import { FaAngleRight, FaChevronRight } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
@@ -50,7 +48,7 @@ function Footer() {
             </Link>
           </li>
           <li className="w-[45%] text-center lg:w-[30%]">
-            <Link to="/blogs" className="hover:text-secondary">
+            <Link to="/blog" className="hover:text-secondary">
               Blog
             </Link>
           </li>
