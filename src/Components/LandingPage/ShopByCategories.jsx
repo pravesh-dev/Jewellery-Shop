@@ -72,11 +72,11 @@ function ShopByCategories() {
         {["all", "necklace", "ring", "earrings", "statue", "chain"].map((tab) => (
           <button
             key={tab}
-            className={`tab_buttons text-xs px-[0.6rem] py-1 tracking-wider capitalize rounded-full ${
+            className={`tab_buttons text-[0.6rem] px-[0.4rem] py-1 tracking-wider uppercase rounded-md ${
               activeTab === tab
                 ? "bg-secondary text-accent"
                 : "text-dark"
-            } sm:text-lg sm:px-6 lg:text-2xl lg:px-8 cursor_pointer`}
+            } sm:text-sm sm:px-4 lg:text-[1.12rem] lg:px-6 lg:rounded-[1.9rem] lg:py-2 xl:py-3 cursor_pointer`}
             onClick={() => handleTabClick(tab)}
           >
             {tab}
