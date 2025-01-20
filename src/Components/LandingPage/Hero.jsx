@@ -4,8 +4,8 @@ import rope from "../../Assets/LandingPage/Hero/rope.svg";
 
 function Hero() {
   return (
-    <section className="w-full flex flex-col gap-10 justify-center items-center relative lg:min-h-screen overflow-hidden">
-      <h1 className="h-[18.8rem] text-primary text-2xl tracking-wider text-center font-bellefair content-center relative md:text-4xl lg:pt-28 lg:text-6xl">
+    <section className="w-full flex flex-col gap-10 justify-center items-center relative lg:min-h-screen overflow-hidden xl:min-h-[120vh]">
+      <h1 className="h-[18.8rem] text-primary text-2xl tracking-wider text-center font-bellefair content-center relative md:text-4xl lg:pt-28 lg:text-6xl xl:text-[3rem] xl:pt-0 text-stroke text-stroke-width-2 text-stroke-color-secondary">
         Exquisite Jewellery. <br /> Reserved for the{" "}
         <span className="border border-secondary lg:border-2 px-1 relative">
           Exceptional.
@@ -20,9 +20,9 @@ function Hero() {
           alt="rope like arrow image"
           loading="lazy"
         />
-        <div className="border-2 border-dark w-max px-2 py-5 absolute top-52 left-4 rounded-[2.2rem] md:left-20 lg:left-[103%] lg:top-44 lg:px-1 xl:left-[115%]">
-          <h2 className="text-secondary text-lg font-lora lg:mb-2">100%</h2>
-          <p className="text-[1rem] leading-6 flex flex-col items-center uppercase font-mulish">
+        <div className="border-2 border-dark w-max px-2 py-5 absolute top-52 left-4 rounded-[2.2rem] md:left-20 lg:left-[103%] lg:top-44 lg:px-1 xl:left-[115%] xl:px-0 xl:w-[9.1rem] xl:h-[8.6rem] flex flex-col justify-center items-center xl:rounded-[1.5rem] xl:top-24">
+          <h2 className="text-secondary text-lg font-lora lg:mb-2 xl:tracking-normal xl:mb-1 xl:text-[1.5rem]">100%</h2>
+          <p className="text-[1rem] leading-6 flex flex-col items-center uppercase font-mulish xl:tracking-wide xl:text-[1.12rem]">
             #Perfect <b className="font-lora">Quality</b>
           </p>
         </div>
