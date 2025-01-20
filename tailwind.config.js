@@ -21,26 +21,28 @@ export default {
       screens: {
         xs: '430px',
       },
-      textStrokeWidth: {
-        '1': '1px',
-        '2': '2px',
-        '3': '3px',
-      },
-      textStrokeColor: theme => theme('colors'),
     },
   },
   plugins: [
     function({ addUtilities }) {
       const newUtilities = {
         '.text-stroke': {
-          '-webkit-text-stroke-width': 'var(--tw-text-stroke-width, 1px)',
-          '-webkit-text-stroke-color': 'var(--tw-text-stroke-color, #006400)',
-          'text-stroke-width': 'var(--tw-text-stroke-width, 1px)',
-          'text-stroke-color': 'var(--tw-text-stroke-color, #006400)',
+          '-webkit-text-stroke-width': '1px',
+          '-webkit-text-stroke-color': '#006400',
+          'text-stroke-width': '1px',
+          'text-stroke-color': '#006400',
           'text-fill-color': 'transparent',
+        },
+        '.text-stroke-width-2': {
+          '-webkit-text-stroke-width': '2px',
+          'text-stroke-width': '2px',
+        },
+        '.text-stroke-color-secondary': {
+          '-webkit-text-stroke-color': '#D4AF37',
+          'text-stroke-color': '#D4AF37',
         },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
     },
   ],
-}
+};
