@@ -69,9 +69,9 @@ function FeedbackSlider() {
           >
             <div className="text-center bg-dark text-accent px-3 py-3 rounded-lg flex justify-center items-center gap-2 md:px-4 md:gap-7 lg:p-14 lg:rounded-xl">
               <div className="w-56 flex flex-col gap-2 md:w-96 lg:w-[38rem]">
-                <p className="font-bellefair text-xs text-start md:text-base relative">{client.para} <RiDoubleQuotesL className="text-secondary absolute -top-2 -left-3 md:-left-4 lg:text-2xl lg:-left-7" /> <RiDoubleQuotesR className="text-secondary absolute bottom-0 right-0 lg:text-2xl" /></p>
+                <p className="font-bellefair text-xs text-start md:text-base relative xl:text-[1.1rem] xl:leading-[1.3rem]">{client.para} <RiDoubleQuotesL className="text-secondary absolute -top-2 -left-3 md:-left-4 lg:text-2xl lg:-left-7 xl:text-[1.8rem] xl:-top-4 xl:-left-9" /> <RiDoubleQuotesR className="text-secondary absolute bottom-0 right-0 lg:text-2xl xl:text-[1.8rem] xl:-bottom-2" /></p>
                 <div className="flex items-center justify-between w-full">
-                  <div className="flex justify-center md:justify-start md:gap-2">
+                  <div className="flex justify-center md:justify-start md:gap-2 xl:gap-4">
                     {Array(client.startsCount)
                       .fill(0)
                       .map((_, i) => (
@@ -79,19 +79,19 @@ function FeedbackSlider() {
                           key={i}
                           src={star}
                           alt="star"
-                          className="w-4 md:w-5"
+                          className="w-4 md:w-5 xl:w-6"
                         />
                       ))}
                   </div>
                   <h2 className="text-sm font-bellefair md:text-base xl:pr-10">
-                    <span className="text-secondary text-3xl">-</span> {client.name}
+                    <span className="text-secondary text-3xl xl:text-[1.25rem]">-</span> {client.name}
                   </h2>
                 </div>
               </div>
-              <div className="w-16 h-16 border-l-4 border-b-4 border-secondary rounded-full overflow-hidden flex-shrink-0 md:w-28 md:h-28">
+              <div className="w-16 h-16 border-l-4 border-b-4 border-secondary rounded-full overflow-hidden flex-shrink-0 md:w-28 md:h-28 xl:border-l-[6px] xl:border-b-[6px]">
                 <img
                   src={client.img}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[0px_20%]"
                   alt={`Feedback from ${client.name}`}
                 />
               </div>
