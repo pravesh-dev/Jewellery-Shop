@@ -3,13 +3,16 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiShoppingCart } from "react-icons/gi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "/logo.svg";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [headerPosition, setHeaderPosition] = useState("top-0");
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrollingUp, setIsScrollingUp] = useState(false);
+
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -17,9 +20,46 @@ function Header() {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    let timeoutId;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Determine scroll direction
+      if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setHeaderPosition("top-0");
+        setIsScrollingUp(true);
+      } else {
+        // Scrolling down
+        setHeaderPosition("-top-full");
+        setIsScrollingUp(false);
+      }
+
+      setLastScrollY(currentScrollY);
+
+      // Hide header after delay when scrolling stops
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        if (!isScrollingUp) {
+          setHeaderPosition("-top-full");
+        }
+      }, 2000);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY, isScrollingUp]);
+
   return (
-    <header className="w-full flex justify-between items-center py-2 px-1 md:px-3 md:py-4 lg:px-6 fixed top-0 left-0 bg-accent border-b border-black/10 z-[99] text-dark">
-      <div className="flex items-center lg:w-[20%]">
+    <header
+      className={`w-full flex justify-between items-center py-2 px-1 md:px-3 md:py-4 lg:px-6 fixed left-0 bg-accent border-b border-black/10 z-[99] text-dark duration-1000 ${headerPosition}`}
+    >
+     <div className="flex items-center lg:w-[20%]">
         <img alt="Website Logo" loading="lazy" className="w-14 md:w-10 lg:w-16" src={Logo} />
         <div className="flex flex-col leading-4 md:leading-3">
           <span className="text-[1rem] text-primary md:text-[0.9rem] lg:text-base uppercase font-bellefair">
