@@ -29,7 +29,7 @@ const HeroSlider = () => {
 
   return (
     <>
-    <div className="w-full h-60 flex items-center justify-center relative">
+    <div className="w-full h-60 flex items-center justify-center relative mt-10">
       {/* Slider Container */}
       <div
         className="flex transition-transform duration-700 ease-in-out"
@@ -58,10 +58,10 @@ const HeroSlider = () => {
       </div>
     </div>
     <div className="relative">
-    <img src={bottomLine} className="w-screen" alt="bottom line image" />
-    <span className="absolute top-0 left-1/2 -translate-y-[40%] -translate-x-1/2 bg-secondary w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12">
+      <img src={bottomLine} className="w-screen" alt="bottom line image" />
+      <span className="absolute top-0 left-1/2 -translate-y-[40%] -translate-x-1/2 bg-secondary w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12">
       <FaHeart className="text-accent text-lg" />
-    </span>
+      </span>
   </div>
   </>
   );
