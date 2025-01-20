@@ -83,7 +83,7 @@ function FeedbackSlider() {
                         />
                       ))}
                   </div>
-                  <h2 className="text-sm font-bellefair md:text-base">
+                  <h2 className="text-sm font-bellefair md:text-base xl:pr-10">
                     <span className="text-secondary text-3xl">-</span> {client.name}
                   </h2>
                 </div>
