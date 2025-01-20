@@ -41,8 +41,8 @@ export default {
           'text-fill-color': 'transparent',
         },
         '.text-stroke-1': {
-          '-webkit-text-stroke-width': '2px',
-          'text-stroke-width': '2px',
+          '-webkit-text-stroke-width': '1px',
+          'text-stroke-width': '1px',
         },
         '.text-stroke-0': {
           '-webkit-text-stroke-width': '0px',
