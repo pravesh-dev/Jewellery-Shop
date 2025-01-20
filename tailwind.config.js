@@ -40,6 +40,10 @@ export default {
           'text-stroke-color': '#000',
           'text-fill-color': 'transparent',
         },
+        '.text-stroke-1': {
+          '-webkit-text-stroke-width': '2px',
+          'text-stroke-width': '2px',
+        },
         '.text-stroke-0': {
           '-webkit-text-stroke-width': '0px',
           'text-stroke-width': '0px',

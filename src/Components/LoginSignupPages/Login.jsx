@@ -49,7 +49,7 @@ const navigate = useNavigate();
         <div className="flex justify-between px-3 mb-10 lg:mb-14">
           <Link
             to="/login"
-            className="text-[#62DC7C] text-2xl border-b-2 border-[#62DC7C] px-2 pb-1 lg:text-4xl lg:px-4"
+            className="text-[#62DC7C] text-2xl border-b-2 border-[#62DC7C] px-2 pb-1 lg:text-4xl lg:px-4 text-stroke-1"
           >
             Login
           </Link>
