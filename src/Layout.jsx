@@ -5,7 +5,7 @@ import Footer from './Components/Footer'
 
 function Layout() {
   return (
-    <main>
+    <main className='max-w-[1520px] mx-auto bg-[#FFFFF0]'>
         <Header/>
         <Outlet/>
         <Footer />

@@ -31,10 +31,10 @@ function ShopByCategories() {
     return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[21.65rem]"
+        className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[19.1rem]"
         onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
       >
-        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[21.65rem] relative">
+        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[14rem] relative">
             <img
               loading="lazy"
               src={item.image}
@@ -83,7 +83,7 @@ function ShopByCategories() {
           </button>
         ))}
       </div>
-      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-10 xl:w-[70rem] xl:gap-10 xl:justify-start">
+      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 lg:gap-10 xl:gap-12 xl:justify-start">
         {renderItems(activeTab)}
       </div>
       <Link to='/shop'

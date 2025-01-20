@@ -11,8 +11,8 @@ function ShopBy() {
       <p className="text-dark text-xl leading-5 sm:w-[35rem] lg:text-2xl lg:w-[40rem] xl:text-[1.12rem] xl:leading-10 xl:w-full">
       Find your perfect match – browse by category to uncover luxury crafted for every occasion.
       </p>
-      <img src={ring} className="hidden md:block absolute left-0 top-28 w-32 lg:w-44 lg:top-64 lg:-left-10 xl:-left-14" alt="ring image" />
-      <img src={ring} className="w-20 absolute right-0 top-0 scale-x-[-1] sm:w-32 lg:w-44 lg:top-16 xl:top-24" alt="ring image" />
+      <img src={ring} className="hidden md:block absolute left-0 top-28 w-32 lg:w-44 lg:top-64 lg:-left-10 xl:-left-20 xl:top-36 xl:w-[13.3rem]" alt="ring image" />
+      <img src={ring} className="w-20 absolute right-0 top-0 scale-x-[-1] sm:w-32 lg:w-44 lg:top-16 xl:top-24 xl:w-[13.3rem] xl:-right-10" alt="ring image" />
       <ShopByCategories />
     </section>
   );
