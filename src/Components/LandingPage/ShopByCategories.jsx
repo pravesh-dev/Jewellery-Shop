@@ -31,10 +31,10 @@ function ShopByCategories() {
     return displayedItems.map((item, index) => (
       <div
         key={index}
-        className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[19.1rem]"
+        className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[19.1rem] cursor-pointer"
         onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
       >
-        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[14rem] relative">
+        <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[14rem] relative lg:rounded-md">
             <img
               loading="lazy"
               src={item.image}
@@ -47,14 +47,14 @@ function ShopByCategories() {
               )
             }
         </div>
-        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.4rem]">
+        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.12rem]">
           {item.name}
         </h2>
-        <h3 className="text-black text-[0.8rem] flex items-center gap-2 sm:text-[1.3rem] lg:text-[1.6rem] lg:gap-6">
+        <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[1.6rem] text-stroke-black xl:text-[1.12rem]">
           {item.onSale ? (
             <>
-              <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.4rem]">$ {item.price}</span>
-              <span>$ {(item.price - (item.price * (item.discount / 100)))}</span>
+              <span className="text-black/50 line-through mr-1 text-[0.7rem] sm:text-[1.1rem] sm:mr-3 lg:text-[1.4rem] text-stroke-0 xl:text-[1.12rem]">$ {item.price}</span>
+              <span>From $ {(item.price - (item.price * (item.discount / 100)))}</span>
             </>
           ) : (
             <span>$ {item.price}</span>

@@ -4,7 +4,7 @@ import ring from '../../Assets/LandingPage/Shopby/ring.png'
 
 function ShopBy() {
   return (
-    <section className="w-full font-bellefair px-2 py-5 md:px-16 md:py-10 lg:py-28 xl:flex flex-col items-center relative overflow-x-hidden">
+    <section className="w-full font-bellefair px-2 py-5 md:px-16 md:py-10 lg:py-28 xl:flex flex-col items-center relative overflow-x-hidden xl:pb-16">
       <h1 className="text-primary text-3xl mb-2 lg:text-4xl xl:text-[2rem] xl:w-full text-stroke xl:mb-0">
       Shop By Category
       </h1>

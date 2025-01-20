@@ -33,13 +33,16 @@ export default {
           'text-stroke-color': '#006400',
           'text-fill-color': 'transparent',
         },
-        '.text-stroke-width-2': {
-          '-webkit-text-stroke-width': '2px',
-          'text-stroke-width': '2px',
+        '.text-stroke-black': {
+          '-webkit-text-stroke-width': '0.3px',
+          '-webkit-text-stroke-color': '#000',
+          'text-stroke-width': '1px',
+          'text-stroke-color': '#000',
+          'text-fill-color': 'transparent',
         },
-        '.text-stroke-color-secondary': {
-          '-webkit-text-stroke-color': '#D4AF37',
-          'text-stroke-color': '#D4AF37',
+        '.text-stroke-0': {
+          '-webkit-text-stroke-width': '0px',
+          'text-stroke-width': '0px',
         },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
