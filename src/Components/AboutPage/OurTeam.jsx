@@ -37,7 +37,7 @@ const OurTeam = forwardRef((props, ref) => {
         </div>
       </div>
       <div className="w-full font-bellefair flex flex-col items-center gap-2 px-2 md:items-start md:w-1/2 md:px-0 xl:pr-20">
-        <h1 className="uppercase text-primary text-3xl sm:text-4xl lg:text-5xl lg:mb-5">
+        <h1 className="uppercase text-primary text-3xl sm:text-4xl lg:text-5xl lg:mb-5 text-stroke">
           The team.
         </h1>
         <p className="text-sm text-center sm:text-left sm:text-base lg:text-lg xl:text-[1.3rem] xl:leading-6 xl:mb-5">

@@ -20,7 +20,7 @@ function AboutMore() {
           <div>
             <RiDoubleQuotesL className="text-sm md:text-2xl xl:text-4xl" />
           </div>
-          <h2 className="font-lora text-dark text-lg relative px-4 font-semibold md:text-2xl md:px-10 xl:text-3xl xl:px-12">
+          <h2 className="font-lora text-dark text-lg relative px-4 font-semibold md:text-2xl md:px-10 xl:text-[2rem] xl:leading-10 xl:px-12">
             Venenatis sagittis neque non lectus mi tortor neque proin massa. Et
             eu dictum orci.{" "}
           </h2>

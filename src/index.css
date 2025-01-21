@@ -13,7 +13,8 @@
 
 @font-face {
   font-family: 'lora';
-  src: url('/Fonts/Lora/static/Lora-Regular.ttf') format('truetype');
+  /* src: url('/Fonts/Lora/static/Lora-Regular.ttf') format('truetype'); */
+  src: url('/Fonts/Lora/Lora-Italic-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
