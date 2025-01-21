@@ -44,6 +44,10 @@ export default {
           '-webkit-text-stroke-width': '1px',
           'text-stroke-width': '1px',
         },
+        '.text-stroke-xs': {
+          '-webkit-text-stroke-width': '0.3px',
+          'text-stroke-width': '0.3px',
+        },
         '.text-stroke-0': {
           '-webkit-text-stroke-width': '0px',
           'text-stroke-width': '0px',

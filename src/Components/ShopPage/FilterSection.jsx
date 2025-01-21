@@ -50,15 +50,15 @@ function FilterSection() {
   };
 
   return (
-    <div className='w-60 border border-dark p-3 rounded-md font-bellefair mb-4 md:mb-0 md:rounded-[2rem] md:py-6 xl:w-[17rem] xl:px-8'>
-      <h1 className='text-xl md:text-2xl md:mb-4'>Filter Products</h1>
+    <div className='w-60 border border-dark p-3 rounded-md font-bellefair mb-4 md:mb-0 md:rounded-[2rem] md:py-6 lg:w-[15.3rem] lg:px-[1.5rem]'>
+      <h1 className='text-xl md:text-2xl md:mb-4 lg:text-[1.5rem] lg:mb-9 lg:text-stroke-xs'>Filter Products</h1>
       <div className='w-52 mb-4'>
-      <button onClick={() => toggleSection('category')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
+      <button onClick={() => toggleSection('category')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
         Category <span>{isOpen.category ? <IoIosArrowDown /> : <GoChevronRight />}</span>
       </button>
       {isOpen.category && (
         <div className='md:flex flex-col gap-1'>
-          <button onClick={() => toggleSection('womenJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2">
+          <button onClick={() => toggleSection('womenJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
             Women Jewellery <span>{isOpen.womenJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
           </button>
           {isOpen.womenJewellery && (
@@ -77,7 +77,7 @@ function FilterSection() {
               </li>
             </ul>
           )}
-          <button onClick={() => toggleSection('menJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2">
+          <button onClick={() => toggleSection('menJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
             Men Jewellery <span>{isOpen.menJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
           </button>
           {isOpen.menJewellery && (
@@ -96,7 +96,7 @@ function FilterSection() {
               </li>
             </ul>
           )}
-          <button onClick={() => toggleSection('accessories')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2">
+          <button onClick={() => toggleSection('accessories')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
            Accessories <span>{isOpen.accessories ? <IoIosArrowDown /> : <GoChevronRight />}</span>
           </button>
           {isOpen.accessories && (
@@ -118,9 +118,9 @@ function FilterSection() {
         </div>
       )}
       </div>
-      <span className='w-full h-[3px] block mb-4 bg-dark/30 rounded-full'></span>
+      <span className='w-full h-[3px] block mb-4 bg-dark/30 rounded-full lg:h-[2px]'></span>
       <div className='w-52'>
-      <button onClick={() => toggleSection('price')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3">
+      <button onClick={() => toggleSection('price')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
         Price <span>{isOpen.price ? <IoIosArrowDown /> : <GoChevronRight />}</span>
       </button>
       {isOpen.price && (
