@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import bgImage1 from '../../Assets/ShopPage/bg-image.jpg';
+import bgImage2 from '../../Assets/ShopPage/bg-image2.jpg';
+import bgImage3 from '../../Assets/ShopPage/bg-image3.jpg';
 import manImage1 from '../../Assets/ShopPage/man.png';
+import manImage2 from '../../Assets/ShopPage/man2.svg';
+import manImage3 from '../../Assets/ShopPage/man3.svg';
 
 function Hero() {
   const data = [
@@ -11,22 +15,16 @@ function Hero() {
       para: `Lorem ipsum dolor sit amet consectetur. Volutpat accumsan suspendisse malesuada lacinia feugiat. Justo fermentum sapien malesuada fringilla facilisis augue.`,
     },
     {
-      bgImage: bgImage1,
-      manImage: manImage1,
-      heading: `SUMMER SALE IS HERE`,
+      bgImage: bgImage2,
+      manImage: manImage2,
+      heading: `Buy Now and Save 25%! Plus, a Free Surprise Gift Awaits!`,
       para: `Sed velit in vulputate amet vulputate donec pretium. Amet adipiscing habitant ac faucibus eu risus a.`,
     },
     {
-      bgImage: bgImage1,
-      manImage: manImage1,
-      heading: `WINTER COLLECTION IS NOW LIVE`,
+      bgImage: bgImage3,
+      manImage: manImage3,
+      heading: `Hurry! Flat 15% OFF + Special Gift for Early Birds!`,
       para: `Amet adipiscing habitant ac faucibus eu risus a. Sed velit in vulputate amet vulputate donec pretium.`,
-    },
-    {
-      bgImage: bgImage1,
-      manImage: manImage1,
-      heading: `SPRING INTO FASHION`,
-      para: `Volutpat accumsan suspendisse malesuada lacinia feugiat. Justo fermentum sapien malesuada fringilla facilisis augue.`,
     },
   ];
 
