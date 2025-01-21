@@ -2,9 +2,11 @@ import React from "react";
 import ShopItems from "./ShopItems";
 import SortBy from "./SortBy";
 import FilterSection from "./FilterSection";
+import OtherCategories from "./OtherCategories";
 
 function ShopSection() {
   return (
+    <>
     <div className="w-full px-2 py-5 md:flex xl:px-16 lg:justify-between lg:pt-14 lg:pb-20">
       <div>
         <FilterSection />
@@ -14,6 +16,8 @@ function ShopSection() {
         <ShopItems />
       </div>
     </div>
+      <OtherCategories />
+      </>
   );
 }
 

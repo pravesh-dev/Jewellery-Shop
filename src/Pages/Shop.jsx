@@ -8,7 +8,7 @@ function Shop() {
     <>
     <Hero />
     <ShopSection />
-    <OtherCategories />
+    {/* <OtherCategories /> */}
     </>
   )
 }
