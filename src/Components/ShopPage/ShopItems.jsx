@@ -17,7 +17,7 @@ function ShopItems() {
         className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw]"
         onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
       >
-        <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[20vw] relative">
+        <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[15vw] lg:rounded-[5px] relative">
           <img
             loading="lazy"
             src={item.image}
@@ -30,17 +30,17 @@ function ShopItems() {
             </span>
           )}
         </div>
-        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] xl:text-[1.4rem]">
+        <h2 className="text-black text-[0.7rem] mt-1 sm:text-[1.2rem] lg:text-[1.12rem]">
           {item.name}
         </h2>
-        <h3 className="text-black text-[0.8rem] flex items-center gap-2 sm:text-[1.3rem] xl:text-[1.6rem] lg:gap-6">
+        <h3 className="text-black text-[0.8rem] flex items-center gap-2 sm:text-[1.3rem] lg:text-[1.12rem] lg:gap-4 text-stroke-xs">
           {item.onSale ? (
             <>
-              <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.4rem]">
+              <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.12rem] text-stroke-0">
                 $ {item.price}
               </span>
               <span>
-                $ {(item.price - item.price * (item.discount / 100)).toFixed(2)}
+                From $ {(item.price - item.price * (item.discount / 100)).toFixed(2)}
               </span>
             </>
           ) : (
@@ -52,8 +52,8 @@ function ShopItems() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10">
-      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 md:gap-3 lg:justify-between xl:gap-y-10">
+    <div className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10 lg:w-auto">
+      <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 md:gap-3 lg:justify-start xl:gap-10 xl:gap-y-10">
         {renderItems()}
       </div>
       <button

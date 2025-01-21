@@ -24,7 +24,7 @@ function SortBy() {
   }, [isOpen]);
 
   return (
-    <div className="flex items-center gap-4 font-bellefair md:self-end">
+    <div className="flex items-center gap-4 font-bellefair md:self-end lg:w-full justify-end xl:pr-5">
       <h2 className="text-xl">Sort by</h2>
       <div className="relative">
       <button onClick={() => setIsOpen(!isOpen)} className="bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center gap-3">
