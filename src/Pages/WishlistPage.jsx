@@ -1,6 +1,7 @@
 import React from 'react'
 import MobileWishlist from '../Components/WishlistPage/MobileWishlist'
 import { items } from '../Components/ProductsData';
+import LargeWishlist from '../Components/WishlistPage/LargeWishlist';
 
 function WishlistPage() {
   return (
@@ -9,6 +10,9 @@ function WishlistPage() {
       <span className='w-full h-[1px] bg-[#D9D9D9] my-1'></span>
       <div>
         <MobileWishlist items={items} />
+      </div>
+      <div>
+        <LargeWishlist items={items} />
       </div>
     </div>
   )

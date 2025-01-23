@@ -5,9 +5,9 @@ function MobileWishlist({items}) {
   console.log(product)
   return (
     <div className='w-full min-h-screen mt-3'>
-      <div className='flex gap-3'>
+      <div className='flex gap-6 justify-between'>
         <div className='w-[7.6rem] h-[6.8rem] overflow-hidden rounded-md'>
-          <img src={product.image} className='w-full h-full object-cover' alt="" />
+          <img src={product.image} className='w-full h-full object-cover' alt="product image" loading='lazy' />
         </div>
         <div className='flex flex-col'>
           <h1 className='text-[1rem] font-bellefair leading-4'>{product.name}</h1>
