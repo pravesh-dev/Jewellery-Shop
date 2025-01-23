@@ -38,7 +38,7 @@ function ShopItems() {
         {currentItems.map((item, index) => (
           <div
             key={index}
-            className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw]"
+            className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw] cursor-pointer"
             onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
           >
             <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[15vw] lg:rounded-[5px] relative">
