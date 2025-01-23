@@ -152,9 +152,9 @@ function Header() {
           <button className="text-xl bg-[#c095691b] py-2 px-4 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
             <AiOutlineSearch />
           </button>
-          <button className="text-xl bg-[#c095691b] py-2 px-4 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
+          <Link to='/wishlist' className={`text-xl bg-[#c095691b] py-2 px-4 ${location.pathname === "/wishlist" ? 'text-red-600' : 'text-accent md:text-dark'} md:bg-transparent md:p-0 md:text-base lg:text-xl`}>
             <FiHeart />
-          </button>
+          </Link>
           <button className="text-xl bg-[#c095691b] py-2 px-4 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
             <GiShoppingCart />
           </button>

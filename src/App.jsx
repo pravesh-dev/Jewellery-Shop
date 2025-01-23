@@ -11,6 +11,7 @@ import SignupPage from './Pages/SignupPage'
 import BlogLandingPage from './Pages/BlogLandingPage'
 import AboutPage from './Pages/AboutPage'
 import ContactPage from './Pages/ContactPage'
+import WishlistPage from './Pages/WishlistPage'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/shop/:type/:name/:id' element={<ProductPage/>} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/blog' element={<BlogLandingPage />} />
+          <Route path='/wishlist' element={<WishlistPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/contact' element={<ContactPage />} />

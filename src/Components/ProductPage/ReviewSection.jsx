@@ -39,7 +39,7 @@ function ReviewSection({ product }) {
               <div>
                 <div className="flex items-center gap-4">
                   <span className="text-primary font-mulish text-sm xl:text-[1rem] xl:font-bold">{reply.user}</span>
-                  <span className="text-xs font-mulish text-gray-400 xl:text-[1rem] xl:text-stroke-xs">{reply.date}</span>
+                  <span className="text-xs font-mulish text-gray-600 xl:text-[1rem] xl:text-stroke-xs">{reply.date}</span>
                 </div>
                 <div className="flex gap-1 xl:text-lg">{renderStars(reply.rating)}</div>
               </div>
