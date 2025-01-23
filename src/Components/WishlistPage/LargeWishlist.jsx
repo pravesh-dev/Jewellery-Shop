@@ -3,7 +3,7 @@ import React from 'react'
 function LargeWishlist({items}) {
     const [product, setProduct] = [items[3]]
   return (
-    <div className='w-full min-h-screen mt-3'>
+    <div className='w-full min-h-screen mt-3 lg:mt-6 xl:px-16'>
       <div className='grid grid-cols-12'>
         <div className='col-span-5 space-y-6'>
             <h2 className='text-[0.75rem] lg:text-[1.12rem] font-lora'>Product Details</h2>
