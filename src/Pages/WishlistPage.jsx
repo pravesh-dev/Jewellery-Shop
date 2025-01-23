@@ -8,10 +8,10 @@ function WishlistPage() {
     <div className='w-full pt-24 pb-4 px-2 flex flex-col'>
       <h1 className='text-primary text-[1.5rem] text-stroke-1 font-bellefair'>Wishlist</h1>
       <span className='w-full h-[1px] bg-[#D9D9D9] my-1'></span>
-      <div>
+      <div className='sm:hidden'>
         <MobileWishlist items={items} />
       </div>
-      <div>
+      <div className='hidden sm:block'>
         <LargeWishlist items={items} />
       </div>
     </div>
