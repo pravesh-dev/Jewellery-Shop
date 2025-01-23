@@ -2,8 +2,8 @@ import React from "react";
 
 function ImagesSection({product}) {
   return (
-    <div className="w-full flex flex-col gap-3 md:w-80 xl:w-[26.4rem] xl:gap-4">
-      <div className="w-full h-80 overflow-hidden rounded-xl xl:h-[24.7rem]">
+    <div className="w-72 flex flex-col gap-3 md:w-80 lg:w-96 xl:w-[26.4rem] xl:gap-4">
+      <div className="w-full h-80 overflow-hidden rounded-xl lg:h-96 xl:h-[24.7rem]">
         <img
           src={product.image}
           className="w-full h-full object-cover"

@@ -180,7 +180,7 @@ const items = [
     image: card6,
     type: "statue",
     title: "Divine Statue",
-    description: "A divine gold statue of Lord Ganesh, symbolizing wisdom and prosperity, perfect for home or temple decor.",
+    description: "Lorem ipsum dolor sit amet consectetur. Pellentesque semper ipsum porta laoreet sit ornare vulputate integer. Vitae vitae sed volutpat venenatis dignissim consectetur aenean eleifend odio. Tortor lectus facilisis sapien dui. Natoque lorem orci est risus vulputate. Vulputate gravida dolor a at fusce massa quis fames urna. Cum viverra rutrum aliquam arcu eu in. Tortor lacus nibh in tellus cursus semper. sum dolor sit amet consectetur. Pellentesque semper ipsum porta laoreet sit ornare vulputate integer. Lorem ipsum dolor sit amet consectetur. Pellentesque semper ipsum porta laoreet sit ornare vulputate integer. Vitae vitae sed volutpat venenatis dignissim consectetur aenean eleifend odio. Tortor lectus facilisis sapien dui. Natoque lorem orci est risus vulputate.",
     extraImages: [card6, card6, card6, card6, card6, card6, card6],
     reviews: {
       averageRating: 5.0,
