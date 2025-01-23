@@ -19,8 +19,8 @@ function ProductPage() {
       {product && (
         <div>
           <Hero product={product} />
-          {/* <ReviewSection product={product} /> */}
-          {/* <SimilarProductSlider product={product} /> */}
+          <ReviewSection product={product} />
+          <SimilarProductSlider product={product} />
         </div>
       )}
       {!product && <div className='w-full h-screen flex justify-center items-center'>

@@ -192,7 +192,7 @@ const items = [
           user: "Pravesh",
           date: "Yesterday",
           rating: 5,
-          comment: "Pellentesque semper ipsum porta laoreet sit ornare vulputate integer. Lorem ipsum dolor sit amet consectetur.",
+          comment: "Pellentesque semper ipsum porta laoreet sit ornare vulputate integer. Lorem ipsum dolor sit amet consectetur. Pellentesque semper ipsum porta laoreet sit ornare vulputate integer.",
           likes: 50,
           dislikes: 0,
           replies: [],

@@ -38,13 +38,13 @@ function ReviewSection({ product }) {
               />
               <div>
                 <div className="flex items-center gap-4">
-                  <span className="text-primary font-mulish text-sm">{reply.user}</span>
-                  <span className="text-xs font-mulish text-gray-400">{reply.date}</span>
+                  <span className="text-primary font-mulish text-sm xl:text-[1rem] xl:font-bold">{reply.user}</span>
+                  <span className="text-xs font-mulish text-gray-400 xl:text-[1rem] xl:text-stroke-xs">{reply.date}</span>
                 </div>
-                <div className="flex gap-1">{renderStars(reply.rating)}</div>
+                <div className="flex gap-1 xl:text-lg">{renderStars(reply.rating)}</div>
               </div>
             </div>
-            <div className="pl-10 text-sm text-gray-600 mt-1 font-bellefair lg:pl-20 lg:leading-4">{reply.comment}</div>
+            <div className="pl-10 text-sm text-gray-600 mt-1 font-bellefair lg:pl-20 lg:leading-4 xl:text-[1rem]">{reply.comment}</div>
             <div className="pl-10 flex items-center gap-3 mt-1 font-mulish lg:pl-20">
               <button className="text-secondary text-sm">Reply</button>
               <button className="text-xs text-gray-500 flex items-center gap-1">
@@ -106,16 +106,16 @@ function ReviewSection({ product }) {
   }, [isOpen]);
 
   return (
-    <div className="p-5 w-80 mx-auto md:flex md:flex-row-reverse md:justify-between md:gap-20 md:w-[45rem] md:px-0 lg:w-[50rem] lg:py-10 xl:py-14 xl:w-[70rem]">
+    <div className="p-5 w-full mx-auto flex flex-col md:flex-row-reverse md:justify-between md:gap-20 md:px-2 lg:py-10 xl:py-14 xl:px-16">
       <div className="font-lora">
         {/* Average Rating Section */}
-        <div className="flex items-center gap-2 justify-between md:gap-5 xl:gap-10">
-          <div className="flex gap-1 text-3xl">{renderStars(Math.round(reviews.averageRating))}</div>
-          <span className="text-3xl pr-4 text-primary md:p-0">{reviews.averageRating.toFixed(1)}</span>
+        <div className="w-72 flex items-center gap-2 justify-between md:gap-5 xl:gap-10">
+          <div className="flex gap-1 text-3xl xl:text-4xl xl:gap-2">{renderStars(Math.round(reviews.averageRating))}</div>
+          <span className="text-3xl pr-4 text-primary md:p-0 xl:text-[2rem] xl:text-stroke-xs">{reviews.averageRating.toFixed(1)}</span>
         </div>
-        <span className="w-full h-[1px] bg-black/20 block my-3 md:my-4"></span>
+        <span className="w-72 md:w-full h-[1px] bg-black/20 block my-3 md:my-4"></span>
         {/* Detailed Ratings */}
-        <div className="mb-5 xl:w-80">
+        <div className="mb-5 w-72 xl:w-80">
           {Object.entries(reviews.detailedRatings).map(([rating, count]) => (
             <div key={rating} className="flex items-center gap-2">
               <span className="w-5 text-sm font-medium xl:text-base">{rating}</span>
@@ -133,15 +133,15 @@ function ReviewSection({ product }) {
         </div>
       </div>
       {/* Comments Section */}
-      <div className="flex flex-col w-[30rem]">
+      <div className="flex flex-col w-full xl:w-[35rem]">
         <div className="font-bellefair flex gap-6 mb-3 lg:gap-10">
-          <h3 className="text-3xl text-[#555555] lg:text-4xl xl:text-[2.5rem]">Details</h3>
-          <h3 className="text-3xl text-primary lg:text-4xl xl:text-[2.5rem]">Review</h3>
+          <h3 className="text-3xl text-[#555555] lg:text-4xl xl:text-stroke-1 xl:text-[1.5rem]">Details</h3>
+          <h3 className="text-3xl text-primary lg:text-4xl xl:text-stroke-1 xl:text-[1.5rem]">Review</h3>
         </div>
-        <div className="relative my-3 w-max md:mb-6">
+        <div className="relative my-3 w-max md:mb-6 xl:mb-10 xl:mt-0">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-base px-5 py-1 border border-[#7A7A7A] rounded-md flex items-center gap-3 md:rounded-sm lg:py-2"
+            className="text-base px-5 py-1 border border-[#7A7A7A] rounded-md flex items-center gap-3 md:rounded-sm lg:py-2 xl:text-[1rem] xl:rounded-[0.4rem] xl:p-0 xl:w-[9rem] xl:h-[2.25rem] xl:justify-between xl:px-4"
           >
             {selectedOption} <span>
               <IoIosArrowDown />
@@ -174,13 +174,13 @@ function ReviewSection({ product }) {
               />
               <div>
                 <div className="flex items-center gap-4">
-                  <span className="font-mulish text-primary">{comment.user}</span>
-                  <span className="text-sm text-gray-600 font-mulish">{comment.date}</span>
+                  <span className="font-mulish text-primary xl:font-bold xl:tracking-wider">{comment.user}</span>
+                  <span className="text-sm text-gray-600 font-mulish xl:text-[1rem] xl:text-stroke-xs">{comment.date}</span>
                 </div>
-                <div className="flex gap-1">{renderStars(comment.rating)}</div>
+                <div className="flex gap-1 xl:text-lg">{renderStars(comment.rating)}</div>
               </div>
             </div>
-            <p className="pl-12 text-sm font-bellefair lg:pl-20 lg:leading-4">{comment.comment}</p>
+            <p className="pl-12 text-sm font-bellefair lg:pl-20 lg:leading-4 xl:text-[1rem]">{comment.comment}</p>
             <div className="pl-12 flex items-center gap-3 mt-2 font-mulish lg:pl-20">
               <button className="text-secondary text-sm">Reply</button>
               <button className="text-sm text-gray-500 flex items-center gap-1">
