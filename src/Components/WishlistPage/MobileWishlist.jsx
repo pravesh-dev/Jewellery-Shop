@@ -18,7 +18,7 @@ function MobileWishlist({items}) {
           </div>
           <div className='flex items-center gap-5 mb-2'>
             <span className='font-lora text-[0.7rem] bg-[#FF0000] text-accent py-[0.13rem] px-4 rounded-[0.23rem]'>{product.onSale ? `${product.discount}% Off` : `N/A`}</span>
-            <h3 className="text-[1rem]">
+            <h3 className="text-[1rem] font-bellefair">
               {product.onSale ? (
                 <div className="flex flex-col -space-y-1">
                   <span>
