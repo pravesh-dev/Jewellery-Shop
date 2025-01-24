@@ -116,7 +116,7 @@ function ShoppingCart({ items }) {
       </div>
       <div className="col-span-4">
         <h1 className="text-primary text-stroke-1 font-bellefair text-[2rem]">Order Summary</h1>
-        <OrderSummary />
+        <OrderSummary product={product} count={count} totalPrice={totalPrice} />
       </div>
     </div>
   );

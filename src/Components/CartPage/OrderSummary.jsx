@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-function OrderSummary() {
+function OrderSummary({ product, count, totalPrice }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
     "Standard Delivery - $ 100.00  "
@@ -27,11 +27,14 @@ function OrderSummary() {
     };
   }, [isOpen]);
 
+  const shippingCost = selectedOption.split("-")[1].trim().split("$")[1].trim();
+  const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
+
   return (
     <div className="font-lora">
       <div>
-        <span>Items 2</span>
-        <h2>$ 40,200.00</h2>
+        <span>Items {count}</span>
+        <h2>$ {totalPrice}</h2>
       </div>
       <h2>Shipping Charges</h2>
       <div className="relative">
@@ -66,7 +69,7 @@ function OrderSummary() {
       <button className="uppercase">APPLY</button>
       <div>
         <span>Total Cost</span>
-        <h2>$ 40,300.00</h2>
+        <h2>$ {totalCost.toFixed(2)}</h2>
       </div>
       <button className="uppercase">Checkout</button>
     </div>
