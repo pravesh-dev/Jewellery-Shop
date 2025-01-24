@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi2";
+import OrderSummary from "./OrderSummary";
 
 function ShoppingCart({ items }) {
   const [product, setProduct] = useState(items[0]);
@@ -21,7 +22,7 @@ function ShoppingCart({ items }) {
     : product.price * count;
 
   return (
-    <div className="pt-20 px-2 grid grid-cols-11">
+    <div className="w-full min-h-screen pt-20 px-2 grid grid-cols-11">
       <div className="col-span-7">
         <h1 className="text-primary text-stroke-1 font-bellefair text-[2rem]">
           Shopping Cart
@@ -115,6 +116,7 @@ function ShoppingCart({ items }) {
       </div>
       <div className="col-span-4">
         <h1 className="text-primary text-stroke-1 font-bellefair text-[2rem]">Order Summary</h1>
+        <OrderSummary />
       </div>
     </div>
   );
