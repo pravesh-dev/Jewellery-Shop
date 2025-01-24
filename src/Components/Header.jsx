@@ -155,9 +155,9 @@ function Header() {
           <Link to='/wishlist' className={`text-xl bg-[#c095691b] py-2 px-4 ${location.pathname === "/wishlist" ? 'text-red-600' : 'text-accent md:text-dark'} md:bg-transparent md:p-0 md:text-base lg:text-xl`}>
             <FiHeart />
           </Link>
-          <button className="text-xl bg-[#c095691b] py-2 px-4 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
+          <Link to='/user-cart' className={`text-xl bg-[#c095691b] py-2 px-4 ${location.pathname === "/user-cart" ? 'text-primary' : 'text-accent'} md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl`}>
             <GiShoppingCart />
-          </button>
+          </Link>
         </div>
         <Link
           className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}

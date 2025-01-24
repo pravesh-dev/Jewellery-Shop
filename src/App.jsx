@@ -12,6 +12,7 @@ import BlogLandingPage from './Pages/BlogLandingPage'
 import AboutPage from './Pages/AboutPage'
 import ContactPage from './Pages/ContactPage'
 import WishlistPage from './Pages/WishlistPage'
+import UserCartPage from './Pages/UserCartPage'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/about' element={<AboutPage />} />
           <Route path='/blog' element={<BlogLandingPage />} />
           <Route path='/wishlist' element={<WishlistPage />} />
+          <Route path='/user-cart' element={<UserCartPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/contact' element={<ContactPage />} />
