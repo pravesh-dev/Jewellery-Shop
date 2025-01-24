@@ -31,7 +31,7 @@ function OrderSummary({ product, count, totalPrice }) {
   const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
 
   return (
-    <div className="w-full font-lora border-t border-[#D9D9D9] pt-5 pl-5">
+    <div className="w-full font-lora border-t border-[#D9D9D9] pt-5 pl-5 lg:pl-10 lg:pt-10">
       <div className="flex justify-between text-[1rem] text-stroke-xs mb-6">
         <span className="">Items {count}</span>
         <h2 className="">$ {totalPrice}</h2>

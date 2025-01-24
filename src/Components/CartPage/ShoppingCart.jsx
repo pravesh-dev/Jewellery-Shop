@@ -27,7 +27,7 @@ function ShoppingCart({ items }) {
         <h1 className="text-primary text-stroke-1 mb-1 font-bellefair text-[1.12rem] lg:text-[2rem]">
           Shopping Cart
         </h1>
-        <div className="min-h-[83vh] border-t border-r border-[#D9D9D9] pt-5">
+        <div className="min-h-[83vh] border-t border-r border-[#D9D9D9] pt-5 lg:pt-10">
           <div className="grid grid-cols-7 mb-5">
             <div className="col-span-4">
               <h2 className="text-[1rem] text-dark lg:text-[1.12rem] font-lora">
@@ -60,7 +60,7 @@ function ShoppingCart({ items }) {
                     loading="lazy"
                   />
                 </div>
-                <div className="font-bellefair pt-5 lg:space-y-6 lg:pt-10">
+                <div className="font-bellefair pt-5">
                   <h1 className="text-[1rem] leading-4 lg:leading-7 lg:text-[1.5rem]">
                     {product.name}
                   </h1>
@@ -87,7 +87,7 @@ function ShoppingCart({ items }) {
                   </div>
                 </div>
               </div>
-              <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 lg:pt-10">
+              <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2">
                 <div className="flex justify-center items-start">
                   <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1">
                     <HiOutlineMinus onClick={handleDecrement} />
