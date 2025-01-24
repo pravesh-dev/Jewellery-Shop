@@ -22,33 +22,34 @@ function ShoppingCart({ items }) {
     : product.price * count;
 
   return (
-    <div className="w-full min-h-screen pt-24 px-2 grid grid-cols-11 xl:px-16">
+    <div className="w-full pt-24 px-2 grid grid-cols-11 lg:pt-32 xl:px-16">
       <div className="col-span-7">
         <h1 className="text-primary text-stroke-1 mb-1 font-bellefair text-[1.12rem] lg:text-[2rem]">
           Shopping Cart
         </h1>
-        <div className="border-t border-r border-[#D9D9D9]">
-          <div className="grid grid-cols-7">
+        <div className="min-h-[83vh] border-t border-r border-[#D9D9D9] pt-5">
+          <div className="grid grid-cols-7 mb-5">
             <div className="col-span-4">
-              <h2 className="text-[0.75rem] text-dark lg:text-[1.12rem] font-lora">
+              <h2 className="text-[1rem] text-dark lg:text-[1.12rem] font-lora">
                 Product Details
               </h2>
             </div>
             <div className="col-span-3">
               <div className="grid grid-cols-3 gap-2 font-lora">
-                <h3 className="text-[0.7rem] text-dark text-center lg:text-[1.12rem]">
+                <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">
                   Quantity
                 </h3>
-                <h3 className="text-[0.7rem] text-dark text-center lg:text-[1.12rem]">
+                <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">
                   Price
                 </h3>
-                <h3 className="text-[0.7rem] text-dark text-center lg:text-[1.12rem]">
+                <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">
                   Total
                 </h3>
               </div>
             </div>
           </div>
           <div className="">
+            {/* Product Cards */}
             <div className="grid grid-cols-7">
               <div className="col-span-4 flex items-start gap-2 lg:gap-10">
                 <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
@@ -59,7 +60,7 @@ function ShoppingCart({ items }) {
                     loading="lazy"
                   />
                 </div>
-                <div className="font-bellefair pt-5 space-y-2 lg:space-y-6 lg:pt-10">
+                <div className="font-bellefair pt-5 lg:space-y-6 lg:pt-10">
                   <h1 className="text-[1rem] leading-4 lg:leading-7 lg:text-[1.5rem]">
                     {product.name}
                   </h1>
@@ -68,10 +69,10 @@ function ShoppingCart({ items }) {
                   </h3>
                   {product.onSale && (
                     <p>
-                      <span className="font-lora text-[0.7rem] py-[0.13rem] px-3 rounded-[0.23rem] text-accent bg-[#ff0000] lg:text-[1rem]">
+                      <span className="font-lora text-[0.7rem] py-[0.13rem] mr-2 px-2 rounded-[0.23rem] text-accent bg-[#ff0000] lg:text-[1rem]">
                         {product.discount}% Off
                       </span>
-                      <span className="font-bellefair text-dark">
+                      <span className="font-bellefair text-dark text-[0.68rem]">
                         Limited Time Deal
                       </span>
                     </p>
@@ -88,7 +89,7 @@ function ShoppingCart({ items }) {
               </div>
               <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 lg:pt-10">
                 <div className="flex justify-center items-start">
-                  <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-3 gap-2">
+                  <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1">
                     <HiOutlineMinus onClick={handleDecrement} />
                     <span>{count}</span>
                     <BsPlusLg onClick={handleIncrement} />
@@ -119,7 +120,7 @@ function ShoppingCart({ items }) {
         </div>
       </div>
       <div className="col-span-4">
-        <h1 className="text-primary text-stroke-1 font-bellefair mb-1 text-[1.12rem] lg:text-[2rem]">
+        <h1 className="text-primary text-stroke-1 font-bellefair mb-1 pl-4 text-[1.12rem] lg:text-[2rem] lg:pl-6">
           Order Summary
         </h1>
         <OrderSummary product={product} count={count} totalPrice={totalPrice} />

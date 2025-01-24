@@ -31,16 +31,16 @@ function OrderSummary({ product, count, totalPrice }) {
   const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
 
   return (
-    <div className="font-lora border-t border-[#D9D9D9]">
-      <div>
-        <span>Items {count}</span>
-        <h2>$ {totalPrice}</h2>
+    <div className="w-full font-lora border-t border-[#D9D9D9] pt-5 pl-5">
+      <div className="flex justify-between text-[1rem] text-stroke-xs mb-6">
+        <span className="">Items {count}</span>
+        <h2 className="">$ {totalPrice}</h2>
       </div>
-      <h2>Shipping Charges</h2>
-      <div className="relative">
+      <h2 className="text-[1rem] text-stroke-xs mb-3">Shipping Charges</h2>
+      <div className="relative w-full mb-6">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-red-300 text-black text-lg px-2 py-1 rounded-sm flex items-center justify-between gap-3 font-bellefair"
+          className="bg-red-300 w-full text-black text-[1rem] px-5 py-2 rounded-sm flex items-center justify-between gap-3 font-bellefair"
         >
           {selectedOption}{" "}
           <span>
@@ -64,14 +64,18 @@ function OrderSummary({ product, count, totalPrice }) {
           </div>
         )}
       </div>
-      <h2>Promo Code</h2>
-      <input type="text" className="font-bellefair" placeholder="Enter your code" />
-      <button className="uppercase">APPLY</button>
-      <div>
+      <h2 className="text-[1rem] text-stroke-xs mb-3">Promo Code</h2>
+      <input
+        type="text"
+        className="font-bellefair bg-red-300 w-full px-3 py-2 border-none outline-none mb-6"
+        placeholder="Enter your code"
+      />
+      <button className="uppercase font-bellefair text-[1rem] tracking-wider rounded-[0.3rem] px-4 pb-1 pt-2 text-accent bg-secondary mb-6">APPLY</button>
+      <div className="flex justify-between text-[1rem] text-stroke-xs mb-6">
         <span>Total Cost</span>
         <h2>$ {totalCost.toFixed(2)}</h2>
       </div>
-      <button className="uppercase">Checkout</button>
+      <button className="uppercase w-full text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent bg-secondary mb-6">Checkout</button>
     </div>
   );
 }
