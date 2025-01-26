@@ -155,7 +155,7 @@ function Header() {
           <Link to='/wishlist' className={`text-xl bg-[#c095691b] py-2 px-4 ${location.pathname === "/wishlist" ? 'text-red-600' : 'text-accent md:text-dark'} md:bg-transparent md:p-0 md:text-base lg:text-xl`}>
             <FiHeart />
           </Link>
-          <Link to='/user-cart' className={`text-xl bg-[#c095691b] py-2 px-4 ${location.pathname === "/user-cart" ? 'text-primary' : 'text-accent'} md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl`}>
+          <Link to='/user-cart' className={`text-xl bg-[#c095691b] py-2 px-4 ${location.pathname === "/user-cart" ? 'text-primary' : 'text-accent md:text-dark'} md:bg-transparent md:p-0 md:text-base lg:text-xl`}>
             <GiShoppingCart />
           </Link>
         </div>
