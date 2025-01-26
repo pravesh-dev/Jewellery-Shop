@@ -28,7 +28,7 @@ function ShoppingCart({ items }) {
           Shopping Cart
         </h1>
         <div className="min-h-[83vh] border-t border-r border-[#D9D9D9] pt-5 lg:pt-10">
-          <div className="grid grid-cols-7 mb-5">
+          <div className="grid grid-cols-7 mb-5 lg:gap-3">
             <div className="col-span-4">
               <h2 className="text-[1rem] text-dark lg:text-[1.12rem] font-lora">
                 Product Details
@@ -50,7 +50,7 @@ function ShoppingCart({ items }) {
           </div>
           <div className="">
             {/* Product Cards */}
-            <div className="grid grid-cols-7">
+            <div className="grid grid-cols-7 lg:gap-3">
               <div className="col-span-4 flex items-start gap-2 lg:gap-10">
                 <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
                   <img
