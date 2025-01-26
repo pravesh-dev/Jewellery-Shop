@@ -60,7 +60,7 @@ function ShoppingCart({ items }) {
                     loading="lazy"
                   />
                 </div>
-                <div className="font-bellefair pt-5">
+                <div className="font-bellefair pt-5 lg:space-y-1">
                   <h1 className="text-[1rem] leading-4 lg:leading-7 lg:text-[1.5rem]">
                     {product.name}
                   </h1>
@@ -72,7 +72,7 @@ function ShoppingCart({ items }) {
                       <span className="font-lora text-[0.7rem] py-[0.13rem] mr-2 px-2 rounded-[0.23rem] text-accent bg-[#ff0000] lg:text-[1rem]">
                         {product.discount}% Off
                       </span>
-                      <span className="font-bellefair text-dark text-[0.68rem]">
+                      <span className="font-bellefair text-dark text-[0.68rem] lg:text-[1rem]">
                         Limited Time Deal
                       </span>
                     </p>
@@ -89,7 +89,7 @@ function ShoppingCart({ items }) {
               </div>
               <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2">
                 <div className="flex justify-center items-start">
-                  <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1">
+                  <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1 lg:text-[1.12rem] lg:px-4 lg:gap-2 lg:py-1">
                     <HiOutlineMinus onClick={handleDecrement} />
                     <span>{count}</span>
                     <BsPlusLg onClick={handleIncrement} />

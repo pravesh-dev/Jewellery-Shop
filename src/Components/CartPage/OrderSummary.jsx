@@ -32,15 +32,15 @@ function OrderSummary({ product, count, totalPrice }) {
 
   return (
     <div className="w-full font-lora border-t border-[#D9D9D9] pt-5 pl-5 lg:pl-10 lg:pt-10">
-      <div className="flex justify-between text-[1rem] text-stroke-xs mb-6">
+      <div className="flex justify-between text-[1rem] text-stroke-xs mb-6 lg:text-[1.12rem]">
         <span className="">Items {count}</span>
         <h2 className="">$ {totalPrice}</h2>
       </div>
-      <h2 className="text-[1rem] text-stroke-xs mb-3">Shipping Charges</h2>
+      <h2 className="text-[1rem] text-stroke-xs mb-3 lg:text-[1.12rem]">Shipping Charges</h2>
       <div className="relative w-full mb-6">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="bg-red-300 w-full text-black text-[1rem] px-5 py-2 rounded-sm flex items-center justify-between gap-3 font-bellefair"
+          className="bg-red-300 w-full text-black text-[1rem] px-5 py-2 rounded-sm flex items-center justify-between gap-3 font-bellefair lg:text-[1.12rem]"
         >
           {selectedOption}{" "}
           <span>
@@ -48,7 +48,7 @@ function OrderSummary({ product, count, totalPrice }) {
           </span>
         </button>
         {isOpen && (
-          <div className="w-max absolute top-10 z-20 bg-white text-dark shadow-md rounded-md">
+          <div className="w-full absolute top-10 z-20 bg-white text-dark shadow-md rounded-sm">
             {options.map((option) => (
               <div
                 key={option}
@@ -56,7 +56,7 @@ function OrderSummary({ product, count, totalPrice }) {
                   setSelectedOption(option);
                   setIsOpen(false);
                 }}
-                className="px-7 py-1 hover:bg-gray-200 font-bellefair"
+                className="px-7 py-1 hover:bg-gray-200 font-bellefair lg:text-[1.12rem]"
               >
                 {option}
               </div>
@@ -64,18 +64,18 @@ function OrderSummary({ product, count, totalPrice }) {
           </div>
         )}
       </div>
-      <h2 className="text-[1rem] text-stroke-xs mb-3">Promo Code</h2>
+      <h2 className="text-[1rem] text-stroke-xs mb-3 lg:text-[1.12rem]">Promo Code</h2>
       <input
         type="text"
-        className="font-bellefair bg-red-300 w-full px-3 py-2 border-none outline-none mb-6"
+        className="font-bellefair bg-red-300 w-full px-3 py-2 border-none outline-none mb-6 lg:text-[1.12rem]"
         placeholder="Enter your code"
       />
-      <button className="uppercase font-bellefair text-[1rem] tracking-wider rounded-[0.3rem] px-4 pb-1 pt-2 text-accent bg-secondary mb-6">APPLY</button>
-      <div className="flex justify-between text-[1rem] text-stroke-xs mb-6">
+      <button className="uppercase font-bellefair text-[1rem] tracking-wider rounded-[0.3rem] px-4 pb-1 pt-2 text-accent bg-secondary mb-6 lg:text-[1.12rem]">APPLY</button>
+      <div className="flex justify-between text-[1rem] text-stroke-xs mb-6 lg:text-[1.12rem]">
         <span>Total Cost</span>
         <h2>$ {totalCost.toFixed(2)}</h2>
       </div>
-      <button className="uppercase w-full text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent bg-secondary mb-6">Checkout</button>
+      <button className="uppercase w-full text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent bg-secondary mb-6 lg:text-[1.5rem]">Checkout</button>
     </div>
   );
 }
