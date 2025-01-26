@@ -35,7 +35,7 @@ function ShoppingCart({ items }) {
               </h2>
             </div>
             <div className="col-span-3">
-              <div className="grid grid-cols-3 gap-2 font-lora">
+              <div className="grid grid-cols-3 gap-2 font-lora xl:px-10">
                 <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">
                   Quantity
                 </h3>
@@ -87,7 +87,7 @@ function ShoppingCart({ items }) {
                   </div>
                 </div>
               </div>
-              <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2">
+              <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 xl:px-10">
                 <div className="flex justify-center items-start">
                   <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1 lg:text-[1.12rem] lg:px-4 lg:gap-2 lg:py-1">
                     <HiOutlineMinus onClick={handleDecrement} />
@@ -120,7 +120,7 @@ function ShoppingCart({ items }) {
         </div>
       </div>
       <div className="col-span-4">
-        <h1 className="text-primary text-stroke-1 font-bellefair mb-1 pl-4 text-[1.12rem] lg:text-[2rem] lg:pl-6">
+        <h1 className="text-primary text-stroke-1 font-bellefair mb-1 pl-5 text-[1.12rem] lg:text-[2rem] lg:pl-10">
           Order Summary
         </h1>
         <OrderSummary product={product} count={count} totalPrice={totalPrice} />
