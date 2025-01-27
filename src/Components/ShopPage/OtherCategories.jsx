@@ -13,7 +13,7 @@ function OtherCategories() {
             <div className="w-[60%] flex flex-col justify-center items-start gap-1 p-2 lg:p-5 xl:gap-4 xl:px-12 xl:w-[65%]">
                 <h2 className="text-xl lg:text-2xl xl:text-[1.5rem] text-stroke-xs">Women Jewellery</h2>
                 <p className="text-xs lg:text-sm xl:text-[1.12rem] xl:leading-5">Lorem ipsum dolor sit amet consectetur. Sed velit in vulputate amet vulputate donec pretium. Amet adipiscing habitant ac faucibus eu risus a.</p>
-                <button className="bg-secondary text-accent px-4 py-1 rounded-full xl:text-[1.12rem] xl:px-6 xl:w-[8.7rem] xl:h-[2.2rem] xl:py-0 xl:mt-5">Explore Now</button>
+                <button className="bg-secondary hover:bg-[#B0890A] duration-300 text-accent px-4 py-1 rounded-full xl:text-[1.12rem] xl:px-6 xl:w-[8.7rem] xl:h-[2.2rem] xl:py-0 xl:mt-5">Explore Now</button>
             </div>
             <div className="w-[40%] xl:w-[35%]">
                 <img src={img1} className="w-full h-full object-cover" alt="image" />
@@ -23,7 +23,7 @@ function OtherCategories() {
             <div className="w-[60%] flex flex-col justify-center items-start gap-1 p-2 lg:p-5 xl:gap-4 xl:px-12 xl:w-[65%]">
                 <h2 className="text-xl lg:text-2xl xl:text-[1.5rem] text-stroke-xs">Accessories</h2>
                 <p className="text-xs lg:text-sm xl:text-[1.12rem] xl:leading-5">Lorem ipsum dolor sit amet consectetur. Sed velit in vulputate amet vulputate donec pretium. Amet adipiscing habitant ac faucibus eu risus a.</p>
-                <button className="bg-secondary text-accent px-4 py-1 rounded-full xl:text-[1.12rem] xl:px-6 xl:w-[8.7rem] xl:h-[2.2rem] xl:py-0 xl:mt-5">Explore Now</button>
+                <button className="bg-secondary hover:bg-[#B0890A] duration-300 text-accent px-4 py-1 rounded-full xl:text-[1.12rem] xl:px-6 xl:w-[8.7rem] xl:h-[2.2rem] xl:py-0 xl:mt-5">Explore Now</button>
             </div>
             <div className="w-[40%] xl:w-[35%]">
                 <img src={img2} className="w-full h-full object-cover" alt="image" />
