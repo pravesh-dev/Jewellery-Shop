@@ -9,6 +9,7 @@ const HeroSlider = () => {
   const origImages = [img1, img2, img3];
   const images = [...origImages, ...origImages]; // Array of images
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHeart, setIsHeart] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,8 +60,10 @@ const HeroSlider = () => {
     </div>
     <div className="relative">
       <img src={bottomLine} className="w-screen" alt="bottom line image" />
-      <span className="absolute top-0 left-1/2 -translate-y-[40%] -translate-x-1/2 bg-secondary w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12">
-      <FaHeart className="text-accent text-lg" />
+      <span className="absolute top-0 left-1/2 -translate-y-[40%] -translate-x-1/2 bg-[#BB0041] w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12 cursor-pointer" onClick={()=>{
+        setIsHeart(!isHeart)
+      }}>
+      <FaHeart className={`text-lg ${isHeart ? 'text-[#ED6ABF]' : 'text-accent'}`} />
       </span>
   </div>
   </>
