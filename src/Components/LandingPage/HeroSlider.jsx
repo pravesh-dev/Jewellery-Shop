@@ -60,7 +60,6 @@ const HeroSlider = () => {
     </div>
     <div className="relative">
       <img src={bottomLine} className="w-screen" alt="bottom line image" />
-      <span className="absolute bottom-0 left-0 translate-y-[0%] -translate-x-1/2 bg-[#BB0041] w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12 cursor-pointer"></span>
       <span className="absolute top-0 left-1/2 -translate-y-[40%] -translate-x-1/2 bg-[#BB0041] w-7 h-7 flex justify-center items-center rounded-full lg:w-12 lg:h-12 cursor-pointer" onClick={()=>{
         setIsHeart(!isHeart)
       }}>
