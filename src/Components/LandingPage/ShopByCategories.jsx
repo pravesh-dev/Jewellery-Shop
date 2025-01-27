@@ -87,7 +87,7 @@ function ShopByCategories() {
         {renderItems(activeTab)}
       </div>
       <Link to='/shop'
-        className={`text-accent bg-secondary font-bellefair px-5 py-1 text-sm rounded-full ${
+        className={`text-accent bg-secondary hover:bg-[#B0890A] font-bellefair px-5 py-1 text-sm rounded-full ${
           viewAll ? "block" : "hidden"
         } lg:text-lg lg:px-7 lg:py-2`}
       >
