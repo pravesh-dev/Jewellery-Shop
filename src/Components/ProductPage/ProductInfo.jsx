@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoStarSharp } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
 import { SlLock } from "react-icons/sl";
@@ -7,6 +7,9 @@ import { IoTrophySharp } from "react-icons/io5";
 import { IoMdHeart } from "react-icons/io";
 
 function ProductInfo({ product }) {
+
+  const [isHeart, setIsHeart] = useState(false);
+
   // Function to render stars based on the average rating
   const renderStars = (rating) => {
     const stars = [];
@@ -70,7 +73,7 @@ function ProductInfo({ product }) {
       </div>
       <div className="w-72 h-10 flex gap-4 md:w-96 lg:mt-8 lg:h-11 xl:h-12">
         <button className="w-[80%] h-full capitalize rounded-sm text-xl text-center bg-secondary text-white lg:text-2xl lg:w-[80%] lg:rounded-md xl:text-stroke-xs xl:text-[1.5rem]">Add to cart</button>
-        <button className="w-[20%] h-full rounded-sm text-xl flex justify-center items-center bg-secondary text-white lg:text-2xl lg:w-[20%] lg:rounded-md xl:text-3xl"><IoMdHeart /></button>
+        <button className={`w-[20%] h-full rounded-sm text-xl flex justify-center items-center ${isHeart ? 'bg-[#B0890A] text-[#C80003]' : 'text-accent bg-secondary'} lg:text-2xl lg:w-[20%] lg:rounded-md xl:text-3xl`} onClick={()=>{setIsHeart(!isHeart)}}><IoMdHeart /></button>
       </div>
     </div>
   );
