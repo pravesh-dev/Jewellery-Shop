@@ -160,7 +160,7 @@ function Header() {
           </Link>
         </div>
         <Link
-          className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:px-2 md:rounded-full md:bg-transparent md:hover:bg-[#B0890A] md:hover:text-accent duration-300 lg:text-base`}
+          className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
           to="/signup"
         >
           Signup
