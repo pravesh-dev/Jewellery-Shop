@@ -160,13 +160,13 @@ function Header() {
           </Link>
         </div>
         <Link
-          className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
+          className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:px-2 md:rounded-full md:bg-transparent md:hover:bg-[#B0890A] md:hover:text-accent duration-300 lg:text-base`}
           to="/signup"
         >
           Signup
         </Link>
         <Link
-          className={`w-full py-3 bg-secondary text-accent text-center nav_items tracking-[1px] md:w-auto md:py-1 md:px-3 md:rounded-full lg:text-base lg:px-5`}
+          className={`w-full py-3 bg-secondary hover:bg-[#B0890A] duration-300 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-1 md:px-3 md:rounded-full lg:text-base lg:px-5`}
           to="/login"
         >
           Login
