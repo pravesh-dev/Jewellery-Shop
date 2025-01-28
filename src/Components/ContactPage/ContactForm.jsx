@@ -83,7 +83,7 @@ function ContactForm() {
       ></textarea>
       <button
         type="submit"
-        className="px-6 py-1 mt-6 self-end rounded-sm bg-secondary text-accent lg:rounded-[0.2rem] lg:tracking-wider xl:px-7 xl:text-xl xl:rounded-[0.25rem]"
+        className="px-6 py-1 mt-6 self-end rounded-sm bg-secondary hover:bg-[#B0890A] duration-300 text-accent lg:rounded-[0.2rem] lg:tracking-wider xl:px-7 xl:text-xl xl:rounded-[0.25rem]"
       >
         Submit
       </button>
