@@ -22,19 +22,19 @@ function ShoppingCart({ items }) {
     : product.price * count;
 
   return (
-    <div className="w-full pt-24 px-2 grid grid-cols-11 lg:pt-32 xl:px-16">
-      <div className="col-span-7">
+    <div className="w-full pt-24 px-2 grid grid-cols-11 lg:pt-32 xl:px-16 xl:grid-cols-12">
+      <div className="col-span-7 xl:col-span-8">
         <h1 className="text-primary text-stroke-1 mb-1 font-bellefair text-[1.12rem] lg:text-[2rem]">
           Shopping Cart
         </h1>
         <div className="min-h-[83vh] border-t border-r border-[#D9D9D9] pt-5 lg:pt-10">
-          <div className="grid grid-cols-7 mb-5 lg:gap-3">
+          <div className="grid grid-cols-7 mb-5 lg:gap-3 xl:grid-cols-8">
             <div className="col-span-4">
               <h2 className="text-[1rem] text-dark lg:text-[1.12rem] font-lora">
                 Product Details
               </h2>
             </div>
-            <div className="col-span-3">
+            <div className="col-span-3 xl:col-span-4">
               <div className="grid grid-cols-3 gap-2 font-lora xl:px-10">
                 <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">
                   Quantity
@@ -50,7 +50,7 @@ function ShoppingCart({ items }) {
           </div>
           <div className="">
             {/* Product Cards */}
-            <div className="grid grid-cols-7 lg:gap-3">
+            <div className="grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
               <div className="col-span-4 flex items-start gap-2 lg:gap-10">
                 <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
                   <img
@@ -87,7 +87,7 @@ function ShoppingCart({ items }) {
                   </div>
                 </div>
               </div>
-              <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 xl:px-10">
+              <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 xl:px-10 xl:col-span-4">
                 <div className="flex justify-center items-start">
                   <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1 lg:text-[1.12rem] lg:px-4 lg:gap-2 lg:py-1">
                     <HiOutlineMinus onClick={handleDecrement} />
