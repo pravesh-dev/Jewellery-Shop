@@ -33,7 +33,7 @@ function SortBy() {
       {isOpen && (
           <div className="w-full absolute top-10 z-20 bg-white text-dark shadow-md rounded-md">
           {options.map((option) => (
-            <div key={option} onClick={() => { setSelectedOption(option); setIsOpen(false); }} className="px-7 py-1 hover:bg-gray-200">
+            <div key={option} onClick={() => { setSelectedOption(option); setIsOpen(false); }} className="px-7 py-1 hover:bg-gray-200 cursor-pointer">
               {option}
             </div>
           ))}
