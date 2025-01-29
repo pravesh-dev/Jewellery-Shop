@@ -148,7 +148,7 @@ function ReviewSection({ product }) {
             </span>
           </button>
           {isOpen && (
-            <div className="w-full absolute top-10 z-20 bg-white text-dark shadow-md rounded-md">
+            <div className="w-full absolute top-10 z-20 bg-white text-dark shadow-md rounded-md cursor-pointer">
               {options.map((option) => (
                 <div
                   key={option}
