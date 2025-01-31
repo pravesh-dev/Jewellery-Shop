@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import img1 from "../../Assets/LandingPage/Featured/animated-img1.jpg";
+// Define the FeaturedSlider component
 function FeaturedSlider() {
+  // Initialize state for current image and images
   const [currentImage, setCurrentImage] = useState(0);
   const images = [img1, img1, img1];
-  // Code used for animating images
+  
+  // UseEffect hook to change the image every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prevImage) => (prevImage + 1) % images.length);
-    }, 3000);
+    }, 3000); // Change image every 3 seconds
     return () => clearInterval(interval);
   }, [images.length]);
+
+  // JSX for the FeaturedSlider component
   return (
     <section className="w-full h-96 md:w-[48%] md:h-full relative overflow-hidden rounded-xl lg:w-[30rem] xl:w-[33.3rem]">
       <img
