@@ -1,21 +1,26 @@
 import FeaturedSlider from "./FeaturedSlider";
 import newArrival from '../../Assets/LandingPage/Featured/new-arrival.jpg';
 import topSeller from '../../Assets/LandingPage/Featured/top-seller.jpg';
-import { LiaLongArrowAltRightSolid } from "react-icons/lia";
+import { LiaLongArrowAltRightSolid } from "react-icons/lia"; // Import the long arrow icon
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+// Define the Featured component
 function Featured() {
-    const [isHovering, setIsHovering] = useState(null); // Keeps track of which card is being hovered
+    // State to keep track of which card is being hovered
+    const [isHovering, setIsHovering] = useState(null); 
 
+    // Function to handle mouse enter event on a card
     const handleMouseEnter = (card) => {
         setIsHovering(card); // Sets the card being hovered
     };
 
+    // Function to handle mouse leave event on a card
     const handleMouseLeave = () => {
         setIsHovering(null); // Resets the hover state when the mouse leaves
     };
 
+    // JSX for the Featured section
     return (
         <section className="w-full font-bellefair px-2 py-5 md:px-16 md:py-10 lg:py-20 xl:flex flex-col items-center xl:py-10">
             <h1 className="text-primary text-3xl mb-2 lg:text-4xl xl:text-[2rem] xl:w-[70rem] text-stroke xl:mb-0">
