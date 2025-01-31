@@ -1,7 +1,8 @@
-import React from "react";
-import HeroSlider from "./HeroSlider";
-import rope from "../../Assets/LandingPage/Hero/rope.svg";
+import React from "react"; // Import React for JSX
+import HeroSlider from "./HeroSlider"; // Import HeroSlider component
+import rope from "../../Assets/LandingPage/Hero/rope.svg"; // Import rope image
 
+// Define the Hero component
 function Hero() {
   return (
     <section className="w-full flex flex-col gap-10 justify-center items-center relative lg:min-h-screen overflow-hidden xl:min-h-[100vh]">
@@ -29,7 +30,7 @@ function Hero() {
           </p>
         </div>
       </div>
-      <HeroSlider />
+      <HeroSlider /> {/* Include HeroSlider component */}
     </section>
   );
 }
