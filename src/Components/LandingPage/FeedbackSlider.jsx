@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import star from "../../assets/LandingPage/Feedback/star.svg";
 import client1 from "../../Assets/LandingPage/Feedback/client1.jpg";
-import { RiDoubleQuotesL } from "react-icons/ri";
-import { RiDoubleQuotesR } from "react-icons/ri";
+import { RiDoubleQuotesL } from "react-icons/ri"; // Import left double quotes icon
+import { RiDoubleQuotesR } from "react-icons/ri"; // Import right double quotes icon
 
+// Define the FeedbackSlider component
 function FeedbackSlider() {
+  // Define the clients array with their feedback details
   const clients = [
     {
       img: client1,
@@ -26,9 +28,11 @@ function FeedbackSlider() {
     },
   ];
 
+  // State to keep track of the current client index and slide direction
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isReversing, setIsReversing] = useState(false); // To track slide direction
 
+  // UseEffect hook to automatically change the slide every 3.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
@@ -36,6 +40,7 @@ function FeedbackSlider() {
     return () => clearInterval(interval);
   }, [currentIndex, isReversing]);
 
+  // Function to handle the next slide transition
   const handleNext = () => {
     if (!isReversing) {
       if (currentIndex < clients.length - 1) {
@@ -52,6 +57,7 @@ function FeedbackSlider() {
     }
   };
 
+  // JSX for the FeedbackSlider component
   return (
     <div className="feedback-slider w-80 relative md:w-[40rem] lg:mt-14 lg:w-[60rem] overflow-hidden flex justify-center">
       <div
