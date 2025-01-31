@@ -2,6 +2,7 @@ import React from "react";
 import ShopByCategories from "./ShopByCategories";
 import ring from '../../Assets/LandingPage/Shopby/ring.png'
 
+// Function to render the ShopBy component
 function ShopBy() {
   return (
     <section className="w-full font-bellefair px-2 py-5 md:px-16 md:py-10 lg:py-28 xl:flex flex-col items-center relative overflow-x-hidden xl:pb-16">

@@ -1,18 +1,23 @@
+// Import necessary libraries and assets
 import React, { useEffect, useState } from "react";
 import { items } from "../ProductsData";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
 import { Link, useNavigate } from "react-router-dom";
 
+// Define the ShopByCategories component
 function ShopByCategories() {
 
+  // Initialize state for active tab, view all and navigation
   const [activeTab, setActiveTab] = useState("all");
   const [viewAll, setViewAll] = useState(false);
   const navigate = useNavigate();
 
+  // Function to handle tab click
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+  // UseEffect hook to filter items based on active tab
   useEffect(() => {
     const filteredItems = items.filter(
       (item) => activeTab === "all" || item.type === activeTab
@@ -20,6 +25,7 @@ function ShopByCategories() {
     setViewAll(filteredItems.length > 6);
   }, [activeTab]);
 
+  // Function to render items based on type
   const renderItems = (type) => {
     const filteredItems = items.filter(
       (item) => type === "all" || item.type === type
@@ -64,6 +70,7 @@ function ShopByCategories() {
     ));
   };
 
+  // JSX for the ShopByCategories component
   return (
     <div
       className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10"
@@ -97,4 +104,5 @@ function ShopByCategories() {
   );
 }
 
+// Export the ShopByCategories component
 export default ShopByCategories;
