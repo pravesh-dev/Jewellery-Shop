@@ -5,12 +5,15 @@ import img3 from "../../Assets/LandingPage/Hero/img3.jpg";
 import bottomLine from "../../Assets/LandingPage/Hero/bottom-line.svg";
 import { FaHeart } from "react-icons/fa";
 
+// Define the HeroSlider component
 const HeroSlider = () => {
+  // Initialize state for original images, current index, and heart icon state
   const origImages = [img1, img2, img3];
-  const images = [...origImages, ...origImages]; // Array of images
+  const images = [...origImages, ...origImages]; // Duplicate images for infinite scroll
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHeart, setIsHeart] = useState(false)
 
+  // UseEffect hook to change the slide every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % (images.length -3));
