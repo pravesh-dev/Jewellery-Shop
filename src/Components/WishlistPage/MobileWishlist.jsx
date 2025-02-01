@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
+// Function to render the MobileWishlist component
 function MobileWishlist({items}) {
+  // State to hold the current product being displayed
   const [product, setProduct] = useState(items[0]);
-  console.log(product)
+  console.log(product) // Log the current product for debugging purposes
   return (
     <div className='w-full min-h-screen mt-3'>
       <div className='flex gap-6 justify-between'>
