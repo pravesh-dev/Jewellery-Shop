@@ -1,6 +1,8 @@
 import React from 'react'
 
+// LargeWishlist component to display product details
 function LargeWishlist({items}) {
+    // Destructuring the items array to get the product at index 3
     const [product, setProduct] = [items[3]]
   return (
     <div className='w-full min-h-screen mt-3 lg:mt-6'>
@@ -57,4 +59,5 @@ function LargeWishlist({items}) {
   )
 }
 
+// Exporting the LargeWishlist component
 export default LargeWishlist
