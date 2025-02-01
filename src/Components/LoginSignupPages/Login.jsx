@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
-import user from "../../Assets/loginSignupPage/user.svg";
-import lock from "../../Assets/loginSignupPage/lock.svg";
+import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
+import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
-const navigate = useNavigate();
+  const navigate = useNavigate(); // Use navigate hook for navigation
+  // State to hold form data and response message
   const [formData, setFormData] = useState({
     emailOrPhone: '',
     password: ''
@@ -14,6 +15,7 @@ const navigate = useNavigate();
 
   const [responseMessage, setResponseMessage] = useState('');
 
+  // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -22,6 +24,7 @@ const navigate = useNavigate();
     });
   };
 
+  // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
