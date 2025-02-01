@@ -1,5 +1,6 @@
+// Import necessary libraries and assets
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import name from "../../Assets/loginSignupPage/name.svg";
 import user from "../../Assets/loginSignupPage/user.svg";
@@ -7,7 +8,9 @@ import call from "../../Assets/loginSignupPage/call.svg";
 import lock from "../../Assets/loginSignupPage/lock.svg";
 import { Link } from "react-router-dom";
 
+// Define the Signup component
 function Signup() {
+  // Initialize state for form data and response message
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -18,6 +21,7 @@ function Signup() {
 
   const [responseMessage, setResponseMessage] = useState("");
 
+  // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -26,9 +30,11 @@ function Signup() {
     });
   };
 
+  // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       setResponseMessage("Passwords do not match.");
       setTimeout(() => setResponseMessage(""), 5000);
@@ -36,6 +42,7 @@ function Signup() {
     }
 
     try {
+      // Send signup request
       const response = await axios.post("/signup.php", formData);
       setResponseMessage(response.data.message || "Signup successful!");
     } catch (error) {
@@ -49,6 +56,7 @@ function Signup() {
     }, 5000);
   };
 
+  // Render the Signup component
   return (
     <div className="w-full h-full pt-10 absolute top-0 left-0 font-mulish flex justify-center md:gap-10 lg:gap-20 xl:px-28 xl:justify-between">
       <form
@@ -174,4 +182,5 @@ function Signup() {
   );
 }
 
+// Export the Signup component
 export default Signup;
