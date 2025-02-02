@@ -5,15 +5,12 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "/logo.svg";
-import { useAuth } from "../Helper/Context/AuthContext";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerPosition, setHeaderPosition] = useState("top-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
-
-  const { user, logout } = useAuth();
 
   const location = useLocation();
 
@@ -182,16 +179,7 @@ function Header() {
               <GiShoppingCart />
             </Link>
           </div>
-          {
-            user ? (
-              <span>Welcome, {user.full_name}</span> ) : null }
-              <button
-            className={`w-full py-3 bg-red-600 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-0 lg:text-base`}
-            onClick={logout}
-          >
-            Logout
-          </button>
-              <Link
+          <Link
             className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
             to="/signup"
           >

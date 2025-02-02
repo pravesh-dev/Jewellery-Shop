@@ -29,19 +29,9 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/login.php', formData, { withCredentials: true });
-
-      // Check if login is successful
-      if (response.data.status === 'success') {
-        console.log(response.data)
-        setResponseMessage('Login successful!');
-        // Redirect to homepage after successful login
-        setTimeout(() => {
-          navigate("/"); // Redirect to homepage after a short delay
-        }, 1000);
-      } else {
-        setResponseMessage(response.data.message || "Login failed.");
-      }
+      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/signup.php', formData);
+      setResponseMessage(response.data.message || 'Login successful!');
+      navigate('/')
     } catch (error) {
       setResponseMessage('An error occurred during login.');
       console.error('Login error:', error);
