@@ -1,14 +1,12 @@
-import React, { useContext, useState } from "react"; // Import React and necessary hooks
-import sideImage from "../../Assets/loginSignupPage/login-side-image.svg"; // Import side image asset
+import React, { useState } from "react";
+import axios from "axios"; // Import axios for HTTP requests
+import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
-import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
-import AuthContext from "../../Helper/Context/AuthContext"; // Import AuthContext
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
-  const { login } = useContext(AuthContext);  // Access the login method from context
-
   // State to hold form data and response message
   const [formData, setFormData] = useState({
     emailOrPhone: '',
@@ -29,24 +27,11 @@ function Login() {
   // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log('trying login')
+
     try {
-      const response = await fetch('https://jewellery.hexadefend.com/Backend/auth/login.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-        credentials: 'include', // Include credentials for cookies
-      });
-      const data = await response.json();
-      console.log(data)
-      if (data.status === 'success') {
-        login(data.user);  // Use the login method to update the context
-        navigate('/');
-      } else {
-        setResponseMessage('Invalid credentials');
-      }
+      const response = await axios.post('/login.php', formData);
+      setResponseMessage(response.data.message || 'Login successful!');
+      navigate('/')
     } catch (error) {
       setResponseMessage('An error occurred during login.');
       console.error('Login error:', error);
