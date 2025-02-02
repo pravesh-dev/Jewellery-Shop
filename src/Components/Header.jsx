@@ -184,17 +184,13 @@ function Header() {
           </div>
           {
             user ? (
-              <>
-              <span>Welcome, {user.full_name}</span>
+              <span>Welcome, {user.full_name}</span> ) : null }
               <button
-            className={`w-full py-3 bg-red-600/30 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-0 lg:text-base`}
+            className={`w-full py-3 bg-red-600 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-0 lg:text-base`}
             onClick={logout}
           >
             Logout
           </button>
-              </>
-            ) : (
-              <>
               <Link
             className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
             to="/signup"
@@ -207,9 +203,6 @@ function Header() {
           >
             Login
           </Link>
-              </>
-            )
-          }
         </div>
         <button
           className="absolute top-3 right-3 text-lg w-10 h-10 rounded-md bg-red-600 text-accent md:hidden"

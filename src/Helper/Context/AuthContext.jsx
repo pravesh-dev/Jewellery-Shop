@@ -12,7 +12,9 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.get("https://jewellery.hexadefend.com/Backend/auth/verify.php", {
           withCredentials: true
         });
+        console.log('response authContext: ', response)
         if (response.data.status === "success") {
+          console.log(response.data.user)
           setUser(response.data.user);
         }
       } catch (error) {
