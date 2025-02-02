@@ -1,16 +1,15 @@
 // Import necessary libraries and assets
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import name from "../../Assets/loginSignupPage/name.svg";
 import user from "../../Assets/loginSignupPage/user.svg";
 import call from "../../Assets/loginSignupPage/call.svg";
 import lock from "../../Assets/loginSignupPage/lock.svg";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthContext";
 
 // Define the Signup component
 function Signup() {
-  const { signup } = useContext(AuthContext);
   // Initialize state for form data and response message
   const [formData, setFormData] = useState({
     fullName: "",
@@ -42,13 +41,13 @@ function Signup() {
       return;
     }
 
-    const data = await signup(formData);
-    if(data.status === 'success'){
-      setResponseMessage(data.message || 'Signup successful!');
-      navigate('/login')
-    }
-    else{
-      setResponseMessage('An error occurred during Signup.');
+    try {
+      // Send signup request
+      const response = await axios.post("https://jewellery.hexadefend.com/Backend/auth/signup.php", formData);
+      setResponseMessage(response.data.message || "Signup successful!");
+    } catch (error) {
+      setResponseMessage("An error occurred during signup.");
+      console.error("Signup error:", error);
     }
 
     // Hide the message after 5 seconds

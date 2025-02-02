@@ -4,11 +4,9 @@ import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthContext";
 
 function Login() {
-  const { login } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Use navigate hook for navigation
   // State to hold form data and response message
   const [formData, setFormData] = useState({
     emailOrPhone: '',
@@ -30,13 +28,13 @@ function Login() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const data = await login(formData);
-    if(data.status === 'success'){
-      setResponseMessage(data.message || 'Login successful!');
+    try {
+      const response = await axios.post('/login.php', formData);
+      setResponseMessage(response.data.message || 'Login successful!');
       navigate('/')
-    }
-    else{
+    } catch (error) {
       setResponseMessage('An error occurred during login.');
+      console.error('Login error:', error);
     }
 
     // Hide the message after 5 seconds
