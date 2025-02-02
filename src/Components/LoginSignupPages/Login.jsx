@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
 import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../../Helper/Context/AuthContext";
 
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
+  const { login } = useContext(AuthContext);  // Access the login method from context
+
   // State to hold form data and response message
   const [formData, setFormData] = useState({
     emailOrPhone: '',
@@ -29,9 +32,13 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/signup.php', formData);
-      setResponseMessage(response.data.message || 'Login successful!');
-      navigate('/')
+      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/signup.php', formData, { withCredentials: true });
+      if (response.data.status === 'success') {
+        login(response.data.user);  // Use the login method to update the context
+        navigate('/');
+      } else {
+        setResponseMessage('Invalid credentials');
+      }
     } catch (error) {
       setResponseMessage('An error occurred during login.');
       console.error('Login error:', error);
