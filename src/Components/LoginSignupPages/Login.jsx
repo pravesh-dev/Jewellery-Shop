@@ -29,7 +29,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/login.php', formData);
+      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/login.php', formData);
       setResponseMessage(response.data.message || 'Login successful!');
       navigate('/')
     } catch (error) {

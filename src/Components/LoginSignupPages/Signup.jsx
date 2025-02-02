@@ -43,7 +43,7 @@ function Signup() {
 
     try {
       // Send signup request
-      const response = await axios.post("/signup.php", formData);
+      const response = await axios.post("https://jewellery.hexadefend.com/Backend/auth/signup.php", formData);
       setResponseMessage(response.data.message || "Signup successful!");
     } catch (error) {
       setResponseMessage("An error occurred during signup.");
