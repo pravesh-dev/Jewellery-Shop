@@ -1,7 +1,6 @@
 // src/context/AuthContext.js
 
 import React, { createContext, useState, useEffect } from 'react';
-import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -13,9 +12,16 @@ export const AuthProvider = ({ children }) => {
     // Check if the user is authenticated on initial load
     const checkAuth = async () => {
       try {
-        const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/verify.php');
-        if (response.data.status === 'success') {
-          setUser(response.data.user); // Set user data
+        const response = await fetch('https://jewellery.hexadefend.com/Backend/auth/verify.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // Send credentials
+        });
+        const data = await response.json();
+        if (data.status === 'success') {
+          setUser(data.user); // Set user data
         } else {
           setUser(null); // If no valid session, set user to null
         }
@@ -33,7 +39,13 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    axios.post('https://jewellery.hexadefend.com/Backend/auth/logout.php')
+    fetch('https://jewellery.hexadefend.com/Backend/auth/logout.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include', // Send credentials
+    })
       .then(() => {
         setUser(null);
       })

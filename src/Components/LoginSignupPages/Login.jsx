@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react";
-import axios from "axios"; // Import axios for HTTP requests
-import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
+import React, { useContext, useState } from "react"; // Import React and necessary hooks
+import sideImage from "../../Assets/loginSignupPage/login-side-image.svg"; // Import side image asset
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
-import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "../../Helper/Context/AuthContext";
+import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
+import AuthContext from "../../Helper/Context/AuthContext"; // Import AuthContext
 
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
@@ -30,11 +29,20 @@ function Login() {
   // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('trying login')
     try {
-      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/signup.php', formData, { withCredentials: true });
-      if (response.data.status === 'success') {
-        login(response.data.user);  // Use the login method to update the context
+      const response = await fetch('https://jewellery.hexadefend.com/Backend/auth/login.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: 'include', // Include credentials for cookies
+      });
+      const data = await response.json();
+      console.log(data)
+      if (data.status === 'success') {
+        login(data.user);  // Use the login method to update the context
         navigate('/');
       } else {
         setResponseMessage('Invalid credentials');

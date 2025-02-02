@@ -1,6 +1,5 @@
 // Import necessary libraries and assets
 import React, { useState } from "react";
-import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import name from "../../Assets/loginSignupPage/name.svg";
 import user from "../../Assets/loginSignupPage/user.svg";
@@ -43,8 +42,16 @@ function Signup() {
 
     try {
       // Send signup request
-      const response = await axios.post("https://jewellery.hexadefend.com/Backend/auth/signup.php", formData, { withCredentials: true });
-      setResponseMessage(response.data.message || "Signup successful!");
+      const response = await fetch("https://jewellery.hexadefend.com/Backend/auth/signup.php", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+        credentials: "include",
+      });
+      const data = await response.json();
+      setResponseMessage(data.message || "Signup successful!");
     } catch (error) {
       setResponseMessage("An error occurred during signup.");
       console.error("Signup error:", error);
