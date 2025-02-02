@@ -33,11 +33,13 @@ function Login() {
       console.log(response.data)
       if(response.data.status === 'success'){
         setResponseMessage(response.data.message || 'Login successful!');
+        console.log('login success')
         setTimeout(() => {
           navigate('/')
         }, 1300);
       }
       else{
+        console.log('login failed')
         setResponseMessage(response.data.message || 'Login Failed!');
       }
     } catch (error) {
