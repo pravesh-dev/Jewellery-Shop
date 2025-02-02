@@ -13,9 +13,11 @@ import AboutPage from './Pages/AboutPage'
 import ContactPage from './Pages/ContactPage'
 import WishlistPage from './Pages/WishlistPage'
 import UserCartPage from './Pages/UserCartPage'
+import AuthProvider from './Context/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <BrowserRouter>
     <ScrollToTop />
       <Routes>
@@ -34,6 +36,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 

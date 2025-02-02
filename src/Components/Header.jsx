@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "/logo.svg";
+import { AuthContext } from "../Context/AuthContext";
 
 function Header() {
+  const { user, logout } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerPosition, setHeaderPosition] = useState("top-0");
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -179,6 +181,10 @@ function Header() {
               <GiShoppingCart />
             </Link>
           </div>
+          {user && (
+            <span>{user.full_name}</span>
+          )}
+          <button onClick={logout}>Logout</button>
           <Link
             className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
             to="/signup"
