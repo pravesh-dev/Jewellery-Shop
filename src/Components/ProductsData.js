@@ -246,7 +246,7 @@ const items = [
     },
   },
   {
-    id: 6,
+    id: 7,
     name: "Lord Ganesh Gold Statue",
     price: 50000,
     onSale: false,
