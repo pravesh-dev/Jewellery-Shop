@@ -6,7 +6,7 @@ import { ShopContext } from "../../Context/ShopContext";
 
 // Define the ShopByCategories component
 function ShopByCategories() {
-const { items } = useContext(ShopContext);
+const { items, currency } = useContext(ShopContext);
 
   // Initialize state for active tab, view all and navigation
   const [activeTab, setActiveTab] = useState("all");
@@ -60,11 +60,11 @@ const { items } = useContext(ShopContext);
         <h3 className="text-black text-[0.8rem] sm:text-[1.3rem] lg:text-[1.6rem] text-stroke-black xl:text-[1.12rem]">
           {item.onSale ? (
             <>
-              <span className="text-black/50 line-through mr-1 text-[0.7rem] sm:text-[1.1rem] sm:mr-3 lg:text-[1.4rem] text-stroke-0 xl:text-[1.12rem]">$ {item.price}</span>
-              <span>From $ {(item.price - (item.price * (item.discount / 100)))}</span>
+              <span className="text-black/50 line-through mr-1 text-[0.7rem] sm:text-[1.1rem] sm:mr-3 lg:text-[1.4rem] text-stroke-0 xl:text-[1.12rem]">{currency} {item.price}</span>
+              <span>From {currency} {(item.price - (item.price * (item.discount / 100)))}</span>
             </>
           ) : (
-            <span>$ {item.price}</span>
+            <span>{currency} {item.price}</span>
           )}
         </h3>
       </div>
