@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoStarSharp } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
 import { SlLock } from "react-icons/sl";
 import { AiFillGolden } from "react-icons/ai";
 import { IoTrophySharp } from "react-icons/io5";
 import { IoMdHeart } from "react-icons/io";
+import { ShopContext } from "../../Context/ShopContext";
 
 function ProductInfo({ product }) {
-
+  const { currency } = useContext(ShopContext);
   const [isHeart, setIsHeart] = useState(false);
 
   // Function to render stars based on the average rating
@@ -37,10 +38,10 @@ function ProductInfo({ product }) {
         {product.onSale ? (
           <div className="flex gap-3">
             <span className="text-black/50 line-through text-[1rem] lg:text-[1.1rem] xl:text-[1.2rem]">
-              $ {product.price}
+              {currency} {product.price}
             </span>
             <span>
-              ${" "}
+              {currency}{" "}
               {(
                 product.price -
                 product.price * (product.discount / 100)
@@ -48,7 +49,7 @@ function ProductInfo({ product }) {
             </span>
           </div>
         ) : (
-          <span>$ {product.price}</span>
+          <span>{currency} {product.price}</span>
         )}
       </h2>
       <p className="lg:text-xl lg:mb-10 xl:text-[1.13rem] xl:mb-6 xl:leading-[1.3rem] xl:tracking-[1.2px]">{product.description}</p>

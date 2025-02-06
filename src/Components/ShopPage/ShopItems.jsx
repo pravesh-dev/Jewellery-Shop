@@ -1,23 +1,34 @@
 import React, { useState, useContext, useMemo } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShopItems() {
-  const { items = [], category, subCategory, priceRange, currency, sortOption } = useContext(ShopContext);
+  const {
+    items = [],
+    category,
+    subCategory,
+    priceRange,
+    currency,
+    sortOption,
+  } = useContext(ShopContext);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
 
   // Ensure items is an array
   if (!Array.isArray(items) || items.length === 0) {
-    return <p className="text-center text-gray-500 mt-10">No products available.</p>;
+    return (
+      <p className="text-center text-gray-500 mt-10">No products available.</p>
+    );
   }
 
   // Filter items based on category, subCategory, and price range
-  let filteredItems = items.filter(item => {
+  let filteredItems = items.filter((item) => {
     return (
       (!category || item.category?.toLowerCase() === category.toLowerCase()) &&
-      (!subCategory || item.subCategory?.toLowerCase() === subCategory.toLowerCase()) &&
-      (item.price >= priceRange[0] && item.price <= priceRange[1])
+      (!subCategory ||
+        item.subCategory?.toLowerCase() === subCategory.toLowerCase()) &&
+      item.price >= priceRange[0] &&
+      item.price <= priceRange[1]
     );
   });
 
@@ -32,9 +43,13 @@ function ShopItems() {
   // Sort items based on the selected sort option (Low to High or High to Low)
   filteredItems = useMemo(() => {
     if (sortOption === "Low to High") {
-      return [...filteredItems].sort((a, b) => getDiscountedPrice(a) - getDiscountedPrice(b));
+      return [...filteredItems].sort(
+        (a, b) => getDiscountedPrice(a) - getDiscountedPrice(b)
+      );
     } else if (sortOption === "High to Low") {
-      return [...filteredItems].sort((a, b) => getDiscountedPrice(b) - getDiscountedPrice(a));
+      return [...filteredItems].sort(
+        (a, b) => getDiscountedPrice(b) - getDiscountedPrice(a)
+      );
     }
     return filteredItems;
   }, [filteredItems, sortOption]);
@@ -75,7 +90,9 @@ function ShopItems() {
               <div
                 key={item.id}
                 className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw] cursor-pointer"
-                onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
+                onClick={() =>
+                  navigate(`/shop/${item.subCategory}/${item.name}/${item.id}`)
+                }
               >
                 <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[15vw] lg:rounded-[5px] relative">
                   <img
@@ -104,42 +121,56 @@ function ShopItems() {
                       </span>
                     </>
                   ) : (
-                    <span>{currency} {item.price}</span>
+                    <span>
+                      {currency} {item.price}
+                    </span>
                   )}
                 </h3>
               </div>
             ))}
           </div>
           <div className="flex items-center justify-center gap-2 mt-5 lg:mt-14">
-        <button
-          onClick={handlePrevious}
-          className={`px-3 py-1 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-secondary text-accent"}`}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <div className="flex gap-2">
-          {Array.from({ length: totalPages }, (_, index) => (
             <button
-              key={index}
-              onClick={() => handlePageClick(index + 1)}
-              className={`text-xl mx-1 ${currentPage === index + 1 ? "text-secondary" : "text-dark"}`}
+              onClick={handlePrevious}
+              className={`px-3 py-1 rounded-md ${
+                currentPage === 1
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-secondary text-accent"
+              }`}
+              disabled={currentPage === 1}
             >
-              {index + 1}
+              Previous
             </button>
-          ))}
-        </div>
-        <button
-          onClick={handleNext}
-          className={`px-3 py-1 rounded-md ${currentPage === totalPages ? "bg-gray-300 cursor-not-allowed" : "bg-primary text-accent"}`}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageClick(index + 1)}
+                  className={`text-xl mx-1 ${
+                    currentPage === index + 1 ? "text-secondary" : "text-dark"
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={handleNext}
+              className={`px-3 py-1 rounded-md ${
+                currentPage === totalPages
+                  ? "bg-gray-300 cursor-not-allowed"
+                  : "bg-primary text-accent"
+              }`}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
         </>
       ) : (
-        <p className="text-center text-gray-500 mt-10">No products found for the selected filters.</p>
+        <p className="text-center text-gray-500 mt-10">
+          No products found for the selected filters.
+        </p>
       )}
     </div>
   );

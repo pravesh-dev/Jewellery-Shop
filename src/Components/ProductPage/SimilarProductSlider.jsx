@@ -1,16 +1,17 @@
-import React, { useRef, useState, useEffect } from "react";
-import { items } from "../ProductsData";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
+import { ShopContext } from "../../Context/ShopContext";
 
 function SimilarProductSlider({ product }) {
+  const { items, currency } = useContext(ShopContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const sliderRef = useRef(null);
 
-  // Filter similar products based on product.type
+  // Filter similar products based on product's sub categories
   const similarProducts = items.filter(
-    (item) => item.type === product.type && item.id !== product.id
+    (item) => item.subCategory === product.subCategory && item.id !== product.id
   );
 
   // Calculate card width dynamically, including gap
@@ -32,6 +33,14 @@ function SimilarProductSlider({ product }) {
       setCurrentIndex((prev) => prev + 1);
     }
   };
+
+  // Smooth transition effect for slider
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.style.transition = 'transform 0.5s ease-in-out';
+      sliderRef.current.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+  }, [currentIndex, cardWidth]);
 
   return (
     <section className="w-full py-5 px-2 font-bellefair xl:px-16">
@@ -64,9 +73,6 @@ function SimilarProductSlider({ product }) {
           <div
             ref={sliderRef}
             className="flex transition-transform"
-            style={{
-              transform: `translateX(-${currentIndex * cardWidth}px)`,
-            }}
           >
             {similarProducts.map((similarProduct) => (
               <div
@@ -84,10 +90,10 @@ function SimilarProductSlider({ product }) {
         {similarProduct.onSale ? (
           <div className="flex gap-3">
             <span className="text-black/50 line-through text-[1rem]">
-              $ {similarProduct.price}
+              {currency} {similarProduct.price}
             </span>
             <span>
-              ${" "}
+              {currency}{" "}
               {(
                 similarProduct.price -
                 similarProduct.price * (similarProduct.discount / 100)
@@ -95,7 +101,7 @@ function SimilarProductSlider({ product }) {
             </span>
           </div>
         ) : (
-          <span>$ {similarProduct.price}</span>
+          <span>{currency} {similarProduct.price}</span>
         )}
       </h2>
                 </div>
