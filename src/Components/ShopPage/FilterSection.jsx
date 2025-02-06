@@ -9,7 +9,7 @@ function FilterSection() {
   const { category, setCategory, subCategory, setSubCategory } = useContext(ShopContext);
   
   const [isOpen, setIsOpen] = useState({
-    category: true,
+    category: false,
     subCategory: false,
     price: true,
   });
