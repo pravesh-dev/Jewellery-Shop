@@ -1,11 +1,12 @@
 // Import necessary libraries and assets
-import React, { useEffect, useState } from "react";
-import { items } from "../ProductsData";
+import React, { useContext, useEffect, useState } from "react";
 import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg'
 import { Link, useNavigate } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext";
 
 // Define the ShopByCategories component
 function ShopByCategories() {
+const { items } = useContext(ShopContext);
 
   // Initialize state for active tab, view all and navigation
   const [activeTab, setActiveTab] = useState("all");
