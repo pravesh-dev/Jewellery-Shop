@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
 import { GoChevronRight } from "react-icons/go";
 import PriceRangeSelector from './PriceRangeSelector';
+import { ShopContext } from '../../Context/ShopContext';
 
 function FilterSection() {
+  const { category, setCategory, subCategory, setSubCategory } = useContext(ShopContext);
+  
   const [isOpen, setIsOpen] = useState({
     category: true,
     subCategory: false,
     price: true,
   });
-
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
   const toggleSection = (section) => {
     setIsOpen((prevState) => ({
@@ -21,18 +21,18 @@ function FilterSection() {
     }));
   };
 
-  const selectCategory = (category) => {
-    setSelectedCategory(selectedCategory === category ? null : category);
+  const handleCategoryChange = (selectedCategory) => {
+    setCategory(category === selectedCategory ? null : selectedCategory);
   };
 
-  const selectSubCategory = (subCategory) => {
-    setSelectedSubCategory(selectedSubCategory === subCategory ? null : subCategory);
+  const handleSubCategoryChange = (selectedSubCategory) => {
+    setSubCategory(subCategory === selectedSubCategory ? null : selectedSubCategory);
   };
 
   return (
     <div className='w-60 border border-dark p-3 rounded-md font-bellefair mb-4 md:mb-0 md:rounded-[2rem] md:py-6 lg:w-[15.3rem] lg:px-[1.5rem]'>
       <h1 className='text-xl md:text-2xl md:mb-4 lg:text-[1.5rem] lg:mb-9 lg:text-stroke-xs'>Filter Products</h1>
-      
+
       {/* Category Section */}
       <div className='w-52 mb-4'>
         <button
@@ -43,18 +43,14 @@ function FilterSection() {
         </button>
         {isOpen.category && (
           <ul className='px-7 md:flex flex-col gap-1'>
-            {["Women", "Men", "Accessories"].map((category) => (
+            {["Women", "Men", "Accessories"].map((cat) => (
               <li
-                key={category}
-                onClick={() => selectCategory(category)}
+                key={cat}
+                onClick={() => handleCategoryChange(cat)}
                 className='cursor-pointer flex items-center gap-4 text-sm'
               >
-                {selectedCategory === category ? (
-                  <ImCheckboxChecked className='text-primary' />
-                ) : (
-                  <ImCheckboxUnchecked className='text-dark' />
-                )}
-                {category}
+                {category === cat ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />}
+                {cat}
               </li>
             ))}
           </ul>
@@ -71,18 +67,14 @@ function FilterSection() {
         </button>
         {isOpen.subCategory && (
           <ul className='px-7 md:flex flex-col gap-1'>
-            {["Necklace", "Ring", "Bracelet", "Statue"].map((subCategory) => (
+            {["Necklace", "Ring", "Bracelet", "Statue"].map((sub) => (
               <li
-                key={subCategory}
-                onClick={() => selectSubCategory(subCategory)}
+                key={sub}
+                onClick={() => handleSubCategoryChange(sub)}
                 className='cursor-pointer flex items-center gap-4 text-sm'
               >
-                {selectedSubCategory === subCategory ? (
-                  <ImCheckboxChecked className='text-primary' />
-                ) : (
-                  <ImCheckboxUnchecked className='text-dark' />
-                )}
-                {subCategory}
+                {subCategory === sub ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />}
+                {sub}
               </li>
             ))}
           </ul>

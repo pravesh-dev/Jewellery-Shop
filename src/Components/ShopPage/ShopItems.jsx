@@ -4,16 +4,27 @@ import { useContext } from "react";
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShopItems() {
-  const { items, currency } = useContext(ShopContext);
+  const { items, category, subCategory, priceRange, currency } = useContext(ShopContext);
+
+  // const { items, currency } = useContext(ShopContext);
   const navigate = useNavigate();
   const itemsPerPage = 6; // Number of items per page
   const totalPages = Math.ceil(items.length / itemsPerPage); // Total number of pages
   const [currentPage, setCurrentPage] = useState(1); // Current active page
-
+  
   // Calculate the items to display based on the current page
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
+  
+  
+  const filteredItems = items.filter(item => {
+    return (
+      (!category || item.category === category) &&
+      (!subCategory || item.subCategory === subCategory) &&
+      (item.price >= priceRange[0] && item.price <= priceRange[1])
+    );
+  });
 
   // Handlers for Previous and Next buttons
   const handlePrevious = () => {

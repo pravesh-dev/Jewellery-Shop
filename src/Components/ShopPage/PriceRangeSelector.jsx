@@ -9,11 +9,10 @@ function valuetext(value) {
 }
 
 export default function PriceRangeSelector() {
-  const { currency } = useContext(ShopContext);
-  const [value, setValue] = React.useState([20, 100]);
+  const { currency, priceRange, setPriceRange } = useContext(ShopContext);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setPriceRange(newValue)
   };
 
   return (
@@ -21,7 +20,7 @@ export default function PriceRangeSelector() {
       <Box sx={{ width: "100%" }}>
         <Slider
           getAriaLabel={() => "Price range"}
-          value={value}
+          value={priceRange}
           onChange={handleChange}
           min={20}
           max={200}
@@ -43,11 +42,11 @@ export default function PriceRangeSelector() {
       <div className="w-full flex justify-between items-center lg:gap-x-2">
         <div className="w-[50%] lg:flex flex-col gap-y-1">
             <h2 className="text-xs lg:text-[1.1rem]">From</h2>
-            <span className="border border-dark text-black text-stroke-xs text-xs px-4 py-1 rounded-full lg:text-[0.87rem]">{currency} {value[0]}</span>
+            <span className="border border-dark text-black text-stroke-xs text-xs px-4 py-1 rounded-full lg:text-[0.87rem]">{currency} {priceRange[0]}</span>
         </div>
         <div className="w-[50%] lg:flex flex-col gap-y-1">
             <h2 className="text-xs lg:text-[1.1rem]">To</h2>
-            <span className="border border-dark text-black text-stroke-xs text-xs px-4 py-1 rounded-full lg:text-[0.87rem]">{currency} {value[1]}</span>
+            <span className="border border-dark text-black text-stroke-xs text-xs px-4 py-1 rounded-full lg:text-[0.87rem]">{currency} {priceRange[1]}</span>
         </div>
       </div>
     </div>
