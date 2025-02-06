@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { items } from "../ProductsData";
-import buttonUnderline from '../../Assets/LandingPage/Shopby/button-underline.svg';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from "react";
+import { ShopContext } from "../../Context/ShopContext";
 
 function ShopItems() {
+  const { items, currency } = useContext(ShopContext);
   const navigate = useNavigate();
   const itemsPerPage = 6; // Number of items per page
   const totalPages = Math.ceil(items.length / itemsPerPage); // Total number of pages
@@ -61,14 +62,14 @@ function ShopItems() {
               {item.onSale ? (
                 <>
                   <span className="text-black/50 line-through text-[0.6rem] sm:text-[1.1rem] lg:text-[1.12rem] text-stroke-0">
-                    $ {item.price}
+                    {currency} {item.price}
                   </span>
                   <span>
-                    From $ {(item.price - item.price * (item.discount / 100)).toFixed(2)}
+                    From {currency} {(item.price - item.price * (item.discount / 100)).toFixed(2)}
                   </span>
                 </>
               ) : (
-                <span>$ {item.price}</span>
+                <span>{currency} {item.price}</span>
               )}
             </h3>
           </div>
