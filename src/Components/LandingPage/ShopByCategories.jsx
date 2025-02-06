@@ -23,7 +23,7 @@ const { items, currency } = useContext(ShopContext);
     const filteredItems = items.filter(
       (item) => activeTab === "all" || item.type === activeTab
     );
-    setViewAll(filteredItems.length > 6);
+    setViewAll(filteredItems.length > 8);
   }, [activeTab]);
 
   // Function to render items based on type
@@ -33,7 +33,7 @@ const { items, currency } = useContext(ShopContext);
     );
     const displayedItems = !viewAll
       ? filteredItems
-      : filteredItems.slice(0, 6);
+      : filteredItems.slice(0, 8);
 
     return displayedItems.map((item, index) => (
       <div
