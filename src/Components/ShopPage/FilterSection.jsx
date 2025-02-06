@@ -67,7 +67,7 @@ function FilterSection() {
         </button>
         {isOpen.subCategory && (
           <ul className='px-7 md:flex flex-col gap-1'>
-            {["Necklace", "Ring", "Bracelet", "Statue"].map((sub) => (
+            {["Necklace", "Ring", "Chain", "Bracelet", "Earring", "Statue"].map((sub) => (
               <li
                 key={sub}
                 onClick={() => handleSubCategoryChange(sub)}

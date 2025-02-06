@@ -10,7 +10,7 @@ const ShopContextProvider = ({ children }) => {
 
     const [category, setCategory] = useState(null);
     const [subCategory, setSubCategory] = useState(null);
-    const [priceRange, setPriceRange] = useState([20, 200]);
+    const [priceRange, setPriceRange] = useState([20, 99999]);
 
     const value = {
         items,
