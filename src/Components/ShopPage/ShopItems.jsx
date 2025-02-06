@@ -6,10 +6,6 @@ function ShopItems() {
   const { items = [], category, subCategory, priceRange = [0, Infinity], currency } = useContext(ShopContext);
   const navigate = useNavigate();
 
-  // Debugging Logs
-  console.log("Items from Context:", items);
-  console.log("Category:", category, "SubCategory:", subCategory, "PriceRange:", priceRange);
-
   // Ensure items is an array
   if (!Array.isArray(items) || items.length === 0) {
     return <p className="text-center text-gray-500 mt-10">No products available.</p>;
@@ -24,8 +20,6 @@ function ShopItems() {
     );
   });
 
-  console.log("Filtered Items:", filteredItems);
-
   // Pagination
   const itemsPerPage = 6;
   const totalPages = Math.max(1, Math.ceil(filteredItems.length / itemsPerPage)); // Ensure at least 1 page
@@ -35,8 +29,6 @@ function ShopItems() {
   const indexOfLastItem = Math.min(currentPage * itemsPerPage, filteredItems.length);
   const indexOfFirstItem = Math.max(0, indexOfLastItem - itemsPerPage);
   const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
-
-  console.log("Current Items:", currentItems, "Total Pages:", totalPages);
 
   // Handlers for pagination
   const handlePrevious = () => {
@@ -98,7 +90,7 @@ function ShopItems() {
           <div className="flex items-center justify-center gap-2 mt-5 lg:mt-14">
             <button
               onClick={handlePrevious}
-              className={`px-3 py-1 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-red-600 text-accent"}`}
+              className={`px-3 py-1 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-secondary text-accent"}`}
               disabled={currentPage === 1}
             >
               Previous
