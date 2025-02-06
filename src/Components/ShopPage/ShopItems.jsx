@@ -50,6 +50,22 @@ function ShopItems() {
     setCurrentPage(newPage);
   };
 
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePageClick = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <div className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10 lg:w-auto">
       {filteredItems.length > 0 ? (
@@ -94,23 +110,33 @@ function ShopItems() {
               </div>
             ))}
           </div>
-          <div className="flex justify-center items-center gap-4 mt-4">
+          <div className="flex items-center justify-center gap-2 mt-5 lg:mt-14">
+        <button
+          onClick={handlePrevious}
+          className={`px-3 py-1 rounded-md ${currentPage === 1 ? "bg-gray-300 cursor-not-allowed" : "bg-secondary text-accent"}`}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <div className="flex gap-2">
+          {Array.from({ length: totalPages }, (_, index) => (
             <button
-              disabled={currentPage === 1}
-              onClick={() => handlePageChange(currentPage - 1)}
-              className="bg-gray-200 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow"
+              key={index}
+              onClick={() => handlePageClick(index + 1)}
+              className={`text-xl mx-1 ${currentPage === index + 1 ? "text-secondary" : "text-dark"}`}
             >
-              Prev
+              {index + 1}
             </button>
-            <span className="text-gray-800">{currentPage} of {totalPages}</span>
-            <button
-              disabled={currentPage === totalPages}
-              onClick={() => handlePageChange(currentPage + 1)}
-              className="bg-gray-200 text-gray-800 py-2 px-4 border border-gray-300 rounded shadow"
-            >
-              Next
-            </button>
-          </div>
+          ))}
+        </div>
+        <button
+          onClick={handleNext}
+          className={`px-3 py-1 rounded-md ${currentPage === totalPages ? "bg-gray-300 cursor-not-allowed" : "bg-primary text-accent"}`}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
+      </div>
         </>
       ) : (
         <p className="text-center text-gray-500 mt-10">No products found for the selected filters.</p>
