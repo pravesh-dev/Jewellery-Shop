@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShopItems() {
-  const { items = [], category, subCategory, priceRange = [0, Infinity], currency } = useContext(ShopContext);
+  const { items = [], category, subCategory, priceRange, currency, sortOption } = useContext(ShopContext);
   const navigate = useNavigate();
 
   // Ensure items is an array
@@ -12,13 +12,20 @@ function ShopItems() {
   }
 
   // Filter items based on category, subCategory, and price range
-  const filteredItems = items.filter(item => {
+  let filteredItems = items.filter(item => {
     return (
       (!category || item.category?.toLowerCase() === category.toLowerCase()) &&
       (!subCategory || item.subCategory?.toLowerCase() === subCategory.toLowerCase()) &&
       (item.price >= priceRange[0] && item.price <= priceRange[1])
     );
   });
+
+  // Sort items based on the selected sort option
+  if (sortOption === "Low to High") {
+    filteredItems.sort((a, b) => a.price - b.price);
+  } else if (sortOption === "High to Low") {
+    filteredItems.sort((a, b) => b.price - a.price);
+  }
 
   // Pagination
   const itemsPerPage = 6;

@@ -10,7 +10,10 @@ const ShopContextProvider = ({ children }) => {
 
     const [category, setCategory] = useState(null);
     const [subCategory, setSubCategory] = useState(null);
-    const [priceRange, setPriceRange] = useState([20, 99999]);
+    const [priceRange, setPriceRange] = useState([500, 60000]);
+
+    // Sorting state
+    const [sortOption, setSortOption] = useState("Relevant");
 
     const value = {
         items,
@@ -22,7 +25,9 @@ const ShopContextProvider = ({ children }) => {
         subCategory,
         setSubCategory,
         priceRange,
-        setPriceRange
+        setPriceRange,
+        sortOption,
+        setSortOption, // Expose function to update sorting
     };
 
     return (
