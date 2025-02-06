@@ -7,10 +7,8 @@ import PriceRangeSelector from './PriceRangeSelector';
 
 function FilterSection() {
   const [isOpen, setIsOpen] = useState({
-    womenJewellery: false,
-    menJewellery: false,
-    accessories: false,
     category: true,
+    subCategory: false,
     price: true,
   });
 
@@ -53,53 +51,29 @@ function FilterSection() {
     <div className='w-60 border border-dark p-3 rounded-md font-bellefair mb-4 md:mb-0 md:rounded-[2rem] md:py-6 lg:w-[15.3rem] lg:px-[1.5rem]'>
       <h1 className='text-xl md:text-2xl md:mb-4 lg:text-[1.5rem] lg:mb-9 lg:text-stroke-xs'>Filter Products</h1>
       <div className='w-52 mb-4'>
-      <button onClick={() => toggleSection('category')} className="w-full bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
+      <button onClick={() => toggleSection('category')} className="w-full my-4 bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
         Category <span>{isOpen.category ? <IoIosArrowDown /> : <GoChevronRight />}</span>
       </button>
       {isOpen.category && (
-        <div className='md:flex flex-col gap-1'>
-          <button onClick={() => toggleSection('womenJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
-            Women Jewellery <span>{isOpen.womenJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
-          </button>
-          {isOpen.womenJewellery && (
             <ul className='px-7 md:flex flex-col gap-1'>
               <li onClick={() => toggleCheck('womenJewellery', 'necklace')} className='cursor-pointer flex items-center gap-4 text-sm'> 
                 {checkedItems.womenJewellery.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-                Necklace
+                Women
               </li>
               <li onClick={() => toggleCheck('womenJewellery', 'ring')} className='cursor-pointer flex items-center gap-4 text-sm'> 
                 {checkedItems.womenJewellery.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-                Ring
+                Man
               </li>
               <li onClick={() => toggleCheck('womenJewellery', 'bracelet')} className='cursor-pointer flex items-center gap-4 text-sm'> 
                 {checkedItems.womenJewellery.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-                Bracelet
+                Accessories
               </li>
             </ul>
-          )}
-          <button onClick={() => toggleSection('menJewellery')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
-            Men Jewellery <span>{isOpen.menJewellery ? <IoIosArrowDown /> : <GoChevronRight />}</span>
-          </button>
-          {isOpen.menJewellery && (
-            <ul className='px-7 md:flex flex-col gap-1'>
-              <li onClick={() => toggleCheck('menJewellery', 'necklace')} className='cursor-pointer flex items-center gap-4 text-sm'> 
-                {checkedItems.menJewellery.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-                Necklace
-              </li>
-              <li onClick={() => toggleCheck('menJewellery', 'ring')} className='cursor-pointer flex items-center gap-4 text-sm'> 
-                {checkedItems.menJewellery.ring ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-                Ring
-              </li>
-              <li onClick={() => toggleCheck('menJewellery', 'bracelet')} className='cursor-pointer flex items-center gap-4 text-sm'> 
-                {checkedItems.menJewellery.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
-                Bracelet
-              </li>
-            </ul>
-          )}
-          <button onClick={() => toggleSection('accessories')} className="w-full text-dark text-base px-7 py-1 rounded-full flex items-center justify-between gap-3 md:mt-2 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
-           Accessories <span>{isOpen.accessories ? <IoIosArrowDown /> : <GoChevronRight />}</span>
-          </button>
-          {isOpen.accessories && (
+      )}
+      <button onClick={() => toggleSection('subCategory')} className="w-full my-4 bg-[#CFAB55CC] text-accent text-lg px-7 py-1 rounded-full flex items-center justify-between gap-3 lg:py-0 lg:px-5 lg:w-[11.8rem] lg:h-[2.25rem] lg:text-[1.12rem]">
+        Products <span>{isOpen.subCategory ? <IoIosArrowDown /> : <GoChevronRight />}</span>
+      </button>
+          {isOpen.subCategory && (
             <ul className='px-7 md:flex flex-col gap-1'>
               <li onClick={() => toggleCheck('accessories', 'necklace')} className='cursor-pointer flex items-center gap-4 text-sm'> 
                 {checkedItems.accessories.necklace ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
@@ -113,10 +87,12 @@ function FilterSection() {
                 {checkedItems.accessories.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
                 Bracelet
               </li>
+              <li onClick={() => toggleCheck('accessories', 'bracelet')} className='cursor-pointer flex items-center gap-4 text-sm'> 
+                {checkedItems.accessories.bracelet ? <ImCheckboxChecked className='text-primary' /> : <ImCheckboxUnchecked className='text-dark' />} 
+                Statue
+              </li>
             </ul>
           )}
-        </div>
-      )}
       </div>
       <span className='w-full h-[3px] block mb-4 bg-dark/30 rounded-full lg:h-[2px]'></span>
       <div className='w-52'>
