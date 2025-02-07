@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { items } from "../Components/ProductsData";
 
 export const ShopContext = createContext();
@@ -15,6 +15,22 @@ const ShopContextProvider = ({ children }) => {
     // Sorting state
     const [sortOption, setSortOption] = useState("Relevant");
 
+    const [cartItems, setCartItems] = useState({});
+
+    const addToCart = async (itemId) => {
+        let cartData = structuredClone(cartItems);
+        if (cartData[itemId]) {
+            cartData[itemId] += 1;
+        } else {
+            cartData[itemId] =  1;
+        }
+        setCartItems(cartData);
+    }
+
+    useEffect(()=>{
+        console.log(cartItems);
+    }, [cartItems])
+
     const value = {
         items,
         currency,
@@ -28,6 +44,8 @@ const ShopContextProvider = ({ children }) => {
         setPriceRange,
         sortOption,
         setSortOption, // Expose function to update sorting
+        cartItems,
+        addToCart,
     };
 
     return (
