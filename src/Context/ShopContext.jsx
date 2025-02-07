@@ -27,10 +27,6 @@ const ShopContextProvider = ({ children }) => {
         setCartItems(cartData);
     }
 
-    useEffect(()=>{
-        console.log(cartItems);
-    }, [cartItems])
-
     const value = {
         items,
         currency,

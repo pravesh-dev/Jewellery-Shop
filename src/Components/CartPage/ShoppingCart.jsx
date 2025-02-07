@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi2";
 import OrderSummary from "./OrderSummary";
+import { ShopContext } from "../../Context/ShopContext";
 
-function ShoppingCart({ items }) {
+function ShoppingCart() {
+  const { items, currency, cartItems } = useContext(ShopContext);
   const [product, setProduct] = useState(items[0]);
   const [count, setCount] = useState(1);
 
@@ -50,7 +52,7 @@ function ShoppingCart({ items }) {
           </div>
           <div className="">
             {/* Product Cards */}
-            <div className="grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
+            <div className="product_card1 grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
               <div className="col-span-4 flex items-start gap-2 lg:gap-10">
                 <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
                   <img
@@ -99,20 +101,20 @@ function ShoppingCart({ items }) {
                   {product.onSale ? (
                     <div className="flex flex-col -space-y-1">
                       <span>
-                        ${" "}
+                        {currency}{" "}
                         {product.price -
                           product.price * (product.discount / 100)}
                       </span>
                       <span className="line-through text-gray-600">
-                        $ {product.price}
+                        {currency} {product.price}
                       </span>
                     </div>
                   ) : (
-                    <span>$ {product.price}</span>
+                    <span>{currency} {product.price}</span>
                   )}
                 </h3>
                 <h3 className="font-bellefair text-center text-[1rem] lg:text-[1.12rem]">
-                  $ {totalPrice}
+                  {currency} {totalPrice}
                 </h3>
               </div>
             </div>
