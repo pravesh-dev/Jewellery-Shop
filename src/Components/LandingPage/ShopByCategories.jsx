@@ -29,7 +29,7 @@ const { items, currency } = useContext(ShopContext);
   // Function to render items based on type
   const renderItems = (type) => {
     const filteredItems = items.filter(
-      (item) => type === "all" || item.type === type
+      (item) => type === "all" || item.subCategory.toLowerCase() === type.toLowerCase()
     );
     const displayedItems = !viewAll
       ? filteredItems
@@ -39,7 +39,7 @@ const { items, currency } = useContext(ShopContext);
       <div
         key={index}
         className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[19.1rem] cursor-pointer"
-        onClick={() => navigate(`/shop/${item.type}/${item.name}/${item.id}`)}
+        onClick={() => navigate(`/shop/${item.subCategory}/${item.name}/${item.id}`)}
       >
         <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[14rem] relative lg:rounded-md">
             <img
@@ -77,7 +77,7 @@ const { items, currency } = useContext(ShopContext);
       className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10"
     >
       <div className="flex items-center lg:mb-7">
-        {["all", "necklace", "ring", "earrings", "statue", "chain"].map((tab) => (
+        {["all", "necklace", "ring", "earring", "statue", "chain"].map((tab) => (
           <button
             key={tab}
             className={`tab_buttons text-[0.6rem] px-[0.4rem] py-1 tracking-wider uppercase rounded-md ${
