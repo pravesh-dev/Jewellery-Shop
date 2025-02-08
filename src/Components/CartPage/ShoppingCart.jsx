@@ -5,7 +5,7 @@ import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShoppingCart() {
-  const { items, currency, cartItems, addToCart, removeFromCart } = useContext(ShopContext);
+  const { items, currency, cartItems, addToCart, lessFromCart, removeFromCart } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function ShoppingCart() {
                       </p>
                     )}
                     <div className="flex gap-2 lg:gap-5">
-                      <button className="text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]">Remove</button>
+                      <button className="text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]" onClick={() => removeFromCart(product.id)}>Remove</button>
                       <button className="text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]">Share</button>
                     </div>
                   </div>
@@ -86,7 +86,7 @@ function ShoppingCart() {
                 <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 xl:px-10 xl:col-span-4">
                   <div className="flex justify-center items-start">
                     <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1 lg:text-[1.12rem] lg:px-4 lg:gap-2 lg:py-1">
-                      <HiOutlineMinus onClick={() => removeFromCart(product.id)} />
+                      <HiOutlineMinus onClick={() => lessFromCart(product.id)} />
                       <span>{product.quantity}</span>
                       <BsPlusLg onClick={() => addToCart(product.id)} />
                     </div>

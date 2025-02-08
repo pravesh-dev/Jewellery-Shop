@@ -34,8 +34,8 @@ const ShopContextProvider = ({ children }) => {
         }));
     };
 
-    // Function to remove an item from the cart (decrement quantity)
-    const removeFromCart = (itemId) => {
+    // Function to less an item from the cart (decrement quantity)
+    const lessFromCart = (itemId) => {
         setCartItems((prevCart) => {
             const updatedCart = { ...prevCart };
             if (updatedCart[itemId] > 1) {
@@ -46,6 +46,15 @@ const ShopContextProvider = ({ children }) => {
             return updatedCart;
         });
     };
+
+    // Function to remove the item from the cart imediately
+    const removeFromCart = (itemId) => {
+    setCartItems((prevCart) => {
+        const updatedCart = { ...prevCart };
+        delete updatedCart[itemId]; // Remove item from cart
+        return updatedCart;
+    });
+    }
 
     // Function to clear the entire cart
     const clearCart = () => {
@@ -67,6 +76,7 @@ const ShopContextProvider = ({ children }) => {
         setSortOption, 
         cartItems,
         addToCart,
+        lessFromCart,
         removeFromCart,
         clearCart,
     };
