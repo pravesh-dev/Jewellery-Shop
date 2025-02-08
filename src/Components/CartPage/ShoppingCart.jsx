@@ -55,7 +55,7 @@ function ShoppingCart() {
               : product.price * product.quantity;
 
             return (
-              <div key={product.id} className="product_card1 grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
+              <div key={product.id} className="mb-3 xl:mb-6 grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
                 <div className="col-span-4 flex items-start gap-2 lg:gap-10">
                   <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
                     <img src={product.image} className="w-full h-full object-cover" alt="product thumbnail" loading="lazy" />
