@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
 import NoPage from './Pages/NoPage'
@@ -13,8 +13,22 @@ import AboutPage from './Pages/AboutPage'
 import ContactPage from './Pages/ContactPage'
 import WishlistPage from './Pages/WishlistPage'
 import UserCartPage from './Pages/UserCartPage'
+import axios from 'axios'; // Import axios for HTTP requests
 
 function App() {
+  useEffect(() => {
+    const verifyCredentials = async () => {
+      try {
+        const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/verify.php', { withCredentials: true });
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error verifying credentials:', error);
+      }
+    };
+
+    verifyCredentials();
+  }, []);
+
   return (
     <BrowserRouter>
     <ScrollToTop />
