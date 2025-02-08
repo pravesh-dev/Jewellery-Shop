@@ -33,21 +33,26 @@ function ShoppingCart() {
           Shopping Cart
         </h1>
         <div className="min-h-[83vh] border-t border-r border-[#D9D9D9] pt-5 lg:pt-10">
-          <div className="grid grid-cols-7 mb-5 lg:gap-3 xl:grid-cols-8">
-            <div className="col-span-4">
-              <h2 className="text-[1rem] text-dark lg:text-[1.12rem] font-lora">
-                Product Details
-              </h2>
-            </div>
-            <div className="col-span-3 xl:col-span-4">
-              <div className="grid grid-cols-3 gap-2 font-lora xl:px-10">
-                <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">Quantity</h3>
-                <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">Price</h3>
-                <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">Total</h3>
+          {cartData.length > 0 ? (
+            <div className="grid grid-cols-7 mb-5 lg:gap-3 xl:grid-cols-8">
+              <div className="col-span-4">
+                <h2 className="text-[1rem] text-dark lg:text-[1.12rem] font-lora">
+                  Product Details
+                </h2>
+              </div>
+              <div className="col-span-3 xl:col-span-4">
+                <div className="grid grid-cols-3 gap-2 font-lora xl:px-10">
+                  <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">Quantity</h3>
+                  <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">Price</h3>
+                  <h3 className="text-[1rem] text-dark text-center lg:text-[1.12rem]">Total</h3>
+                </div>
               </div>
             </div>
-          </div>
-
+          ) : (
+            <div className="text-center text-dark font-lora text-[1.12rem]">
+              Your cart is empty. Please add some products to your cart.
+            </div>
+          )}
           {/* Display Cart Items */}
           {cartData.map((product) => {
             const totalPrice = product.onSale
