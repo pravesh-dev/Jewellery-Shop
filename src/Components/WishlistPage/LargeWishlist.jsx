@@ -46,7 +46,7 @@ function LargeWishlist() {
 
                     <div className='col-span-4 grid grid-cols-3 gap-2 text-center pt-2 lg:pt-4 xl:pt-10'>
                       <span>
-                        <span className='font-lora text-[0.7rem] py-[0.13rem] px-3 rounded-[0.23rem] text-accent bg-[#ff0000] lg:text-[1rem]'>
+                        <span className='font-lora text-[0.6rem] py-[0.13rem] px-3 rounded-[0.23rem] text-accent bg-[#ff0000] lg:text-[1rem]'>
                             {product.onSale ? `${product.discount}% Off` : `N/A`}
                       </span>
                         </span>
