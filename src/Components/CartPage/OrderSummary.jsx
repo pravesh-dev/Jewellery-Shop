@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { ShopContext } from "../../Context/ShopContext";
 
 function OrderSummary({ cartData, currency }) {
+  const { stad_delivery_fee, fast_delivery_fee } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
-    "Standard Delivery - $ 100.00  "
+    `Standard Delivery - $ ${stad_delivery_fee}.00  `
   );
 
   const options = [
-    "Standard Delivery - $ 100.00  ",
-    "Fast Delivery - $ 300.00",
+    `Standard Delivery - $ ${stad_delivery_fee}.00  `,
+    `Fast Delivery - $ ${fast_delivery_fee}.00`,
   ];
 
   useEffect(() => {
