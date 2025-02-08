@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
+  const { login } = useContext(AuthContext); // Use login function from AuthContext
   // State to hold form data and response message
   const [formData, setFormData] = useState({
     emailOrPhone: '',
@@ -34,6 +36,7 @@ function Login() {
       if(response.data.status === 'success'){
         setResponseMessage(response.data.message || 'Login successful!');
         console.log('login success')
+        login(response.data); // Call login function
         setTimeout(() => {
           navigate('/')
         }, 1300);
