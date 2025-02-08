@@ -15,18 +15,27 @@ const ShopContextProvider = ({ children }) => {
     // Sorting state
     const [sortOption, setSortOption] = useState("Relevant");
 
-    // Load cart items from localStorage (optional improvement)
+    // Load cart and wishlist from localStorage
     const [cartItems, setCartItems] = useState(() => {
         const savedCart = localStorage.getItem("cartItems");
         return savedCart ? JSON.parse(savedCart) : {};
     });
 
-    // Save cart to localStorage whenever it changes (optional)
+    const [wishlist, setWishlist] = useState(() => {
+        const savedWishlist = localStorage.getItem("wishlist");
+        return savedWishlist ? JSON.parse(savedWishlist) : [];
+    });
+
+    // Save cart and wishlist to localStorage whenever they change
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
     }, [cartItems]);
 
-    // Function to add an item to the cart
+    useEffect(() => {
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }, [wishlist]);
+
+    // Cart Functions
     const addToCart = (itemId) => {
         setCartItems((prevCart) => ({
             ...prevCart,
@@ -34,31 +43,50 @@ const ShopContextProvider = ({ children }) => {
         }));
     };
 
-    // Function to less an item from the cart (decrement quantity)
     const lessFromCart = (itemId) => {
         setCartItems((prevCart) => {
             const updatedCart = { ...prevCart };
             if (updatedCart[itemId] > 1) {
                 updatedCart[itemId] -= 1;
             } else {
-                delete updatedCart[itemId]; // Remove item if quantity is 0
+                delete updatedCart[itemId];
             }
             return updatedCart;
         });
     };
 
-    // Function to remove the item from the cart imediately
     const removeFromCart = (itemId) => {
-    setCartItems((prevCart) => {
-        const updatedCart = { ...prevCart };
-        delete updatedCart[itemId]; // Remove item from cart
-        return updatedCart;
-    });
-    }
+        setCartItems((prevCart) => {
+            const updatedCart = { ...prevCart };
+            delete updatedCart[itemId];
+            return updatedCart;
+        });
+    };
 
-    // Function to clear the entire cart
     const clearCart = () => {
         setCartItems({});
+    };
+
+    // Wishlist Functions
+    const addToWishlist = (itemId) => {
+        setWishlist((prevWishlist) => {
+            if (!prevWishlist.includes(itemId)) {
+                return [...prevWishlist, itemId];
+            }
+            return prevWishlist;
+        });
+    };
+
+    const removeFromWishlist = (itemId) => {
+        setWishlist((prevWishlist) => prevWishlist.filter((id) => id !== itemId));
+    };
+
+    const isItemInWishlist = (itemId) => {
+        return wishlist.includes(itemId);
+    };
+
+    const clearWishlist = () => {
+        setWishlist([]);
     };
 
     const value = {
@@ -73,19 +101,20 @@ const ShopContextProvider = ({ children }) => {
         priceRange,
         setPriceRange,
         sortOption,
-        setSortOption, 
+        setSortOption,
         cartItems,
         addToCart,
         lessFromCart,
         removeFromCart,
         clearCart,
+        wishlist,
+        addToWishlist,
+        removeFromWishlist,
+        isItemInWishlist,
+        clearWishlist,
     };
 
-    return (
-        <ShopContext.Provider value={value}>
-            {children}
-        </ShopContext.Provider>
-    );
+    return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
 
 export default ShopContextProvider;
