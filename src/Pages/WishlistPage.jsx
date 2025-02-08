@@ -12,7 +12,7 @@ function WishlistPage() {
         <MobileWishlist items={items} />
       </div>
       <div className='hidden sm:block'>
-        <LargeWishlist items={items} />
+        <LargeWishlist />
       </div>
     </div>
   )
