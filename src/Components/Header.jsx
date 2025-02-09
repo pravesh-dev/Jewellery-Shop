@@ -203,7 +203,7 @@ function Header() {
           {
             isAuthenticated ? (
               <>
-              <span>{data.user.full_name}</span>
+              {/* <span>{data.user.full_name}</span> */}
               <button
             className={`w-full py-3 bg-red-600 duration-300 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-1 md:px-3 md:rounded-full lg:text-base lg:px-5`}
             onClick={handleLogOut}

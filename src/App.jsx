@@ -23,7 +23,7 @@ function App() {
       try {
         const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/verify.php', { withCredentials: true });
         login(response.data);
-        // console.log(response.data);
+        console.log('from verify app' ,response.data);
       } catch (error) {
         console.error('Error verifying credentials:', error);
       }
