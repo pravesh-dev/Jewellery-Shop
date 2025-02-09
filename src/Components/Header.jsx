@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiShoppingCart } from "react-icons/gi";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "/logo.svg";
+import { AuthContext } from "../Context/AuthContext";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerPosition, setHeaderPosition] = useState("top-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
+
+  const { isAuthenticated, data, logout } = useContext(AuthContext);
 
   const location = useLocation();
 
@@ -54,6 +57,22 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY, isScrollingUp]);
+
+
+  const handleLogOut = async () => {
+  try {
+    const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/logout.php', {}, { withCredentials: true });
+    if (response.data.status === 'success') {
+      logout(); // Call logout function from AuthContext
+      console.log('Logout successful!');
+      navigate('/'); // Redirect to home page after logout
+    } else {
+      console.log('Logout failed');
+    }
+  } catch (error) {
+    console.error('Logout error:', error);
+  }
+  }
 
   return (
     <header
@@ -179,18 +198,31 @@ function Header() {
               <GiShoppingCart />
             </Link>
           </div>
-          <Link
-            className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
-            to="/signup"
+          {
+            isAuthenticated ? (
+              <button
+            className={`w-full py-3 bg-red-600 duration-300 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-1 md:px-3 md:rounded-full lg:text-base lg:px-5`}
+            onClick={handleLogOut}
           >
-            Signup
-          </Link>
+            Logout
+          </button>
+            ) : (
+          <>
           <Link
-            className={`w-full py-3 bg-secondary hover:bg-[#B0890A] duration-300 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-1 md:px-3 md:rounded-full lg:text-base lg:px-5`}
-            to="/login"
-          >
-            Login
-          </Link>
+        className={`w-full py-3 bg-accent/20 text-accent text-center nav_items tracking-[1px] md:text-dark md:w-auto md:py-0 md:bg-transparent lg:text-base`}
+        to="/signup"
+      >
+        Signup
+      </Link>
+      <Link
+        className={`w-full py-3 bg-secondary hover:bg-[#B0890A] duration-300 text-accent text-center nav_items tracking-[1px] md:w-auto md:py-1 md:px-3 md:rounded-full lg:text-base lg:px-5`}
+        to="/login"
+      >
+        Login
+      </Link>
+          </>
+            )
+          }
         </div>
         <button
           className="absolute top-3 right-3 text-lg w-10 h-10 rounded-md bg-red-600 text-accent md:hidden"
