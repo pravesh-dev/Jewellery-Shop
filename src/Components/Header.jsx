@@ -3,15 +3,17 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { GiShoppingCart } from "react-icons/gi";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "/logo.svg";
 import { AuthContext } from "../Context/AuthContext";
+import axios from "axios";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [headerPosition, setHeaderPosition] = useState("top-0");
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const navigate = useNavigate();
 
   const { isAuthenticated, data, logout } = useContext(AuthContext);
 
@@ -65,7 +67,7 @@ function Header() {
     if (response.data.status === 'success') {
       logout(); // Call logout function from AuthContext
       console.log('Logout successful!');
-      navigate('/'); // Redirect to home page after logout
+      navigate('/login'); // Redirect to login page after logout
     } else {
       console.log('Logout failed');
     }
