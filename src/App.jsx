@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 import NoPage from "./Pages/NoPage";
 import Home from "./Pages/Home";
@@ -18,6 +18,7 @@ import { AuthContext } from "./Context/AuthContext";
 
 function App() {
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
     const verifyCredentials = async () => {
       try {
@@ -27,6 +28,7 @@ function App() {
         );
         if (response.data.status === "success") {
           login(response.data);
+          navigate('/')
           console.log("success verify app", response.data);
         } else if (response.data.status === "error") {
           console.error("Error verifying credentials:", response.data);
