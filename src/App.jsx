@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 import NoPage from "./Pages/NoPage";
@@ -13,13 +13,17 @@ import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
 import WishlistPage from "./Pages/WishlistPage";
 import UserCartPage from "./Pages/UserCartPage";
-import axios from "axios"; // Import axios for HTTP requests
+import axios from "axios"; 
 import { AuthContext } from "./Context/AuthContext";
 
 function App() {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isVerified, setIsVerified] = useState(false); // Prevent infinite loop
+
   useEffect(() => {
+    if (isVerified) return; // Prevent re-running if already verified
+
     const verifyCredentials = async () => {
       try {
         const response = await axios.post(
@@ -28,9 +32,10 @@ function App() {
         );
         if (response.data.status === "success") {
           login(response.data);
-          navigate('/')
-          console.log("success verify app", response.data);
-        } else if (response.data.status === "error") {
+          setIsVerified(true); // Mark as verified to prevent infinite calls
+          navigate('/');
+          console.log("Success verify app", response.data);
+        } else {
           console.error("Error verifying credentials:", response.data);
         }
       } catch (error) {
@@ -39,7 +44,7 @@ function App() {
     };
 
     verifyCredentials();
-  }, []);
+  }, [isVerified]); // Only runs once when `isVerified` is false
 
   return (
     <>
