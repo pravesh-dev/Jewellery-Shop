@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Layout from "./Layout";
 import NoPage from "./Pages/NoPage";
 import Home from "./Pages/Home";
@@ -42,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -59,7 +59,7 @@ function App() {
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 
