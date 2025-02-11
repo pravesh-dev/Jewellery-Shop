@@ -16,16 +16,23 @@ import UserCartPage from "./Pages/UserCartPage";
 import axios from "axios"; // Import axios for HTTP requests
 import { AuthContext } from "./Context/AuthContext";
 
+// Function component for the App
 function App() {
+  // Use the AuthContext to access authentication state and functions
   const { login } = useContext(AuthContext);
+  // Use the useNavigate hook to navigate programmatically
   const navigate = useNavigate();
+
+  // Effect hook to verify credentials on component mount
   useEffect(() => {
     const verifyCredentials = async () => {
       try {
+        // Make a POST request to verify credentials
         const response = await axios.post(
           "https://jewellery.hexadefend.com/Backend/auth/verify.php",
           { withCredentials: true }
         );
+        // If the response indicates success, login and navigate to the home page
         if (response.data.status === "success") {
           login(response.data);
           navigate('/')
@@ -41,6 +48,7 @@ function App() {
     verifyCredentials();
   }, []);
 
+  // JSX for the App component
   return (
     <>
       <ScrollToTop />
