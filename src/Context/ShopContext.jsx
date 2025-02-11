@@ -1,18 +1,23 @@
+// Import necessary modules
 import { createContext, useEffect, useState } from "react";
 import { items } from "../Components/ProductsData";
 
+// Create a new context for the shop
 export const ShopContext = createContext();
 
+// Provider component for the shop context
 const ShopContextProvider = ({ children }) => {
+  // Define currency and delivery fees
   const currency = "£";
   const stad_delivery_fee = 100;
   const fast_delivery_fee = 150;
 
+  // Define state for category, subcategory and price range
   const [category, setCategory] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
   const [priceRange, setPriceRange] = useState([500, 60000]);
 
-  // Sorting state
+  // Define state for sorting option
   const [sortOption, setSortOption] = useState("Relevant");
 
   // Load cart and wishlist from localStorage
@@ -89,6 +94,7 @@ const ShopContextProvider = ({ children }) => {
     setWishlist([]);
   };
 
+  // Define the value object to be passed to the context provider
   const value = {
     items,
     currency,
@@ -114,7 +120,9 @@ const ShopContextProvider = ({ children }) => {
     clearWishlist,
   };
 
+  // Return the provider with the value and children
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
 
+// Export the provider as the default export
 export default ShopContextProvider;
