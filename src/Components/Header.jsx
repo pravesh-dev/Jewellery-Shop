@@ -1,25 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
-import { HiOutlineMenuAlt3 } from "react-icons/hi";
-import { FiHeart } from "react-icons/fi";
-import { AiOutlineSearch } from "react-icons/ai";
-import { GiShoppingCart } from "react-icons/gi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Logo from "/logo.svg";
-import { AuthContext } from "../Context/AuthContext";
-import axios from "axios";
+import { HiOutlineMenuAlt3 } from "react-icons/hi"; // Import menu icon
+import { FiHeart } from "react-icons/fi"; // Import heart icon for wishlist
+import { AiOutlineSearch } from "react-icons/ai"; // Import search icon
+import { GiShoppingCart } from "react-icons/gi"; // Import shopping cart icon
+import { Link, useLocation, useNavigate } from "react-router-dom"; // Import Link, useLocation, and useNavigate from react-router-dom
+import Logo from "/logo.svg"; // Import logo image
+import { AuthContext } from "../Context/AuthContext"; // Import AuthContext for authentication
+import axios from "axios"; // Import axios for HTTP requests
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [headerPosition, setHeaderPosition] = useState("top-0");
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
-  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage menu visibility
+  const [headerPosition, setHeaderPosition] = useState("top-0"); // State to manage header position
+  const [lastScrollY, setLastScrollY] = useState(0); // State to keep track of last scroll position
+  const [isScrollingUp, setIsScrollingUp] = useState(false); // State to determine scroll direction
+  const navigate = useNavigate(); // Use navigate hook for navigation
 
-  const { isAuthenticated, data, logout } = useContext(AuthContext);
+  const { isAuthenticated, data, logout } = useContext(AuthContext); // Use AuthContext for authentication
 
-  const location = useLocation();
+  const location = useLocation(); // Use location hook to get current location
 
   useEffect(() => {
+    // Close menu on location change
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
@@ -62,18 +63,19 @@ function Header() {
 
 
   const handleLogOut = async () => {
-  try {
-    const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/logout.php', {}, { withCredentials: true });
-    if (response.data.status === 'success') {
-      logout(); // Call logout function from AuthContext
-      console.log('Logout successful!');
-      navigate('/login'); // Redirect to login page after logout
-    } else {
-      console.log('Logout failed');
+    // Function to handle logout
+    try {
+      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/logout.php', {}, { withCredentials: true });
+      if (response.data.status === 'success') {
+        logout(); // Call logout function from AuthContext
+        console.log('Logout successful!');
+        navigate('/login'); // Redirect to login page after logout
+      } else {
+        console.log('Logout failed');
+      }
+    } catch (error) {
+      console.error('Logout error:', error);
     }
-  } catch (error) {
-    console.error('Logout error:', error);
-  }
   }
 
   return (
