@@ -1,15 +1,15 @@
-import React from 'react'
-import Hero from '../Components/ShopPage/Hero'
-import ShopSection from '../Components/ShopPage/ShopSection'
-import OtherCategories from '../Components/ShopPage/OtherCategories'
+import React from 'react' // Import React for component creation
+import Hero from '../Components/ShopPage/Hero' // Import Hero component from ShopPage
+import ShopSection from '../Components/ShopPage/ShopSection' // Import ShopSection component from ShopPage
 
+// Function component for Shop page
 function Shop() {
   return (
-    <>
-    <Hero />
-    <ShopSection />
+    <> // Fragment to wrap components without adding extra DOM nodes
+    <Hero /> // Render Hero component
+    <ShopSection /> // Render ShopSection component
     </>
   )
 }
 
-export default Shop
+export default Shop // Export the Shop component
