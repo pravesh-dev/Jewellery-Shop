@@ -1,14 +1,15 @@
-import React from 'react'
-import Hero from '../Components/BlogPage/Hero'
-import Blogs from '../Components/BlogPage/Blogs'
+import React from 'react' // Import React for component creation
+import Hero from '../Components/BlogPage/Hero' // Import Hero component from BlogPage
+import Blogs from '../Components/BlogPage/Blogs' // Import Blogs component from BlogPage
 
+// Function component for BlogLandingPage
 function BlogLandingPage() {
   return (
-    <div>
-      <Hero />
-      <Blogs />
+    <div> // Container div for the page content
+      <Hero /> // Render Hero component
+      <Blogs /> // Render Blogs component
     </div>
   )
 }
 
-export default BlogLandingPage
+export default BlogLandingPage // Export the BlogLandingPage component
