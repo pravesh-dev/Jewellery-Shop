@@ -1,15 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Hero from "../Components/ProductPage/Hero";
-import SimilarProductSlider from "../Components/ProductPage/SimilarProductSlider";
-import ReviewSection from "../Components/ProductPage/ReviewSection";
-import { ShopContext } from "../Context/ShopContext";
+import React, { useContext, useEffect, useState } from "react"; // Importing necessary React hooks and context
+import { useParams } from "react-router-dom"; // Importing useParams hook for URL parameter access
+import Hero from "../Components/ProductPage/Hero"; // Importing Hero component for product hero section
+import SimilarProductSlider from "../Components/ProductPage/SimilarProductSlider"; // Importing SimilarProductSlider component for similar products
+import ReviewSection from "../Components/ProductPage/ReviewSection"; // Importing ReviewSection component for product reviews
+import { ShopContext } from "../Context/ShopContext"; // Importing ShopContext for accessing shop items
 
 function ProductPage() {
-  const { id } = useParams();
-  const { items } = useContext(ShopContext);
-  const [productData, setProductData] = useState(false);
+  const { id } = useParams(); // Extracting product ID from URL parameters
+  const { items } = useContext(ShopContext); // Accessing shop items from context
+  const [productData, setProductData] = useState(false); // State to hold the product data
 
+  // Function to fetch product data based on ID
   const fetchProductData = async () => {
     items.map((product) => {
       if (Number(product.id) === Number(id)) { // Ensuring both are numbers
@@ -18,12 +19,13 @@ function ProductPage() {
       }
     });
   };
-  
 
+  // Effect to fetch product data on component mount or when ID or items change
   useEffect(() => {
     fetchProductData();
   }, [id, items]);
 
+  // Rendering product page based on product data availability
   return (
     <div className="">
       {productData ? (
