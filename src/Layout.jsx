@@ -6,10 +6,10 @@ import Footer from './Components/Footer' // Import Footer component
 // Function component for the Layout
 function Layout() {
   return (
-    <main className='max-w-[1520px] mx-auto bg-[#FFFFF0]'> // Main container with styling
-        <Header/> // Header component
-        <Outlet/> // Outlet for nested routes
-        <Footer /> // Footer component
+    <main className='max-w-[1520px] mx-auto bg-[#FFFFF0]'>
+        <Header/>
+        <Outlet/>
+        <Footer />
     </main>
   )
 }
