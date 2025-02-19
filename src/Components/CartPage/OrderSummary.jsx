@@ -6,12 +6,12 @@ function OrderSummary({ cartData, currency }) {
   const { stad_delivery_fee, fast_delivery_fee } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
-    `Standard Delivery - $ ${stad_delivery_fee}.00  `
+    `Standard Delivery - ${currency} ${stad_delivery_fee}.00  `
   );
 
   const options = [
-    `Standard Delivery - $ ${stad_delivery_fee}.00  `,
-    `Fast Delivery - $ ${fast_delivery_fee}.00`,
+    `Standard Delivery - ${currency} ${stad_delivery_fee}.00  `,
+    `Fast Delivery - ${currency} ${fast_delivery_fee}.00`,
   ];
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function OrderSummary({ cartData, currency }) {
   };
 
   const totalPrice = calculateTotalPrice();
-  const shippingCost = selectedOption.split("-")[1].trim().split("$")[1].trim();
+  const shippingCost = selectedOption.split("-")[1].trim().split(currency)[1].trim();
   const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
 
   return (
