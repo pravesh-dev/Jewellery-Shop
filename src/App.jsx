@@ -15,6 +15,7 @@ import WishlistPage from "./Pages/WishlistPage";
 import UserCartPage from "./Pages/UserCartPage";
 import axios from "axios"; // Import axios for HTTP requests
 import { AuthContext } from "./Context/AuthContext";
+import OrderSummaryMobile from "./Components/CartPage/OrderSummaryMobile";
 
 // Function component for the App
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route path="/blog" element={<BlogLandingPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/user-cart" element={<UserCartPage />} />
+          <Route path="/shopping/cart/order-summary" element={<OrderSummaryMobile />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/contact" element={<ContactPage />} />

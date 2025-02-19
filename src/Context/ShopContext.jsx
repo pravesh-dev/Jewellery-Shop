@@ -20,6 +20,9 @@ const ShopContextProvider = ({ children }) => {
   // Define state for sorting option
   const [sortOption, setSortOption] = useState("Relevant");
 
+  // Saved cart data
+  const [cartData, setCartData] = useState([]);
+
   // Load cart and wishlist from localStorage
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem("cartItems");
@@ -108,6 +111,8 @@ const ShopContextProvider = ({ children }) => {
     setPriceRange,
     sortOption,
     setSortOption,
+    cartData,
+    setCartData,
     cartItems,
     addToCart,
     lessFromCart,

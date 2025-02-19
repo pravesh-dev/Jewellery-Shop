@@ -3,6 +3,7 @@ import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi2";
 import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
+import { Link } from "react-router-dom";
 
 function ShoppingCartMobile() {
   const {
@@ -149,9 +150,9 @@ function ShoppingCartMobile() {
             );
           })}
           <div className="w-full text-end">
-            <button className="capitalize font-bellefair text-[0.9rem] tracking-wider rounded-[0.3rem] px-3 py-2 text-accent bg-secondary mb-6 duration-300 hover:bg-[#B0890A]">
+            <Link to='/shopping/cart/order-summary' className="capitalize font-bellefair text-[0.9rem] tracking-wider rounded-[0.3rem] px-3 py-2 text-accent bg-secondary mb-6 duration-300 hover:bg-[#B0890A]">
               Order Summary
-            </button>
+            </Link>
           </div>
         </div>
       </div>

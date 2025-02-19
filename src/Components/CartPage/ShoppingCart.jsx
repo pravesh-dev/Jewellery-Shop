@@ -5,8 +5,7 @@ import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShoppingCart() {
-  const { items, currency, cartItems, addToCart, lessFromCart, removeFromCart } = useContext(ShopContext);
-  const [cartData, setCartData] = useState([]);
+  const { items, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
 
   useEffect(() => {
     const tempData = [];
