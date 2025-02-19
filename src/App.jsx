@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   // Use media query hook to check for device width
-  const isMobileDevice = useMediaQuery("(max-width: 780px)");
+  const isMobileDevice = useMediaQuery("(max-width: 767px)");
 
   // JSX for the App component
   return (

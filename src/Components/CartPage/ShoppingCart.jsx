@@ -108,8 +108,8 @@ function ShoppingCart() {
         </div>
       </div>
 
-      <div className="col-span-4 pl-5 lg:pl-10">
-        <h1 className="text-primary text-stroke-1 font-bellefair mb-1 text-[1.12rem] lg:text-[2rem]">Order Summary</h1>
+      <div className="col-span-4">
+        <h1 className="text-primary text-stroke-1 font-bellefair mb-1 pl-5 text-[1.12rem] lg:text-[2rem] lg:pl-10">Order Summary</h1>
         <OrderSummary cartData={cartData} currency={currency} />
       </div>
     </div>
