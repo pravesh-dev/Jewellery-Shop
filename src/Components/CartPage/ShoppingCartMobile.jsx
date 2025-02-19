@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi2";
-import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from "react-router-dom";
 
