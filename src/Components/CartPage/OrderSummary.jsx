@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { ShopContext } from "../../Context/ShopContext";
+import { Link } from "react-router-dom";
 
 function OrderSummary({ cartData, currency }) {
   const { stad_delivery_fee, fast_delivery_fee } = useContext(ShopContext);
@@ -85,7 +86,7 @@ function OrderSummary({ cartData, currency }) {
         <span>Total Cost</span>
         <h2>{currency} {totalCost.toFixed(2)}</h2>
       </div>
-      <button className="uppercase w-full text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent text-stroke-xs bg-secondary mb-6 lg:pb-2 lg:pt-3 lg:text-[1.5rem]">Checkout</button>
+      <Link to='/place-order' className="uppercase w-full block text-center text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent text-stroke-xs bg-secondary duration-300 hover:bg-[#B0890A] mb-6 lg:pb-2 lg:pt-3 lg:text-[1.5rem]">Checkout</Link>
     </div>
   );
 }

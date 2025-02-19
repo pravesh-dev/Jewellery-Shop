@@ -17,6 +17,7 @@ import axios from "axios"; // Import axios for HTTP requests
 import { AuthContext } from "./Context/AuthContext";
 import OrderSummaryMobile from "./Components/CartPage/OrderSummaryMobile";
 import { useMediaQuery } from "@react-hook/media-query"; // Import useMediaQuery hook
+import PlaceOrder from "./Components/CartPage/PlaceOrder";
 
 // Function component for the App
 function App() {
@@ -70,6 +71,7 @@ function App() {
           {isMobileDevice && (
             <Route path="/shopping/cart/order-summary" element={<OrderSummaryMobile />} />
           )}
+          <Route path="/place-order" element={<PlaceOrder />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/contact" element={<ContactPage />} />
