@@ -41,7 +41,7 @@ function OrderSummary({ cartData, currency }) {
   const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
 
   return (
-    <div className="w-full font-lora border-t border-[#D9D9D9] pt-5 pl-5 lg:pl-10 lg:pt-10">
+    <div className="w-full font-lora border-t border-[#D9D9D9] pt-5 lg:pt-10">
       <div className="flex justify-between text-[1rem] text-stroke-xs mb-6 lg:text-[1.12rem] lg:mb-8">
         <span className="">Items {cartData.length}</span>
         <h2 className="">{currency} {totalPrice.toFixed(2)}</h2>
