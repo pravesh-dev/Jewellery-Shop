@@ -16,6 +16,7 @@ import UserCartPage from "./Pages/UserCartPage";
 import axios from "axios"; // Import axios for HTTP requests
 import { AuthContext } from "./Context/AuthContext";
 import OrderSummaryMobile from "./Components/CartPage/OrderSummaryMobile";
+import { useMediaQuery } from "@react-hook/media-query"; // Import useMediaQuery hook
 
 // Function component for the App
 function App() {
@@ -36,7 +37,7 @@ function App() {
         // If the response indicates success, login and navigate to the home page
         if (response.data.status === "success") {
           login(response.data);
-          navigate('/')
+          navigate('/');
           console.log("success verify app", response.data);
         } else if (response.data.status === "error") {
           console.error("Error verifying credentials:", response.data);
@@ -48,6 +49,9 @@ function App() {
 
     verifyCredentials();
   }, []);
+
+  // Use media query hook to check for device width
+  const isMobileDevice = useMediaQuery("(max-width: 780px)");
 
   // JSX for the App component
   return (
@@ -62,7 +66,10 @@ function App() {
           <Route path="/blog" element={<BlogLandingPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/user-cart" element={<UserCartPage />} />
-          <Route path="/shopping/cart/order-summary" element={<OrderSummaryMobile />} />
+          {/* Conditionally render OrderSummaryMobile based on device width */}
+          {isMobileDevice && (
+            <Route path="/shopping/cart/order-summary" element={<OrderSummaryMobile />} />
+          )}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/contact" element={<ContactPage />} />
