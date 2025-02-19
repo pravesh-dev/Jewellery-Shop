@@ -8,10 +8,10 @@ import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter for cl
 
 // Create the root element and render the application
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter> // Wrap the application with BrowserRouter for routing
-    <AuthContextProvider> // Provide authentication context
-      <ShopContextProvider> // Provide shop context
-        <App /> // Render the App component
+  <BrowserRouter>
+    <AuthContextProvider>
+      <ShopContextProvider>
+        <App />
       </ShopContextProvider>
     </AuthContextProvider>
   </BrowserRouter>
