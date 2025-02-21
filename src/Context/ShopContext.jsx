@@ -23,6 +23,9 @@ const ShopContextProvider = ({ children }) => {
   // Saved cart data
   const [cartData, setCartData] = useState([]);
 
+  // Order checkout data
+  const [checkout, setCheckout] = useState({});
+
   // Load cart and wishlist from localStorage
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem("cartItems");
@@ -113,6 +116,8 @@ const ShopContextProvider = ({ children }) => {
     setSortOption,
     cartData,
     setCartData,
+    checkout,
+    setCheckout,
     cartItems,
     addToCart,
     lessFromCart,

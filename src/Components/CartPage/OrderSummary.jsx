@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { ShopContext } from "../../Context/ShopContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function OrderSummary({ cartData, currency }) {
-  const { stad_delivery_fee, fast_delivery_fee } = useContext(ShopContext);
+  const { stad_delivery_fee, fast_delivery_fee, setCheckout } = useContext(ShopContext);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
     `Standard Delivery - ${currency} ${stad_delivery_fee}.00  `
@@ -40,6 +40,19 @@ function OrderSummary({ cartData, currency }) {
   const totalPrice = calculateTotalPrice();
   const shippingCost = selectedOption.split("-")[1].trim().split(currency)[1].trim();
   const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
+  const Navigate = useNavigate();
+
+  const handleCheckout = () => {
+    setCheckout({
+      totalPrice: totalPrice.toFixed(2),
+      shippingCost: shippingCost,
+      totalCost: totalCost.toFixed(2),
+      deliveryOption: selectedOption.split("-")[0].trim(),
+    });
+    setTimeout(() => {
+      Navigate('/place-order')
+    }, 600);
+  };
 
   return (
     <div className="w-full font-lora md:border-t border-[#D9D9D9] pt-5 md:pl-5 lg:pl-10 lg:pt-10">
@@ -86,7 +99,7 @@ function OrderSummary({ cartData, currency }) {
         <span>Total Cost</span>
         <h2>{currency} {totalCost.toFixed(2)}</h2>
       </div>
-      <Link to='/place-order' className="uppercase w-full block text-center text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent text-stroke-xs bg-secondary duration-300 hover:bg-[#B0890A] mb-6 lg:pb-2 lg:pt-3 lg:text-[1.5rem]">Checkout</Link>
+      <button onClick={handleCheckout} className="uppercase w-full block text-center text-[1.2rem] font-bellefair tracking-wider rounded-[0.3rem] pb-1 pt-2 text-accent text-stroke-xs bg-secondary duration-300 hover:bg-[#B0890A] mb-6 lg:pb-2 lg:pt-3 lg:text-[1.5rem]">Checkout</button>
     </div>
   );
 }
