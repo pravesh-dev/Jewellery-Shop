@@ -18,6 +18,7 @@ import { AuthContext } from "./Context/AuthContext";
 import OrderSummaryMobile from "./Components/CartPage/OrderSummaryMobile";
 import { useMediaQuery } from "@react-hook/media-query"; // Import useMediaQuery hook
 import PlaceOrder from "./Components/CartPage/PlaceOrder";
+import OrderPage from "./Pages/OrderPage";
 
 // Function component for the App
 function App() {
@@ -72,6 +73,7 @@ function App() {
             <Route path="/shopping/cart/order-summary" element={<OrderSummaryMobile />} />
           )}
           <Route path="/place-order" element={<PlaceOrder />} />
+          <Route path="/orders" element={<OrderPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/contact" element={<ContactPage />} />
