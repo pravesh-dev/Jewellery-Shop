@@ -1,7 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { ShopContext } from '../../Context/ShopContext';
+import OrderSummary from './OrderSummary';
 
 function PlaceOrder() {
+  const { cartData, setCartData, items, currency, cartItems } = useContext(ShopContext);
+  useEffect(() => {
+    const tempData = [];
 
+    for (const itemId in cartItems) {
+      if (cartItems[itemId] > 0) {
+        const product = items.find((item) => item.id === parseInt(itemId));
+        if (product) {
+          tempData.push({
+            ...product,
+            quantity: cartItems[itemId], // Fetching actual quantity from context
+          });
+        }
+      }
+    }
+
+    setCartData(tempData);
+  }, [cartItems, items]);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -23,6 +42,7 @@ function PlaceOrder() {
 
   return (
     <div className='w-full min-h-screen pt-24 px-2 lg:pt-32 xl:px-16'>
+      <div>
       <h1 className="text-primary uppercase text-stroke-1 mb-4 font-bellefair text-[1.12rem] lg:text-[2rem]">
           Delivery information
         </h1>
@@ -43,6 +63,11 @@ function PlaceOrder() {
             </div>
             <input className='w-full h-10 border border-y-2 border-black/20 outline-none text-[0.8rem] pl-2' value={formData.phone} onChange={handleInputChange} name="phone" type="number" placeholder='Phone' required autoComplete='off' />
         </form>
+        </div>
+        <div>
+          <OrderSummary cartData={cartData} currency={currency} />
+          <div></div>
+        </div>
     </div>
   )
 }
