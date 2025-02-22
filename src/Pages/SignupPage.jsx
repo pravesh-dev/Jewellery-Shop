@@ -5,9 +5,9 @@ import Signup from '../Components/LoginSignupPages/Signup' // Import Signup comp
 // Function component for SignupPage
 function SignupPage() {
   return (
-    <section className='relative w-full h-[42rem] lg:h-[50rem] xl:h-[55rem]'> // Container for SignupPage with responsive height
-      <Background /> // Render Background component
-      <Signup /> // Render Signup component
+    <section className='relative w-full h-[42rem] lg:h-[50rem] xl:h-[55rem]'>
+      <Background />
+      <Signup />
     </section>
   )
 }
