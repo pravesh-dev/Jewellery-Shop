@@ -5,9 +5,9 @@ import ShopSection from '../Components/ShopPage/ShopSection' // Import ShopSecti
 // Function component for Shop page
 function Shop() {
   return (
-    <> // Fragment to wrap components without adding extra DOM nodes
-    <Hero /> // Render Hero component
-    <ShopSection /> // Render ShopSection component
+    <>
+    <Hero />
+    <ShopSection />
     </>
   )
 }
