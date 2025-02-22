@@ -7,11 +7,11 @@ import ShopBy from '../Components/LandingPage/ShopBy' // Import ShopBy component
 // Function component for Home page
 function Home() {
   return (
-    <> // Fragment to wrap components without adding extra DOM nodes
-    <Hero /> // Render Hero component
-    <Featured /> // Render Featured component
-    <ShopBy /> // Render ShopBy component
-    <FeedBack /> // Render Feedback component
+    <>
+    <Hero />
+    <Featured />
+    <ShopBy />
+    <FeedBack />
     </>
   )
 }
