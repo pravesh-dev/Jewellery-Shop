@@ -5,9 +5,9 @@ import Blogs from '../Components/BlogPage/Blogs' // Import Blogs component from 
 // Function component for BlogLandingPage
 function BlogLandingPage() {
   return (
-    <div> // Container div for the page content
-      <Hero /> // Render Hero component
-      <Blogs /> // Render Blogs component
+    <div>
+      <Hero />
+      <Blogs />
     </div>
   )
 }
