@@ -5,9 +5,9 @@ import Login from '../Components/LoginSignupPages/Login' // Import Login compone
 // Function component for Login page
 function LoginPage() {
   return (
-    <section className='relative w-full h-[42rem] lg:h-[47rem] xl:h-[49rem]'> // Section for the login page with responsive height
-      <Background /> // Render Background component
-      <Login /> // Render Login component
+    <section className='relative w-full h-[42rem] lg:h-[47rem] xl:h-[49rem]'>
+      <Background />
+      <Login />
     </section>
   )
 }
