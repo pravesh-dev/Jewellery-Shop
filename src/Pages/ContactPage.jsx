@@ -6,10 +6,10 @@ import FrequentlyQues from '../Components/ContactPage/FrequentlyQues' // Import 
 // Function component for ContactPage
 function ContactPage() {
   return (
-    <> // Fragment to wrap components without adding extra DOM nodes
-      <Contact /> // Render Contact component
-      <BgImage /> // Render BgImage component
-      <FrequentlyQues /> // Render FrequentlyQues component
+    <>
+      <Contact />
+      <BgImage />
+      <FrequentlyQues />
     </>
   )
 }
