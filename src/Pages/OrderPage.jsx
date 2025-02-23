@@ -8,14 +8,34 @@ function OrderPage() {
       <h2 className="text-primary uppercase text-stroke-1 mb-4 font-bellefair text-[1.12rem]">
           My orders
         </h2>
-        <div>
+        <div className='grid grid-cols-3 gap-4'>
             {
                 items.slice(1,4).map((item, index)=>{
                     return (
-                        <div key={index} className='card'>
-                            <h3>{item.name}</h3>
-                            <p>Price: {item.price} {currency}</p>
-                            <p>Quantity: {item.quantity}</p>
+                        <div key={index} className='card p-4 flex'>
+                            <div className='grid grid-cols-2 gap-4'>
+                                <div>
+                                    <img src={item.image} alt={item.name} className='w-full' />
+                                </div>
+                                <div>
+                                    <div className='mb-2'>
+                                        <h3>{item.name}</h3>
+                                    </div>
+                                    <div className='mb-2'>
+                                        <p>Price: {item.price} {currency}</p>
+                                        <p>Quantity: {item.quantity}</p>
+                                    </div>
+                                    <div>
+                                        <p>Purchase Date: {item.purchaseDate}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='mt-4'>
+                                <p>Tracking Status: Ready to Ship</p>
+                            </div>
+                            <div className='mt-4'>
+                                <button className='bg-primary text-white py-2 px-4 rounded'>Track Order</button>
+                            </div>
                         </div>
                     )
                 })
