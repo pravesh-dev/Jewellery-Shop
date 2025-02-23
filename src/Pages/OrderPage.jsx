@@ -12,10 +12,10 @@ function OrderPage() {
             {
                 items.slice(1,4).map((item, index)=>{
                     return (
-                        <div key={index} className='card p-4 flex flex-col w-full'>
-                            <div className='flex flex-col gap-4'>
+                        <div key={index} className='card p-4 flex w-full justify-between'>
+                            <div className='flex gap-4'>
                                 <div>
-                                    <img src={item.image} alt={item.name} className='w-full' />
+                                    <img src={item.image} alt={item.name} className='w-10' />
                                 </div>
                                 <div>
                                     <div className='mb-2'>
