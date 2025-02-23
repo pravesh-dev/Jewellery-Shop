@@ -8,12 +8,12 @@ function OrderPage() {
       <h2 className="text-primary uppercase text-stroke-1 mb-4 font-bellefair text-[1.12rem]">
           My orders
         </h2>
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='flex flex-col gap-4'>
             {
                 items.slice(1,4).map((item, index)=>{
                     return (
-                        <div key={index} className='card p-4 flex'>
-                            <div className='grid grid-cols-2 gap-4'>
+                        <div key={index} className='card p-4 flex flex-col w-full'>
+                            <div className='flex flex-col gap-4'>
                                 <div>
                                     <img src={item.image} alt={item.name} className='w-full' />
                                 </div>
