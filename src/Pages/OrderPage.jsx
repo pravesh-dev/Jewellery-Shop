@@ -11,9 +11,13 @@ function OrderPage() {
         <div>
             {
                 items.slice(1,4).map((item, index)=>{
-                    <div key={index} className=''>
-
-                    </div>
+                    return (
+                        <div key={index} className='card'>
+                            <h3>{item.name}</h3>
+                            <p>Price: {item.price} {currency}</p>
+                            <p>Quantity: {item.quantity}</p>
+                        </div>
+                    )
                 })
             }
         </div>
