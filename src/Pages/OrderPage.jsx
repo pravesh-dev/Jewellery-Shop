@@ -14,24 +14,24 @@ function OrderPage() {
                     return (
                         <div key={index} className='card p-4 flex w-full justify-between'>
                             <div className='flex gap-4'>
-                                <div>
-                                    <img src={item.image} alt={item.name} className='w-10' />
+                                <div className='w-10 h-full overflow-hidden'>
+                                    <img src={item.image} alt={item.name} className='w-full h-full object-cover' />
                                 </div>
                                 <div>
                                     <div className='mb-2'>
                                         <h3>{item.name}</h3>
                                     </div>
-                                    <div className='mb-2'>
-                                        <p>Price: {item.price} {currency}</p>
-                                        <p>Quantity: {item.quantity}</p>
+                                    <div className='mb-2 flex items-center gap-3'>
+                                        <p>{item.price} {currency}</p>
+                                        <p>Quantity: 1</p>
                                     </div>
                                     <div>
-                                        <p>Purchase Date: {item.purchaseDate}</p>
+                                        <p>Date: <span className='text-black/40'>26/02/2025</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div className='mt-4'>
-                                <p>Tracking Status: Ready to Ship</p>
+                                <p>Ready to Ship</p>
                             </div>
                             <div className='mt-4'>
                                 <button className='bg-primary text-white py-2 px-4 rounded'>Track Order</button>
