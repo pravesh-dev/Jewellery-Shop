@@ -3,6 +3,7 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi"; // Import menu icon
 import { FiHeart } from "react-icons/fi"; // Import heart icon for wishlist
 import { AiOutlineSearch } from "react-icons/ai"; // Import search icon
 import { GiShoppingCart } from "react-icons/gi"; // Import shopping cart icon
+import { SlUser } from "react-icons/sl";
 import { Link, useLocation, useNavigate } from "react-router-dom"; // Import Link, useLocation, and useNavigate from react-router-dom
 import Logo from "/logo.svg"; // Import logo image
 import { AuthContext } from "../Context/AuthContext"; // Import AuthContext for authentication
@@ -14,6 +15,7 @@ function Header() {
   const [lastScrollY, setLastScrollY] = useState(0); // State to keep track of last scroll position
   const [isScrollingUp, setIsScrollingUp] = useState(false); // State to determine scroll direction
   const navigate = useNavigate(); // Use navigate hook for navigation
+  const [isprofile, setIsProfile] = useState(false);
 
   const { isAuthenticated, data, logout } = useContext(AuthContext); // Use AuthContext for authentication
 
@@ -178,12 +180,12 @@ function Header() {
         </nav>
         <div className="flex flex-col gap-3 w-full md:flex-row items-center md:gap-5 md:w-auto lg:gap-3 xl:gap-7">
           <div className="flex gap-5 absolute top-4 left-2 md:static md:gap-2 lg:mr-3 xl:gap-5 xl:mr-5">
-            <button className="text-xl bg-[#c095691b] py-2 px-4 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
+            <button className="text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
               <AiOutlineSearch />
             </button>
             <Link
               to="/wishlist"
-              className={`text-xl bg-[#c095691b] py-2 px-4 ${
+              className={`text-xl bg-[#c095691b] py-2 px-3 ${
                 location.pathname === "/wishlist"
                   ? "text-red-600"
                   : "text-accent md:text-dark"
@@ -193,7 +195,7 @@ function Header() {
             </Link>
             <Link
               to="/user-cart"
-              className={`text-xl bg-[#c095691b] py-2 px-4 ${
+              className={`text-xl bg-[#c095691b] py-2 px-3 ${
                 location.pathname === "/user-cart"
                   ? "text-primary"
                   : "text-accent md:text-dark"
@@ -201,6 +203,12 @@ function Header() {
             >
               <GiShoppingCart />
             </Link>
+            <button
+              className={`text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl`}
+              onClick={()=>{setIsProfile(!isprofile)}}
+            >
+              <SlUser />
+            </button>
           </div>
           {
             isAuthenticated ? (
