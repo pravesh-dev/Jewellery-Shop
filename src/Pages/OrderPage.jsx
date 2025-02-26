@@ -12,13 +12,13 @@ function OrderPage() {
             {
                 items.slice(1,4).map((item, index)=>{
                     return (
-                        <div key={index} className='card py-4 flex w-full justify-between items-start border-b'>
-                            <div className='flex gap-3 flex-col'>
+                        <div key={index} className='card py-4 flex w-full justify-between items-start border-b lg:py-2'>
+                            <div className='flex gap-3 flex-col xs:flex-row lg:gap-5'>
                                 <div className='w-16 h-20 overflow-hidden'>
                                     <img src={item.image} alt={item.name} className='w-full h-full object-cover' />
                                 </div>
-                                <div className='text-[0.7rem]'>
-                                    <div className='mb-1'>
+                                <div className='text-[0.7rem] lg:text-[0.9rem]'>
+                                    <div className='mb-1 text-[0.8rem] lg:text-[1.05rem]'>
                                         <h3>{item.name}</h3>
                                     </div>
                                     <div className='mb-1 flex items-center gap-3'>
@@ -30,11 +30,11 @@ function OrderPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='mt-6'>
-                                <p className='text-[0.7rem]'> <span className='w-2 h-2 rounded-full bg-green-500 inline-block'></span> Ready to Ship</p>
+                            <div className='mt-6 xs:m-0 xs:self-center'>
+                                <p className='text-[0.7rem] lg:text-[0.9rem]'> <span className='w-2 h-2 rounded-full bg-green-500 inline-block mr-1'></span> Ready to Ship</p>
                             </div>
-                            <div className='mt-5'>
-                                <button className='bg-primary text-white py-1 px-2 text-[0.6rem] rounded'>Track Order</button>
+                            <div className='mt-5 xs:m-0 xs:self-center'>
+                                <button className='bg-primary text-white py-1 px-2 text-[0.6rem] rounded lg:py-2 lg:px-4 lg:text-[0.7rem]'>Track Order</button>
                             </div>
                         </div>
                     )
