@@ -12,17 +12,17 @@ function OrderPage() {
             {
                 items.slice(1,4).map((item, index)=>{
                     return (
-                        <div key={index} className='card p-4 flex w-full justify-between'>
-                            <div className='flex gap-4'>
-                                <div className='w-10 h-full overflow-hidden'>
+                        <div key={index} className='card py-4 flex w-full justify-between items-start border-b'>
+                            <div className='flex gap-3 flex-col'>
+                                <div className='w-16 h-20 overflow-hidden'>
                                     <img src={item.image} alt={item.name} className='w-full h-full object-cover' />
                                 </div>
-                                <div>
-                                    <div className='mb-2'>
+                                <div className='text-[0.7rem]'>
+                                    <div className='mb-1'>
                                         <h3>{item.name}</h3>
                                     </div>
-                                    <div className='mb-2 flex items-center gap-3'>
-                                        <p>{item.price} {currency}</p>
+                                    <div className='mb-1 flex items-center gap-3'>
+                                        <p>{currency} {item.price}</p>
                                         <p>Quantity: 1</p>
                                     </div>
                                     <div>
@@ -30,11 +30,11 @@ function OrderPage() {
                                     </div>
                                 </div>
                             </div>
-                            <div className='mt-4'>
-                                <p>Ready to Ship</p>
+                            <div className='mt-6'>
+                                <p className='text-[0.7rem]'> <span className='w-2 h-2 rounded-full bg-green-500 inline-block'></span> Ready to Ship</p>
                             </div>
-                            <div className='mt-4'>
-                                <button className='bg-primary text-white py-2 px-4 rounded'>Track Order</button>
+                            <div className='mt-5'>
+                                <button className='bg-primary text-white py-1 px-2 text-[0.6rem] rounded'>Track Order</button>
                             </div>
                         </div>
                     )
