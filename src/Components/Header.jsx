@@ -204,7 +204,7 @@ function Header() {
               <GiShoppingCart />
             </Link>
             <button
-              className={`text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl`}
+              className={`text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-sm lg:text-base`}
               onClick={()=>{setIsProfile(!isprofile)}}
             >
               <SlUser />
