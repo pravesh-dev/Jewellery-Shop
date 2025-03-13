@@ -22,9 +22,10 @@ function Header() {
   const location = useLocation(); // Use location hook to get current location
 
   useEffect(() => {
-    // Close menu on location change
+    // Close menu and popup on location change
     if (isMenuOpen) {
       setIsMenuOpen(false);
+      setIsProfile(false)
     }
   }, [location.pathname]);
 
@@ -179,7 +180,7 @@ function Header() {
           </Link>
         </nav>
         <div className="flex flex-col gap-3 w-full md:flex-row items-center md:gap-5 md:w-auto lg:gap-3 xl:gap-7">
-          <div className="flex gap-5 absolute top-4 left-2 md:static md:gap-2 lg:mr-3 xl:gap-5 xl:mr-5">
+          <div className="flex gap-5 absolute top-4 left-2 md:relative md:top-0 md:left-0 md:gap-2 lg:mr-3 xl:gap-5 xl:mr-5">
             <button className="text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
               <AiOutlineSearch />
             </button>
@@ -209,6 +210,10 @@ function Header() {
             >
               <SlUser />
             </button>
+            <div className={`px-3 py-3 bg-[#0e0e0ee1] text-accent rounded-md text-sm font-mulish absolute -right-6 top-11 md:top-6 md:right-0 md:text-xs md:bg-[#ebebeb] md:text-black ${isprofile ? 'flex' : 'hidden'} gap-2 flex-col`}>
+              <Link>My Profile</Link>
+              <Link to='/orders'>Orders</Link>
+            </div>
           </div>
           {
             isAuthenticated ? (
