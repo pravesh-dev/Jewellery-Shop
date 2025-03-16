@@ -1,8 +1,9 @@
-import { forwardRef } from "react";
-import teamImg1 from "../../Assets/AboutPage/team1.jpg";
-import teamImg2 from "../../Assets/AboutPage/team2.jpg";
-import teamImg3 from "../../Assets/AboutPage/team3.jpg";
+import { forwardRef } from "react"; // Importing forwardRef from React
+import teamImg1 from "../../Assets/AboutPage/team1.jpg"; // Importing team image 1
+import teamImg2 from "../../Assets/AboutPage/team2.jpg"; // Importing team image 2
+import teamImg3 from "../../Assets/AboutPage/team3.jpg"; // Importing team image 3
 
+// Functional component for OurTeam
 const OurTeam = forwardRef((props, ref) => {
   return (
     <div ref={ref} className="w-full pt-5 pb-10 flex flex-col gap-10 md:flex-row md:px-2 lg:items-center xl:px-16">
@@ -69,4 +70,4 @@ const OurTeam = forwardRef((props, ref) => {
   );
 })
 
-export default OurTeam;
+export default OurTeam; // Exporting the component
