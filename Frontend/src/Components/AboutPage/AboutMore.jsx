@@ -1,9 +1,10 @@
 import React from "react";
-import img1 from "../../Assets/AboutPage/about1.jpg";
-import img2 from "../../Assets/AboutPage/about2.jpg";
-import { RiDoubleQuotesL } from "react-icons/ri";
-import { RiDoubleQuotesR } from "react-icons/ri";
+import img1 from "../../Assets/AboutPage/about1.jpg"; // Importing image 1
+import img2 from "../../Assets/AboutPage/about2.jpg"; // Importing image 2
+import { RiDoubleQuotesL } from "react-icons/ri"; // Importing left double quotes icon
+import { RiDoubleQuotesR } from "react-icons/ri"; // Importing right double quotes icon
 
+// Functional component for AboutMore
 function AboutMore() {
   return (
     <div className="py-10 px-2 md:py-20 xl:px-16">
@@ -37,4 +38,4 @@ function AboutMore() {
   );
 }
 
-export default AboutMore;
+export default AboutMore; // Exporting the component
