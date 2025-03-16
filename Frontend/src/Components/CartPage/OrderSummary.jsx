@@ -1,20 +1,25 @@
-import React, { useState, useEffect, useContext } from "react";
-import { IoIosArrowDown } from "react-icons/io";
-import { ShopContext } from "../../Context/ShopContext";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react"; // Importing React hooks and useContext
+import { IoIosArrowDown } from "react-icons/io"; // Importing IoIosArrowDown icon for dropdown
+import { ShopContext } from "../../Context/ShopContext"; // Importing ShopContext for accessing context
+import { Link, useNavigate } from "react-router-dom"; // Importing Link and useNavigate for routing
 
+// Function component for OrderSummary
 function OrderSummary({ cartData, currency }) {
+  // Destructuring context values
   const { stad_delivery_fee, fast_delivery_fee, setCheckout } = useContext(ShopContext);
+  // State for dropdown toggle and selected option
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
     `Standard Delivery - ${currency} ${stad_delivery_fee}.00  `
   );
 
+  // Options for delivery dropdown
   const options = [
     `Standard Delivery - ${currency} ${stad_delivery_fee}.00  `,
     `Fast Delivery - ${currency} ${fast_delivery_fee}.00`,
   ];
 
+  // Effect for handling outside click on dropdown
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (isOpen && !event.target.closest(".relative")) {
@@ -30,6 +35,7 @@ function OrderSummary({ cartData, currency }) {
     };
   }, [isOpen]);
 
+  // Function to calculate total price of items in cart
   const calculateTotalPrice = () => {
     return cartData.reduce((acc, item) => {
       const price = item.onSale ? item.price - item.price * (item.discount / 100) : item.price;
@@ -37,11 +43,14 @@ function OrderSummary({ cartData, currency }) {
     }, 0);
   };
 
+  // Calculating total price, shipping cost, and total cost
   const totalPrice = calculateTotalPrice();
   const shippingCost = selectedOption.split("-")[1].trim().split(currency)[1].trim();
   const totalCost = parseFloat(totalPrice) + parseFloat(shippingCost);
+  // Using useNavigate for navigation
   const Navigate = useNavigate();
 
+  // Function to handle checkout
   const handleCheckout = () => {
     setCheckout({
       totalPrice: totalPrice.toFixed(2),
@@ -54,6 +63,7 @@ function OrderSummary({ cartData, currency }) {
     }, 600);
   };
 
+  // JSX for OrderSummary component
   return (
     <div className="w-full font-lora md:border-t border-[#D9D9D9] pt-5 md:pl-5 lg:pl-10 lg:pt-10">
       <div className="flex justify-between text-[1rem] text-stroke-xs mb-6 lg:text-[1.12rem] lg:mb-8">
