@@ -1,10 +1,11 @@
-import express from 'express';
-import { loginUser, registerUser, adminLogin } from '../controllers/userController';
+import express from 'express'; // Importing express for routing
+import { loginUser, registerUser, adminLogin } from '../controllers/userController'; // Importing user controller functions
 
-const userRouter = express.Router();
+const userRouter = express.Router(); // Creating a new router for user routes
 
-userRouter.post('/register', registerUser);
-userRouter.post('/login', loginUser);
-userRouter.post('/admin', adminLogin);
+// Registering routes for user actions
+userRouter.post('/register', registerUser); // Route for user registration
+userRouter.post('/login', loginUser); // Route for user login
+userRouter.post('/admin', adminLogin); // Route for admin login
 
-export default userRouter;
+export default userRouter; // Exporting the user router
