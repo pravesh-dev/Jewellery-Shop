@@ -1,5 +1,5 @@
 import express from 'express'; // Importing express for routing
-import { loginUser, registerUser, adminLogin } from '../controllers/userController'; // Importing user controller functions
+import { loginUser, registerUser, adminLogin } from '../controllers/userController.js'; // Importing user controller functions
 
 const userRouter = express.Router(); // Creating a new router for user routes
 

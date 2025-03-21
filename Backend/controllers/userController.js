@@ -5,7 +5,7 @@ const loginUser = async (req, res) => {
 
 // Function to handle user registration
 const registerUser = async (req, res) => {
-    // Implementation for user registration
+    res.json({msg: "success register"})
 }
 
 // Function to handle admin login
