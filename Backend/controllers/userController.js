@@ -1,3 +1,5 @@
+import userModel from "../models/userModel.js";
+
 // Function to handle user login
 const loginUser = async (req, res) => {
     // Implementation for user login
@@ -5,7 +7,18 @@ const loginUser = async (req, res) => {
 
 // Function to handle user registration
 const registerUser = async (req, res) => {
-    res.json({msg: "success register"})
+    try {
+        const { email, fullName, phoneNumber, password, confirmPassword } = req.body;
+
+        const userExists = await userModel.findOne({email});
+
+        if(userExists){
+            return res.json({success: false, message: "User already exists"})
+        }
+
+    } catch (error) {
+        
+    }
 }
 
 // Function to handle admin login
