@@ -1,5 +1,6 @@
 import userModel from "../models/userModel.js";
 import validator from 'validator';
+import bcrypt from 'bcrypt';
 
 // Function to handle user login
 const loginUser = async (req, res) => {
@@ -24,6 +25,12 @@ const registerUser = async (req, res) => {
         if(password.length < 8){
             return res.json({success: false, message: "Enter a strong password"})
         }
+
+        // Hasing user's password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        
 
     } catch (error) {
         
