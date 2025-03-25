@@ -10,7 +10,13 @@ const createToken = (id) => {
 
 // Function to handle user login
 const loginUser = async (req, res) => {
-    // Implementation for user login
+    const  { email, password } = req.body;
+
+    const user = await userModel.findOne({email});
+
+    if(!user){
+        return res.json({success: false, message: "User doesn't exists!"})
+    }
 }
 
 // Function to handle user registration
