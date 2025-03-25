@@ -2,8 +2,9 @@ import mongoose from "mongoose"; // Importing mongoose for MongoDB operations
 
 // Defining the schema for the user model
 const userSchema = new mongoose.Schema({
-    name: {type: String, required: true}, // User's name
+    fullName: {type: String, required: true}, // User's name
     email: {type: String, required: true, unique: true}, // User's email, required and unique
+    phoneNuber: {type: Number, required: true},
     password: {type: String, required: true}, // User's password, required
     cartData: {type: Object, default: {}}, // User's cart data, default is an empty object
 }, {minimize: false}) // Schema options to prevent MongoDB from removing empty objects
