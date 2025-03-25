@@ -31,6 +31,11 @@ const registerUser = async (req, res) => {
         if(password.length < 8){
             return res.json({success: false, message: "Enter a strong password"})
         }
+        
+        // Confirming both password and confirmpassword are equal
+        if(password !== confirmPassword){
+            return res.json({success: false, message: "Password did not match!"})
+        }
 
         // Hasing user's password
         const salt = await bcrypt.genSalt(10);
