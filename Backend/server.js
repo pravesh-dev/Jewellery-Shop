@@ -9,6 +9,7 @@ import connectDB from './config/mongodb.js';
 // Importing Cloudinary connection function
 import connnectCloudinary from './config/cloudinary.js';
 import userRouter from './routes/userRoute.js';
+import productRouter from './routes/productRoute.js';
 
 // Creating the Express app and setting the port
 const app = express();
@@ -30,6 +31,7 @@ app.get('/', (req, res)=>{
 })
 
 app.use('/api/user', userRouter);
+app.use('/api/product', productRouter)
 
 // Starting the server and logging the port
 app.listen(port, ()=> console.log('Server started on PORT : ' + port))
