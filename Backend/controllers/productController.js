@@ -1,7 +1,7 @@
 
 // Function to add product
 const addProduct = async (req, res) => {
-    
+     
 }
 
 // Function to list product
