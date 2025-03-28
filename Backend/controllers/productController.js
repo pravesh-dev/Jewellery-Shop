@@ -1,7 +1,8 @@
 
 // Function to add product
 const addProduct = async (req, res) => {
-    const {name, title, description, price, onSale, discount, image, category, subCategory, bestSeller} = req.body;
+    try {
+        const {name, title, description, price, onSale, discount, image, category, subCategory, bestSeller} = req.body;
 
     const image1 = req.files.image1[0];
     const image2 = req.files.image2[0];
@@ -10,6 +11,12 @@ const addProduct = async (req, res) => {
 
     console.log(name, title, description, price, onSale, discount, image, category, subCategory, bestSeller);
     console.log(image1, image2, image3, image4)
+
+    res.json({})
+    } catch (error) {
+        res.json({success: false, message: error.message});
+        console.log(error);
+    }
 }
 
 // Function to list product
