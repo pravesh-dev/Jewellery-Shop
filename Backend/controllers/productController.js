@@ -3,7 +3,7 @@ import { v2 as cloudinary } from "cloudinary"
 // Function to add product
 const addProduct = async (req, res) => {
     try {
-        const {name, title, description, price, onSale, discount, image, category, subCategory, bestSeller} = req.body;
+        const {name, title, description, price, onSale, discount, category, subCategory, bestSeller} = req.body;
 
     const image1 = req.files.image1 && req.files.image1[0];
     const image2 = req.files.image2 && req.files.image2[0];
@@ -13,15 +13,18 @@ const addProduct = async (req, res) => {
 
     const images = [image1, image2, image3, image4].filter((item)=> {item !== undefined});
 
-    let imageUrl = await Promise.all(
+    let imagesUrl = await Promise.all(
         images.map( async (item)=>{
             let result = await cloudinary.uploader.upload(item.path, {resource_type: 'image'})
             return result.secure_url;
         })
     )
 
-    console.log(name, title, description, price, onSale, discount, category, subCategory, bestSeller);
-    console.log(images)
+    const productData = {
+        name, title, description, price:Number(price), onSale: onSale === "true" ? true : false, discount:Number(discount), category, subCategory, bestSeller: bestSeller === "true" ? true : false, image: imagesUrl, date: Date.now()
+    }
+
+    console.log(productData)
 
     res.json({})
     } catch (error) {
