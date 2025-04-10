@@ -28,3 +28,7 @@
 .bellefair {
     font-family: Bellefair;
 }
+.active{
+    background-color: #d4af379f;
+    border-color: #006400;
+}
