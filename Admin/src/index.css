@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --font-display: "bellefair";
-}
 @font-face {
     font-family: lora;
     src: url(/Fonts/Lora/static/Lora-SemiBold.ttf);
@@ -28,6 +25,6 @@
 .cormorant {
     font-family: cormorant;
 }
-.Bellefair {
+.bellefair {
     font-family: Bellefair;
 }
