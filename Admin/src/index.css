@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+@theme {
+    --font-display: "bellefair";
+}
+@font-face {
+    font-family: lora;
+    src: url(/Fonts/Lora/static/Lora-SemiBold.ttf);
+}
+@font-face {
+    font-family: mulish;
+    src: url(/Fonts/Mulish/static/Mulish-Regular.ttf);
+}
+@font-face {
+    font-family: cormorant;
+    src: url(/Fonts/Cormorant_Garamond/CormorantGaramond-Regular.ttf);
+}
+@font-face {
+    font-family: Bellefair;
+    src: url(/Fonts/Bellefair/Bellefair-Regular.ttf);
+}
+.lora {
+    font-family: lora;
+}
+.mulish {
+    font-family: mulish;
+}
+.cormorant {
+    font-family: cormorant;
+}
+.Bellefair {
+    font-family: Bellefair;
+}
