@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import axios from 'axios';
+import { backendUrl } from '../App';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         try {
             e.preventDefault();
+            const response = await axios.post(backendUrl + 'api/user/admin', {email, password});
+            console.log(response)
         } catch (error) {
             console.log(error)
         }
