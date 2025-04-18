@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/logo.svg";
 
-const Navbar = () => {
+const Navbar = ({setToken}) => {
   return (
     <div className="w-full flex justify-between items-center py-3 px-4 lg:py-5">
       {/* <p className="flex items-center"> */}
