@@ -26,15 +26,15 @@ function App() {
         <Login setToken={setToken} />
       ) : (
         <>
-          <Navbar />
+          <Navbar setToken={setToken} />
           <hr />
           <div className="flex w-full">
             <Sidebar />
             <div className="w-[70%] my-8 text-gray-600 text-base">
               <Routes>
-                <Route path="/add" element={<Add />} />
-                <Route path="/list" element={<List />} />
-                <Route path="/order" element={<Orders />} />
+                <Route path="/add" element={<Add token={token} />} />
+                <Route path="/list" element={<List token={token} />} />
+                <Route path="/order" element={<Orders token={token} />} />
               </Routes>
             </div>
           </div>
