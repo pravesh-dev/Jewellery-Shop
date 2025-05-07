@@ -50,6 +50,41 @@ const Add = () => {
           </label>
         </div>
       </div>
+
+      <div className='w-full'>
+        <p className='mb-2'>Product name</p>
+        <input className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
+      </div>
+      <div className='w-full'>
+        <p className='mb-2'>Product description</p>
+        <textarea className='w-full max-w-[500px] px-3 py-2 border border-gray-300' placeholder='Write description here'></textarea>
+      </div>
+      <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>
+
+        <div>
+          <p className='mb-2'>Product category</p>
+          <select onChange={(e)=> setCategory(e.target.value)} className='w-full px-3 py-2 border border-gray-300'>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Accessories">Accessories</option>
+          </select>
+        </div>
+        <div>
+          <p className='mb-2'>Sub category</p>
+          <select onChange={(e)=> setSubCategory(e.target.value)} className='w-full px-3 py-2 border border-gray-300'>
+            <option value="Necklace">Necklace</option>
+            <option value="Ring">Ring</option>
+            <option value="Chain">Chain</option>
+            <option value="Bracelet">Bracelet</option>
+            <option value="Earring">Earring</option>
+            <option value="Statue">Statue</option>
+          </select>
+        </div>
+        <div>
+          <p className='mb-2'>Product Price</p>
+          <input onChange={(e)=> setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px] border border-gray-300' type="number" placeholder='25' />
+        </div>
+      </div>
     </form>
   )
 }
