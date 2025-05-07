@@ -56,6 +56,10 @@ const Add = () => {
         <input className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
       </div>
       <div className='w-full'>
+        <p className='mb-2'>Product title</p>
+        <input className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
+      </div>
+      <div className='w-full'>
         <p className='mb-2'>Product description</p>
         <textarea className='w-full max-w-[500px] px-3 py-2 border border-gray-300' placeholder='Write description here'></textarea>
       </div>
@@ -85,6 +89,23 @@ const Add = () => {
           <input onChange={(e)=> setPrice(e.target.value)} value={price} className='w-full px-3 py-2 sm:w-[120px] border border-gray-300' type="number" placeholder='25' />
         </div>
       </div>
+
+      <div className='flex gap-2 mt-2'>
+        <input onChange={()=> setOnSale(prev => !prev)} checked={onSale} type="checkbox" id='onsale' />
+        <label className='cursor-pointer' htmlFor="onsale">OnSale</label>
+      </div>
+
+        <div>
+          <p className='mb-2'>Product discount</p>
+          <input onChange={(e)=> setDiscount(e.target.value)} value={discount} className='w-full px-3 py-2 sm:w-[120px] border border-gray-300' type="number" placeholder='0' />
+        </div>
+
+      <div className='flex gap-2 mt-2'>
+        <input onChange={()=> setBestseller(prev => !prev)} checked={bestseller} type="checkbox" id='bestseller' />
+        <label className='cursor-pointer' htmlFor="bestseller">Add to bestseller</label>
+      </div>
+
+      <button className='w-28 py-3 mt-4 bg-black text-white' type='submit'>ADD</button>
     </form>
   )
 }
