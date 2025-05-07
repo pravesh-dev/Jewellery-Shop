@@ -27,7 +27,7 @@ const Add = () => {
 
   // Returning the JSX for the Add component
   return (
-    <form className='flex flex-col w-full items-start gap-3'>
+    <form className='flex flex-col w-full items-start gap-3 pl-3 sm:pl-10 '>
       <div>
         <p className='mb-2'>Upload Image</p>
 
@@ -105,7 +105,7 @@ const Add = () => {
         <label className='cursor-pointer' htmlFor="bestseller">Add to bestseller</label>
       </div>
 
-      <button className='w-28 py-3 mt-4 bg-black text-white' type='submit'>ADD</button>
+      <button className='w-full sm:w-44 py-2 mt-4 bg-black text-white' type='submit'>ADD</button>
     </form>
   )
 }
