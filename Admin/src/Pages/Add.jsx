@@ -53,15 +53,15 @@ const Add = () => {
 
       <div className='w-full'>
         <p className='mb-2'>Product name</p>
-        <input className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
+        <input onChange={(e)=> setName(e.target.value)} value={name} className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
       </div>
       <div className='w-full'>
         <p className='mb-2'>Product title</p>
-        <input className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
+        <input onChange={(e)=> setTitle(e.target.value)} value={title} className='w-full max-w-[500px] px-3 py-2 border border-gray-300' type="text" placeholder='Type here' />
       </div>
       <div className='w-full'>
         <p className='mb-2'>Product description</p>
-        <textarea className='w-full max-w-[500px] px-3 py-2 border border-gray-300' placeholder='Write description here'></textarea>
+        <textarea onChange={(e)=> setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-3 py-2 border border-gray-300' placeholder='Write description here'></textarea>
       </div>
       <div className='flex flex-col sm:flex-row gap-2 w-full sm:gap-8'>
 
