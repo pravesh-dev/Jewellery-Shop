@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import uploadIcon from '../assets/upload.png';
 import axios from 'axios';
+import { backendUrl } from '../App';
 
 // Defining the Add component
 const Add = () => {
@@ -29,6 +30,31 @@ const Add = () => {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+
+    try {
+      
+      const formData = new FormData();
+
+      formData.append('name', name);
+      formData.append('title', title);
+      formData.append('description', description);
+      formData.append('price', price);
+      formData.append('onSale', onSale);
+      formData.append('discount', discount);
+      formData.append('category', category);
+      formData.append('subCategory', subCategory);
+      formData.append('bestseller', bestseller);
+
+      image1 && formData.append('image1', image1);
+      image2 && formData.append('image2', image2);
+      image3 && formData.append('image3', image3);
+      image4 && formData.append('image4', image4);
+
+      const response = await axios.post(backendUrl + "/api/product/add", formData)
+      console.log(response.data)
+    } catch (error) {
+      
+    }
   }
 
   // Returning the JSX for the Add component
