@@ -2,7 +2,7 @@
 import { v2 as cloudinary } from 'cloudinary';
 
 // Function to connect to Cloudinary
-const connnectCloudinary = async ()=>{
+const connectCloudinary = async ()=>{
     // Configuring Cloudinary with environment variables
     cloudinary.config({
         cloud_name: process.env.CLOUDINARY_NAME,
@@ -12,4 +12,4 @@ const connnectCloudinary = async ()=>{
 }
 
 // Exporting the function to connect to Cloudinary
-export default connnectCloudinary;
+export default connectCloudinary;

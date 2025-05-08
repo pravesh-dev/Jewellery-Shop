@@ -7,7 +7,7 @@ import 'dotenv/config';
 // Importing database connection function
 import connectDB from './config/mongodb.js';
 // Importing Cloudinary connection function
-import connnectCloudinary from './config/cloudinary.js';
+import connectCloudinary from './config/cloudinary.js';
 import userRouter from './routes/userRoute.js';
 import productRouter from './routes/productRoute.js';
 
@@ -18,7 +18,7 @@ const port = process.env.PORT || 4000;
 // Connecting to the database
 connectDB();
 // Connecting to Cloudinary
-connnectCloudinary();
+connectCloudinary();
 
 // Middleware to parse JSON bodies
 app.use(express.json());
