@@ -1,9 +1,10 @@
+// Loading environment variables
+import 'dotenv/config';
+
 // Importing necessary modules
 import express from 'express';
 import cors from 'cors';
 
-// Loading environment variables
-import 'dotenv/config';
 // Importing database connection function
 import connectDB from './config/mongodb.js';
 // Importing Cloudinary connection function
@@ -17,6 +18,9 @@ const port = process.env.PORT || 4000;
 
 // Connecting to the database
 connectDB();
+
+console.log("Cloudinary API Key =", process.env.CLOUDINARY_API_KEY)
+
 // Connecting to Cloudinary
 connectCloudinary();
 

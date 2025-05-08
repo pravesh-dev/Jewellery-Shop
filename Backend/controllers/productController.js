@@ -12,7 +12,8 @@ const addProduct = async (req, res) => {
     const image4 = req.files.image4 && req.files.image4[0]; // Getting the fourth image file from the request
 
     // Filtering out any undefined images
-    const images = [image1, image2, image3, image4].filter(item=> item !== undefined);
+    const images = [image1, image2, image3, image4].filter((item)=> item !== undefined);
+    console.log('images =', images)
     // Uploading the images to Cloudinary and getting their secure URLs
     let imagesUrl = await Promise.all(
         images.map( async (item)=>{
@@ -20,6 +21,7 @@ const addProduct = async (req, res) => {
             return result.secure_url;
         })
     )
+    console.log('images array =', imagesUrl)
 
     // Creating the product data object
     const productData = {

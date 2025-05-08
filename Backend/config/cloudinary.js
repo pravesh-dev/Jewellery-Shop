@@ -8,6 +8,10 @@ const connectCloudinary = async ()=>{
         cloud_name: process.env.CLOUDINARY_NAME,
         api_key: process.env.CLOUDINARY_API_KEY,
         api_secret: process.env.CLOUDINARY_SECRET_KEY
+        // cloud_name: 'dtdnkk01d',
+        // api_key: 453622181119497,
+        // api_secret: 'zyFtpy_F6fCQbP65hxt0rfk8SDI'
+        
     })
 }
 
