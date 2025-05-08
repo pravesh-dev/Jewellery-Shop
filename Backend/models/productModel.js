@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 // Defining the schema for the product model
 const productSchema = new mongoose.Schema({
-    id: {type: Number, required: true}, // Product ID
     name: {type: String, required: true}, // Product name
     title: {type: String, required: true}, // Product title
     description: {type: String, required: true}, // Product description

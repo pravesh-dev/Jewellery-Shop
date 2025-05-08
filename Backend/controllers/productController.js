@@ -4,7 +4,7 @@ import productModel from "../models/productModel.js"; // Importing the product m
 // Function to add product
 const addProduct = async (req, res) => {
     try {
-        const {id, name, title, description, price, onSale, discount, category, subCategory, bestSeller} = req.body; // Destructuring the product data from the request body
+        const { name, title, description, price, onSale, discount, category, subCategory, bestSeller} = req.body; // Destructuring the product data from the request body
 
     const image1 = req.files.image1 && req.files.image1[0]; // Getting the first image file from the request
     const image2 = req.files.image2 && req.files.image2[0]; // Getting the second image file from the request
@@ -24,7 +24,7 @@ const addProduct = async (req, res) => {
 
     // Creating the product data object
     const productData = {
-        id, name, title, description, price:Number(price), onSale: onSale === "true" ? true : false, discount:Number(discount), category, subCategory, bestSeller: bestSeller === "true" ? true : false, image: imagesUrl, date: Date.now()
+        name, title, description, price:Number(price), onSale: onSale === "true" ? true : false, discount:Number(discount), category, subCategory, bestSeller: bestSeller === "true" ? true : false, image: imagesUrl, date: Date.now()
     }
 
     // Creating a new product instance

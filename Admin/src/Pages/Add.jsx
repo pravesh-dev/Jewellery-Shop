@@ -4,18 +4,12 @@ import axios from 'axios';
 import { backendUrl } from '../App';
 
 // Defining the Add component
-const Add = () => {
+const Add = ({token}) => {
 
   const [image1, setImage1] = useState(false);
   const [image2, setImage2] = useState(false);
   const [image3, setImage3] = useState(false);
   const [image4, setImage4] = useState(false);
-
-  console.log('image1 = ', image1);
-  console.log('image2 = ', image2);
-  console.log('image3 = ', image3);
-  console.log('image4 = ', image4);
-  
   
   const [name, setName] = useState('');
   const [title, setTitle] = useState('');
@@ -50,7 +44,7 @@ const Add = () => {
       image3 && formData.append('image3', image3);
       image4 && formData.append('image4', image4);
 
-      const response = await axios.post(backendUrl + "/api/product/add", formData)
+      const response = await axios.post(backendUrl + "api/product/add", formData, {headers: {token}})
       console.log(response.data)
     } catch (error) {
       
