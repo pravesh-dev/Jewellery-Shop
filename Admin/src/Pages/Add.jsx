@@ -74,7 +74,7 @@ const Add = ({token}) => {
 
   // Returning the JSX for the Add component
   return (
-    <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3 pl-3 sm:pl-10 '>
+    <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
       <div>
         <p className='mb-2'>Upload Image</p>
 
