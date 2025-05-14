@@ -10,8 +10,8 @@ productRouter.post('/add', adminAuth ,upload.fields([{name: 'image1', maxCount: 
 // Route for removing a product with admin authentication
 productRouter.post('/remove', adminAuth , removeProduct);
 // Route for getting a single product
-productRouter.post('/single', singleProduct);
+productRouter.get('/single', singleProduct);
 // Route for listing all products
-productRouter.post('/list', listProducts);
+productRouter.get('/list', listProducts);
 
 export default productRouter; // Exporting the product router
