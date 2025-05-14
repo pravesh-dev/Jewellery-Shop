@@ -19,8 +19,6 @@ const port = process.env.PORT || 4000;
 // Connecting to the database
 connectDB();
 
-console.log("Cloudinary API Key =", process.env.CLOUDINARY_API_KEY)
-
 // Connecting to Cloudinary
 connectCloudinary();
 
