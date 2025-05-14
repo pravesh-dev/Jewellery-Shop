@@ -21,7 +21,6 @@ const addProduct = async (req, res) => {
             return result.secure_url;
         })
     )
-    console.log('images array =', imagesUrl)
 
     // Creating the product data object
     const productData = {

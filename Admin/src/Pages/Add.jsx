@@ -3,7 +3,6 @@ import uploadIcon from '../assets/upload.png';
 import axios from 'axios';
 import { backendUrl } from '../App';
 import { toast } from 'react-toastify';
-import { response } from 'express';
 
 // Defining the Add component
 const Add = ({token}) => {
@@ -46,9 +45,6 @@ const Add = ({token}) => {
       image3 && formData.append('image3', image3);
       image4 && formData.append('image4', image4);
       
-      for (let pair of formData.entries()) {
-        console.log(pair[0]+ ': ' + pair[1]);
-      }
 
       const response = await axios.post(backendUrl + "api/product/add", formData, {headers: {token}})
       
