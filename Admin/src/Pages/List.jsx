@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { backendUrl } from '../App'
+import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
 
 const List = () => {
@@ -37,13 +37,29 @@ const List = () => {
       <div className='flex flex-col gap-2'>
 
         {/* ------------------ List Table Title --------------------- */}
-        <div className='hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-1 px-2 bordr bg-gray-200 text-sm'>
+
+        <div className='hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-2 px-2 bordr bg-gray-200 text-sm'>
           <b>Image</b>
           <b>Name</b>
           <b>Category</b>
           <b>Price</b>
-          <b>Action</b>
+          <b className='text-center'>Action</b>
         </div>
+
+        {/* ------------------ List Table Title --------------------- */}
+
+        {
+          list.map((item, index) => (
+            <div className='grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border border-gray-300 text-sm' key={index}>
+              <img className='w-12 md:w-20' src={item.image[0]} alt="product image" />
+              <p>{item.name}</p>
+              <p>{item.category}</p>
+              <p>{currency}{item.price}</p>
+              <p className='text-white text-center cursor-pointer text-sm bg-red-600 w-6 md:w-auto md:bg-transparent md:text-black'>X</p>
+            </div>
+          ))
+        }
+
       </div>
     </>
   )
