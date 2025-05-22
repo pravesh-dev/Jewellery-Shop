@@ -12,6 +12,8 @@ const ShopContextProvider = ({ children }) => {
   const stad_delivery_fee = 100;
   const fast_delivery_fee = 150;
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
   // Define state for category, subcategory and price range
   const [category, setCategory] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
@@ -128,6 +130,7 @@ const ShopContextProvider = ({ children }) => {
     removeFromWishlist,
     isItemInWishlist,
     clearWishlist,
+    backendUrl,
   };
 
   // Return the provider with the value and children
