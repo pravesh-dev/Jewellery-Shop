@@ -28,29 +28,29 @@ function App() {
   const navigate = useNavigate();
 
   // Effect hook to verify credentials on component mount
-  useEffect(() => {
-    const verifyCredentials = async () => {
-      try {
-        // Make a POST request to verify credentials
-        const response = await axios.post(
-          "https://jewellery.hexadefend.com/Backend/auth/verify.php",
-          { withCredentials: true }
-        );
-        // If the response indicates success, login and navigate to the home page
-        if (response.data.status === "success") {
-          login(response.data);
-          navigate('/');
-          console.log("success verify app", response.data);
-        } else if (response.data.status === "error") {
-          console.error("Error verifying credentials:", response.data);
-        }
-      } catch (error) {
-        console.error("Error verifying credentials:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const verifyCredentials = async () => {
+  //     try {
+  //       // Make a POST request to verify credentials
+  //       const response = await axios.post(
+  //         "https://jewellery.hexadefend.com/Backend/auth/verify.php",
+  //         { withCredentials: true }
+  //       );
+  //       // If the response indicates success, login and navigate to the home page
+  //       if (response.data.status === "success") {
+  //         login(response.data);
+  //         navigate('/');
+  //         console.log("success verify app", response.data);
+  //       } else if (response.data.status === "error") {
+  //         console.error("Error verifying credentials:", response.data);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error verifying credentials:", error);
+  //     }
+  //   };
 
-    verifyCredentials();
-  }, []);
+  //   verifyCredentials();
+  // }, []);
 
   // Use media query hook to check for device width
   const isMobileDevice = useMediaQuery("(max-width: 767px)");
