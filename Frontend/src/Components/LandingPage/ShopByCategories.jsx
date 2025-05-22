@@ -6,7 +6,7 @@ import { ShopContext } from "../../Context/ShopContext";
 
 // Define the ShopByCategories component
 function ShopByCategories() {
-const { items, currency } = useContext(ShopContext);
+const { products, currency } = useContext(ShopContext);
 
   // Initialize state for active tab, view all and navigation
   const [activeTab, setActiveTab] = useState("all");
@@ -20,7 +20,7 @@ const { items, currency } = useContext(ShopContext);
 
   // UseEffect hook to filter items based on active tab
   useEffect(() => {
-    const filteredItems = items.filter(
+    const filteredItems = products.filter(
       (item) => activeTab === "all" || item.type === activeTab
     );
     setViewAll(filteredItems.length > 8);
@@ -28,7 +28,7 @@ const { items, currency } = useContext(ShopContext);
 
   // Function to render items based on type
   const renderItems = (type) => {
-    const filteredItems = items.filter(
+    const filteredItems = products.filter(
       (item) => type === "all" || item.subCategory.toLowerCase() === type.toLowerCase()
     );
     const displayedItems = !viewAll
@@ -44,7 +44,7 @@ const { items, currency } = useContext(ShopContext);
         <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[14rem] relative lg:rounded-md">
             <img
               loading="lazy"
-              src={item.image}
+              src={item.image[0]}
               className="w-full h-full object-cover"
               alt={item.name}
             />

@@ -17,7 +17,6 @@ const ShopContextProvider = ({ children }) => {
   const fast_delivery_fee = 150;
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
-  console.log(backendUrl)
 
   // Define state for category, subcategory and price range
   const [category, setCategory] = useState(null);
@@ -112,10 +111,16 @@ const ShopContextProvider = ({ children }) => {
     try {
       
       const response = await axios.get(backendUrl + 'api/product/list');
-      console.log(response.data)
+
+      if(response.data.success) {
+        setProduts(response.data.products)
+      }else {
+        toast.error(response.data.message)
+      }
 
     } catch (error) {
-      
+      console.log(error)
+      toast.error(error.message)
     }
 
   }
@@ -127,6 +132,7 @@ const ShopContextProvider = ({ children }) => {
   // Define the value object to be passed to the context provider
   const value = {
     items,
+    products,
     currency,
     stad_delivery_fee,
     fast_delivery_fee,
