@@ -4,14 +4,14 @@ import { GoChevronRight } from "react-icons/go";
 import { ShopContext } from "../../Context/ShopContext";
 
 function SimilarProductSlider({ product }) {
-  const { items, currency } = useContext(ShopContext);
+  const { products, currency } = useContext(ShopContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const sliderRef = useRef(null);
 
   // Filter similar products based on product's sub categories
-  const similarProducts = items.filter(
-    (item) => item.subCategory === product.subCategory && item.id !== product.id
+  const similarProducts = products.filter(
+    (item) => item.subCategory === product.subCategory && item._id !== product._id
   );
 
   // Calculate card width dynamically, including gap

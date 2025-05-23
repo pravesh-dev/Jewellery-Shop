@@ -37,7 +37,7 @@ function ProductPage() {
         <div>
           <Hero product={productData} />
           {/* <ReviewSection product={productData} /> */}
-          {/* <SimilarProductSlider product={productData} /> */}
+          <SimilarProductSlider product={productData} />
         </div>
       ) : (
         <div className="w-full h-screen flex justify-center items-center">
