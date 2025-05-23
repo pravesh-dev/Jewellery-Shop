@@ -4,7 +4,8 @@ import { ShopContext } from "../../Context/ShopContext";
 
 function ShopItems() {
   const {
-    items = [],
+    // items = [],
+    products,
     category,
     subCategory,
     priceRange,
@@ -14,25 +15,10 @@ function ShopItems() {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Ensure items is an array
-  if (!Array.isArray(items) || items.length === 0) {
-    return (
-      <p className="text-center text-gray-500 mt-10">No products available.</p>
-    );
-  }
 
-  // Filter items based on category, subCategory, and price range
-  let filteredItems = items.filter((item) => {
-    return (
-      (!category || item.category?.toLowerCase() === category.toLowerCase()) &&
-      (!subCategory ||
-        item.subCategory?.toLowerCase() === subCategory.toLowerCase()) &&
-      item.price >= priceRange[0] &&
-      item.price <= priceRange[1]
-    );
-  });
-
-  // Calculate discounted price for sorting purposes
+  // Safe fallback to an empty array
+  const items = Array.isArray(products) ? products : [];
+  
   const getDiscountedPrice = (item) => {
     if (item.onSale) {
       return item.price - item.price * (item.discount / 100);
@@ -40,19 +26,28 @@ function ShopItems() {
     return item.price;
   };
 
-  // Sort items based on the selected sort option (Low to High or High to Low)
-  filteredItems = useMemo(() => {
+  const filteredItems = useMemo(() => {
+    const filtered = items.filter((item) => {
+      return (
+        (!category || item.category?.toLowerCase() === category.toLowerCase()) &&
+        (!subCategory ||
+          item.subCategory?.toLowerCase() === subCategory.toLowerCase()) &&
+        item.price >= priceRange[0] &&
+        item.price <= priceRange[1]
+      );
+    });
+
     if (sortOption === "Low to High") {
-      return [...filteredItems].sort(
+      return [...filtered].sort(
         (a, b) => getDiscountedPrice(a) - getDiscountedPrice(b)
       );
     } else if (sortOption === "High to Low") {
-      return [...filteredItems].sort(
+      return [...filtered].sort(
         (a, b) => getDiscountedPrice(b) - getDiscountedPrice(a)
       );
     }
-    return filteredItems;
-  }, [filteredItems, sortOption]);
+    return filtered;
+  }, [items, category, subCategory, priceRange, sortOption]);
 
   // Pagination logic
   const itemsPerPage = 6;
@@ -61,25 +56,11 @@ function ShopItems() {
   const endItemIndex = startItemIndex + itemsPerPage;
   const paginatedItems = filteredItems.slice(startItemIndex, endItemIndex);
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-
-  const handlePrevious = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const handlePageClick = (newPage) => {
-    setCurrentPage(newPage);
-  };
+  const handlePageClick = (newPage) => setCurrentPage(newPage);
+  const handlePrevious = () =>
+    currentPage > 1 && setCurrentPage((prev) => prev - 1);
+  const handleNext = () =>
+    currentPage < totalPages && setCurrentPage((prev) => prev + 1);
 
   return (
     <div className="w-full flex flex-col items-center gap-4 relative mt-5 lg:mt-10 lg:w-auto">
@@ -88,16 +69,16 @@ function ShopItems() {
           <div className="w-full flex-wrap gap-2 flex relative justify-center sm:gap-10 md:gap-3 lg:justify-start xl:gap-10 xl:gap-y-10">
             {paginatedItems.map((item) => (
               <div
-                key={item.id}
+                key={item._id}
                 className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw] cursor-pointer"
                 onClick={() =>
-                  navigate(`/shop/${item.subCategory}/${item.name}/${item.id}`)
+                  navigate(`/shop/${item.subCategory}/${item.name}/${item._id}`)
                 }
               >
                 <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[15vw] lg:rounded-[5px] relative">
                   <img
                     loading="lazy"
-                    src={item.image}
+                    src={item.image[0]}
                     className="w-full h-full object-cover"
                     alt={item.name}
                   />

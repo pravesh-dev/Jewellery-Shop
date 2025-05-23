@@ -18,8 +18,8 @@ const Add = ({token}) => {
   const [price, setPrice] = useState('');
   const [onSale, setOnSale] = useState(false);
   const [discount, setDiscount] = useState('');
-  const [category, setCategory] = useState('Men');
-  const [subCategory, setSubCategory] = useState('Ring');
+  const [category, setCategory] = useState('');
+  const [subCategory, setSubCategory] = useState('');
   const [bestseller, setBestseller] = useState(false);
 
 
