@@ -30,9 +30,11 @@ function ProductInfo({ product }) {
       <h1 className="text-3xl xl:text-[2rem]">{product.name}</h1>
       <div className="flex gap-2 items-center lg:my-1 xl:m3-4 xl:gap-4">
         <div className="flex gap-1 items-center text-lg xl:gap-2">
-          {renderStars(Math.round(product.reviews.averageRating))}
+          {/* {renderStars(Math.round(product.reviews.averageRating))} */}
+          {renderStars(Math.round(4.8))}
         </div>
-        <p className="text-sm font-lora lg:text-base xl:text-[1.12rem]">{product.reviews.totalReviews} reviews</p>
+        {/* <p className="text-sm font-lora lg:text-base xl:text-[1.12rem]">{product.reviews.totalReviews} reviews</p> */}
+        <p className="text-sm font-lora lg:text-base xl:text-[1.12rem]">15 reviews</p>
       </div>
       <h2 className="text-black text-xl my-3 lg:text-2xl xl:mt-4">
         {product.onSale ? (

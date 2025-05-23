@@ -4,7 +4,6 @@ import { ShopContext } from "../../Context/ShopContext";
 
 function ShopItems() {
   const {
-    // items = [],
     products,
     category,
     subCategory,

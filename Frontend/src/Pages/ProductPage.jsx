@@ -7,23 +7,28 @@ import { ShopContext } from "../Context/ShopContext"; // Importing ShopContext f
 
 function ProductPage() {
   const { id } = useParams(); // Extracting product ID from URL parameters
-  const { items } = useContext(ShopContext); // Accessing shop items from context
+  const { products } = useContext(ShopContext); // Accessing shop items from context
   const [productData, setProductData] = useState(false); // State to hold the product data
 
   // Function to fetch product data based on ID
   const fetchProductData = async () => {
-    items.map((product) => {
-      if (Number(product.id) === Number(id)) { // Ensuring both are numbers
+    products.map((product) => {
+      if (product._id === id) {
         setProductData(product);
         return null;
       }
+      // if (Number(product._id) === Number(id)) { // Ensuring both are numbers
+      //   setProductData(product);
+      //   console.log(product)
+      //   return null;
+      // }
     });
   };
 
   // Effect to fetch product data on component mount or when ID or items change
   useEffect(() => {
     fetchProductData();
-  }, [id, items]);
+  }, [id, products]);
 
   // Rendering product page based on product data availability
   return (
@@ -31,8 +36,8 @@ function ProductPage() {
       {productData ? (
         <div>
           <Hero product={productData} />
-          <ReviewSection product={productData} />
-          <SimilarProductSlider product={productData} />
+          {/* <ReviewSection product={productData} /> */}
+          {/* <SimilarProductSlider product={productData} /> */}
         </div>
       ) : (
         <div className="w-full h-screen flex justify-center items-center">

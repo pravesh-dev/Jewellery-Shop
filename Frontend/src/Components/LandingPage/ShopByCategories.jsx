@@ -39,7 +39,7 @@ const { products, currency } = useContext(ShopContext);
       <div
         key={index}
         className="product-card w-36 flex flex-col sm:w-64 lg:w-72 xl:w-[19.1rem] cursor-pointer"
-        onClick={() => navigate(`/shop/${item.subCategory}/${item.name}/${item.id}`)}
+        onClick={() => navigate(`/shop/${item.subCategory}/${item.name}/${item._id}`)}
       >
         <div className="w-full h-36 overflow-hidden sm:h-64 lg:h-72 xl:h-[14rem] relative lg:rounded-md">
             <img
