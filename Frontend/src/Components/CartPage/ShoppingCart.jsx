@@ -8,22 +8,23 @@ function ShoppingCart() {
   const { items, products, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
 
   useEffect(() => {
-    const tempData = [];
-
-    for (const itemId in cartItems) {
-      if (cartItems[itemId] > 0) {
-        const product = products.find((item) => item.id === parseInt(itemId));
-        if (product) {
-          tempData.push({
-            ...product,
-            quantity: cartItems[itemId], // Fetching actual quantity from context
-          });
-        }
+  if (products.length === 0) return;
+  const tempData = [];
+  console.log(cartItems)
+  for (const itemId in cartItems) {
+    if (cartItems[itemId] > 0) {
+      const product = products.find((item) => item._id.toString() === itemId.toString());
+      if (product) {
+        tempData.push({
+          ...product,
+          quantity: cartItems[itemId],
+        });
       }
     }
+  }
+  setCartData(tempData);
+}, [cartItems, products]);
 
-    setCartData(tempData);
-  }, [cartItems, products]);
 
   return (
     <div className="w-full pt-24 px-2 grid grid-cols-11 lg:pt-32 xl:px-16 xl:grid-cols-12">
@@ -59,10 +60,10 @@ function ShoppingCart() {
               : product.price * product.quantity;
 
             return (
-              <div key={product.id} className="mb-3 xl:mb-6 grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
+              <div key={product._id} className="mb-3 xl:mb-6 grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
                 <div className="col-span-4 flex items-start gap-2 lg:gap-10">
                   <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
-                    <img src={product.image} className="w-full h-full object-cover" alt="product thumbnail" loading="lazy" />
+                    <img src={product.image[0]} className="w-full h-full object-cover" alt="product thumbnail" loading="lazy" />
                   </div>
                   <div className="font-bellefair pt-5 lg:space-y-1">
                     <h1 className="text-[1rem] leading-4 lg:leading-7 lg:text-[1.5rem]">{product.name}</h1>
@@ -76,7 +77,7 @@ function ShoppingCart() {
                       </p>
                     )}
                     <div className="flex gap-2 lg:gap-5">
-                      <button className="text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]" onClick={() => removeFromCart(product.id)}>Remove</button>
+                      <button className="text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]" onClick={() => removeFromCart(product._id)}>Remove</button>
                       <button className="text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]">Share</button>
                     </div>
                   </div>
@@ -85,9 +86,9 @@ function ShoppingCart() {
                 <div className="col-span-3 h-[6.8rem] grid content-start pt-5 grid-cols-3 gap-2 xl:px-10 xl:col-span-4">
                   <div className="flex justify-center items-start">
                     <div className="border-2 border-secondary rounded-full flex justify-center items-center text-sm px-2 gap-1 lg:text-[1.12rem] lg:px-4 lg:gap-2 lg:py-1">
-                      <HiOutlineMinus className="cursor-pointer" onClick={() => lessFromCart(product.id)} />
+                      <HiOutlineMinus className="cursor-pointer" onClick={() => lessFromCart(product._id)} />
                       <span>{product.quantity}</span>
-                      <BsPlusLg className="cursor-pointer" onClick={() => addToCart(product.id)} />
+                      <BsPlusLg className="cursor-pointer" onClick={() => addToCart(product._id)} />
                     </div>
                   </div>
                   <h3 className="text-[1rem] font-bellefair text-center lg:text-[1.12rem]">
