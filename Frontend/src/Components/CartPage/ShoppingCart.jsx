@@ -5,12 +5,11 @@ import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShoppingCart() {
-  const { items, products, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
+  const { products, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
 
   useEffect(() => {
   if (products.length === 0) return;
   const tempData = [];
-  console.log(cartItems)
   for (const itemId in cartItems) {
     if (cartItems[itemId] > 0) {
       const product = products.find((item) => item._id.toString() === itemId.toString());

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function ShoppingCartMobile() {
   const {
-    items,
+    products,
     currency,
     cartItems,
     addToCart,
@@ -16,22 +16,21 @@ function ShoppingCartMobile() {
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
-    const tempData = [];
-
-    for (const itemId in cartItems) {
-      if (cartItems[itemId] > 0) {
-        const product = items.find((item) => item.id === parseInt(itemId));
-        if (product) {
-          tempData.push({
-            ...product,
-            quantity: cartItems[itemId], // Fetching actual quantity from context
-          });
-        }
+  if (products.length === 0) return;
+  const tempData = [];
+  for (const itemId in cartItems) {
+    if (cartItems[itemId] > 0) {
+      const product = products.find((item) => item._id.toString() === itemId.toString());
+      if (product) {
+        tempData.push({
+          ...product,
+          quantity: cartItems[itemId],
+        });
       }
     }
-
-    setCartData(tempData);
-  }, [cartItems, items]);
+  }
+  setCartData(tempData);
+}, [cartItems, products]);
 
   return (
     <div className="w-full pt-20 px-2 xs:pt-28">
@@ -70,11 +69,11 @@ function ShoppingCartMobile() {
               : product.price * product.quantity;
 
             return (
-              <div key={product.id} className="mb-5 grid grid-cols-7">
+              <div key={product._id} className="mb-5 grid grid-cols-7">
                 <div className="col-span-3 flex items-start flex-col gap-1 sm:gap-3 sm:flex-row sm:col-span-4">
                   <div className="w-[4.6rem] flex-shrink-0 h-[3.8rem] rounded-[2px] overflow-hidden">
                     <img
-                      src={product.image}
+                      src={product.image[0]}
                       className="w-full h-full object-cover"
                       alt="product thumbnail"
                       loading="lazy"
@@ -98,7 +97,7 @@ function ShoppingCartMobile() {
                     <div className="flex gap-4">
                       <button
                         className="text-[#A0A0A0] text-[0.75rem]"
-                        onClick={() => removeFromCart(product.id)}
+                        onClick={() => removeFromCart(product._id)}
                       >
                         Remove
                       </button>
@@ -114,12 +113,12 @@ function ShoppingCartMobile() {
                     <div className="border border-secondary rounded-full flex justify-center items-center text-[0.7rem] px-2 gap-1">
                       <HiOutlineMinus
                         className="cursor-pointer"
-                        onClick={() => lessFromCart(product.id)}
+                        onClick={() => lessFromCart(product._id)}
                       />
                       <span>{product.quantity}</span>
                       <BsPlusLg
                         className="cursor-pointer"
-                        onClick={() => addToCart(product.id)}
+                        onClick={() => addToCart(product._id)}
                       />
                     </div>
                   </div>
