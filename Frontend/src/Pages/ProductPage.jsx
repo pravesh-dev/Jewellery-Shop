@@ -7,8 +7,9 @@ import { ShopContext } from "../Context/ShopContext"; // Importing ShopContext f
 
 function ProductPage() {
   const { id } = useParams(); // Extracting product ID from URL parameters
-  const { products } = useContext(ShopContext); // Accessing shop items from context
+  const { items, products } = useContext(ShopContext); // Accessing shop items from context
   const [productData, setProductData] = useState(false); // State to hold the product data
+  const [reviewProductData, setReviewProductData] = useState(false); // State to hold the product data
 
   // Function to fetch product data based on ID
   const fetchProductData = async () => {
@@ -23,12 +24,20 @@ function ProductPage() {
       //   return null;
       // }
     });
+
+    // -------------------- for review section ------
+    items.map((product) => {
+      if (product.id === 6) {
+        setReviewProductData(product);
+        return null;
+      }
+    });
   };
 
   // Effect to fetch product data on component mount or when ID or items change
   useEffect(() => {
     fetchProductData();
-  }, [id, products]);
+  }, [id, products, items]);
 
   // Rendering product page based on product data availability
   return (
@@ -36,7 +45,7 @@ function ProductPage() {
       {productData ? (
         <div>
           <Hero product={productData} />
-          {/* <ReviewSection product={productData} /> */}
+          <ReviewSection product={reviewProductData} />
           <SimilarProductSlider product={productData} />
         </div>
       ) : (

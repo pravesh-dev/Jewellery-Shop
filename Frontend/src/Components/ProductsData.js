@@ -215,7 +215,7 @@ const items = [
         },
         {
           id: 2,
-          user: "Kanika",
+          user: "Sanjay",
           date: "2 days ago",
           rating: 4,
           comment: "Is this real gold?",
