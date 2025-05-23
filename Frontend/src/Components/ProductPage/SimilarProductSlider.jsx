@@ -2,12 +2,14 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
 import { ShopContext } from "../../Context/ShopContext";
+import { useNavigate } from "react-router-dom";
 
 function SimilarProductSlider({ product }) {
   const { products, currency } = useContext(ShopContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const sliderRef = useRef(null);
+  const navigate = useNavigate()
 
   // Filter similar products based on product's sub categories
   const similarProducts = products.filter(
@@ -76,12 +78,13 @@ function SimilarProductSlider({ product }) {
           >
             {similarProducts.map((similarProduct) => (
               <div
-                key={similarProduct.id}
-                className="w-36 shrink-0 mr-4 md:w-52 lg:w-60"
+                key={similarProduct._id}
+                className="w-36 shrink-0 mr-4 md:w-52 lg:w-60 cursor-pointer"
+                onClick={() => navigate(`/shop/product/${similarProduct._id}`)}
               >
                 <div className="border rounded-md">
                   <img
-                    src={similarProduct.image}
+                    src={similarProduct.image[0]}
                     alt={similarProduct.name}
                     className="w-full h-36 object-cover rounded-md md:h-52 lg:h-60"
                   />

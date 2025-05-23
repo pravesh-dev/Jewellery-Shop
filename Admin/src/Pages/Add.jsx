@@ -18,8 +18,8 @@ const Add = ({token}) => {
   const [price, setPrice] = useState('');
   const [onSale, setOnSale] = useState(false);
   const [discount, setDiscount] = useState('');
-  const [category, setCategory] = useState('');
-  const [subCategory, setSubCategory] = useState('');
+  const [category, setCategory] = useState('Men');
+  const [subCategory, setSubCategory] = useState('Ring');
   const [bestseller, setBestseller] = useState(false);
 
 
@@ -114,7 +114,7 @@ const Add = ({token}) => {
 
         <div>
           <p className='mb-2'>Product category</p>
-          <select onChange={(e)=> setCategory(e.target.value)} className='w-full px-3 py-2 border border-gray-300'>
+          <select value={category} onChange={(e)=> setCategory(e.target.value)} className='w-full px-3 py-2 border border-gray-300'>
             <option value="Men">Men</option>
             <option value="Women">Women</option>
             <option value="Accessories">Accessories</option>
@@ -122,7 +122,7 @@ const Add = ({token}) => {
         </div>
         <div>
           <p className='mb-2'>Sub category</p>
-          <select onChange={(e)=> setSubCategory(e.target.value)} className='w-full px-3 py-2 border border-gray-300'>
+          <select value={subCategory} onChange={(e)=> setSubCategory(e.target.value)} className='w-full px-3 py-2 border border-gray-300'>
             <option value="Necklace">Necklace</option>
             <option value="Ring">Ring</option>
             <option value="Chain">Chain</option>

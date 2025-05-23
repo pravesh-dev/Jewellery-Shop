@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { IoStarSharp } from "react-icons/io5";
 import { TbTruckDelivery } from "react-icons/tb";
 import { SlLock } from "react-icons/sl";
@@ -9,7 +9,7 @@ import { ShopContext } from "../../Context/ShopContext";
 
 function ProductInfo({ product }) {
   const { currency, addToCart, addToWishlist, removeFromWishlist, isItemInWishlist } = useContext(ShopContext);
-  const [isHeart, setIsHeart] = useState(isItemInWishlist(product.id));
+  const [isHeart, setIsHeart] = useState(isItemInWishlist(product._id));
 
   // Function to render stars based on the average rating
   const renderStars = (rating) => {
@@ -75,10 +75,10 @@ function ProductInfo({ product }) {
         </div>
       </div>
       <div className="w-72 h-10 flex gap-4 md:w-96 lg:mt-8 lg:h-11 xl:h-12">
-        <button className="w-[80%] h-full capitalize rounded-sm text-xl text-center bg-secondary hover:bg-[#B0890A] duration-300 text-white lg:text-2xl lg:w-[80%] lg:rounded-md xl:text-stroke-xs xl:text-[1.5rem]" onClick={()=>{ addToCart(product.id) }}>Add to cart</button>
+        <button className="w-[80%] h-full capitalize rounded-sm text-xl text-center bg-secondary hover:bg-[#B0890A] duration-300 text-white lg:text-2xl lg:w-[80%] lg:rounded-md xl:text-stroke-xs xl:text-[1.5rem]" onClick={()=>{ addToCart(product._id) }}>Add to cart</button>
         <button className={`w-[20%] h-full rounded-sm text-xl flex justify-center items-center ${isHeart ? 'bg-[#B0890A] text-[#C80003]' : 'text-accent bg-secondary'} lg:text-2xl lg:w-[20%] lg:rounded-md xl:text-3xl`} onClick={() => {
           setIsHeart(!isHeart);
-          isHeart ? removeFromWishlist(product.id) : addToWishlist(product.id);
+          isHeart ? removeFromWishlist(product._id) : addToWishlist(product._id);
         }}><IoMdHeart /></button>
       </div>
     </div>

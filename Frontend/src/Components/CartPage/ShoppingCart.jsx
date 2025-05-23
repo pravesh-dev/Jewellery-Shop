@@ -5,14 +5,14 @@ import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
 
 function ShoppingCart() {
-  const { items, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
+  const { items, products, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
 
   useEffect(() => {
     const tempData = [];
 
     for (const itemId in cartItems) {
       if (cartItems[itemId] > 0) {
-        const product = items.find((item) => item.id === parseInt(itemId));
+        const product = products.find((item) => item.id === parseInt(itemId));
         if (product) {
           tempData.push({
             ...product,
@@ -23,7 +23,7 @@ function ShoppingCart() {
     }
 
     setCartData(tempData);
-  }, [cartItems, items]);
+  }, [cartItems, products]);
 
   return (
     <div className="w-full pt-24 px-2 grid grid-cols-11 lg:pt-32 xl:px-16 xl:grid-cols-12">

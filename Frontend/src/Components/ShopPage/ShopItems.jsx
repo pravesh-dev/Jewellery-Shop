@@ -71,7 +71,7 @@ function ShopItems() {
                 key={item._id}
                 className="product-card w-36 flex flex-col sm:w-64 md:w-60 xl:w-[20vw] cursor-pointer"
                 onClick={() =>
-                  navigate(`/shop/${item.subCategory}/${item.name}/${item._id}`)
+                  navigate(`/shop/product/${item._id}`)
                 }
               >
                 <div className="w-full h-36 overflow-hidden sm:h-64 md:h-60 xl:h-[15vw] lg:rounded-[5px] relative">

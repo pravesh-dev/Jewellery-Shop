@@ -45,7 +45,7 @@ function ProductPage() {
       {productData ? (
         <div>
           <Hero product={productData} />
-          <ReviewSection product={reviewProductData} />
+          {/* <ReviewSection product={reviewProductData} /> */}
           <SimilarProductSlider product={productData} />
         </div>
       ) : (
