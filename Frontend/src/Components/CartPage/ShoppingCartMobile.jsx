@@ -14,6 +14,7 @@ function ShoppingCartMobile() {
     removeFromCart,
   } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
+  
 
   useEffect(() => {
   if (products.length === 0) return;
