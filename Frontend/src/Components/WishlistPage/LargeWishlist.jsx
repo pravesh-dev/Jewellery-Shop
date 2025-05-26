@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
+import { useNavigate } from 'react-router-dom';
 
 function LargeWishlist() {
     const { wishlist, removeFromWishlist, addToCart, products } = useContext(ShopContext);
+    const navigate = useNavigate();
 
     // Get all wishlist products
     const wishlistProducts = wishlist.map(id => products.find(item => item._id === id)).filter(Boolean);
@@ -32,7 +34,7 @@ function LargeWishlist() {
             {wishlistProducts.map((product) => (
                 <div key={product._id} className='grid grid-cols-12 mb-6 pt-4'>
                     <div className='col-span-5 flex items-start gap-2 lg:gap-10'>
-                        <div className='w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden'>
+                        <div className='w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden' onClick={() => navigate(`/shop/product/${product._id}`)}>
                             <img src={product.image[0]} className='w-full h-full object-cover' alt="product thumbnail" loading='lazy' />
                         </div>
                         <div className='font-bellefair pt-2 lg:pt-4 xl:pt-10'>
