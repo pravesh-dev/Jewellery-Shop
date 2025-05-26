@@ -1,15 +1,15 @@
 // Import necessary modules
 import { createContext, useEffect, useState } from "react";
 import { items } from "../Components/ProductsData";
-import axios from 'axios';
+import axios from "axios";
 
 // Create a new context for the shop
 export const ShopContext = createContext();
 
 // Provider component for the shop context
 const ShopContextProvider = ({ children }) => {
-
-  const [products, setProduts] = useState([])
+  const [products, setProduts] = useState([]);
+  const [token, setToken] = useState("");
 
   // Define currency and delivery fees
   const currency = "£";
@@ -107,32 +107,30 @@ const ShopContextProvider = ({ children }) => {
   };
 
   const getProductsData = async () => {
-
     try {
-      
-      const response = await axios.get(backendUrl + 'api/product/list');
+      const response = await axios.get(backendUrl + "api/product/list");
 
-      if(response.data.success) {
-        setProduts(response.data.products)
-      }else {
-        toast.error(response.data.message)
+      if (response.data.success) {
+        setProduts(response.data.products);
+      } else {
+        toast.error(response.data.message);
       }
-
     } catch (error) {
-      console.log(error)
-      toast.error(error.message)
+      console.log(error);
+      toast.error(error.message);
     }
+  };
 
-  }
-
-  useEffect(()=>{
-    getProductsData()
-  }, [])
+  useEffect(() => {
+    getProductsData();
+  }, []);
 
   // Define the value object to be passed to the context provider
   const value = {
     items,
     products,
+    token,
+    setToken,
     currency,
     stad_delivery_fee,
     fast_delivery_fee,

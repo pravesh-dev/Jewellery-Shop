@@ -1,13 +1,15 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
+import { ShopContext } from "../../Context/ShopContext";
 
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
+  const { token, setToken, backendUrl } = useContext(ShopContext);
   const { login } = useContext(AuthContext); // Use login function from AuthContext
   // State to hold form data and response message
   const [formData, setFormData] = useState({
@@ -31,7 +33,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://jewellery.hexadefend.com/Backend/auth/login.php', formData, {withCredentials: true});
+      const response = await axios.post( backendUrl + 'api/user/login');
       console.log(response.data.status)
       if(response.data.status === 'success'){
         setResponseMessage(response.data.message || 'Login successful!');
