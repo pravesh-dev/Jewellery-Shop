@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
 
 function LargeWishlist() {
-    const { wishlist, removeFromWishlist, addToCart, items } = useContext(ShopContext);
+    const { wishlist, removeFromWishlist, addToCart, products } = useContext(ShopContext);
 
     // Get all wishlist products
-    const wishlistProducts = wishlist.map(id => items.find(item => item.id === id)).filter(Boolean);
+    const wishlistProducts = wishlist.map(id => products.find(item => item._id === id)).filter(Boolean);
 
     if (wishlistProducts.length === 0) {
         return <div className='min-h-[60vh] text-center text-lg mt-6'>Your wishlist is empty</div>;
@@ -30,15 +30,15 @@ function LargeWishlist() {
 
             {/* Wishlist Items */}
             {wishlistProducts.map((product) => (
-                <div key={product.id} className='grid grid-cols-12 mb-6 pt-4'>
+                <div key={product._id} className='grid grid-cols-12 mb-6 pt-4'>
                     <div className='col-span-5 flex items-start gap-2 lg:gap-10'>
                         <div className='w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden'>
-                            <img src={product.image} className='w-full h-full object-cover' alt="product thumbnail" loading='lazy' />
+                            <img src={product.image[0]} className='w-full h-full object-cover' alt="product thumbnail" loading='lazy' />
                         </div>
                         <div className='font-bellefair pt-2 lg:pt-4 xl:pt-10'>
                             <h1 className='text-[1rem] leading-4 lg:leading-7 lg:text-[1.5rem]'>{product.name}</h1>
                             <div className='flex gap-2 lg:gap-5 mt-4 xl:mt-6'>
-                                <button onClick={() => removeFromWishlist(product.id)} className='text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]'>Remove</button>
+                                <button onClick={() => removeFromWishlist(product._id)} className='text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]'>Remove</button>
                                 <button className='text-[#A0A0A0] text-[0.75rem] lg:text-[1.12rem]'>Share</button>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ function LargeWishlist() {
                     </div>
 
                     <div className='col-span-3 flex justify-center items-start pt-2 lg:pt-4 xl:pt-10'>
-                        <button onClick={() => addToCart(product.id)} className='text-sm text-accent bg-secondary px-5 py-1 rounded-[5px] lg:text-[1.12rem] lg:p-0 lg:w-[8.5rem] lg:h-[2.5rem]'>
+                        <button onClick={() => addToCart(product._id)} className='text-sm text-accent bg-secondary px-5 py-1 rounded-[5px] lg:text-[1.12rem] lg:p-0 lg:w-[8.5rem] lg:h-[2.5rem]'>
                             Add To Cart
                         </button>
                     </div>
