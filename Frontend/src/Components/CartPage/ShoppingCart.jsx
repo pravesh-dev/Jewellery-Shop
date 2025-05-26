@@ -3,9 +3,11 @@ import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi2";
 import OrderSummary from "./OrderSummary";
 import { ShopContext } from "../../Context/ShopContext";
+import { useNavigate } from "react-router-dom";
 
 function ShoppingCart() {
   const { products, currency, cartItems, addToCart, lessFromCart, removeFromCart, cartData, setCartData } = useContext(ShopContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
   if (products.length === 0) return;
@@ -61,7 +63,7 @@ function ShoppingCart() {
             return (
               <div key={product._id} className="mb-3 xl:mb-6 grid grid-cols-7 lg:gap-3 xl:grid-cols-8">
                 <div className="col-span-4 flex items-start gap-2 lg:gap-10">
-                  <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden">
+                  <div className="w-[7.6rem] flex-shrink-0 h-[6.8rem] lg:w-[12rem] lg:h-[10.9rem] rounded-[5px] overflow-hidden" onClick={() => navigate(`/shop/product/${product._id}`)}>
                     <img src={product.image[0]} className="w-full h-full object-cover" alt="product thumbnail" loading="lazy" />
                   </div>
                   <div className="font-bellefair pt-5 lg:space-y-1">

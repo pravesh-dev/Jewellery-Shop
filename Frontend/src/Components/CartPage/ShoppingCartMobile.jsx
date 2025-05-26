@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi2";
 import { ShopContext } from "../../Context/ShopContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ShoppingCartMobile() {
   const {
@@ -14,6 +14,7 @@ function ShoppingCartMobile() {
     removeFromCart,
   } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
+  const navigate = useNavigate();
   
 
   useEffect(() => {
@@ -72,7 +73,7 @@ function ShoppingCartMobile() {
             return (
               <div key={product._id} className="mb-5 grid grid-cols-7">
                 <div className="col-span-3 flex items-start flex-col gap-1 sm:gap-3 sm:flex-row sm:col-span-4">
-                  <div className="w-[4.6rem] flex-shrink-0 h-[3.8rem] rounded-[2px] overflow-hidden">
+                  <div className="w-[4.6rem] flex-shrink-0 h-[3.8rem] rounded-[2px] overflow-hidden" onClick={() => navigate(`/shop/product/${product._id}`)}>
                     <img
                       src={product.image[0]}
                       className="w-full h-full object-cover"
