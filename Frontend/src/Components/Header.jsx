@@ -206,7 +206,7 @@ function Header() {
             </button>
             <div className={`py-2 bg-[#0e0e0ee1] text-accent rounded-md text-sm font-mulish absolute -right-6 top-11 md:top-6 md:-right-5 md:text-xs md:bg-[#ebebeb] md:text-black ${isprofile ? 'flex' : 'hidden'} gap-2 flex-col md:gap-1 md:py-1 overflow-hidden`}>
               <Link className="w-full px-3 py-1 md:hover:bg-[#d2d2d2]">My Profile</Link>
-              <Link to='/orders' className="w-full px-3 py-1 md:hover:bg-[#d2d2d2]">Orders</Link>
+              <p onClick={()=> navigate('/orders')} className="w-full px-3 py-1 md:hover:bg-[#d2d2d2]">Orders</p>
             </div>
               </>
             }
