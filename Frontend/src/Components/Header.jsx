@@ -196,16 +196,20 @@ function Header() {
             >
               <GiShoppingCart />
             </Link>
-            <button
+            {
+              token && <>
+              <button
               className={`text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-sm lg:text-base`}
               onClick={()=>{setIsProfile(!isprofile)}}
             >
               <SlUser />
             </button>
-            <div className={`px-3 py-3 bg-[#0e0e0ee1] text-accent rounded-md text-sm font-mulish absolute -right-6 top-11 md:top-6 md:right-0 md:text-xs md:bg-[#ebebeb] md:text-black ${isprofile ? 'flex' : 'hidden'} gap-2 flex-col`}>
-              <Link>My Profile</Link>
-              <Link to='/orders'>Orders</Link>
+            <div className={`py-2 bg-[#0e0e0ee1] text-accent rounded-md text-sm font-mulish absolute -right-6 top-11 md:top-6 md:-right-5 md:text-xs md:bg-[#ebebeb] md:text-black ${isprofile ? 'flex' : 'hidden'} gap-2 flex-col md:gap-1 md:py-1 overflow-hidden`}>
+              <Link className="w-full px-3 py-1 md:hover:bg-[#d2d2d2]">My Profile</Link>
+              <Link to='/orders' className="w-full px-3 py-1 md:hover:bg-[#d2d2d2]">Orders</Link>
             </div>
+              </>
+            }
           </div>
           {
             token ? (
