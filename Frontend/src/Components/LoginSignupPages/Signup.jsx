@@ -1,17 +1,20 @@
 // Import necessary libraries and assets
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import name from "../../Assets/loginSignupPage/name.svg";
 import user from "../../Assets/loginSignupPage/user.svg";
 import call from "../../Assets/loginSignupPage/call.svg";
 import lock from "../../Assets/loginSignupPage/lock.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 
 // Define the Signup component
 function Signup() {
+  const navigate = useNavigate();
   const { token, setToken, backendUrl } = useContext(ShopContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Initialize state for form data and response message
   const [formData, setFormData] = useState({
     fullName: "",
@@ -35,13 +38,15 @@ function Signup() {
   // Function to handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    
     // Check if passwords match
     if (formData.password !== formData.confirmPassword) {
       setResponseMessage("Passwords do not match.");
       setTimeout(() => setResponseMessage(""), 5000);
       return;
     }
+
+    isSubmitting(true);
 
     try {
       // Send signup request
@@ -62,7 +67,16 @@ function Signup() {
     setTimeout(() => {
       setResponseMessage("");
     }, 5000);
+
+    setIsSubmitting(false);
+
   };
+
+  useEffect(()=> {
+      if(token) {
+        navigate('/')
+      }
+    },[token, navigate])
 
   // Render the Signup component
   return (
@@ -178,9 +192,10 @@ function Signup() {
         {/* Signup Button */}
         <button
           type="submit"
+          disabled={isSubmitting}
           className="w-full mt-6 bg-[#009400] text-accent text-lg py-2 rounded-md lg:w-auto lg:px-10 lg:rounded-full xl:mt-12 xl:p-0 xl:w-[9.8rem] xl:h-[3.3rem] xl:text-[1.5rem]"
         >
-          Signup
+          {isSubmitting ? 'Processing...' : 'Signup'}
         </button>
       </form>
       <div className="hidden md:flex justify-center items-center">

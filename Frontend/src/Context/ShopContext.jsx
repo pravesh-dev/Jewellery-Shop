@@ -125,6 +125,12 @@ const ShopContextProvider = ({ children }) => {
     getProductsData();
   }, []);
 
+  useEffect(() => {
+    if(!token && localStorage.getItem('token')){
+      setToken(localStorage.getItem('token'));
+    }
+  }, []);
+
   // Define the value object to be passed to the context provider
   const value = {
     items,

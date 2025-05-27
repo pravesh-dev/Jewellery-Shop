@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios"; // Import axios for HTTP requests
 import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
@@ -9,6 +9,7 @@ import { ShopContext } from "../../Context/ShopContext";
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
   const { token, setToken, backendUrl } = useContext(ShopContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // State to hold form data and response message
   const [formData, setFormData] = useState({
@@ -31,9 +32,21 @@ function Login() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    if (formData.password.length < 6) {
+  setResponseMessage("Password must be at least 6 characters.");
+  return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(formData.email)) {
+    setResponseMessage("Please enter a valid email address.");
+    return;
+  }
+
+
+    setIsSubmitting(true);
     try {
       const response = await axios.post( backendUrl + 'api/user/login', formData);
-      console.log(response.data)
       if(response.data.success){
         setToken(response.data.token)
         localStorage.setItem('token', response.data.token)
@@ -51,7 +64,15 @@ function Login() {
     setTimeout(() => {
       setResponseMessage('');
     }, 5000);
+
+    setIsSubmitting(false);
   };
+
+  useEffect(()=> {
+    if(token) {
+      navigate('/')
+    }
+  },[token, navigate])
 
   return (
     <div className="w-full h-full absolute top-0 left-0 font-mulish flex justify-center md:gap-10 lg:gap-20 xl:px-28 xl:justify-between">
@@ -130,9 +151,10 @@ function Login() {
           {/* Login Button */}
           <button
             type="submit"
+            disabled={isSubmitting}
             className="w-full mt-6 bg-[#009400] text-accent text-lg py-2 rounded-md lg:w-auto lg:px-10 lg:rounded-full xl:p-0 xl:w-[9.8rem] xl:h-[3.3rem] xl:text-[1.5rem]"
           >
-            Login
+            {isSubmitting ? 'Processing...' : 'Login'}
           </button>
         </div>
       </form>
