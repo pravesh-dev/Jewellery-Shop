@@ -50,6 +50,8 @@ function Signup() {
         setToken(response.data.token);
         localStorage.setItem('token', response.data.token)
         setResponseMessage(response.data.message || "Signup successful!");
+      }else {
+        setResponseMessage(response.data.message);
       }
     } catch (error) {
       setResponseMessage("An error occurred during signup.");

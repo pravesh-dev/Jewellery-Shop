@@ -4,16 +4,15 @@ import sideImage from "../../Assets/loginSignupPage/login-side-image.svg";
 import user from "../../Assets/loginSignupPage/user.svg"; // Import user icon asset
 import lock from "../../Assets/loginSignupPage/lock.svg"; // Import lock icon asset
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthContext";
 import { ShopContext } from "../../Context/ShopContext";
 
 function Login() {
   const navigate = useNavigate(); // Use navigate hook for navigation
   const { token, setToken, backendUrl } = useContext(ShopContext);
-  const { login } = useContext(AuthContext); // Use login function from AuthContext
+
   // State to hold form data and response message
   const [formData, setFormData] = useState({
-    emailOrPhone: '',
+    email: '',
     password: ''
   });
 
@@ -33,17 +32,13 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post( backendUrl + 'api/user/login');
-      console.log(response.data.status)
-      if(response.data.status === 'success'){
+      const response = await axios.post( backendUrl + 'api/user/login', formData);
+      console.log(response.data)
+      if(response.data.success){
+        setToken(response.data.token)
+        localStorage.setItem('token', response.data.token)
         setResponseMessage(response.data.message || 'Login successful!');
-        console.log('login success')
-        login(response.data); // Call login function
-        setTimeout(() => {
-          navigate('/')
-        }, 1300);
-      }
-      else{
+      }else{
         console.log('login failed')
         setResponseMessage(response.data.message || 'Login Failed!');
       }
@@ -86,7 +81,7 @@ function Login() {
 
         {/* Input Fields */}
         <div className="space-y-8 lg:space-y-12 xl:space-y-16">
-          {/* Email or Phone */}
+          {/* Email */}
           <div className="relative xl:w-[28.6rem] xl:h-[3.6rem]">
             <img
               src={user}
@@ -95,10 +90,10 @@ function Login() {
             />
             <input
               type="text"
-              name="emailOrPhone"
-              value={formData.emailOrPhone}
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
-              placeholder="Email or phone number"
+              placeholder="Enter email here"
               autoComplete="off"
               className="w-full pl-12 py-3 rounded-md border-0 shadow-lg shadow-[#C8F3BF] focus:outline-none focus:ring-1 ring-primary lg:rounded-full lg:pl-16 xl:py-0 xl:h-full xl:text-[1.12rem] xl:pl-20"
             />
