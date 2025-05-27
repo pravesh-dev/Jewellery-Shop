@@ -153,6 +153,7 @@ const ShopContextProvider = ({ children }) => {
     checkout,
     setCheckout,
     cartItems,
+    setCartItems,
     addToCart,
     lessFromCart,
     removeFromCart,
