@@ -9,7 +9,7 @@ export const ShopContext = createContext();
 // Provider component for the shop context
 const ShopContextProvider = ({ children }) => {
   const [products, setProduts] = useState([]);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem('token') || "");
 
   // Define currency and delivery fees
   const currency = "£";
@@ -53,11 +53,23 @@ const ShopContextProvider = ({ children }) => {
   }, [wishlist]);
 
   // Cart Functions
-  const addToCart = (itemId) => {
+  const addToCart = async (itemId) => {
     setCartItems((prevCart) => ({
       ...prevCart,
       [itemId]: (prevCart[itemId] || 0) + 1,
     }));
+
+    if(token) {
+      try {
+
+        await axios.post(backendUrl + 'api/cart/add', {itemId}, {headers:{token}});
+
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+      }
+    }
+
   };
 
   const lessFromCart = (itemId) => {
@@ -125,11 +137,12 @@ const ShopContextProvider = ({ children }) => {
     getProductsData();
   }, []);
 
-  useEffect(() => {
-    if(!token && localStorage.getItem('token')){
-      setToken(localStorage.getItem('token'));
-    }
-  }, []);
+  // chat gpt said to remove this
+  // useEffect(() => {
+  //   if(!token && localStorage.getItem('token')){
+  //     setToken(localStorage.getItem('token'));
+  //   }
+  // }, []);
 
   // Define the value object to be passed to the context provider
   const value = {
