@@ -72,19 +72,33 @@ const ShopContextProvider = ({ children }) => {
 
   };
 
-  
+  const lessFromCart = async (itemId) => {
+  setCartItems((prevCart) => {
+    const updatedCart = { ...prevCart };
+    if (updatedCart[itemId] > 1) {
+      updatedCart[itemId] -= 1;
+    } else {
+      delete updatedCart[itemId];
+    }
+    return updatedCart;
+  });
 
-  const lessFromCart = (itemId) => {
-    setCartItems((prevCart) => {
-      const updatedCart = { ...prevCart };
-      if (updatedCart[itemId] > 1) {
-        updatedCart[itemId] -= 1;
-      } else {
-        delete updatedCart[itemId];
-      }
-      return updatedCart;
-    });
-  };
+  if (token) {
+    try {
+      const quantity = cartItems[itemId] > 1 ? cartItems[itemId] - 1 : 0;
+
+      await axios.post(
+        backendUrl + "api/cart/update",
+        { itemId, quantity },
+        { headers: { token } }
+      );
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  }
+};
+
 
   const removeFromCart = (itemId) => {
     setCartItems((prevCart) => {
