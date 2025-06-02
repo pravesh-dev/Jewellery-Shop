@@ -73,10 +73,12 @@ const ShopContextProvider = ({ children }) => {
   };
 
   const lessFromCart = async (itemId) => {
+  const newQuantity = (cartItems[itemId] || 0) - 1;
+
   setCartItems((prevCart) => {
     const updatedCart = { ...prevCart };
-    if (updatedCart[itemId] > 1) {
-      updatedCart[itemId] -= 1;
+    if (newQuantity > 0) {
+      updatedCart[itemId] = newQuantity;
     } else {
       delete updatedCart[itemId];
     }
@@ -85,11 +87,9 @@ const ShopContextProvider = ({ children }) => {
 
   if (token) {
     try {
-      const quantity = cartItems[itemId] > 1 ? cartItems[itemId] - 1 : 0;
-
       await axios.post(
         backendUrl + "api/cart/update",
-        { itemId, quantity },
+        { itemId, quantity: newQuantity },
         { headers: { token } }
       );
     } catch (error) {
@@ -98,6 +98,7 @@ const ShopContextProvider = ({ children }) => {
     }
   }
 };
+
 
 
   const removeFromCart = (itemId) => {
