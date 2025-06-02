@@ -101,12 +101,25 @@ const ShopContextProvider = ({ children }) => {
 
 
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItems((prevCart) => {
       const updatedCart = { ...prevCart };
       delete updatedCart[itemId];
       return updatedCart;
     });
+
+    if (token) {
+    try {
+      await axios.post(
+        backendUrl + "api/cart/update",
+        { itemId, quantity: 0 },
+        { headers: { token } }
+      );
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  }
   };
 
   const clearCart = () => {
