@@ -102,7 +102,7 @@ function ShoppingCart() {
                       <span>{currency} {product.price}</span>
                     )}
                   </h3>
-                  <h3 className="font-bellefair text-center text-[1rem] lg:text-[1.12rem]">{currency} {totalPrice}</h3>
+                  <h3 className="font-bellefair text-center text-[1rem] lg:text-[1.12rem]">{currency} {totalPrice.toFixed(2)}</h3>
                 </div>
               </div>
             );

@@ -143,7 +143,7 @@ function ShoppingCartMobile() {
                     )}
                   </h3>
                   <h3 className="font-bellefair text-center text-[0.8rem]">
-                    {currency} {totalPrice}
+                    {currency} {totalPrice.toFixed(2)}
                   </h3>
                 </div>
               </div>
