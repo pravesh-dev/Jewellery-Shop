@@ -2,6 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { items } from "../Components/ProductsData";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // Create a new context for the shop
 export const ShopContext = createContext();
@@ -62,7 +63,11 @@ const ShopContextProvider = ({ children }) => {
     if(token) {
       try {
 
-        await axios.post(backendUrl + 'api/cart/add', {itemId}, {headers:{token}});
+        const response = await axios.post(backendUrl + 'api/cart/add', {itemId}, {headers:{token}});
+
+        if(response.data.success) {
+          toast.success(response.data.message)
+        }
 
       } catch (error) {
         console.log(error);
