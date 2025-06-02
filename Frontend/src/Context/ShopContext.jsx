@@ -72,6 +72,8 @@ const ShopContextProvider = ({ children }) => {
 
   };
 
+  
+
   const lessFromCart = (itemId) => {
     setCartItems((prevCart) => {
       const updatedCart = { ...prevCart };
@@ -139,7 +141,6 @@ const ShopContextProvider = ({ children }) => {
     try {
       
       const response = await axios.post(backendUrl + 'api/cart/get', {}, {headers: {token}});
-      console.log(response)
       if(response.data.success) {
         setCartItems(response.data.cartData);
       }

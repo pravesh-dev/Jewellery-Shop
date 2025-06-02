@@ -40,7 +40,7 @@ function ShoppingCartMobile() {
         <h1 className="text-primary text-stroke-1 mb-1 font-bellefair text-[1.12rem]">
           Shopping Cart
         </h1>
-        <div className="min-h-[83vh] border-t pt-5">
+        <div className="mb-5 border-t pt-5">
           {cartData.length > 0 ? (
             <div className="grid grid-cols-7 mb-5">
               <div className="col-span-3 sm:col-span-4">
