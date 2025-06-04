@@ -35,14 +35,26 @@ const ShopContextProvider = ({ children }) => {
 
   // Load cart and wishlist from localStorage
   const [cartItems, setCartItems] = useState(() => {
+  try {
     const savedCart = localStorage.getItem("cartItems");
-    return savedCart ? JSON.parse(savedCart) : {};
-  });
+    return savedCart && savedCart !== "undefined" ? JSON.parse(savedCart) : {};
+  } catch (error) {
+    console.error("Invalid cartItems in localStorage:", error);
+    return {};
+  }
+});
+
 
   const [wishlist, setWishlist] = useState(() => {
+  try {
     const savedWishlist = localStorage.getItem("wishlist");
-    return savedWishlist ? JSON.parse(savedWishlist) : [];
-  });
+    return savedWishlist && savedWishlist !== "undefined" ? JSON.parse(savedWishlist) : [];
+  } catch (error) {
+    console.error("Invalid wishlist in localStorage:", error);
+    return [];
+  }
+});
+
 
   // Save cart and wishlist to localStorage whenever they change
   useEffect(() => {
@@ -185,6 +197,7 @@ const ShopContextProvider = ({ children }) => {
   };
 
 
+  // Get user cart data from database
   const getUserCart = async ( token ) => {
 
     try {
@@ -192,6 +205,24 @@ const ShopContextProvider = ({ children }) => {
       const response = await axios.post(backendUrl + 'api/cart/get', {}, {headers: {token}});
       if(response.data.success) {
         setCartItems(response.data.cartData);
+      }
+
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+
+  }
+
+  // Get user wishlist data from database
+  const  getUserWishlist = async ( token ) => {
+
+    try {
+      
+      const response = await axios.post(backendUrl + 'api/wishlist/get', {}, {headers: {token}});
+
+      if(response.data.success) {
+        setWishlist(response.data.wishlist)
       }
 
     } catch (error) {
@@ -209,6 +240,7 @@ const ShopContextProvider = ({ children }) => {
   useEffect(() => {
     if(token && localStorage.getItem('token')){
         getUserCart(localStorage.getItem('token'))
+        getUserWishlist(localStorage.getItem('token'))
     }
   }, [token]);
 
