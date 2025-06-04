@@ -46,7 +46,7 @@ function Signup() {
       return;
     }
 
-    isSubmitting(true);
+    setIsSubmitting(true);
 
     try {
       // Send signup request

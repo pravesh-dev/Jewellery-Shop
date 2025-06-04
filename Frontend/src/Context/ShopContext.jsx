@@ -132,13 +132,29 @@ const ShopContextProvider = ({ children }) => {
   };
 
   // Wishlist Functions
-  const addToWishlist = (itemId) => {
+  const addToWishlist = async (itemId) => {
     setWishlist((prevWishlist) => {
       if (!prevWishlist.includes(itemId)) {
         return [...prevWishlist, itemId];
       }
       return prevWishlist;
     });
+    
+    if(token) {
+      try {
+        
+        const response = await axios.post(backendUrl + 'api/wishlist/add', {itemId}, {headers: {token}});
+
+        if(response.data.success) {
+          toast.success(response.data.message)
+        }
+
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+      }
+    }
+
   };
 
   const removeFromWishlist = (itemId) => {
