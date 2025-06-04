@@ -27,15 +27,34 @@ const addToWishlist = async (req,res) => {
 
 }
 
+// Get user wishlist data
+const getUserWishlist = async (req,res) => {
+
+    try {
+        
+        const { userId }  = req.body;
+
+        const userData = await userModel.findById(userId);
+        const wishlist = userData.wishlist;
+
+        res.json({success: true, wishlist})
+
+    } catch (error) {
+        console.log(error)
+        res.json({success: false, message: error.message})
+    }
+
+}
+
 // Remove product from wishlist
-const removeFromWishlist = async (rea,res) => {
+const removeFromWishlist = async (req,res) => {
 
 }
 
 // Check if product wishlisted
-const IsWishlisted = async (rea,res) => {
+const IsWishlisted = async (req,res) => {
 
 }
 
 
-export { addToWishlist, removeFromWishlist, IsWishlisted }
+export { addToWishlist, getUserWishlist, removeFromWishlist, IsWishlisted }
