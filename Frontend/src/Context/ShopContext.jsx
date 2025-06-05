@@ -1,6 +1,5 @@
 // Import necessary modules
 import { createContext, useEffect, useState } from "react";
-import { items } from "../Components/ProductsData";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -264,7 +263,6 @@ const ShopContextProvider = ({ children }) => {
 
   // Define the value object to be passed to the context provider
   const value = {
-    items,
     products,
     token,
     setToken,
