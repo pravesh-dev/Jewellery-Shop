@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react"; // Importing React hooks and useContext
 import { IoIosArrowDown } from "react-icons/io"; // Importing IoIosArrowDown icon for dropdown
 import { ShopContext } from "../../Context/ShopContext"; // Importing ShopContext for accessing context
-import { Link, useNavigate } from "react-router-dom"; // Importing Link and useNavigate for routing
+import { useNavigate } from "react-router-dom"; // Importing Link and useNavigate for routing
 
 // Function component for OrderSummary
 function OrderSummary({ cartData, currency }) {

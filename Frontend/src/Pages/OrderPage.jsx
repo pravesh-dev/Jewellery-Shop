@@ -3,7 +3,7 @@ import { ShopContext } from '../Context/ShopContext'
 import { useNavigate } from 'react-router-dom';
 
 function OrderPage() {
-    const { items, currency, token, setToken } = useContext(ShopContext);
+    const { products, currency, token, setToken } = useContext(ShopContext);
 
   return (
     <div className='w-full min-h-screen pt-24 px-2 lg:pt-32 lg:px-10 xl:px-32'>
@@ -12,12 +12,12 @@ function OrderPage() {
         </h2>
         <div className='flex flex-col gap-4'>
             {
-                items.slice(1,4).map((item, index)=>{
+                products.slice(1,4).map((item, index)=>{
                     return (
                         <div key={index} className='card py-4 flex w-full justify-between items-start border-b lg:py-2'>
                             <div className='flex gap-3 flex-col xs:flex-row lg:gap-5'>
                                 <div className='w-16 h-20 overflow-hidden'>
-                                    <img src={item.image} alt={item.name} className='w-full h-full object-cover' />
+                                    <img src={item.image[0]} alt={item.name} className='w-full h-full object-cover' />
                                 </div>
                                 <div className='text-[0.7rem] lg:text-[0.9rem]'>
                                     <div className='mb-1 text-[0.8rem] lg:text-[1.05rem]'>
