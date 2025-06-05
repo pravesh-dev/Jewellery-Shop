@@ -169,8 +169,26 @@ const ShopContextProvider = ({ children }) => {
 
   };
 
-  const removeFromWishlist = (itemId) => {
+  const removeFromWishlist = async (itemId) => {
     setWishlist((prevWishlist) => prevWishlist.filter((id) => id !== itemId));
+
+    if(token) {
+
+      try {
+        
+        const response = await axios.post(backendUrl + 'api/wishlist/remove', {itemId}, {headers: {token}});
+
+        if(response.data.success) {
+          toast.success(response.data.message);
+        }
+
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message)
+      }
+
+    }
+
   };
 
   const isItemInWishlist = (itemId) => {

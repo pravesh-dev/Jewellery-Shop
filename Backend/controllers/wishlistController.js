@@ -14,7 +14,6 @@ const addToWishlist = async (req, res) => {
 
     await userModel.findByIdAndUpdate(userId, { wishlist });
     res.json({ success: true, message: "Added To Wishlist" });
-    
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -37,7 +36,23 @@ const getUserWishlist = async (req, res) => {
 };
 
 // Remove product from wishlist
-const removeFromWishlist = async (req, res) => {};
+const removeFromWishlist = async (req, res) => {
+  try {
+    const { userId, itemId } = req.body;
+
+    const userData = await userModel.findById(userId);
+    const wishlist = userData.wishlist;
+
+    const updatedWishlist = wishlist.filter((item) => item !== itemId);
+
+    await userModel.findByIdAndUpdate(userId, { wishlist: updatedWishlist });
+
+    res.json({ success: true, message: "Item Removed From Wishlist" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // Check if product wishlisted
 const IsWishlisted = async (req, res) => {};
