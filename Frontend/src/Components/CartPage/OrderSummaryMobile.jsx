@@ -1,33 +1,29 @@
-import React, { useContext, useEffect } from "react"; // Importing React hooks and useContext
+import { useContext, useEffect } from "react"; // Importing React hooks and useContext
 import OrderSummary from "./OrderSummary"; // Importing OrderSummary component
 import { ShopContext } from "../../Context/ShopContext"; // Importing ShopContext for accessing context
 
 // Function component for OrderSummaryMobile
 function OrderSummaryMobile() {
   // Destructuring context values
-  const { cartData, setCartData, items, currency, cartItems } = useContext(ShopContext);
+  const { cartData, setCartData, products, currency, cartItems } = useContext(ShopContext);
 
   // Effect to update cartData based on cartItems and items
   useEffect(() => {
-    const tempData = []; // Temporary array to hold updated cart data
-
-    // Looping through cartItems to find corresponding items and update quantity
+    if (products.length === 0) return;
+    const tempData = [];
     for (const itemId in cartItems) {
       if (cartItems[itemId] > 0) {
-        const product = items.find((item) => item.id === parseInt(itemId));
+        const product = products.find((item) => item._id.toString() === itemId.toString());
         if (product) {
-          // Adding product to tempData with updated quantity from cartItems
           tempData.push({
             ...product,
-            quantity: cartItems[itemId], // Fetching actual quantity from context
+            quantity: cartItems[itemId],
           });
         }
       }
     }
-
-    // Updating cartData with tempData
     setCartData(tempData);
-  }, [cartItems, items]);
+  }, [cartItems, products]);
 
   // JSX for rendering OrderSummary component
   return (
