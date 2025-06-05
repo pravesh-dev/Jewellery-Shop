@@ -54,7 +54,5 @@ const removeFromWishlist = async (req, res) => {
   }
 };
 
-// Check if product wishlisted
-const IsWishlisted = async (req, res) => {};
 
-export { addToWishlist, getUserWishlist, removeFromWishlist, IsWishlisted };
+export { addToWishlist, getUserWishlist, removeFromWishlist };
