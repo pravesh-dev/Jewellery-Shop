@@ -106,7 +106,7 @@ function OrderPage() {
                 </p>
               </div>
               <div className="mt-5 xs:m-0 xs:self-center">
-                <button className="bg-primary text-white py-1 px-2 text-[0.6rem] rounded lg:py-2 lg:px-4 lg:text-[0.7rem]">
+                <button onClick={loadOrderData} className="bg-primary text-white py-1 px-2 text-[0.6rem] rounded lg:py-2 lg:px-4 lg:text-[0.7rem]">
                   Track Order
                 </button>
               </div>
