@@ -84,6 +84,8 @@ const userOrders = async (req, res) => {
 // Update order status from admin panel
 const updateStatus = async (req, res) => {
     
+    
+
 }
 
 
