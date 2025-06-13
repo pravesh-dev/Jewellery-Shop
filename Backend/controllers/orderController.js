@@ -1,6 +1,9 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
+import Stripe from 'stripe'
 
+// gateway initialize
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Place order using cash on delivery method
 const placeOrder = async (req, res) => {
@@ -37,6 +40,8 @@ const placeOrder = async (req, res) => {
 // Place order using Stripe method
 const placeOrderStripe = async (req, res) => {
     
+    
+
 }
 
 
