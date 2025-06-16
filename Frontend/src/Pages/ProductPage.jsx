@@ -26,12 +26,12 @@ function ProductPage() {
     });
 
     // -------------------- for review section ------
-    items.map((product) => {
-      if (product.id === 6) {
-        setReviewProductData(product);
-        return null;
-      }
-    });
+    // items.map((product) => {
+    //   if (product.id === 6) {
+    //     setReviewProductData(product);
+    //     return null;
+    //   }
+    // });
   };
 
   // Effect to fetch product data on component mount or when ID or items change
