@@ -56,7 +56,7 @@ const placeOrderStripe = async (req, res) => {
     
     try {
         
-        const { userId, items, amount, address } = req.body;
+        const { userId, items, amount, deliveryMethod, address } = req.body;
         const { origin } = req.headers;
 
         const orderData = {
@@ -83,13 +83,23 @@ const placeOrderStripe = async (req, res) => {
             quantity: item.quantity
         }))
 
+        let deliveryCharge;
+
+        if(deliveryMethod === 'Fast Delivery') {
+            deliveryCharge = fastDeliveryCharge;
+        } 
+        // Standard Delivery
+        else {
+            deliveryCharge = stdDeliveryCharge;
+        }
+
         line_items.push({
             price_data: {
                 currency: currency,
                 product_data: {
                     name: 'Delivery Charges'
                 },
-                unit_amount: stdDeliveryCharge * 100
+                unit_amount: deliveryCharge * 100
             },
             quantity: 1
         })
