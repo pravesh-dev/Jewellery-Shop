@@ -65,7 +65,7 @@ function PlaceOrder() {
       let orderData = {
         items: orderItems,
         address: formData,
-        amount: checkout.totalCost,
+        amount: checkout.totalPrice,
       };
 
       switch (method) {
