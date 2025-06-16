@@ -12,7 +12,7 @@ const ShopContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token') || "");
 
   // Define currency and delivery fees
-  const currency = "£";
+  const currency = "$";
   const stad_delivery_fee = 100;
   const fast_delivery_fee = 150;
 
