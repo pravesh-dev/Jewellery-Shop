@@ -26,6 +26,7 @@ function OrderPage() {
             item["payment"] = order.payment;
             item["paymentMethod"] = order.paymentMethod;
             item["date"] = order.date;
+            item["amount"] = order.amount;
 
             allOrdersItem.push(item);
           });
@@ -68,22 +69,7 @@ function OrderPage() {
                   </div>
                   <div className="mb-1 flex items-center gap-3">
                     <div className="flex flex-col">
-                      {item.discount > 0 ? (
-                        <>
-                          <p className="line-through text-black/50">
-                            {currency} {item.price}
-                          </p>
-                          <p className="font-semibold text-black">
-                            {currency}{" "}
-                            {item.price -
-                              Math.floor((item.price * item.discount) / 100)}
-                          </p>
-                        </>
-                      ) : (
-                        <p className="font-semibold text-black">
-                          {currency} {item.price}
-                        </p>
-                      )}
+                      <p className="font-semibold text-black">{currency}{item.amount}</p>
                     </div>
                     <p>Quantity: {item.quantity}</p>
                   </div>
