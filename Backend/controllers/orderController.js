@@ -59,11 +59,20 @@ const placeOrderStripe = async (req, res) => {
         const { userId, items, amount, deliveryMethod, address } = req.body;
         const { origin } = req.headers;
 
+        let totalAmount;
+        if(deliveryMethod === 'Fast Delivery') {
+            totalAmount = Number(amount) + Number(fastDeliveryCharge);
+        } 
+        // Standard Delivery
+        else {
+            totalAmount = Number(amount) + Number(stdDeliveryCharge);
+        }
+
         const orderData = {
             userId,
             items,
             address,
-            amount,
+            amount: totalAmount,
             paymentMethod : 'Stripe',
             payment: false,
             date: Date.now()
