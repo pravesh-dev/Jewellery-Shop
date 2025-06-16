@@ -15,13 +15,22 @@ const placeOrder = async (req, res) => {
     
     try {
         
-        const { userId, items, amount, address } = req.body;
+        const { userId, items, amount, deliveryMethod, address } = req.body;
 
+        // Fast Delivery
+        let totalAmount;
+        if(deliveryMethod === 'Fast Delivery') {
+            totalAmount = Number(amount) + Number(fastDeliveryCharge);
+        } 
+        // Standard Delivery
+        else {
+            totalAmount = Number(amount) + Number(stdDeliveryCharge);
+        }
         const orderData = {
             userId,
             items,
             address,
-            amount,
+            amount: totalAmount ,
             paymentMethod : 'COD',
             payment: false,
             date: Date.now()

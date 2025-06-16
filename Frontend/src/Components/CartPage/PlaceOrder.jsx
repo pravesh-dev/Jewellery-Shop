@@ -66,6 +66,7 @@ function PlaceOrder() {
         items: orderItems,
         address: formData,
         amount: checkout.totalPrice,
+        deliveryMethod: checkout.deliveryOption
       };
 
       switch (method) {
