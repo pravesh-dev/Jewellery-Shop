@@ -21,7 +21,7 @@ function Footer() {
           className="w-20 -mb-2 mx-auto md:mb-0 md:-mt-3 md:-mx-2"
           />
         <div className="flex flex-col items-center md:items-start">
-            <span className="text-[1.15rem] md:text-3xl uppercase font-bellefair">Hexa Defend</span>
+            <span className="text-[1.65rem] tracking-wider md:text-3xl uppercase font-bellefair">joyería</span>
             <span className="text-[0.6rem] md:text-[0.9rem] text-white/90 uppercase font-mulish">
             Top Quality is Our Priority
             </span>
@@ -83,7 +83,7 @@ function Footer() {
       {/* Footer Bottom Section */}
       <div className="text-sm text-accent font-lora flex flex-col items-center md:flex-row md:justify-between lg:tracking-widest">
         <p className="lg:w-32 xl:w-60"></p>
-        <p>&copy; {date.getFullYear()} HexaDefend All Rights Reserved.</p>
+        <p>&copy; {date.getFullYear()} Joyería All Rights Reserved.</p>
         <p className="space-x-2">
           <Link to="/privacy" className="hover:text-secondary">
             Privacy Policy
