@@ -5,20 +5,20 @@ import { ShopContext } from "../../Context/ShopContext";
 function ContactForm() {
   const { backendUrl } = useContext(ShopContext);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    country: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    country: "",
+    message: "",
   });
 
-  const [responseMessage, setResponseMessage] = useState('');
+  const [responseMessage, setResponseMessage] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -26,26 +26,42 @@ function ContactForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(backendUrl, formData);
-      if(response.data.success){
-        setResponseMessage(response.data.message || 'Form submitted successfully!');
+      const response = await axios.post(
+        backendUrl + "api/contact/message",
+        formData
+      );
+      if (response.data.success) {
+        setResponseMessage(
+          response.data.message || "Form submitted successfully!"
+        );
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          country: "",
+          message: "",
+        });
       } else {
-        setResponseMessage(response.data.message || 'Form submitted failed!');
+        setResponseMessage(response.data.message || "Form submitted failed!");
       }
     } catch (error) {
-      setResponseMessage(error.message || 'An error occurred while submitting the form.');
-      console.error('Form submission error:', error);
+      setResponseMessage(
+        error.message || "An error occurred while submitting the form."
+      );
+      console.error("Form submission error:", error);
     }
-    
+
     // Hide the message after 5 seconds
     setTimeout(() => {
-        setResponseMessage('');
-      }, 5000);
+      setResponseMessage("");
+    }, 5000);
   };
 
   return (
     <form className="flex flex-col mt-5 lg:mt-10" onSubmit={handleFormSubmit}>
-        {responseMessage && <p className="mt-4 text-sm text-red-500">{responseMessage}</p>}
+      {responseMessage && (
+        <p className="mt-4 text-sm text-red-500">{responseMessage}</p>
+      )}
       <div className="w-full flex flex-wrap gap-x-2 gap-y-5 lg:justify-between lg:gap-y-10 xl:gap-y-14">
         <input
           type="text"
