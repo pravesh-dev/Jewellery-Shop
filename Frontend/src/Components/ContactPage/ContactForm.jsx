@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { ShopContext } from "../../Context/ShopContext";
 
 function ContactForm() {
+  const { backendUrl } = useContext(ShopContext);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,10 +26,14 @@ function ContactForm() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/contact.php', formData);
-      setResponseMessage(response.data.message || 'Form submitted successfully!');
+      const response = await axios.post(backendUrl, formData);
+      if(response.data.success){
+        setResponseMessage(response.data.message || 'Form submitted successfully!');
+      } else {
+        setResponseMessage(response.data.message || 'Form submitted failed!');
+      }
     } catch (error) {
-      setResponseMessage('An error occurred while submitting the form.');
+      setResponseMessage(error.message || 'An error occurred while submitting the form.');
       console.error('Form submission error:', error);
     }
     

@@ -10,6 +10,7 @@ import productRouter from './routes/productRoute.js';
 import cartRouter from './routes/cartRoute.js';
 import wishlistRouter from './routes/wishlistRoute.js';
 import orderRouter from './routes/orderRoute.js';
+import contactRouter from './routes/contactRoute.js';
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter); 
 app.use('/api/wishlist', wishlistRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/contact', contactRouter);
 
 // API endpoint to test if the API is working
 app.get('/', (req, res)=>{
