@@ -84,9 +84,9 @@ function Header() {
           className="w-14 md:w-10 lg:w-16"
           src={Logo}
         />
-        <div className="flex flex-col leading-4 md:leading-3">
-          <span className="text-[1rem] text-primary md:text-[0.9rem] lg:text-base uppercase font-bellefair">
-            Hexa defend
+        <div className="flex flex-col leading-5 -mb-2 md:leading-4 lg:leading-5">
+          <span className="text-[1.8rem] tracking-widest text-primary md:text-[1.4rem] md:tracking-[0.2rem] lg:text-[1.8rem] lg:tracking-[0.13rem] uppercase font-bellefair">
+            joyería
           </span>
           <span className="text-[0.65rem] md:text-[0.55rem] lg:text-[0.65rem] text-dark capitalize font-mulish">
             Top Quality is Our Priority
