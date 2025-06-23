@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { data } from './FaqData';
 import { FaMinus, FaPlus } from "react-icons/fa6";
 

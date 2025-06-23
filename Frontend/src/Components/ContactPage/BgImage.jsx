@@ -1,4 +1,3 @@
-import React from 'react'
 import contactBg from '../../Assets/contact-bg.jpg';
 function BgImage() {
   return (

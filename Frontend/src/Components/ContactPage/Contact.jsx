@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosCall } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import ContactForm from "./ContactForm";
@@ -15,8 +14,7 @@ function Contact() {
           Send a Message
         </h2>
         <p className="leading-5 lg:text-xl lg:leading-5">
-          Lorem ipsum dolor sit amet consectetur. Risus urna donec molestie
-          proin velit rhoncus rhoncus amet nisl.
+          We'd love to hear from you! Whether you have a question, feedback, or a specific inquiry—feel free to reach out using the form below. Our team will get back to you as soon as possible.
         </p>
         <ContactForm />
         </div>
@@ -26,18 +24,18 @@ function Contact() {
             Call Us
           </h2>
           <p className="leading-5 lg:text-xl lg:leading-5">
-          Lorem ipsum dolor sit amet consectetur. Risus urna donec molestie proin velit rhoncus rhoncus amet nisl. Lorem ipsum dolor sit amet consectetur. 
+          Have a quick question or need assistance right away? Give us a call! We're here to help and happy to assist you with anything you need. 
           </p>
-          <a className="flex items-center gap-2 text-secondary text-xs lg:text-sm lg:gap-4" href="tel:+91 8877995512"><IoIosCall className="p-1 text-xl text-accent bg-secondary rounded-full lg:text-3xl lg:p-[0.4rem]" /> +91 8877995512</a>
+          <a className="flex items-center gap-2 text-secondary text-xs lg:text-sm lg:gap-4" href="tel:+91 9991831473"><IoIosCall className="p-1 text-xl text-accent bg-secondary rounded-full lg:text-3xl lg:p-[0.4rem]" /> +91 9991831473</a>
         </div>
         <div className="lg:space-y-2">
           <h2 className="mt-5 text-primary drop-shadow-[0_0_0.4px_#006400] lg:text-xl">
             Visit Us
           </h2>
           <p className="leading-5 lg:text-xl lg:leading-5">
-          Lorem ipsum dolor sit amet consectetur. Risus urna donec molestie proin velit rhoncus rhoncus amet nisl. Lorem ipsum dolor sit amet consectetur.
+          Prefer to talk in person? You’re always welcome to stop by our office. Come meet our friendly team—we’d love to chat over a cup of chai!
           </p>
-          <p className="flex items-center gap-2 text-secondary text-xs lg:text-sm lg:gap-4"><FaLocationDot className="p-1 text-xl text-accent bg-secondary rounded-full lg:text-3xl lg:p-[0.4rem]" /> 123001 Narula, Haryana, India</p>
+          <p className="flex items-center gap-2 text-secondary text-xs lg:text-sm lg:gap-4"><FaLocationDot className="p-1 text-xl text-accent bg-secondary rounded-full lg:text-3xl lg:p-[0.4rem]" /> 123001 Narnaul, Haryana, India</p>
         </div>
         </div>
       </div>
