@@ -5,6 +5,7 @@ import Footer from './Components/Footer' // Import Footer component
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SearchBar from './Components/SearchBar';
 
 // Function component for the Layout
 function Layout() {
@@ -13,6 +14,7 @@ function Layout() {
     <main className='max-w-[1520px] mx-auto bg-[#FFFFF0]'>
       <ToastContainer />
         <Header/>
+        <SearchBar />
         <Outlet/>
         <Footer />
     </main>

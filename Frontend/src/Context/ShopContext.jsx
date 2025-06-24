@@ -10,6 +10,8 @@ export const ShopContext = createContext();
 const ShopContextProvider = ({ children }) => {
   const [products, setProduts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token') || "");
+  const [search, setSearch] = useState('');
+  const [showSearch, setShowSearch] = useState(true);
 
   // Define currency and delivery fees
   const currency = "$";
@@ -263,6 +265,10 @@ const ShopContextProvider = ({ children }) => {
 
   // Define the value object to be passed to the context provider
   const value = {
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch,
     products,
     token,
     setToken,
