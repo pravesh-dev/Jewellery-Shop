@@ -1,13 +1,21 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { ShopContext } from "../Context/ShopContext";
 import { IoMdSearch } from "react-icons/io";
 import { RiCloseFill } from "react-icons/ri";
+import { useLocation } from "react-router-dom";
 
 
 
 const SearchBar = () => {
 
     const { search, setSearch, showSearch, setShowSearch } = useContext(ShopContext);
+    const location = useLocation();
+
+    useEffect(()=>{
+
+      console.log(location)
+
+    }, [location])
 
   return showSearch ? (
     <div className="pt-28 border-t border-b bg-accent text-center">
