@@ -9,7 +9,7 @@ import Logo from "/logo.svg"; // Import logo image
 import { ShopContext } from "../Context/ShopContext";
 
 function Header() {
-  const { token, setToken, setCartItems, clearWishlist } = useContext(ShopContext); 
+  const { token, setToken, setCartItems, clearWishlist, setShowSearch } = useContext(ShopContext); 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to manage menu visibility
   const [headerPosition, setHeaderPosition] = useState("top-0"); // State to manage header position
@@ -173,7 +173,7 @@ function Header() {
         </nav>
         <div className="flex flex-col gap-3 w-full md:flex-row items-center md:gap-5 md:w-auto lg:gap-3 xl:gap-7">
           <div className="flex gap-5 absolute top-4 left-2 md:relative md:top-0 md:left-0 md:gap-2 lg:mr-3 xl:gap-5 xl:mr-5">
-            <button className="text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
+            <button onClick={()=>{setShowSearch(true)}} className="text-xl bg-[#c095691b] py-2 px-3 text-accent md:text-dark md:bg-transparent md:p-0 md:text-base lg:text-xl">
               <AiOutlineSearch />
             </button>
             <Link

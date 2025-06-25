@@ -11,7 +11,7 @@ const ShopContextProvider = ({ children }) => {
   const [products, setProduts] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token') || "");
   const [search, setSearch] = useState('');
-  const [showSearch, setShowSearch] = useState(true);
+  const [showSearch, setShowSearch] = useState(false);
 
   // Define currency and delivery fees
   const currency = "$";
