@@ -10,6 +10,8 @@ function ShopItems() {
     priceRange,
     currency,
     sortOption,
+    search,
+    showSearch
   } = useContext(ShopContext);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,6 +29,11 @@ function ShopItems() {
 
   const filteredItems = useMemo(() => {
     const filtered = items.filter((item) => {
+
+      if (item.name.toLowerCase().includes(search)) {
+      console.log("Matching item:", item);
+    }
+
       return (
         (!category || item.category?.toLowerCase() === category.toLowerCase()) &&
         (!subCategory ||
@@ -46,7 +53,7 @@ function ShopItems() {
       );
     }
     return filtered;
-  }, [items, category, subCategory, priceRange, sortOption]);
+  }, [items, category, subCategory, priceRange, sortOption, search, showSearch]);
 
   // Pagination logic
   const itemsPerPage = 6;

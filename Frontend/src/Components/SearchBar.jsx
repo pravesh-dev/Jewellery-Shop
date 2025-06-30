@@ -14,7 +14,7 @@ const SearchBar = () => {
 
     useEffect(()=>{
 
-      if(location.pathname.includes('shop') && showSearch){
+      if(location.pathname.includes('shop')){
         setVisible(true)
       } else{
         setVisible(false);
