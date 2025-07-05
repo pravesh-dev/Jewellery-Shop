@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import star from "../../assets/LandingPage/Feedback/star.svg";
+import star from "../../Assets/LandingPage/Feedback/star.svg";
 import client1 from "../../Assets/LandingPage/Feedback/client1.jpg";
 import { RiDoubleQuotesL } from "react-icons/ri"; // Import left double quotes icon
 import { RiDoubleQuotesR } from "react-icons/ri"; // Import right double quotes icon
