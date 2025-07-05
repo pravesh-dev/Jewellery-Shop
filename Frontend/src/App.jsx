@@ -16,7 +16,7 @@ import OrderSummaryMobile from "./Components/CartPage/OrderSummaryMobile";
 import { useMediaQuery } from "@react-hook/media-query"; // Import useMediaQuery hook
 import PlaceOrder from "./Components/CartPage/PlaceOrder";
 import OrderPage from "./Pages/OrderPage";
-import Verify from "./Pages/verify";
+import Verify from "./Pages/Verify";
 
 // Function component for the App
 function App() {
