@@ -28,20 +28,27 @@ function ShopItems() {
   };
 
   const filteredItems = useMemo(() => {
-    const filtered = items.filter((item) => {
+    let filtered = items.filter((item) => {
+    const matchesCategory =
+      !category || item.category?.toLowerCase() === category.toLowerCase();
 
-      if (item.name.toLowerCase().includes(search)) {
-      console.log("Matching item:", item);
-    }
+    const matchesSubCategory =
+      !subCategory ||
+      item.subCategory?.toLowerCase() === subCategory.toLowerCase();
 
-      return (
-        (!category || item.category?.toLowerCase() === category.toLowerCase()) &&
-        (!subCategory ||
-          item.subCategory?.toLowerCase() === subCategory.toLowerCase()) &&
-        item.price >= priceRange[0] &&
-        item.price <= priceRange[1]
-      );
-    });
+    const withinPriceRange =
+      item.price >= priceRange[0] && item.price <= priceRange[1];
+
+    return matchesCategory && matchesSubCategory && withinPriceRange;
+  });
+
+    // Apply search if showSearch is true and search is not empty
+  if (showSearch && search?.trim()) {
+    const searchTerm = search.toLowerCase();
+    filtered = filtered.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm)
+    );
+  }
 
     if (sortOption === "Low to High") {
       return [...filtered].sort(
